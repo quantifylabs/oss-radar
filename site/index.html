@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSS Radar — AI Stack Intelligence</title>
+<meta name="description" content="Track trending AI open-source tools, discover underrated gems, and spot abandoned repos. Updated every 6 hours.">
+<meta property="og:title" content="OSS Radar — AI Stack Intelligence">
+<meta property="og:description" content="Track trending AI tools. Discover underrated gems. Spot abandoned repos.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0b10;
+  --surface: #13131b;
+  --surface2: #1a1a26;
+  --border: #252535;
+  --text: #e2e2ef;
+  --text-dim: #7e7e99;
+  --text-muted: #55556a;
+  --accent: #6366f1;
+  --accent-bg: rgba(99,102,241,0.1);
+  --accent-border: rgba(99,102,241,0.25);
+  --green: #22c55e;
+  --green-bg: rgba(34,197,94,0.1);
+  --red: #ef4444;
+  --red-bg: rgba(239,68,68,0.1);
+  --yellow: #eab308;
+  --yellow-bg: rgba(234,179,8,0.1);
+  --orange: #f97316;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 880px; margin: 0 auto; padding: 24px 16px 80px; }
+
+/* Header */
+header {
+  text-align: center;
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+header h1 {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+header h1 .dot { color: var(--accent); }
+header p {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.updated {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+.updated .live {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Stats bar */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  text-align: center;
+}
+.stat .num {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat .label {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+.tab {
+  padding: 10px 18px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab .count {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: var(--surface2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* Time filters */
+.time-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.time-btn {
+  padding: 5px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.time-btn:hover { border-color: var(--accent); color: var(--text); }
+.time-btn.active { background: var(--accent-bg); border-color: var(--accent-border); color: var(--accent); }
+
+/* Category filters */
+.cat-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.cat-btn {
+  padding: 4px 10px;
+  font-size: 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.cat-btn:hover { color: var(--text); }
+.cat-btn.active { background: var(--accent-bg); border-color: var(--accent-border); color: var(--accent); }
+
+/* Repo card */
+.repo-list { display: flex; flex-direction: column; gap: 8px; }
+.repo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  transition: border-color 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.repo:hover { border-color: var(--accent-border); }
+.repo-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.repo-avatar {
+  width: 32px; height: 32px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: var(--surface2);
+}
+.repo-name {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  word-break: break-all;
+}
+.repo-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.repo-meta .m-item { display: flex; align-items: center; gap: 4px; }
+.repo-meta .star { color: var(--yellow); }
+.repo-meta .delta-pos { color: var(--green); }
+.repo-meta .delta-neg { color: var(--red); }
+
+/* Gem score bar */
+.gem-bar-wrap { margin-top: 8px; }
+.gem-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+.gem-bar {
+  height: 4px;
+  background: var(--surface2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.gem-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  transition: width 0.3s ease;
+}
+
+/* Topic chips */
+.topics { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.topic {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--surface2);
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+/* Category badge */
+.cat-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.cat-agent-framework { background: rgba(99,102,241,0.15); color: #818cf8; }
+.cat-model-serving { background: rgba(234,179,8,0.15); color: #facc15; }
+.cat-rag-and-search { background: rgba(34,197,94,0.15); color: #4ade80; }
+.cat-fine-tuning { background: rgba(249,115,22,0.15); color: #fb923c; }
+.cat-mcp { background: rgba(168,85,247,0.15); color: #c084fc; }
+.cat-dev-tools { background: rgba(100,116,139,0.15); color: #94a3b8; }
+.cat-safety-and-evals { background: rgba(239,68,68,0.15); color: #f87171; }
+.cat-mlops { background: rgba(6,182,212,0.15); color: #22d3ee; }
+
+/* Abandoned flag */
+.abandoned-flag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--red-bg);
+  color: var(--red);
+  border-radius: 3px;
+}
+
+/* Loading / Empty */
+.loading, .empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.loading .spinner {
+  display: inline-block;
+  width: 24px; height: 24px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  header h1 { font-size: 22px; }
+  .repo { padding: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>oss<span class="dot">.</span>radar</h1>
+    <p>AI stack intelligence — trending tools, underrated gems, abandoned repos</p>
+    <div class="updated" id="updated">Loading...</div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="time-filters" id="time-filters"></div>
+  <div class="cat-filters" id="cat-filters"></div>
+  <div class="repo-list" id="repo-list">
+    <div class="loading"><div class="spinner"></div><br>Fetching radar data...</div>
+  </div>
+
+  <footer>
+    Built by <a href="https://arulnidhii.github.io" target="_blank">Arulnidhi Karunanidhi</a>
+    &middot; <a href="https://github.com/quantifylabs" target="_blank">Quantify Labs</a>
+    &middot; Updated every 6 hours via GitHub Actions
+  </footer>
+</div>
+
+<script>
+let DATA = null;
+let activeTab = 'trending';
+let activeTime = '7d';
+let activeCat = 'all';
+
+const TABS = [
+  { id: 'trending', label: 'Trending', icon: '🔥' },
+  { id: 'gems', label: 'Underrated Gems', icon: '💎' },
+  { id: 'abandoned', label: 'Abandoned', icon: '💀' },
+];
+
+async function init() {
+  try {
+    const resp = await fetch('data.json');
+    DATA = await resp.json();
+    render();
+  } catch (e) {
+    document.getElementById('repo-list').innerHTML =
+      '<div class="empty">No data yet. Run the collector first:<br><code style="color:var(--accent)">python collector/collect.py</code></div>';
+  }
+}
+
+function setTab(id) { activeTab = id; activeCat = 'all'; render(); }
+function setTime(t) { activeTime = t; render(); }
+function setCat(c) { activeCat = c; render(); }
+
+function render() {
+  if (!DATA) return;
+
+  // Updated timestamp
+  const d = new Date(DATA.last_updated);
+  document.getElementById('updated').innerHTML =
+    `<span class="live"></span> Last scan: ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })} ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} UTC`;
+
+  // Stats
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="num">${DATA.stats.total_scanned}</div><div class="label">Repos scanned</div></div>
+    <div class="stat"><div class="num">${DATA.stats.trending_count}</div><div class="label">Trending</div></div>
+    <div class="stat"><div class="num">${DATA.stats.gems_count}</div><div class="label">Gems found</div></div>
+    <div class="stat"><div class="num">${DATA.stats.abandoned_count}</div><div class="label">Abandoned</div></div>
+  `;
+
+  // Tabs
+  document.getElementById('tabs').innerHTML = TABS.map(t => {
+    const count = DATA[t.id]?.length || 0;
+    return `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="setTab('${t.id}')">${t.icon} ${t.label}<span class="count">${count}</span></button>`;
+  }).join('');
+
+  // Time filters (only for trending)
+  document.getElementById('time-filters').innerHTML = activeTab === 'trending' ? `
+    <button class="time-btn ${activeTime === '3d' ? 'active' : ''}" onclick="setTime('3d')">3 days</button>
+    <button class="time-btn ${activeTime === '7d' ? 'active' : ''}" onclick="setTime('7d')">7 days</button>
+    <button class="time-btn ${activeTime === '30d' ? 'active' : ''}" onclick="setTime('30d')">30 days</button>
+  ` : '';
+
+  // Get current list
+  let repos = [...(DATA[activeTab] || [])];
+
+  // Category filters
+  const cats = [...new Set(repos.map(r => r.category))].sort();
+  document.getElementById('cat-filters').innerHTML = repos.length > 0 ? `
+    <button class="cat-btn ${activeCat === 'all' ? 'active' : ''}" onclick="setCat('all')">All</button>
+    ${cats.map(c => `<button class="cat-btn ${activeCat === c ? 'active' : ''}" onclick="setCat('${c}')">${c.replace(/-/g, ' ')}</button>`).join('')}
+  ` : '';
+
+  // Filter by category
+  if (activeCat !== 'all') {
+    repos = repos.filter(r => r.category === activeCat);
+  }
+
+  // Sort trending by star delta for selected time window
+  if (activeTab === 'trending') {
+    const deltaKey = `stars_delta_${activeTime}`;
+    repos.sort((a, b) => (b[deltaKey] || b.stars) - (a[deltaKey] || a.stars));
+  }
+
+  // Render repos
+  if (repos.length === 0) {
+    document.getElementById('repo-list').innerHTML = '<div class="empty">No repos in this category yet.</div>';
+    return;
+  }
+
+  document.getElementById('repo-list').innerHTML = repos.map(r => {
+    const deltaKey = `stars_delta_${activeTime}`;
+    const delta = r[deltaKey] || 0;
+    const deltaStr = delta > 0 ? `<span class="m-item delta-pos">+${delta.toLocaleString()}</span>` :
+                     delta < 0 ? `<span class="m-item delta-neg">${delta.toLocaleString()}</span>` : '';
+
+    const gemBar = activeTab === 'gems' ? `
+      <div class="gem-bar-wrap">
+        <div class="gem-label"><span>Gem score</span><span>${(r.gem_score * 100).toFixed(0)}%</span></div>
+        <div class="gem-bar"><div class="gem-fill" style="width:${r.gem_score * 100}%"></div></div>
+      </div>` : '';
+
+    const abandonedBadge = r.abandoned_flag ? `<span class="abandoned-flag">no push in ${r.days_since_push}d</span>` : '';
+
+    const catClass = `cat-${r.category}`;
+
+    return `
+      <a class="repo" href="${r.url}" target="_blank" rel="noopener">
+        <div class="repo-top">
+          <img class="repo-avatar" src="${r.owner_avatar}" alt="" loading="lazy" width="32" height="32">
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+              <span class="repo-name">${r.name}</span>
+              <span class="cat-badge ${catClass}">${r.category.replace(/-/g, ' ')}</span>
+              ${abandonedBadge}
+            </div>
+          </div>
+        </div>
+        <div class="repo-desc">${r.description || 'No description'}</div>
+        <div class="repo-meta">
+          <span class="m-item"><span class="star">★</span> ${r.stars.toLocaleString()}</span>
+          ${deltaStr}
+          <span class="m-item">⑂ ${r.forks.toLocaleString()}</span>
+          <span class="m-item">${r.language}</span>
+          <span class="m-item">${r.commits_30d} commits/30d</span>
+          <span class="m-item">${r.contributors} contributors</span>
+        </div>
+        ${gemBar}
+        ${r.topics.length > 0 ? `<div class="topics">${r.topics.map(t => `<span class="topic">${t}</span>`).join('')}</div>` : ''}
+      </a>
+    `;
+  }).join('');
+}
+
+init();
+</script>
+</body>
+</html>
