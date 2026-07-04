@@ -1,6 +1,6 @@
-# OSS Radar — AI Stack Intelligence
+# OSS Radar — AI Open-Source GitHub Repository Tracker
 
-Track trending AI open-source tools, discover underrated gems, and spot abandoned repos.
+Track trending AI open-source GitHub repositories, discover underrated gems, compare adoption risk, and spot abandoned repos.
 
 **Zero cost.** Runs on GitHub Actions (free) + GitHub Pages (free). No servers, no databases, no cloud bills.
 
@@ -10,11 +10,14 @@ Track trending AI open-source tools, discover underrated gems, and spot abandone
 
 - **Trending** — Top AI repos by star growth (3-day / 7-day / 30-day windows)
 - **Underrated Gems** — High-quality repos under 500 stars that most people haven't found yet
-- **Abandoned Detector** — Popular repos with no commits in 30+ days (the "hot but dead" trap)
+- **Abandoned Detector** — Popular repos with stale pushes or weak maintenance signals (the "hot but dead" trap)
 - **Category filtering** — Agent frameworks, model serving, RAG, fine-tuning, MCP, dev tools, evals, MLOps
+- **Adoption signals** — Adoption readiness, maintainer health, and deterministic trend explanations for safer tool selection
 - **Auto-updated** — GitHub Actions cron runs every 6 hours
 
-## The Gem Score algorithm
+## Scoring algorithms
+
+### The Gem Score algorithm
 
 Each repo gets a weighted quality score (0-100%):
 
@@ -28,6 +31,10 @@ Each repo gets a weighted quality score (0-100%):
 | Push recency | 10% | How recently the repo was updated |
 
 Repos with < 500 stars and gem score ≥ 30% make the "Underrated Gems" list.
+
+### Adoption readiness and maintainer health
+
+The collector also emits deterministic adoption-readiness and maintainer-health signals. These combine push recency, recent commits, contributor diversity, issue pressure, fork signal, topic coverage, license presence, and archived status into simple labels such as `safe`, `watch`, and `risky`.
 
 ---
 
@@ -131,12 +138,17 @@ oss-radar/
 │   └── workflows/
 │       └── collect.yml      # GitHub Actions: cron + deploy
 ├── collector/
-│   ├── collect.py           # Main collection script (~350 lines)
+│   ├── collect.py           # Main collection script
+│   ├── render_pages.py      # Static pages, sitemap, robots, feeds
+│   ├── validate_site.py     # Pre-deploy site/data checks
 │   └── requirements.txt     # Just: requests
 ├── site/
 │   ├── index.html           # Frontend dashboard
 │   ├── data.json            # Generated data (auto-updated)
 │   ├── history.json         # Star snapshots (for computing deltas)
+│   ├── robots.txt           # Crawler policy
+│   ├── sitemap.xml          # Generated sitemap
+│   ├── feed.xml             # Generated RSS feed
 │   └── CNAME                # Custom domain config
 ├── .gitignore
 └── README.md
@@ -153,6 +165,8 @@ collector/collect.py
         ├── GitHub Search API → find AI repos by topic
         ├── GitHub REST API  → fetch commits, contributors
         ├── Gem Score engine  → weighted quality scoring
+        ├── Adoption signals  → readiness + maintainer health
+        ├── Static page render → sitemap, feeds, crawlable category pages
         └── Star delta calc   → compare with history.json
         │
         ▼

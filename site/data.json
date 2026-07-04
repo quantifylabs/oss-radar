@@ -4,7 +4,8 @@
     "total_scanned": 1448,
     "trending_count": 60,
     "gems_count": 30,
-    "abandoned_count": 0
+    "abandoned_count": 0,
+    "abandoned_candidates_evaluated": 0
   },
   "trending": [
     {
@@ -35,7 +36,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/124439313?v=4",
       "stars_delta_3d": 1750,
       "stars_delta_7d": 3604,
-      "stars_delta_30d": 20190
+      "stars_delta_30d": 20190,
+      "adoption_score": 0.369,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3,604 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "NousResearch/hermes-agent",
@@ -65,7 +75,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/134168893?v=4",
       "stars_delta_3d": 2355,
       "stars_delta_7d": 5044,
-      "stars_delta_30d": 29847
+      "stars_delta_30d": 29847,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+5,044 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "n8n-io/n8n",
@@ -95,7 +114,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/45487711?v=4",
       "stars_delta_3d": 393,
       "stars_delta_7d": 901,
-      "stars_delta_30d": 4117
+      "stars_delta_30d": 4117,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+901 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Significant-Gravitas/AutoGPT",
@@ -125,7 +153,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/130738209?v=4",
       "stars_delta_3d": 110,
       "stars_delta_7d": 168,
-      "stars_delta_30d": 597
+      "stars_delta_30d": 597,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+168 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "ollama/ollama",
@@ -155,7 +192,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/151674099?v=4",
       "stars_delta_3d": 204,
       "stars_delta_7d": 468,
-      "stars_delta_30d": 2348
+      "stars_delta_30d": 2348,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+468 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "f/prompts.chat",
@@ -185,7 +231,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/196477?v=4",
       "stars_delta_3d": 122,
       "stars_delta_7d": 302,
-      "stars_delta_30d": 1429
+      "stars_delta_30d": 1429,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+302 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "microsoft/markitdown",
@@ -214,7 +269,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "stars_delta_3d": 1050,
       "stars_delta_7d": 3245,
-      "stars_delta_30d": 20040
+      "stars_delta_30d": 20040,
+      "adoption_score": 0.323,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3,245 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "huggingface/transformers",
@@ -244,7 +308,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
       "stars_delta_3d": 157,
       "stars_delta_7d": 272,
-      "stars_delta_30d": 959
+      "stars_delta_30d": 959,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+272 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Snailclimb/JavaGuide",
@@ -274,7 +347,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/29880145?v=4",
       "stars_delta_3d": 62,
       "stars_delta_7d": 144,
-      "stars_delta_30d": 686
+      "stars_delta_30d": 686,
+      "adoption_score": 0.346,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+144 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "langflow-ai/langflow",
@@ -302,7 +384,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/85702467?v=4",
       "stars_delta_3d": 820,
       "stars_delta_7d": 963,
-      "stars_delta_30d": 1888
+      "stars_delta_30d": 1888,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+963 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "langgenius/dify",
@@ -332,7 +423,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "stars_delta_3d": 434,
       "stars_delta_7d": 898,
-      "stars_delta_30d": 3834
+      "stars_delta_30d": 3834,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+898 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "open-webui/open-webui",
@@ -362,7 +462,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/158137808?v=4",
       "stars_delta_3d": 512,
       "stars_delta_7d": 968,
-      "stars_delta_30d": 4237
+      "stars_delta_30d": 4237,
+      "adoption_score": 0.369,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+968 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "firecrawl/firecrawl",
@@ -392,7 +501,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/135057108?v=4",
       "stars_delta_3d": 1667,
       "stars_delta_7d": 4154,
-      "stars_delta_30d": 15548
+      "stars_delta_30d": 15548,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+4,154 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "langchain-ai/langchain",
@@ -422,7 +540,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
       "stars_delta_3d": 277,
       "stars_delta_7d": 579,
-      "stars_delta_30d": 2433
+      "stars_delta_30d": 2433,
+      "adoption_score": 0.363,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+579 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Shubhamsaboo/awesome-llm-apps",
@@ -448,7 +575,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/31396011?v=4",
       "stars_delta_3d": 239,
       "stars_delta_7d": 648,
-      "stars_delta_30d": 3604
+      "stars_delta_30d": 3604,
+      "adoption_score": 0.264,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+648 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "farion1231/cc-switch",
@@ -478,7 +614,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/44939412?v=4",
       "stars_delta_3d": 1637,
       "stars_delta_7d": 3883,
-      "stars_delta_30d": 22363
+      "stars_delta_30d": 22363,
+      "adoption_score": 0.369,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3,883 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "microsoft/generative-ai-for-beginners",
@@ -508,7 +653,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "stars_delta_3d": 174,
       "stars_delta_7d": 289,
-      "stars_delta_30d": 987
+      "stars_delta_30d": 987,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+289 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "google-gemini/gemini-cli",
@@ -537,7 +691,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/161781182?v=4",
       "stars_delta_3d": 52,
       "stars_delta_7d": 156,
-      "stars_delta_30d": 825
+      "stars_delta_30d": 825,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+156 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "supabase/supabase",
@@ -567,7 +730,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/54469796?v=4",
       "stars_delta_3d": 417,
       "stars_delta_7d": 634,
-      "stars_delta_30d": 2105
+      "stars_delta_30d": 2105,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+634 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "browser-use/browser-use",
@@ -596,7 +768,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/192012301?v=4",
       "stars_delta_3d": 801,
       "stars_delta_7d": 1672,
-      "stars_delta_30d": 5522
+      "stars_delta_30d": 5522,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,672 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "TauricResearch/TradingAgents",
@@ -623,7 +804,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/192884433?v=4",
       "stars_delta_3d": 617,
       "stars_delta_7d": 1773,
-      "stars_delta_30d": 7982
+      "stars_delta_30d": 7982,
+      "adoption_score": 0.305,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,773 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "punkpeye/awesome-mcp-servers",
@@ -647,7 +837,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/108313943?v=4",
       "stars_delta_3d": 204,
       "stars_delta_7d": 415,
-      "stars_delta_30d": 1792
+      "stars_delta_30d": 1792,
+      "adoption_score": 0.334,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+415 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "thedotmack/claude-mem",
@@ -677,7 +876,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/683968?v=4",
       "stars_delta_3d": 505,
       "stars_delta_7d": 1240,
-      "stars_delta_30d": 5260
+      "stars_delta_30d": 5260,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,240 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "vllm-project/vllm",
@@ -707,7 +915,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/136984999?v=4",
       "stars_delta_3d": 369,
       "stars_delta_7d": 848,
-      "stars_delta_30d": 3433
+      "stars_delta_30d": 3433,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+848 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "PaddlePaddle/PaddleOCR",
@@ -737,7 +954,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/23534030?v=4",
       "stars_delta_3d": 283,
       "stars_delta_7d": 693,
-      "stars_delta_30d": 5175
+      "stars_delta_30d": 5175,
+      "adoption_score": 0.334,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+693 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "infiniflow/ragflow",
@@ -767,7 +993,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/69962740?v=4",
       "stars_delta_3d": 263,
       "stars_delta_7d": 537,
-      "stars_delta_30d": 2386
+      "stars_delta_30d": 2386,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+537 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "JuliusBrussee/caveman",
@@ -797,7 +1032,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/104168679?v=4",
       "stars_delta_3d": 4743,
       "stars_delta_7d": 5796,
-      "stars_delta_30d": 14655
+      "stars_delta_30d": 14655,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+5,796 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "netdata/netdata",
@@ -827,7 +1071,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/43390781?v=4",
       "stars_delta_3d": 45,
       "stars_delta_7d": 65,
-      "stars_delta_30d": 434
+      "stars_delta_30d": 434,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+65 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "lobehub/lobehub",
@@ -857,7 +1110,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/131470832?v=4",
       "stars_delta_3d": 155,
       "stars_delta_7d": 296,
-      "stars_delta_30d": 1284
+      "stars_delta_30d": 1284,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+296 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "OpenHands/OpenHands",
@@ -887,7 +1149,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/225919603?v=4",
       "stars_delta_3d": 499,
       "stars_delta_7d": 903,
-      "stars_delta_30d": 3590
+      "stars_delta_30d": 3590,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+903 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Graphify-Labs/graphify",
@@ -917,7 +1188,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/297659074?v=4",
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "High-signal rag and search project"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "bytedance/deer-flow",
@@ -947,7 +1227,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/4158466?v=4",
       "stars_delta_3d": 402,
       "stars_delta_7d": 1128,
-      "stars_delta_30d": 5633
+      "stars_delta_30d": 5633,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,128 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "nexu-io/open-design",
@@ -977,7 +1266,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/263625318?v=4",
       "stars_delta_3d": 1393,
       "stars_delta_7d": 3114,
-      "stars_delta_30d": 16624
+      "stars_delta_30d": 16624,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3,114 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "thedaviddias/Front-End-Checklist",
@@ -1007,7 +1305,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/237229?v=4",
       "stars_delta_3d": 38,
       "stars_delta_7d": 82,
-      "stars_delta_30d": 322
+      "stars_delta_30d": 322,
+      "adoption_score": 0.287,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+82 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "DietrichGebert/ponytail",
@@ -1037,7 +1344,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/137048761?v=4",
       "stars_delta_3d": 4189,
       "stars_delta_7d": 13173,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.363,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+13,173 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "hiyouga/LlamaFactory",
@@ -1067,7 +1383,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/16256802?v=4",
       "stars_delta_3d": 95,
       "stars_delta_7d": 404,
-      "stars_delta_30d": 1087
+      "stars_delta_30d": 1087,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+404 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "daytonaio/daytona",
@@ -1097,7 +1422,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/130513197?v=4",
       "stars_delta_3d": -15,
       "stars_delta_7d": -62,
-      "stars_delta_30d": -183
+      "stars_delta_30d": -183,
+      "adoption_score": 0.357,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "High-signal agent framework project"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "shareAI-lab/learn-claude-code",
@@ -1127,7 +1461,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/189210346?v=4",
       "stars_delta_3d": 514,
       "stars_delta_7d": 1199,
-      "stars_delta_30d": 5248
+      "stars_delta_30d": 5248,
+      "adoption_score": 0.334,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,199 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "microsoft/ai-agents-for-beginners",
@@ -1157,7 +1500,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "stars_delta_3d": 247,
       "stars_delta_7d": 467,
-      "stars_delta_30d": 2103
+      "stars_delta_30d": 2103,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+467 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "rtk-ai/rtk",
@@ -1187,7 +1539,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/258253854?v=4",
       "stars_delta_3d": 1021,
       "stars_delta_7d": 1950,
-      "stars_delta_30d": 9922
+      "stars_delta_30d": 9922,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,950 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "D4Vinci/Scrapling",
@@ -1217,7 +1578,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/20604835?v=4",
       "stars_delta_3d": 560,
       "stars_delta_7d": 1651,
-      "stars_delta_30d": 7845
+      "stars_delta_30d": 7845,
+      "adoption_score": 0.352,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,651 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "unslothai/unsloth",
@@ -1247,7 +1617,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/150920049?v=4",
       "stars_delta_3d": 124,
       "stars_delta_7d": 370,
-      "stars_delta_30d": 2131
+      "stars_delta_30d": 2131,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+370 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "code-yeongyu/oh-my-openagent",
@@ -1277,7 +1656,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/11153873?v=4",
       "stars_delta_3d": 379,
       "stars_delta_7d": 1038,
-      "stars_delta_30d": 3860
+      "stars_delta_30d": 3860,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,038 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "datawhalechina/hello-agents",
@@ -1303,7 +1691,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/46047812?v=4",
       "stars_delta_3d": 836,
       "stars_delta_7d": 1774,
-      "stars_delta_30d": 7791
+      "stars_delta_30d": 7791,
+      "adoption_score": 0.323,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,774 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "ruvnet/ruflo",
@@ -1333,7 +1730,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/2934394?v=4",
       "stars_delta_3d": 655,
       "stars_delta_7d": 1269,
-      "stars_delta_30d": 5184
+      "stars_delta_30d": 5184,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1,269 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Mintplex-Labs/anything-llm",
@@ -1363,7 +1769,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/134426827?v=4",
       "stars_delta_3d": 196,
       "stars_delta_7d": 389,
-      "stars_delta_30d": 1538
+      "stars_delta_30d": 1538,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+389 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "shanraisshan/claude-code-best-practice",
@@ -1393,7 +1808,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/11731897?v=4",
       "stars_delta_3d": 281,
       "stars_delta_7d": 835,
-      "stars_delta_30d": 5704
+      "stars_delta_30d": 5704,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+835 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "sansan0/TrendRadar",
@@ -1423,7 +1847,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/77180927?v=4",
       "stars_delta_3d": 135,
       "stars_delta_7d": 276,
-      "stars_delta_30d": 1440
+      "stars_delta_30d": 1440,
+      "adoption_score": 0.369,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+276 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "mem0ai/mem0",
@@ -1453,7 +1886,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/137054526?v=4",
       "stars_delta_3d": 269,
       "stars_delta_7d": 524,
-      "stars_delta_30d": 2434
+      "stars_delta_30d": 2434,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+524 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "pathwaycom/llm-app",
@@ -1483,7 +1925,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/25750857?v=4",
       "stars_delta_3d": -23,
       "stars_delta_7d": -68,
-      "stars_delta_30d": -308
+      "stars_delta_30d": -308,
+      "adoption_score": 0.352,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "High-signal rag and search project"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "upstash/context7",
@@ -1509,7 +1960,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/74989412?v=4",
       "stars_delta_3d": 184,
       "stars_delta_7d": 415,
-      "stars_delta_30d": 1884
+      "stars_delta_30d": 1884,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+415 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "santifer/career-ops",
@@ -1539,7 +1999,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/256850418?v=4",
       "stars_delta_3d": 1597,
       "stars_delta_7d": 2513,
-      "stars_delta_30d": 9900
+      "stars_delta_30d": 9900,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+2,513 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "meilisearch/meilisearch",
@@ -1569,7 +2038,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/43250847?v=4",
       "stars_delta_3d": 34,
       "stars_delta_7d": 82,
-      "stars_delta_30d": 468
+      "stars_delta_30d": 468,
+      "adoption_score": 0.369,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+82 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "zylon-ai/private-gpt",
@@ -1594,7 +2072,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/143802295?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 5,
-      "stars_delta_30d": 105
+      "stars_delta_30d": 105,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+5 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "MemPalace/mempalace",
@@ -1622,7 +2109,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/275135684?v=4",
       "stars_delta_3d": 148,
       "stars_delta_7d": 411,
-      "stars_delta_30d": 3553
+      "stars_delta_30d": 3553,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+411 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "headroomlabs-ai/headroom",
@@ -1652,7 +2148,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/294291659?v=4",
       "stars_delta_3d": 1704,
       "stars_delta_7d": 4416,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+4,416 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "crewAIInc/crewAI",
@@ -1679,7 +2184,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/170677839?v=4",
       "stars_delta_3d": 225,
       "stars_delta_7d": 436,
-      "stars_delta_30d": 2088
+      "stars_delta_30d": 2088,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+436 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "FlowiseAI/Flowise",
@@ -1709,7 +2223,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/128289781?v=4",
       "stars_delta_3d": 113,
       "stars_delta_7d": 218,
-      "stars_delta_30d": 939
+      "stars_delta_30d": 939,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+218 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "ZhuLinsen/daily_stock_analysis",
@@ -1738,7 +2261,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/42829555?v=4",
       "stars_delta_3d": 1448,
       "stars_delta_7d": 3807,
-      "stars_delta_30d": 13645
+      "stars_delta_30d": 13645,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3,807 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "BerriAI/litellm",
@@ -1768,7 +2300,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/121462774?v=4",
       "stars_delta_3d": 406,
       "stars_delta_7d": 873,
-      "stars_delta_30d": 3363
+      "stars_delta_30d": 3363,
+      "adoption_score": 0.375,
+      "adoption_label": "risky",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+873 stars in 7 days"
+      ],
+      "archived": false,
+      "license": null
     }
   ],
   "gems": [
@@ -1800,7 +2341,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/12631935?v=4",
       "stars_delta_3d": 2,
       "stars_delta_7d": 3,
-      "stars_delta_30d": 6
+      "stars_delta_30d": 6,
+      "adoption_score": 0.975,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "MakazhanAlpamys/Soup",
@@ -1830,7 +2381,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/188336071?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 5
+      "stars_delta_30d": 5,
+      "adoption_score": 0.95,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "62 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "anote-ai/Panacea",
@@ -1860,7 +2421,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/215381724?v=4",
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.95,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "82 commits in 30 days",
+        "10 active contributors"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "abhinaykrupa/cowork-to-code-bridge",
@@ -1890,7 +2461,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/2201321?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.9,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "89 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "MCP-Audit/MCTS",
@@ -1920,7 +2501,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/290383643?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.942,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "pmady/keda-gpu-scaler",
@@ -1950,7 +2541,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/15876315?v=4",
       "stars_delta_3d": 5,
       "stars_delta_7d": 12,
-      "stars_delta_30d": 23
+      "stars_delta_30d": 23,
+      "adoption_score": 0.988,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+12 stars in 7 days",
+        "95 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Djtony707/TITAN",
@@ -1980,7 +2581,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/119249789?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 1
+      "stars_delta_30d": 1,
+      "adoption_score": 0.8,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "78 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "shisa-ai/shisad",
@@ -2007,7 +2618,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/156562340?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 1
+      "stars_delta_30d": 1,
+      "adoption_score": 0.794,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "riceissa/aiwatch",
@@ -2037,7 +2658,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/1450515?v=4",
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.875,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "55 commits in 30 days",
+        "7 active contributors"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "taoq-ai/ziran",
@@ -2067,7 +2698,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/241753095?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "adoption_score": 0.782,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "martymcenroe/AssemblyZero",
@@ -2096,7 +2737,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/1158095?v=4",
       "stars_delta_3d": 2,
       "stars_delta_7d": 2,
-      "stars_delta_30d": 8
+      "stars_delta_30d": 8,
+      "adoption_score": 0.775,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+2 stars in 7 days",
+        "59 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "DariuszNewecki/CORE",
@@ -2126,7 +2777,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/51515285?v=4",
       "stars_delta_3d": 2,
       "stars_delta_7d": 2,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "adoption_score": 0.75,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+2 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "gantasmo/theDAW",
@@ -2156,7 +2817,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/198038260?v=4",
       "stars_delta_3d": 6,
       "stars_delta_7d": 10,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.9,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+10 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "dunetrace/dunetrace",
@@ -2186,7 +2857,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/262652096?v=4",
       "stars_delta_3d": 2,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 11
+      "stars_delta_30d": 11,
+      "adoption_score": 0.875,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "65 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "ohdearquant/lattice",
@@ -2216,7 +2897,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/122793010?v=4",
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.725,
+      "adoption_label": "safe",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "kalyan-1845/lexicon",
@@ -2246,7 +2936,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/215845109?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.828,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "59 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "swarm-ai-research/swarm",
@@ -2276,7 +2976,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/259764411?v=4",
       "stars_delta_3d": -1,
       "stars_delta_7d": -1,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "adoption_score": 0.869,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3 stars in 30 days",
+        "67 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "yaalalabs/agent-kernel",
@@ -2306,7 +3016,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/41991014?v=4",
       "stars_delta_3d": 9,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 14
+      "stars_delta_30d": 14,
+      "adoption_score": 1,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+9 stars in 7 days",
+        "32 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Firma-AI/openfirma",
@@ -2336,7 +3056,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/265281226?v=4",
       "stars_delta_3d": 2,
       "stars_delta_7d": 2,
-      "stars_delta_30d": 73
+      "stars_delta_30d": 73,
+      "adoption_score": 1,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+2 stars in 7 days",
+        "98 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "OWASP/www-project-agent-memory-guard",
@@ -2366,7 +3096,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/155815?v=4",
       "stars_delta_3d": 6,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 29
+      "stars_delta_30d": 29,
+      "adoption_score": 0.925,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+9 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "MeshAddicts/meshinfo",
@@ -2395,7 +3135,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/171986154?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "adoption_score": 1,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "kaito-project/airunway",
@@ -2425,7 +3175,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/186863079?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 2,
-      "stars_delta_30d": 7
+      "stars_delta_30d": 7,
+      "adoption_score": 0.948,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+2 stars in 7 days",
+        "26 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "halo-dev/plugin-ai-foundation",
@@ -2452,7 +3212,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/48195280?v=4",
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.825,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "59 commits in 30 days",
+        "5 active contributors"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "Enping-Hu/minimind-deep-dive",
@@ -2482,7 +3252,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/107674381?v=4",
       "stars_delta_3d": 34,
       "stars_delta_7d": 37,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.725,
+      "adoption_label": "safe",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+37 stars in 7 days",
+        "81 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "icssw-org/MeshCom-Firmware",
@@ -2510,7 +3290,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/164107263?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "adoption_score": 1,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "CodNoob100/null-drift",
@@ -2540,7 +3330,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/87256706?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.717,
+      "adoption_label": "watch",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "94 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "kevin333353/jobsmith",
@@ -2570,7 +3370,16 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/84712430?v=4",
       "stars_delta_3d": 3,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.702,
+      "adoption_label": "watch",
+      "maintainer_health": "watch",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "leprachuan/Wee-Orchestrator",
@@ -2600,7 +3409,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/21046663?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 1
+      "stars_delta_30d": 1,
+      "adoption_score": 0.765,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "53 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "cybergis/rs-embed",
@@ -2629,7 +3448,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/9449265?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 3,
-      "stars_delta_30d": 11
+      "stars_delta_30d": 11,
+      "adoption_score": 0.825,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+3 stars in 7 days",
+        "89 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     },
     {
       "name": "rhein1/agoragentic-integrations",
@@ -2659,7 +3488,17 @@
       "owner_avatar": "https://avatars.githubusercontent.com/u/140637602?v=4",
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "adoption_score": 0.775,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "metrics_estimated": false,
+      "trend_reasons": [
+        "+1 stars in 7 days",
+        "100 commits in 30 days"
+      ],
+      "archived": false,
+      "license": null
     }
   ],
   "abandoned": []
