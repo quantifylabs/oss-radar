@@ -65,6 +65,11 @@ ABANDONED_DAYS = 30             # no push in N days = flagged
 MIN_STARS_FOR_TRENDING = 50     # ignore very tiny repos in trending
 MAX_REPOS_PER_QUERY = 80        # results per search topic
 DETAIL_FETCH_LIMIT = 250        # max repos to fetch commit/contributor data for
+DETAIL_FETCH_BUCKET_LIMITS = {     # reserve detail capacity for each display bucket
+    "abandoned": 40,
+    "gems": 70,
+    "trending": 140,
+}
 ABANDONED_FETCH_LIMIT = 120      # stale repos to consider per abandoned search
 
 
@@ -395,22 +400,43 @@ def collect():
     print("\n[2/5] Fetching commit & contributor data...")
     repo_details = {}
 
-    def candidate_rank(repo: dict) -> tuple[int, int]:
+    def candidate_bucket(repo: dict) -> str | None:
         stars = repo.get("stargazers_count", 0)
         pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
         days_since_push = (now - pushed).days
         if days_since_push > ABANDONED_DAYS and stars >= 200:
-            bucket = 0
-        elif stars <= GEM_STAR_CEILING:
-            bucket = 1
-        elif stars >= MIN_STARS_FOR_TRENDING:
-            bucket = 2
-        else:
-            bucket = 3
-        return (bucket, -stars)
+            return "abandoned"
+        if stars <= GEM_STAR_CEILING:
+            return "gems"
+        if stars >= MIN_STARS_FOR_TRENDING:
+            return "trending"
+        return None
 
-    fetch_candidates = sorted(all_repos, key=candidate_rank)[:DETAIL_FETCH_LIMIT]
-    fetch_candidate_names = {repo["full_name"] for repo in fetch_candidates}
+    def candidate_rank(repo: dict) -> tuple[int, float]:
+        pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
+        return (-repo.get("stargazers_count", 0), -(pushed.timestamp()))
+
+    fetch_candidates = []
+    fetch_candidate_names = set()
+    bucketed_candidates = {bucket: [] for bucket in DETAIL_FETCH_BUCKET_LIMITS}
+
+    for repo in all_repos:
+        bucket = candidate_bucket(repo)
+        if bucket:
+            bucketed_candidates[bucket].append(repo)
+
+    for bucket, limit in DETAIL_FETCH_BUCKET_LIMITS.items():
+        selected = sorted(bucketed_candidates[bucket], key=candidate_rank)[:limit]
+        fetch_candidates.extend(selected)
+        fetch_candidate_names.update(repo["full_name"] for repo in selected)
+        print(f"  Reserved {len(selected)}/{limit} detail fetches for {bucket}")
+
+    if len(fetch_candidates) < DETAIL_FETCH_LIMIT:
+        remaining = [repo for repo in all_repos if repo["full_name"] not in fetch_candidate_names]
+        for repo in sorted(remaining, key=candidate_rank)[:DETAIL_FETCH_LIMIT - len(fetch_candidates)]:
+            fetch_candidates.append(repo)
+            fetch_candidate_names.add(repo["full_name"])
+
 
     for i, repo in enumerate(fetch_candidates):
         owner, name = repo["full_name"].split("/", 1)

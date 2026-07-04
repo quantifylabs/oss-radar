@@ -48,7 +48,7 @@ def main() -> None:
         for repo in data.get(section, []):
             missing = REQUIRED_REPO_FIELDS - set(repo)
             if missing:
-                print(f"WARNING: {repo.get('name', '<unknown>')} missing fields: {sorted(missing)}")
+                fail(f"{repo.get('name', '<unknown>')} missing fields: {sorted(missing)}")
     print("Site validation passed")
 
 
