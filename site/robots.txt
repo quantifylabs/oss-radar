@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://radar.aegismemory.com/sitemap.xml

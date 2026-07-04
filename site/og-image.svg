@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b0b10"/>
+  <circle cx="980" cy="140" r="180" fill="#6366f1" opacity="0.25"/>
+  <circle cx="220" cy="520" r="180" fill="#22c55e" opacity="0.18"/>
+  <text x="90" y="255" fill="#e2e2ef" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="700">OSS Radar</text>
+  <text x="94" y="340" fill="#8b8df8" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600">AI open-source GitHub repository tracker</text>
+  <text x="96" y="415" fill="#a1a1aa" font-family="Inter, Arial, sans-serif" font-size="32">Trending tools · Underrated gems · Adoption risk</text>
+</svg>

@@ -11,6 +11,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -31,11 +35,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: python collector/collect.py
 
-      - name: Commit updated data
+      - name: Generate crawlable site assets
+        run: python collector/render_pages.py
+
+      - name: Validate generated site
+        run: python collector/validate_site.py
+
+      - name: Commit updated data and generated pages
         run: |
           git config user.name "OSS Radar Bot"
           git config user.email "bot@aegismemory.com"
-          git add site/data.json site/history.json
+          git add site/
           git diff --staged --quiet || git commit -m "data: update $(date -u +%Y-%m-%dT%H:%M)"
           git push
 
@@ -53,6 +63,17 @@ jobs:
 
       - name: Pull latest data
         run: git pull origin main
+
+      - name: Generate crawlable site assets
+        run: python collector/render_pages.py
+
+      - name: Validate generated site
+        run: python collector/validate_site.py
+
+      - name: Inspect Pages artifact contents
+        run: |
+          find site -maxdepth 3 -type f -printf '%p %s bytes\n' | sort
+          du -sh site
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

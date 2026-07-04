@@ -65,6 +65,7 @@ ABANDONED_DAYS = 30             # no push in N days = flagged
 MIN_STARS_FOR_TRENDING = 50     # ignore very tiny repos in trending
 MAX_REPOS_PER_QUERY = 80        # results per search topic
 DETAIL_FETCH_LIMIT = 250        # max repos to fetch commit/contributor data for
+ABANDONED_FETCH_LIMIT = 120      # stale repos to consider per abandoned search
 
 
 # ---------------------------------------------------------------------------
@@ -232,6 +233,67 @@ def compute_gem_score(repo: dict, commits_30d: int, contributors: int) -> float:
     return round(min(gem_score, 1.0), 3)
 
 
+def compute_adoption_score(repo: dict, commits_30d: int, contributors: int) -> tuple[float, str]:
+    """Score how safe a repo looks to adopt based on maintenance signals."""
+    now = datetime.now(timezone.utc)
+    pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
+    days_since_push = max((now - pushed).days, 0)
+    stars = max(repo.get("stargazers_count", 0), 1)
+    forks = repo.get("forks_count", 0)
+    open_issues = repo.get("open_issues_count", 0)
+    topics = repo.get("topics", [])
+
+    recency = max(1.0 - days_since_push / 60, 0.0)
+    velocity = min(commits_30d / 30, 1.0)
+    diversity = min(contributors / 12, 1.0)
+    issue_health = max(1.0 - min(open_issues / stars, 1.0), 0.0)
+    fork_signal = min((forks / stars) / 0.25, 1.0)
+    docs_signal = min(len(topics) / 5, 1.0)
+    license_signal = 1.0 if repo.get("license") else 0.35
+    archived_penalty = 0.0 if repo.get("archived") else 1.0
+
+    score = (
+        0.22 * recency
+        + 0.20 * velocity
+        + 0.18 * diversity
+        + 0.14 * issue_health
+        + 0.10 * fork_signal
+        + 0.08 * docs_signal
+        + 0.08 * license_signal
+    ) * archived_penalty
+    score = round(min(max(score, 0.0), 1.0), 3)
+    label = "safe" if score >= 0.72 else "watch" if score >= 0.45 else "risky"
+    return score, label
+
+
+def compute_maintainer_health(repo: dict, commits_30d: int, contributors: int) -> str:
+    """Classify maintainer health using simple deterministic signals."""
+    now = datetime.now(timezone.utc)
+    pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
+    days_since_push = (now - pushed).days
+    if repo.get("archived") or days_since_push > 120:
+        return "risky"
+    if days_since_push > 45 or commits_30d == 0 or contributors <= 1:
+        return "watch"
+    return "healthy"
+
+
+def build_trend_reasons(entry: dict) -> list[str]:
+    """Create deterministic explanations for why a repo is notable."""
+    reasons = []
+    if entry.get("stars_delta_7d", 0) > 0:
+        reasons.append(f"+{entry['stars_delta_7d']:,} stars in 7 days")
+    elif entry.get("stars_delta_30d", 0) > 0:
+        reasons.append(f"+{entry['stars_delta_30d']:,} stars in 30 days")
+    if entry.get("commits_30d", 0) >= 10:
+        reasons.append(f"{entry['commits_30d']} commits in 30 days")
+    if entry.get("contributors", 0) >= 5:
+        reasons.append(f"{entry['contributors']} active contributors")
+    if not reasons:
+        reasons.append(f"High-signal {entry['category'].replace('-', ' ')} project")
+    return reasons[:2]
+
+
 # ---------------------------------------------------------------------------
 # History tracking (for star deltas)
 # ---------------------------------------------------------------------------
@@ -297,6 +359,9 @@ def collect():
     seen = set()
     all_repos = []
 
+    abandoned_candidates_seen = set()
+    abandoned_candidates = []
+
     for topic in SEARCH_TOPICS:
         query = f"topic:{topic} pushed:>{thirty_days_ago} stars:>=5"
         results = search_repos(query, sort="stars", per_page=MAX_REPOS_PER_QUERY)
@@ -305,18 +370,47 @@ def collect():
             if name not in seen:
                 seen.add(name)
                 all_repos.append(repo)
-        print(f"  topic:{topic} → {len(results)} results ({len(seen)} unique total)")
+        print(f"  topic:{topic} → {len(results)} active results ({len(seen)} unique total)")
         time.sleep(2)  # stay within search rate limit
 
+        stale_query = f"topic:{topic} pushed:<{thirty_days_ago} stars:>=200 archived:false"
+        stale_results = search_repos(stale_query, sort="stars", per_page=min(ABANDONED_FETCH_LIMIT, 100))
+        for repo in stale_results:
+            name = repo["full_name"]
+            if name not in abandoned_candidates_seen:
+                abandoned_candidates_seen.add(name)
+                abandoned_candidates.append(repo)
+            if name not in seen:
+                seen.add(name)
+                all_repos.append(repo)
+        print(f"  topic:{topic} → {len(stale_results)} stale results ({len(abandoned_candidates_seen)} abandoned candidates)")
+        time.sleep(2)
+
     print(f"  Total unique repos collected: {len(all_repos)}")
+    print(f"  Abandoned candidates collected: {len(abandoned_candidates)}")
 
     # -----------------------------------------------------------------------
     # Step 2: Fetch detailed data for top candidates
     # -----------------------------------------------------------------------
     print("\n[2/5] Fetching commit & contributor data...")
     repo_details = {}
-    fetch_candidates = sorted(all_repos, key=lambda r: r.get("stargazers_count", 0))
-    fetch_candidates = fetch_candidates[:DETAIL_FETCH_LIMIT]
+
+    def candidate_rank(repo: dict) -> tuple[int, int]:
+        stars = repo.get("stargazers_count", 0)
+        pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
+        days_since_push = (now - pushed).days
+        if days_since_push > ABANDONED_DAYS and stars >= 200:
+            bucket = 0
+        elif stars <= GEM_STAR_CEILING:
+            bucket = 1
+        elif stars >= MIN_STARS_FOR_TRENDING:
+            bucket = 2
+        else:
+            bucket = 3
+        return (bucket, -stars)
+
+    fetch_candidates = sorted(all_repos, key=candidate_rank)[:DETAIL_FETCH_LIMIT]
+    fetch_candidate_names = {repo["full_name"] for repo in fetch_candidates}
 
     for i, repo in enumerate(fetch_candidates):
         owner, name = repo["full_name"].split("/", 1)
@@ -355,7 +449,10 @@ def collect():
         days_since_push = (now - pushed).days
 
         gem_score = compute_gem_score(repo, details["commits_30d"], details["contributors"])
+        adoption_score, adoption_label = compute_adoption_score(repo, details["commits_30d"], details["contributors"])
         category = assign_category(topics)
+        metrics_estimated = full_name not in fetch_candidate_names
+        maintainer_health = compute_maintainer_health(repo, details["commits_30d"], details["contributors"])
 
         entry = {
             "name": full_name,
@@ -374,6 +471,13 @@ def collect():
             "gem_score": gem_score,
             "url": repo.get("html_url", ""),
             "owner_avatar": repo.get("owner", {}).get("avatar_url", ""),
+            "archived": repo.get("archived", False),
+            "license": (repo.get("license") or {}).get("spdx_id") if repo.get("license") else None,
+            "metrics_estimated": metrics_estimated,
+            "adoption_score": adoption_score,
+            "adoption_label": adoption_label,
+            "maintainer_health": maintainer_health,
+            "trend_reasons": [],
         }
 
         # Classify
@@ -410,6 +514,7 @@ def collect():
             entry["stars_delta_3d"] = d.get("delta_3d", 0)
             entry["stars_delta_7d"] = d.get("delta_7d", 0)
             entry["stars_delta_30d"] = d.get("delta_30d", 0)
+            entry["trend_reasons"] = build_trend_reasons(entry)
 
     # Save new snapshot
     history["snapshots"].append({
@@ -434,6 +539,7 @@ def collect():
             "trending_count": len(trending),
             "gems_count": len(gems),
             "abandoned_count": len(abandoned),
+            "abandoned_candidates_evaluated": len(abandoned_candidates_seen),
         },
         "trending": trending,
         "gems": gems,
