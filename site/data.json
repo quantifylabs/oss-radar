@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-07-10T14:20:03.401074+00:00",
+  "last_updated": "2026-07-10T19:23:46.056454+00:00",
   "stats": {
-    "total_scanned": 2919,
+    "total_scanned": 2920,
     "trending_count": 60,
     "gems_count": 30,
     "abandoned_count": 20,
-    "abandoned_candidates_evaluated": 1472
+    "abandoned_candidates_evaluated": 1473
   },
   "trending": [
     {
       "name": "affaan-m/ECC",
       "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
-      "stars": 228162,
-      "forks": 34993,
-      "open_issues": 88,
+      "stars": 228227,
+      "forks": 35001,
+      "open_issues": 90,
       "language": "JavaScript",
       "topics": [
         "ai-agents",
@@ -41,19 +41,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+2,639 stars in 7 days",
+        "+2,603 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 1289,
-      "stars_delta_7d": 2639,
-      "stars_delta_30d": 15920
+      "stars_delta_3d": 1354,
+      "stars_delta_7d": 2603,
+      "stars_delta_30d": 15769
     },
     {
       "name": "NousResearch/hermes-agent",
       "description": "The agent that grows with you",
-      "stars": 212591,
-      "forks": 39207,
-      "open_issues": 27488,
+      "stars": 212696,
+      "forks": 39251,
+      "open_issues": 27492,
       "language": "Python",
       "topics": [
         "ai",
@@ -67,7 +67,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-07-22T22:22:28Z",
-      "pushed_at": "2026-07-10T13:58:04Z",
+      "pushed_at": "2026-07-10T19:05:50Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -81,19 +81,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+4,121 stars in 7 days",
+        "+4,103 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 1813,
-      "stars_delta_7d": 4121,
-      "stars_delta_30d": 23241
+      "stars_delta_3d": 1918,
+      "stars_delta_7d": 4103,
+      "stars_delta_30d": 23053
     },
     {
       "name": "n8n-io/n8n",
       "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 195939,
-      "forks": 59221,
-      "open_issues": 1453,
+      "stars": 195964,
+      "forks": 59232,
+      "open_issues": 1448,
       "language": "TypeScript",
       "topics": [
         "ai",
@@ -107,8 +107,8 @@
       ],
       "category": "mcp",
       "created_at": "2019-06-22T09:24:21Z",
-      "pushed_at": "2026-07-10T14:20:13Z",
-      "days_since_push": -1,
+      "pushed_at": "2026-07-10T19:17:33Z",
+      "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
       "gem_score": 0.803,
@@ -121,18 +121,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+919 stars in 7 days",
+        "+915 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 419,
-      "stars_delta_7d": 919,
-      "stars_delta_30d": 4059
+      "stars_delta_3d": 444,
+      "stars_delta_7d": 915,
+      "stars_delta_30d": 4041
     },
     {
       "name": "Significant-Gravitas/AutoGPT",
       "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "stars": 185451,
-      "forks": 46116,
+      "forks": 46113,
       "open_issues": 480,
       "language": "Python",
       "topics": [
@@ -147,7 +147,7 @@
       ],
       "category": "dev-tools",
       "created_at": "2023-03-16T09:21:07Z",
-      "pushed_at": "2026-07-10T11:37:41Z",
+      "pushed_at": "2026-07-10T19:03:45Z",
       "days_since_push": 0,
       "commits_30d": 82,
       "contributors": 100,
@@ -161,19 +161,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+140 stars in 7 days",
+        "+133 stars in 7 days",
         "82 commits in 30 days"
       ],
       "stars_delta_3d": 33,
-      "stars_delta_7d": 140,
-      "stars_delta_30d": 581
+      "stars_delta_7d": 133,
+      "stars_delta_30d": 576
     },
     {
       "name": "ollama/ollama",
       "description": "Get up and running with Kimi-K2.6, GLM-5.1, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
-      "stars": 175865,
-      "forks": 16916,
-      "open_issues": 3404,
+      "stars": 175882,
+      "forks": 16920,
+      "open_issues": 3407,
       "language": "Go",
       "topics": [
         "deepseek",
@@ -201,18 +201,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+493 stars in 7 days",
+        "+491 stars in 7 days",
         "67 commits in 30 days"
       ],
-      "stars_delta_3d": 222,
-      "stars_delta_7d": 493,
-      "stars_delta_30d": 2116
+      "stars_delta_3d": 239,
+      "stars_delta_7d": 491,
+      "stars_delta_30d": 2121
     },
     {
       "name": "f/prompts.chat",
       "description": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source \u2014 self-host for your organization with complete privacy.",
-      "stars": 165282,
-      "forks": 21386,
+      "stars": 165308,
+      "forks": 21390,
       "open_issues": 60,
       "language": "HTML",
       "topics": [
@@ -241,18 +241,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+603 stars in 7 days",
+        "+625 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 275,
-      "stars_delta_7d": 603,
-      "stars_delta_30d": 1780
+      "stars_delta_3d": 301,
+      "stars_delta_7d": 625,
+      "stars_delta_30d": 1789
     },
     {
       "name": "microsoft/markitdown",
       "description": "Python tool for converting files and office documents to Markdown.",
-      "stars": 164574,
-      "forks": 11719,
+      "stars": 164623,
+      "forks": 11724,
       "open_issues": 835,
       "language": "Python",
       "topics": [
@@ -267,7 +267,7 @@
       "category": "agent-framework",
       "created_at": "2024-11-13T19:56:40Z",
       "pushed_at": "2026-06-24T15:32:46Z",
-      "days_since_push": 15,
+      "days_since_push": 16,
       "commits_30d": 0,
       "contributors": 78,
       "gem_score": 0.393,
@@ -276,23 +276,23 @@
       "archived": false,
       "license": "MIT",
       "metrics_estimated": false,
-      "adoption_score": 0.673,
+      "adoption_score": 0.669,
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+1,940 stars in 7 days",
+        "+1,924 stars in 7 days",
         "78 active contributors"
       ],
-      "stars_delta_3d": 912,
-      "stars_delta_7d": 1940,
-      "stars_delta_30d": 14800
+      "stars_delta_3d": 961,
+      "stars_delta_7d": 1924,
+      "stars_delta_30d": 14616
     },
     {
       "name": "huggingface/transformers",
       "description": "\ud83e\udd17 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
-      "stars": 162447,
+      "stars": 162453,
       "forks": 33857,
-      "open_issues": 2477,
+      "open_issues": 2475,
       "language": "Python",
       "topics": [
         "audio",
@@ -306,7 +306,7 @@
       ],
       "category": "dev-tools",
       "created_at": "2018-10-29T13:56:00Z",
-      "pushed_at": "2026-07-10T14:17:54Z",
+      "pushed_at": "2026-07-10T19:21:47Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -320,17 +320,17 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+248 stars in 7 days",
+        "+251 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 114,
-      "stars_delta_7d": 248,
-      "stars_delta_30d": 976
+      "stars_delta_3d": 120,
+      "stars_delta_7d": 251,
+      "stars_delta_30d": 978
     },
     {
       "name": "Snailclimb/JavaGuide",
       "description": "Java \u9762\u8bd5 & \u540e\u7aef\u901a\u7528\u9762\u8bd5\u6307\u5357\uff0c\u8986\u76d6\u8ba1\u7b97\u673a\u57fa\u7840\u3001\u6570\u636e\u5e93\u3001\u5206\u5e03\u5f0f\u3001\u9ad8\u5e76\u53d1\u3001\u7cfb\u7edf\u8bbe\u8ba1\u4e0e AI \u5e94\u7528\u5f00\u53d1",
-      "stars": 156935,
+      "stars": 156940,
       "forks": 46173,
       "open_issues": 58,
       "language": "JavaScript",
@@ -347,32 +347,32 @@
       "category": "mcp",
       "created_at": "2018-05-07T13:27:00Z",
       "pushed_at": "2026-07-06T14:54:42Z",
-      "days_since_push": 3,
+      "days_since_push": 4,
       "commits_30d": 33,
       "contributors": 100,
-      "gem_score": 0.615,
+      "gem_score": 0.608,
       "url": "https://github.com/Snailclimb/JavaGuide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/29880145?v=4",
       "archived": false,
       "license": "Apache-2.0",
       "metrics_estimated": false,
-      "adoption_score": 0.989,
+      "adoption_score": 0.985,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+163 stars in 7 days",
         "33 commits in 30 days"
       ],
-      "stars_delta_3d": 73,
+      "stars_delta_3d": 78,
       "stars_delta_7d": 163,
-      "stars_delta_30d": 661
+      "stars_delta_30d": 658
     },
     {
       "name": "langflow-ai/langflow",
       "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
-      "stars": 151550,
+      "stars": 151561,
       "forks": 9640,
-      "open_issues": 979,
+      "open_issues": 980,
       "language": "Python",
       "topics": [
         "agents",
@@ -384,9 +384,9 @@
       ],
       "category": "dev-tools",
       "created_at": "2023-02-08T22:28:03Z",
-      "pushed_at": "2026-07-10T14:21:32Z",
-      "days_since_push": -1,
-      "commits_30d": 97,
+      "pushed_at": "2026-07-10T19:20:38Z",
+      "days_since_push": 0,
+      "commits_30d": 93,
       "contributors": 100,
       "gem_score": 0.803,
       "url": "https://github.com/langflow-ai/langflow",
@@ -398,19 +398,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+509 stars in 7 days",
-        "97 commits in 30 days"
+        "+511 stars in 7 days",
+        "93 commits in 30 days"
       ],
-      "stars_delta_3d": 265,
-      "stars_delta_7d": 509,
-      "stars_delta_30d": 2066
+      "stars_delta_3d": 276,
+      "stars_delta_7d": 511,
+      "stars_delta_30d": 2065
     },
     {
       "name": "firecrawl/firecrawl",
       "description": "The API to search, scrape, and interact with the web at scale. \ud83d\udd25",
-      "stars": 148737,
-      "forks": 8506,
-      "open_issues": 396,
+      "stars": 148839,
+      "forks": 8510,
+      "open_issues": 399,
       "language": "TypeScript",
       "topics": [
         "ai",
@@ -424,7 +424,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2024-04-15T21:02:29Z",
-      "pushed_at": "2026-07-10T13:18:00Z",
+      "pushed_at": "2026-07-10T18:14:36Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -434,23 +434,23 @@
       "archived": false,
       "license": "AGPL-3.0",
       "metrics_estimated": false,
-      "adoption_score": 0.923,
+      "adoption_score": 0.922,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+5,208 stars in 7 days",
+        "+5,199 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 1742,
-      "stars_delta_7d": 5208,
-      "stars_delta_30d": 17837
+      "stars_delta_3d": 1844,
+      "stars_delta_7d": 5199,
+      "stars_delta_30d": 17830
     },
     {
       "name": "langgenius/dify",
       "description": "Production-ready platform for agentic workflow development.",
-      "stars": 148403,
-      "forks": 23394,
-      "open_issues": 836,
+      "stars": 148422,
+      "forks": 23398,
+      "open_issues": 947,
       "language": "TypeScript",
       "topics": [
         "agent",
@@ -464,7 +464,7 @@
       ],
       "category": "rag-and-search",
       "created_at": "2023-04-12T07:40:24Z",
-      "pushed_at": "2026-07-10T14:17:28Z",
+      "pushed_at": "2026-07-10T18:07:58Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -478,19 +478,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+868 stars in 7 days",
+        "+869 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 358,
-      "stars_delta_7d": 868,
-      "stars_delta_30d": 3721
+      "stars_delta_3d": 377,
+      "stars_delta_7d": 869,
+      "stars_delta_30d": 3701
     },
     {
       "name": "open-webui/open-webui",
       "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
-      "stars": 144945,
-      "forks": 20982,
-      "open_issues": 389,
+      "stars": 144979,
+      "forks": 20990,
+      "open_issues": 383,
       "language": "Python",
       "topics": [
         "ai",
@@ -504,7 +504,7 @@
       ],
       "category": "model-serving",
       "created_at": "2023-10-06T22:08:27Z",
-      "pushed_at": "2026-07-09T23:46:41Z",
+      "pushed_at": "2026-07-10T18:33:46Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -518,19 +518,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+925 stars in 7 days",
+        "+924 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 385,
-      "stars_delta_7d": 925,
-      "stars_delta_30d": 4016
+      "stars_delta_3d": 419,
+      "stars_delta_7d": 924,
+      "stars_delta_30d": 4017
     },
     {
       "name": "langchain-ai/langchain",
       "description": "The agent engineering platform.",
-      "stars": 141469,
-      "forks": 23505,
-      "open_issues": 416,
+      "stars": 141480,
+      "forks": 23507,
+      "open_issues": 418,
       "language": "Python",
       "topics": [
         "agents",
@@ -544,7 +544,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2022-10-17T02:58:36Z",
-      "pushed_at": "2026-07-10T09:05:56Z",
+      "pushed_at": "2026-07-10T18:58:46Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -558,18 +558,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+639 stars in 7 days",
+        "+631 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 274,
-      "stars_delta_7d": 639,
-      "stars_delta_30d": 2523
+      "stars_delta_3d": 285,
+      "stars_delta_7d": 631,
+      "stars_delta_30d": 2511
     },
     {
       "name": "Shubhamsaboo/awesome-llm-apps",
       "description": "100+ AI Agent & RAG apps you can actually run \u2014 clone, customize, ship.",
-      "stars": 117352,
-      "forks": 17440,
+      "stars": 117446,
+      "forks": 17451,
       "open_issues": 5,
       "language": "Python",
       "topics": [
@@ -594,19 +594,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+997 stars in 7 days",
+        "+1,082 stars in 7 days",
         "48 commits in 30 days"
       ],
-      "stars_delta_3d": 662,
-      "stars_delta_7d": 997,
-      "stars_delta_30d": 3226
+      "stars_delta_3d": 756,
+      "stars_delta_7d": 1082,
+      "stars_delta_30d": 3278
     },
     {
       "name": "farion1231/cc-switch",
       "description": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Gemini CLI & Hermes Agent. Only official website: ccswitch.io",
-      "stars": 115594,
-      "forks": 7733,
-      "open_issues": 1850,
+      "stars": 115652,
+      "forks": 7734,
+      "open_issues": 1854,
       "language": "Rust",
       "topics": [
         "ai-tools",
@@ -620,7 +620,7 @@
       ],
       "category": "mcp",
       "created_at": "2025-08-04T14:16:16Z",
-      "pushed_at": "2026-07-10T10:18:25Z",
+      "pushed_at": "2026-07-10T15:06:31Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -634,18 +634,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+2,841 stars in 7 days",
+        "+2,830 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 1289,
-      "stars_delta_7d": 2841,
-      "stars_delta_30d": 18565
+      "stars_delta_3d": 1347,
+      "stars_delta_7d": 2830,
+      "stars_delta_30d": 18305
     },
     {
       "name": "microsoft/generative-ai-for-beginners",
       "description": "21 Lessons, Get Started Building with Generative AI ",
-      "stars": 112845,
-      "forks": 60621,
+      "stars": 112853,
+      "forks": 60623,
       "open_issues": 7,
       "language": "Jupyter Notebook",
       "topics": [
@@ -674,19 +674,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+234 stars in 7 days",
+        "+240 stars in 7 days",
         "50 commits in 30 days"
       ],
-      "stars_delta_3d": 111,
-      "stars_delta_7d": 234,
-      "stars_delta_30d": 1028
+      "stars_delta_3d": 119,
+      "stars_delta_7d": 240,
+      "stars_delta_30d": 1027
     },
     {
       "name": "supabase/supabase",
       "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
-      "stars": 106096,
-      "forks": 13170,
-      "open_issues": 1079,
+      "stars": 106104,
+      "forks": 13174,
+      "open_issues": 1078,
       "language": "TypeScript",
       "topics": [
         "ai",
@@ -700,8 +700,8 @@
       ],
       "category": "rag-and-search",
       "created_at": "2019-10-12T05:56:49Z",
-      "pushed_at": "2026-07-10T14:21:47Z",
-      "days_since_push": -1,
+      "pushed_at": "2026-07-10T19:23:31Z",
+      "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
       "gem_score": 0.804,
@@ -714,18 +714,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+820 stars in 7 days",
+        "+713 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 242,
-      "stars_delta_7d": 820,
-      "stars_delta_30d": 2138
+      "stars_delta_3d": 250,
+      "stars_delta_7d": 713,
+      "stars_delta_30d": 2136
     },
     {
       "name": "google-gemini/gemini-cli",
       "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
-      "stars": 105888,
-      "forks": 14230,
+      "stars": 105892,
+      "forks": 14234,
       "open_issues": 1372,
       "language": "TypeScript",
       "topics": [
@@ -739,11 +739,11 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-04-17T17:04:31Z",
-      "pushed_at": "2026-07-10T01:43:07Z",
+      "pushed_at": "2026-07-10T17:23:27Z",
       "days_since_push": 0,
-      "commits_30d": 47,
+      "commits_30d": 48,
       "contributors": 100,
-      "gem_score": 0.724,
+      "gem_score": 0.728,
       "url": "https://github.com/google-gemini/gemini-cli",
       "owner_avatar": "https://avatars.githubusercontent.com/u/161781182?v=4",
       "archived": false,
@@ -753,19 +753,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+162 stars in 7 days",
-        "47 commits in 30 days"
+        "+159 stars in 7 days",
+        "48 commits in 30 days"
       ],
-      "stars_delta_3d": 66,
-      "stars_delta_7d": 162,
-      "stars_delta_30d": 766
+      "stars_delta_3d": 70,
+      "stars_delta_7d": 159,
+      "stars_delta_30d": 762
     },
     {
       "name": "browser-use/browser-use",
       "description": "\ud83c\udf10 Make websites accessible for AI agents. Automate tasks online with ease.",
-      "stars": 104081,
-      "forks": 11481,
-      "open_issues": 293,
+      "stars": 104114,
+      "forks": 11482,
+      "open_issues": 296,
       "language": "Python",
       "topics": [
         "ai-agents",
@@ -792,18 +792,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,693 stars in 7 days",
+        "+1,657 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 799,
-      "stars_delta_7d": 1693,
-      "stars_delta_30d": 6030
+      "stars_delta_3d": 832,
+      "stars_delta_7d": 1657,
+      "stars_delta_30d": 6020
     },
     {
       "name": "rasbt/LLMs-from-scratch",
       "description": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
-      "stars": 98864,
-      "forks": 15174,
+      "stars": 98869,
+      "forks": 15175,
       "open_issues": 4,
       "language": "Jupyter Notebook",
       "topics": [
@@ -832,20 +832,20 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+542 stars in 7 days",
+        "+547 stars in 7 days",
         "62 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 164,
-      "stars_delta_7d": 542,
-      "stars_delta_30d": 1909
+      "stars_delta_3d": 169,
+      "stars_delta_7d": 547,
+      "stars_delta_30d": 1903
     },
     {
       "name": "TauricResearch/TradingAgents",
       "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
-      "stars": 92169,
-      "forks": 17808,
-      "open_issues": 282,
+      "stars": 92209,
+      "forks": 17815,
+      "open_issues": 284,
       "language": "Python",
       "topics": [
         "agent",
@@ -857,32 +857,32 @@
       "category": "dev-tools",
       "created_at": "2024-12-28T03:31:08Z",
       "pushed_at": "2026-07-05T14:32:24Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "commits_30d": 47,
       "contributors": 19,
-      "gem_score": 0.678,
+      "gem_score": 0.671,
       "url": "https://github.com/TauricResearch/TradingAgents",
       "owner_avatar": "https://avatars.githubusercontent.com/u/192884433?v=4",
       "archived": false,
       "license": "Apache-2.0",
       "metrics_estimated": false,
-      "adoption_score": 0.962,
+      "adoption_score": 0.959,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,619 stars in 7 days",
+        "+1,614 stars in 7 days",
         "47 commits in 30 days"
       ],
-      "stars_delta_3d": 593,
-      "stars_delta_7d": 1619,
-      "stars_delta_30d": 7285
+      "stars_delta_3d": 633,
+      "stars_delta_7d": 1614,
+      "stars_delta_30d": 7268
     },
     {
       "name": "punkpeye/awesome-mcp-servers",
       "description": "A collection of MCP servers.",
-      "stars": 90561,
-      "forks": 12775,
-      "open_issues": 2504,
+      "stars": 90574,
+      "forks": 12790,
+      "open_issues": 2521,
       "language": "Unknown",
       "topics": [
         "ai",
@@ -904,17 +904,17 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+333 stars in 7 days",
+        "+334 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 152,
-      "stars_delta_7d": 333,
-      "stars_delta_30d": 1770
+      "stars_delta_3d": 165,
+      "stars_delta_7d": 334,
+      "stars_delta_30d": 1772
     },
     {
       "name": "ChatGPTNextWeb/NextChat",
       "description": "\u2728 Light and Fast AI Assistant. Support: Web | iOS | MacOS | Android |  Linux | Windows",
-      "stars": 88433,
+      "stars": 88436,
       "forks": 59470,
       "open_issues": 843,
       "language": "TypeScript",
@@ -944,18 +944,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+195 stars in 7 days",
+        "+198 stars in 7 days",
         "44 commits in 30 days"
       ],
-      "stars_delta_3d": 32,
-      "stars_delta_7d": 195,
-      "stars_delta_30d": 213
+      "stars_delta_3d": 35,
+      "stars_delta_7d": 198,
+      "stars_delta_30d": 215
     },
     {
       "name": "JuliusBrussee/caveman",
       "description": "\ud83e\udea8 why use many token when few token do trick \u2014 Claude Code skill that cuts 65% of tokens by talking like caveman",
-      "stars": 87587,
-      "forks": 5027,
+      "stars": 87693,
+      "forks": 5031,
       "open_issues": 389,
       "language": "JavaScript",
       "topics": [
@@ -984,18 +984,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+5,108 stars in 7 days",
+        "+4,952 stars in 7 days",
         "57 commits in 30 days"
       ],
-      "stars_delta_3d": 1513,
-      "stars_delta_7d": 5108,
-      "stars_delta_30d": 16788
+      "stars_delta_3d": 1619,
+      "stars_delta_7d": 4952,
+      "stars_delta_30d": 16750
     },
     {
       "name": "thedotmack/claude-mem",
       "description": "Persistent Context Across Sessions for Every Agent \u2013  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Cla",
-      "stars": 86715,
-      "forks": 7492,
+      "stars": 86740,
+      "forks": 7493,
       "open_issues": 245,
       "language": "JavaScript",
       "topics": [
@@ -1024,19 +1024,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,081 stars in 7 days",
+        "+1,066 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 430,
-      "stars_delta_7d": 1081,
-      "stars_delta_30d": 5182
+      "stars_delta_3d": 455,
+      "stars_delta_7d": 1066,
+      "stars_delta_30d": 5163
     },
     {
       "name": "vllm-project/vllm",
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-      "stars": 85904,
-      "forks": 19232,
-      "open_issues": 5652,
+      "stars": 85920,
+      "forks": 19241,
+      "open_issues": 5664,
       "language": "Python",
       "topics": [
         "amd",
@@ -1050,7 +1050,7 @@
       ],
       "category": "model-serving",
       "created_at": "2023-02-09T11:23:20Z",
-      "pushed_at": "2026-07-10T14:17:51Z",
+      "pushed_at": "2026-07-10T18:55:18Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1067,14 +1067,14 @@
         "+644 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 305,
+      "stars_delta_3d": 321,
       "stars_delta_7d": 644,
-      "stars_delta_30d": 3508
+      "stars_delta_30d": 3492
     },
     {
       "name": "PaddlePaddle/PaddleOCR",
       "description": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
-      "stars": 85178,
+      "stars": 85187,
       "forks": 10998,
       "open_issues": 226,
       "language": "Python",
@@ -1104,19 +1104,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+553 stars in 7 days",
+        "+559 stars in 7 days",
         "14 commits in 30 days"
       ],
-      "stars_delta_3d": 263,
-      "stars_delta_7d": 553,
-      "stars_delta_30d": 3472
+      "stars_delta_3d": 272,
+      "stars_delta_7d": 559,
+      "stars_delta_30d": 3458
     },
     {
       "name": "infiniflow/ragflow",
       "description": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
-      "stars": 84759,
-      "forks": 9896,
-      "open_issues": 2309,
+      "stars": 84773,
+      "forks": 9899,
+      "open_issues": 2308,
       "language": "Go",
       "topics": [
         "agentic-ai",
@@ -1130,7 +1130,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2023-12-12T06:13:13Z",
-      "pushed_at": "2026-07-10T13:41:27Z",
+      "pushed_at": "2026-07-10T15:24:04Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1144,19 +1144,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+547 stars in 7 days",
+        "+552 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 249,
-      "stars_delta_7d": 547,
-      "stars_delta_30d": 2384
+      "stars_delta_3d": 263,
+      "stars_delta_7d": 552,
+      "stars_delta_30d": 2375
     },
     {
       "name": "Graphify-Labs/graphify",
       "description": "AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, and more). Turn any folder of code, SQL schemas, R scripts, shell scripts, docs, papers, images, or videos into a queryable",
-      "stars": 81690,
-      "forks": 8032,
-      "open_issues": 450,
+      "stars": 81846,
+      "forks": 8048,
+      "open_issues": 454,
       "language": "Python",
       "topics": [
         "antigravity",
@@ -1170,8 +1170,8 @@
       ],
       "category": "rag-and-search",
       "created_at": "2026-04-03T15:49:07Z",
-      "pushed_at": "2026-07-10T10:53:00Z",
-      "days_since_push": 0,
+      "pushed_at": "2026-07-10T19:24:27Z",
+      "days_since_push": -1,
       "commits_30d": 100,
       "contributors": 100,
       "gem_score": 0.802,
@@ -1187,15 +1187,15 @@
         "100 commits in 30 days",
         "100 active contributors"
       ],
-      "stars_delta_3d": 2443,
+      "stars_delta_3d": 2599,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "mlabonne/llm-course",
       "description": "Course to get into Large Language Models (LLMs) with roadmaps and Colab notebooks.",
-      "stars": 80822,
-      "forks": 9415,
+      "stars": 80829,
+      "forks": 9414,
       "open_issues": 84,
       "language": "Unknown",
       "topics": [
@@ -1224,16 +1224,16 @@
         "High-signal dev tools project"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 98,
+      "stars_delta_3d": 105,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "OpenHands/OpenHands",
       "description": "\ud83d\ude4c OpenHands: AI-Driven Development",
-      "stars": 80329,
-      "forks": 10250,
-      "open_issues": 357,
+      "stars": 80358,
+      "forks": 10253,
+      "open_issues": 358,
       "language": "Python",
       "topics": [
         "agent",
@@ -1247,7 +1247,7 @@
       ],
       "category": "dev-tools",
       "created_at": "2024-03-13T03:33:31Z",
-      "pushed_at": "2026-07-10T13:58:37Z",
+      "pushed_at": "2026-07-10T16:50:32Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1261,18 +1261,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,068 stars in 7 days",
+        "+1,057 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 557,
-      "stars_delta_7d": 1068,
-      "stars_delta_30d": 3961
+      "stars_delta_3d": 586,
+      "stars_delta_7d": 1057,
+      "stars_delta_30d": 3971
     },
     {
       "name": "DietrichGebert/ponytail",
       "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-      "stars": 79853,
-      "forks": 4285,
+      "stars": 80041,
+      "forks": 4302,
       "open_issues": 59,
       "language": "JavaScript",
       "topics": [
@@ -1301,19 +1301,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+7,304 stars in 7 days",
+        "+7,209 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 3309,
-      "stars_delta_7d": 7304,
+      "stars_delta_3d": 3497,
+      "stars_delta_7d": 7209,
       "stars_delta_30d": 0
     },
     {
       "name": "lobehub/lobehub",
       "description": "\ud83e\udd2f LobeHub is your Chief Agent Operator, organizing your agents into 7\u00d724 operations by hiring, scheduling, and reporting on your entire AI team.",
-      "stars": 79705,
-      "forks": 15580,
-      "open_issues": 604,
+      "stars": 79715,
+      "forks": 15582,
+      "open_issues": 607,
       "language": "TypeScript",
       "topics": [
         "agent",
@@ -1327,7 +1327,7 @@
       ],
       "category": "mcp",
       "created_at": "2023-05-21T07:19:12Z",
-      "pushed_at": "2026-07-10T14:19:15Z",
+      "pushed_at": "2026-07-10T18:46:58Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1341,17 +1341,17 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+288 stars in 7 days",
+        "+294 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 128,
-      "stars_delta_7d": 288,
-      "stars_delta_30d": 1261
+      "stars_delta_3d": 138,
+      "stars_delta_7d": 294,
+      "stars_delta_30d": 1257
     },
     {
       "name": "netdata/netdata",
       "description": "The fastest path to AI-powered full stack observability, even for lean teams.",
-      "stars": 79580,
+      "stars": 79586,
       "forks": 6515,
       "open_issues": 358,
       "language": "Go",
@@ -1381,12 +1381,12 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+91 stars in 7 days",
+        "+100 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 41,
-      "stars_delta_7d": 91,
-      "stars_delta_30d": 479
+      "stars_delta_3d": 47,
+      "stars_delta_7d": 100,
+      "stars_delta_30d": 484
     },
     {
       "name": "nomic-ai/gpt4all",
@@ -1425,9 +1425,9 @@
     {
       "name": "nexu-io/open-design",
       "description": "\ud83c\udfa8 The open-source Claude Design alternative. \ud83d\udda5\ufe0f Local-first desktop app. \ud83d\uddbc\ufe0f Your coding agent becomes the design engine: prototypes, landing pages, dashboards, slides, images & video \u2014 real files, HTM",
-      "stars": 77034,
-      "forks": 8793,
-      "open_issues": 518,
+      "stars": 77102,
+      "forks": 8802,
+      "open_issues": 519,
       "language": "TypeScript",
       "topics": [
         "agent-skills",
@@ -1441,7 +1441,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2026-04-28T04:25:20Z",
-      "pushed_at": "2026-07-10T14:16:41Z",
+      "pushed_at": "2026-07-10T18:37:27Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1455,19 +1455,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+2,450 stars in 7 days",
+        "+2,439 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 1166,
-      "stars_delta_7d": 2450,
-      "stars_delta_30d": 14362
+      "stars_delta_3d": 1234,
+      "stars_delta_7d": 2439,
+      "stars_delta_30d": 14302
     },
     {
       "name": "bytedance/deer-flow",
       "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of ta",
-      "stars": 76719,
-      "forks": 10416,
-      "open_issues": 945,
+      "stars": 76733,
+      "forks": 10415,
+      "open_issues": 948,
       "language": "Python",
       "topics": [
         "agent",
@@ -1481,7 +1481,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-05-07T02:50:19Z",
-      "pushed_at": "2026-07-10T14:13:50Z",
+      "pushed_at": "2026-07-10T15:13:06Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1495,19 +1495,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+721 stars in 7 days",
+        "+724 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 369,
-      "stars_delta_7d": 721,
-      "stars_delta_30d": 5852
+      "stars_delta_3d": 383,
+      "stars_delta_7d": 724,
+      "stars_delta_30d": 5848
     },
     {
       "name": "dair-ai/Prompt-Engineering-Guide",
       "description": "\ud83d\udc19 Guides, papers, lessons, notebooks and resources for prompt engineering, context engineering, RAG, and AI Agents.",
-      "stars": 76336,
-      "forks": 8358,
-      "open_issues": 273,
+      "stars": 76340,
+      "forks": 8359,
+      "open_issues": 278,
       "language": "MDX",
       "topics": [
         "agent",
@@ -1538,14 +1538,14 @@
         "100 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 65,
+      "stars_delta_3d": 69,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "thedaviddias/Front-End-Checklist",
       "description": "\ud83d\uddc2 The essential checklist for modern web development, for humans and AI agents",
-      "stars": 73175,
+      "stars": 73177,
       "forks": 6650,
       "open_issues": 3,
       "language": "MDX",
@@ -1575,18 +1575,18 @@
       "adoption_label": "watch",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+64 stars in 7 days",
+        "+61 stars in 7 days",
         "100 active contributors"
       ],
-      "stars_delta_3d": 32,
-      "stars_delta_7d": 64,
-      "stars_delta_30d": 301
+      "stars_delta_3d": 34,
+      "stars_delta_7d": 61,
+      "stars_delta_30d": 300
     },
     {
       "name": "hiyouga/LlamaFactory",
       "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
-      "stars": 73134,
-      "forks": 8936,
+      "stars": 73139,
+      "forks": 8935,
       "open_issues": 1064,
       "language": "Python",
       "topics": [
@@ -1615,18 +1615,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+215 stars in 7 days",
+        "+218 stars in 7 days",
         "24 commits in 30 days"
       ],
-      "stars_delta_3d": 99,
-      "stars_delta_7d": 215,
-      "stars_delta_30d": 1087
+      "stars_delta_3d": 104,
+      "stars_delta_7d": 218,
+      "stars_delta_30d": 1086
     },
     {
       "name": "daytonaio/daytona",
       "description": "Daytona is a Secure and Elastic Infrastructure for Running AI-Generated Code",
-      "stars": 72243,
-      "forks": 5666,
+      "stars": 72234,
+      "forks": 5662,
       "open_issues": 444,
       "language": "Unknown",
       "topics": [
@@ -1642,31 +1642,31 @@
       "category": "agent-framework",
       "created_at": "2024-02-06T08:21:20Z",
       "pushed_at": "2026-07-09T18:45:58Z",
-      "days_since_push": 0,
-      "commits_30d": 67,
+      "days_since_push": 1,
+      "commits_30d": 66,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.793,
       "url": "https://github.com/daytonaio/daytona",
       "owner_avatar": "https://avatars.githubusercontent.com/u/130513197?v=4",
       "archived": false,
       "license": null,
       "metrics_estimated": false,
-      "adoption_score": 0.879,
+      "adoption_score": 0.875,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "67 commits in 30 days",
+        "66 commits in 30 days",
         "100 active contributors"
       ],
-      "stars_delta_3d": -24,
-      "stars_delta_7d": -77,
-      "stars_delta_30d": -208
+      "stars_delta_3d": -33,
+      "stars_delta_7d": -81,
+      "stars_delta_30d": -207
     },
     {
       "name": "shareAI-lab/learn-claude-code",
       "description": "Bash is all you need -  A nano claude code\u2013like \u300cagent harness\u300d, built from 0 to 1",
-      "stars": 70577,
-      "forks": 11496,
+      "stars": 70593,
+      "forks": 11499,
       "open_issues": 60,
       "language": "Python",
       "topics": [
@@ -1695,19 +1695,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+853 stars in 7 days",
+        "+848 stars in 7 days",
         "25 commits in 30 days"
       ],
-      "stars_delta_3d": 376,
-      "stars_delta_7d": 853,
-      "stars_delta_30d": 4770
+      "stars_delta_3d": 392,
+      "stars_delta_7d": 848,
+      "stars_delta_30d": 4722
     },
     {
       "name": "rtk-ai/rtk",
       "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
-      "stars": 70011,
-      "forks": 4354,
-      "open_issues": 1552,
+      "stars": 70051,
+      "forks": 4356,
+      "open_issues": 1553,
       "language": "Rust",
       "topics": [
         "agentic-coding",
@@ -1735,17 +1735,17 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,827 stars in 7 days",
+        "+1,806 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 790,
-      "stars_delta_7d": 1827,
-      "stars_delta_30d": 9228
+      "stars_delta_3d": 830,
+      "stars_delta_7d": 1806,
+      "stars_delta_30d": 9135
     },
     {
       "name": "FoundationAgents/MetaGPT",
       "description": "\ud83c\udf1f The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
-      "stars": 69293,
+      "stars": 69296,
       "forks": 8836,
       "open_issues": 138,
       "language": "Python",
@@ -1775,15 +1775,15 @@
         "100 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 49,
+      "stars_delta_3d": 52,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "D4Vinci/Scrapling",
       "description": "\ud83d\udd77\ufe0f An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!",
-      "stars": 68992,
-      "forks": 6827,
+      "stars": 69024,
+      "forks": 6829,
       "open_issues": 3,
       "language": "Python",
       "topics": [
@@ -1812,19 +1812,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,083 stars in 7 days",
+        "+1,095 stars in 7 days",
         "39 commits in 30 days"
       ],
-      "stars_delta_3d": 480,
-      "stars_delta_7d": 1083,
-      "stars_delta_30d": 6378
+      "stars_delta_3d": 512,
+      "stars_delta_7d": 1095,
+      "stars_delta_30d": 6349
     },
     {
       "name": "microsoft/ai-agents-for-beginners",
       "description": "12 Lessons to Get Started Building AI Agents",
-      "stars": 68955,
-      "forks": 22872,
-      "open_issues": 18,
+      "stars": 68965,
+      "forks": 22876,
+      "open_issues": 19,
       "language": "Jupyter Notebook",
       "topics": [
         "agentic-ai",
@@ -1852,19 +1852,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+488 stars in 7 days",
+        "+491 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 170,
-      "stars_delta_7d": 488,
-      "stars_delta_30d": 2080
+      "stars_delta_3d": 180,
+      "stars_delta_7d": 491,
+      "stars_delta_30d": 2066
     },
     {
       "name": "unslothai/unsloth",
       "description": "Unsloth Studio is a web UI for training and running open models like Gemma 4, Qwen3.6, DeepSeek, gpt-oss locally.",
-      "stars": 67988,
+      "stars": 67996,
       "forks": 6121,
-      "open_issues": 1049,
+      "open_issues": 1048,
       "language": "Python",
       "topics": [
         "agent",
@@ -1878,7 +1878,7 @@
       ],
       "category": "fine-tuning",
       "created_at": "2023-11-29T16:50:09Z",
-      "pushed_at": "2026-07-10T13:46:34Z",
+      "pushed_at": "2026-07-10T19:08:14Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -1892,19 +1892,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+212 stars in 7 days",
+        "+216 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 109,
-      "stars_delta_7d": 212,
-      "stars_delta_30d": 1823
+      "stars_delta_3d": 117,
+      "stars_delta_7d": 216,
+      "stars_delta_30d": 1820
     },
     {
       "name": "ComposioHQ/awesome-claude-skills",
       "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
-      "stars": 67377,
-      "forks": 7564,
-      "open_issues": 962,
+      "stars": 67399,
+      "forks": 7570,
+      "open_issues": 968,
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -1932,18 +1932,18 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+2,049 stars in 7 days",
+        "+2,071 stars in 7 days",
         "28 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 317,
-      "stars_delta_7d": 2049,
-      "stars_delta_30d": 3398
+      "stars_delta_3d": 339,
+      "stars_delta_7d": 2071,
+      "stars_delta_30d": 3390
     },
     {
       "name": "labmlai/annotated_deep_learning_paper_implementations",
       "description": "\ud83e\uddd1\u200d\ud83c\udfeb 60+ Implementations/tutorials of deep learning papers with side-by-side notes \ud83d\udcdd; including transformers (original, xl, switch, feedback, vit, ...), optimizers (adam, adabelief, sophia, ...), gans(",
-      "stars": 67066,
+      "stars": 67067,
       "forks": 6729,
       "open_issues": 32,
       "language": "Python",
@@ -1976,16 +1976,16 @@
         "39 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 15,
+      "stars_delta_3d": 16,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "code-yeongyu/oh-my-openagent",
       "description": "omo/lazycodex: The coding agent for tokenmaxxers;the one and only agent harness for complex codebases. For your Codex, for your OpenCode",
-      "stars": 65468,
-      "forks": 5341,
-      "open_issues": 875,
+      "stars": 65490,
+      "forks": 5342,
+      "open_issues": 876,
       "language": "TypeScript",
       "topics": [
         "ai",
@@ -1999,7 +1999,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-12-03T01:40:05Z",
-      "pushed_at": "2026-07-10T14:06:24Z",
+      "pushed_at": "2026-07-10T19:20:03Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -2013,18 +2013,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+780 stars in 7 days",
+        "+763 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 319,
-      "stars_delta_7d": 780,
-      "stars_delta_30d": 3714
+      "stars_delta_3d": 341,
+      "stars_delta_7d": 763,
+      "stars_delta_30d": 3699
     },
     {
       "name": "datawhalechina/hello-agents",
       "description": "\ud83d\udcda \u300a\u4ece\u96f6\u5f00\u59cb\u6784\u5efa\u667a\u80fd\u4f53\u300b\u2014\u2014\u4ece\u96f6\u5f00\u59cb\u7684\u667a\u80fd\u4f53\u539f\u7406\u4e0e\u5b9e\u8df5\u6559\u7a0b",
-      "stars": 65327,
-      "forks": 8095,
+      "stars": 65345,
+      "forks": 8096,
       "open_issues": 142,
       "language": "Python",
       "topics": [
@@ -2049,19 +2049,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,564 stars in 7 days",
+        "+1,554 stars in 7 days",
         "20 commits in 30 days"
       ],
-      "stars_delta_3d": 699,
-      "stars_delta_7d": 1564,
-      "stars_delta_30d": 7165
+      "stars_delta_3d": 717,
+      "stars_delta_7d": 1554,
+      "stars_delta_30d": 7093
     },
     {
       "name": "ruvnet/ruflo",
       "description": "\ud83c\udf0a The leading agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, RA",
-      "stars": 63813,
-      "forks": 7535,
-      "open_issues": 750,
+      "stars": 63868,
+      "forks": 7543,
+      "open_issues": 751,
       "language": "TypeScript",
       "topics": [
         "agentic-ai",
@@ -2075,10 +2075,10 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-06-02T21:24:20Z",
-      "pushed_at": "2026-07-10T12:38:57Z",
+      "pushed_at": "2026-07-10T19:13:31Z",
       "days_since_push": 0,
       "commits_30d": 100,
-      "contributors": 32,
+      "contributors": 31,
       "gem_score": 0.805,
       "url": "https://github.com/ruvnet/ruflo",
       "owner_avatar": "https://avatars.githubusercontent.com/u/2934394?v=4",
@@ -2089,19 +2089,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,025 stars in 7 days",
+        "+1,040 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 419,
-      "stars_delta_7d": 1025,
-      "stars_delta_30d": 5038
+      "stars_delta_3d": 474,
+      "stars_delta_7d": 1040,
+      "stars_delta_30d": 5053
     },
     {
       "name": "Mintplex-Labs/anything-llm",
       "description": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
-      "stars": 63051,
-      "forks": 6894,
-      "open_issues": 325,
+      "stars": 63068,
+      "forks": 6898,
+      "open_issues": 319,
       "language": "JavaScript",
       "topics": [
         "agent-computer",
@@ -2115,7 +2115,7 @@
       ],
       "category": "rag-and-search",
       "created_at": "2023-06-04T02:29:14Z",
-      "pushed_at": "2026-07-09T23:05:45Z",
+      "pushed_at": "2026-07-10T18:46:41Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -2129,19 +2129,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+535 stars in 7 days",
+        "+539 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 308,
-      "stars_delta_7d": 535,
-      "stars_delta_30d": 1692
+      "stars_delta_3d": 325,
+      "stars_delta_7d": 539,
+      "stars_delta_30d": 1694
     },
     {
       "name": "shanraisshan/claude-code-best-practice",
       "description": "from vibe coding to agentic engineering - practice makes claude perfect",
-      "stars": 62398,
+      "stars": 62400,
       "forks": 6243,
-      "open_issues": 15,
+      "open_issues": 14,
       "language": "HTML",
       "topics": [
         "agentic-ai",
@@ -2155,7 +2155,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-10-31T14:15:28Z",
-      "pushed_at": "2026-07-10T06:38:02Z",
+      "pushed_at": "2026-07-10T18:13:42Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 5,
@@ -2169,19 +2169,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+492 stars in 7 days",
+        "+483 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 247,
-      "stars_delta_7d": 492,
-      "stars_delta_30d": 5182
+      "stars_delta_3d": 249,
+      "stars_delta_7d": 483,
+      "stars_delta_30d": 5153
     },
     {
       "name": "koala73/worldmonitor",
       "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
-      "stars": 61679,
-      "forks": 9610,
-      "open_issues": 196,
+      "stars": 61693,
+      "forks": 9612,
+      "open_issues": 201,
       "language": "TypeScript",
       "topics": [
         "agent",
@@ -2195,7 +2195,7 @@
       ],
       "category": "mcp",
       "created_at": "2026-01-08T17:26:06Z",
-      "pushed_at": "2026-07-10T14:15:59Z",
+      "pushed_at": "2026-07-10T16:26:16Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 99,
@@ -2212,16 +2212,16 @@
         "100 commits in 30 days",
         "99 active contributors"
       ],
-      "stars_delta_3d": 171,
+      "stars_delta_3d": 185,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "mem0ai/mem0",
       "description": "Universal memory layer for AI Agents",
-      "stars": 60546,
-      "forks": 7035,
-      "open_issues": 541,
+      "stars": 60564,
+      "forks": 7038,
+      "open_issues": 526,
       "language": "Python",
       "topics": [
         "agents",
@@ -2235,7 +2235,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2023-06-20T08:58:36Z",
-      "pushed_at": "2026-07-10T13:44:16Z",
+      "pushed_at": "2026-07-10T16:09:05Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -2249,18 +2249,18 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+527 stars in 7 days",
+        "+532 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 242,
-      "stars_delta_7d": 527,
-      "stars_delta_30d": 2306
+      "stars_delta_3d": 260,
+      "stars_delta_7d": 532,
+      "stars_delta_30d": 2307
     },
     {
       "name": "sansan0/TrendRadar",
       "description": "\u2b50AI-driven public opinion & trend monitor with multi-platform aggregation, RSS, and smart alerts.\ud83c\udfaf \u544a\u522b\u4fe1\u606f\u8fc7\u8f7d\uff0c\u4f60\u7684 AI \u8206\u60c5\u76d1\u63a7\u52a9\u624b\u4e0e\u70ed\u70b9\u7b5b\u9009\u5de5\u5177\uff01\u805a\u5408\u591a\u5e73\u53f0\u70ed\u70b9 +  RSS \u8ba2\u9605\uff0c\u652f\u6301\u5173\u952e\u8bcd\u7cbe\u51c6\u7b5b\u9009\u3002AI \u667a\u80fd\u7b5b\u9009\u65b0\u95fb + AI \u7ffb\u8bd1 +  AI \u5206\u6790\u7b80\u62a5\u76f4\u63a8\u624b\u673a\uff0c\u4e5f\u652f\u6301\u63a5\u5165 MCP \u67b6\u6784\uff0c",
-      "stars": 60437,
-      "forks": 24779,
+      "stars": 60442,
+      "forks": 24782,
       "open_issues": 50,
       "language": "Python",
       "topics": [
@@ -2289,18 +2289,18 @@
       "adoption_label": "watch",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+230 stars in 7 days"
+        "+229 stars in 7 days"
       ],
-      "stars_delta_3d": 109,
-      "stars_delta_7d": 230,
-      "stars_delta_30d": 1182
+      "stars_delta_3d": 114,
+      "stars_delta_7d": 229,
+      "stars_delta_30d": 1177
     },
     {
       "name": "santifer/career-ops",
       "description": "Open-source AI job search: scan job portals, score listings A-F, tailor your CV, track applications \u2014 runs locally in your AI coding CLI (Claude Code, Gemini, Codex, OpenCode\u2026)",
-      "stars": 59513,
-      "forks": 11815,
-      "open_issues": 151,
+      "stars": 59540,
+      "forks": 11820,
+      "open_issues": 137,
       "language": "JavaScript",
       "topics": [
         "ai",
@@ -2314,7 +2314,7 @@
       ],
       "category": "agent-framework",
       "created_at": "2026-04-04T18:21:18Z",
-      "pushed_at": "2026-07-10T10:49:36Z",
+      "pushed_at": "2026-07-10T18:13:05Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
@@ -2328,17 +2328,17 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+1,196 stars in 7 days",
+        "+1,190 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 553,
-      "stars_delta_7d": 1196,
-      "stars_delta_30d": 7294
+      "stars_delta_3d": 580,
+      "stars_delta_7d": 1190,
+      "stars_delta_30d": 7178
     },
     {
       "name": "pathwaycom/llm-app",
       "description": "Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. \ud83d\udc33Docker-friendly.\u26a1Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, an",
-      "stars": 59080,
+      "stars": 59077,
       "forks": 1432,
       "open_issues": 10,
       "language": "Jupyter Notebook",
@@ -2355,33 +2355,33 @@
       "category": "rag-and-search",
       "created_at": "2023-07-19T08:43:37Z",
       "pushed_at": "2026-07-05T17:59:07Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "commits_30d": 2,
       "contributors": 24,
-      "gem_score": 0.481,
+      "gem_score": 0.474,
       "url": "https://github.com/pathwaycom/llm-app",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25750857?v=4",
       "archived": false,
       "license": "MIT",
       "metrics_estimated": false,
-      "adoption_score": 0.708,
+      "adoption_score": 0.705,
       "adoption_label": "watch",
       "maintainer_health": "healthy",
       "trend_reasons": [
         "24 active contributors"
       ],
-      "stars_delta_3d": -18,
-      "stars_delta_7d": -75,
-      "stars_delta_30d": -293
+      "stars_delta_3d": -21,
+      "stars_delta_7d": -70,
+      "stars_delta_30d": -288
     }
   ],
   "gems": [
     {
       "name": "jaylfc/taOS",
       "description": "Self-hosted AI agent OS. Your memory, chat, agents, and files stay on hardware you own, offline by default, cloud by choice. Offline AI memory (taOSmd), self-hosted multi-framework group chat, a full ",
-      "stars": 418,
+      "stars": 419,
       "forks": 34,
-      "open_issues": 248,
+      "open_issues": 247,
       "language": "Python",
       "topics": [
         "agent-framework",
@@ -2395,33 +2395,33 @@
       ],
       "category": "agent-framework",
       "created_at": "2026-04-05T15:33:40Z",
-      "pushed_at": "2026-07-10T13:44:48Z",
+      "pushed_at": "2026-07-10T19:13:25Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 4,
-      "gem_score": 0.892,
+      "gem_score": 0.891,
       "url": "https://github.com/jaylfc/taOS",
       "owner_avatar": "https://avatars.githubusercontent.com/u/30096482?v=4",
       "archived": false,
       "license": "AGPL-3.0",
       "metrics_estimated": false,
-      "adoption_score": 0.729,
+      "adoption_score": 0.73,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+197 stars in 30 days",
+        "+16 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 5,
-      "stars_delta_7d": -105,
-      "stars_delta_30d": 197
+      "stars_delta_3d": 6,
+      "stars_delta_7d": 16,
+      "stars_delta_30d": 198
     },
     {
       "name": "langchain-ai/docs",
       "description": "Unified LangChain documentation.",
       "stars": 372,
-      "forks": 2486,
-      "open_issues": 597,
+      "forks": 2487,
+      "open_issues": 598,
       "language": "MDX",
       "topics": [
         "documentation",
@@ -2431,8 +2431,8 @@
       ],
       "category": "agent-framework",
       "created_at": "2025-05-15T20:41:34Z",
-      "pushed_at": "2026-07-10T14:20:04Z",
-      "days_since_push": -1,
+      "pushed_at": "2026-07-10T19:23:32Z",
+      "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
       "gem_score": 0.847,
@@ -2445,12 +2445,12 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+5 stars in 7 days",
+        "+4 stars in 7 days",
         "100 commits in 30 days"
       ],
       "stars_delta_3d": 2,
-      "stars_delta_7d": 5,
-      "stars_delta_30d": 18
+      "stars_delta_7d": 4,
+      "stars_delta_30d": 17
     },
     {
       "name": "Kaden-Schutt/hipfire",
@@ -2471,7 +2471,7 @@
       ],
       "category": "model-serving",
       "created_at": "2026-03-21T02:59:11Z",
-      "pushed_at": "2026-07-10T11:09:39Z",
+      "pushed_at": "2026-07-10T18:34:41Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 25,
@@ -2495,9 +2495,9 @@
     {
       "name": "lightseekorg/smg",
       "description": "Engine-agnostic LLM gateway in Rust. Full OpenAI & Anthropic API compatibility across vLLM, TRT-LLM, TokenSpeed, SGLang, OpenAI, Gemini & more. Industry-first gRPC pipeline, KV cache-aware routing, ch",
-      "stars": 383,
-      "forks": 111,
-      "open_issues": 74,
+      "stars": 384,
+      "forks": 112,
+      "open_issues": 73,
       "language": "Rust",
       "topics": [
         "anthropic",
@@ -2511,11 +2511,11 @@
       ],
       "category": "model-serving",
       "created_at": "2025-11-22T05:17:14Z",
-      "pushed_at": "2026-07-10T13:32:54Z",
+      "pushed_at": "2026-07-10T19:11:11Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.777,
+      "gem_score": 0.776,
       "url": "https://github.com/lightseekorg/smg",
       "owner_avatar": "https://avatars.githubusercontent.com/u/238925110?v=4",
       "archived": false,
@@ -2525,19 +2525,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+9 stars in 7 days",
+        "+10 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 5,
-      "stars_delta_7d": 9,
-      "stars_delta_30d": 60
+      "stars_delta_3d": 6,
+      "stars_delta_7d": 10,
+      "stars_delta_30d": 61
     },
     {
       "name": "h5i-dev/h5i",
       "description": "Auditable workspaces for AI coding agents: sandboxed worktrees, conflict-free multi-agent orchestra, 95% lower token waste, and persistent memory.",
-      "stars": 457,
-      "forks": 35,
-      "open_issues": 31,
+      "stars": 458,
+      "forks": 34,
+      "open_issues": 24,
       "language": "Rust",
       "topics": [
         "agent",
@@ -2551,31 +2551,31 @@
       ],
       "category": "mcp",
       "created_at": "2026-03-11T04:30:52Z",
-      "pushed_at": "2026-07-10T12:17:13Z",
+      "pushed_at": "2026-07-10T19:12:31Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 9,
-      "gem_score": 0.775,
+      "gem_score": 0.77,
       "url": "https://github.com/h5i-dev/h5i",
       "owner_avatar": "https://avatars.githubusercontent.com/u/272305047?v=4",
       "archived": false,
       "license": "Apache-2.0",
       "metrics_estimated": false,
-      "adoption_score": 0.876,
+      "adoption_score": 0.877,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+11 stars in 7 days",
+        "+12 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 6,
-      "stars_delta_7d": 11,
+      "stars_delta_3d": 7,
+      "stars_delta_7d": 12,
       "stars_delta_30d": 0
     },
     {
       "name": "mnemon-dev/mnemon",
       "description": "LLM-supervised persistent memory for AI agents \u2014 graph-based recall, cross-session knowledge, single binary. Works with Claude Code, OpenClaw, and any CLI agent.",
-      "stars": 376,
+      "stars": 377,
       "forks": 55,
       "open_issues": 5,
       "language": "Go",
@@ -2595,7 +2595,7 @@
       "days_since_push": 4,
       "commits_30d": 100,
       "contributors": 12,
-      "gem_score": 0.707,
+      "gem_score": 0.708,
       "url": "https://github.com/mnemon-dev/mnemon",
       "owner_avatar": "https://avatars.githubusercontent.com/u/262709594?v=4",
       "archived": false,
@@ -2605,19 +2605,19 @@
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+5 stars in 7 days",
+        "+6 stars in 7 days",
         "100 commits in 30 days"
       ],
-      "stars_delta_3d": 1,
-      "stars_delta_7d": 5,
-      "stars_delta_30d": 39
+      "stars_delta_3d": 2,
+      "stars_delta_7d": 6,
+      "stars_delta_30d": 40
     },
     {
       "name": "Arvo-AI/aurora",
       "description": "Aurora \u2014 Open source AI-powered agentic incident management & root cause analysis for SREs. LangGraph agents investigate across AWS, Azure, GCP, Kubernetes. Integrates with PagerDuty, Datadog, Grafana",
       "stars": 367,
       "forks": 65,
-      "open_issues": 48,
+      "open_issues": 47,
       "language": "Python",
       "topics": [
         "ai-agents",
@@ -2631,26 +2631,26 @@
       ],
       "category": "agent-framework",
       "created_at": "2026-01-22T14:12:32Z",
-      "pushed_at": "2026-07-09T14:14:31Z",
-      "days_since_push": 1,
-      "commits_30d": 51,
+      "pushed_at": "2026-07-10T16:25:04Z",
+      "days_since_push": 0,
+      "commits_30d": 50,
       "contributors": 11,
-      "gem_score": 0.698,
+      "gem_score": 0.699,
       "url": "https://github.com/Arvo-AI/aurora",
       "owner_avatar": "https://avatars.githubusercontent.com/u/172132510?v=4",
       "archived": false,
       "license": "Apache-2.0",
       "metrics_estimated": false,
-      "adoption_score": 0.934,
+      "adoption_score": 0.938,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+6 stars in 7 days",
-        "51 commits in 30 days"
+        "50 commits in 30 days"
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 6,
-      "stars_delta_30d": 88
+      "stars_delta_30d": 87
     },
     {
       "name": "expectedparrot/edsl",
@@ -2671,9 +2671,9 @@
       ],
       "category": "model-serving",
       "created_at": "2024-01-02T22:18:47Z",
-      "pushed_at": "2026-07-10T08:45:18Z",
+      "pushed_at": "2026-07-10T17:50:29Z",
       "days_since_push": 0,
-      "commits_30d": 84,
+      "commits_30d": 88,
       "contributors": 18,
       "gem_score": 0.694,
       "url": "https://github.com/expectedparrot/edsl",
@@ -2686,7 +2686,7 @@
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+2 stars in 7 days",
-        "84 commits in 30 days"
+        "88 commits in 30 days"
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 2,
@@ -2777,7 +2777,7 @@
       "description": "The open creative AI workspace",
       "stars": 425,
       "forks": 60,
-      "open_issues": 32,
+      "open_issues": 30,
       "language": "TypeScript",
       "topics": [
         "anthropic",
@@ -2791,25 +2791,25 @@
       ],
       "category": "model-serving",
       "created_at": "2024-03-25T13:09:15Z",
-      "pushed_at": "2026-07-10T14:22:42Z",
-      "days_since_push": -1,
+      "pushed_at": "2026-07-10T18:57:36Z",
+      "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 9,
-      "gem_score": 0.649,
+      "gem_score": 0.647,
       "url": "https://github.com/nodetool-ai/nodetool",
       "owner_avatar": "https://avatars.githubusercontent.com/u/164873569?v=4",
       "archived": false,
       "license": "AGPL-3.0",
       "metrics_estimated": false,
-      "adoption_score": 0.901,
+      "adoption_score": 0.902,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
-        "+7 stars in 7 days",
+        "+5 stars in 7 days",
         "100 commits in 30 days"
       ],
       "stars_delta_3d": 1,
-      "stars_delta_7d": 7,
+      "stars_delta_7d": 5,
       "stars_delta_30d": 0
     },
     {
@@ -2833,7 +2833,7 @@
       "created_at": "2026-03-04T03:24:33Z",
       "pushed_at": "2026-07-10T04:37:08Z",
       "days_since_push": 0,
-      "commits_30d": 77,
+      "commits_30d": 75,
       "contributors": 2,
       "gem_score": 0.618,
       "url": "https://github.com/Justin0504/Aegis",
@@ -2846,7 +2846,7 @@
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+1 stars in 7 days",
-        "77 commits in 30 days"
+        "75 commits in 30 days"
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
@@ -2890,7 +2890,7 @@
       ],
       "stars_delta_3d": 5,
       "stars_delta_7d": 10,
-      "stars_delta_30d": 55
+      "stars_delta_30d": 53
     },
     {
       "name": "GlitterKill/sdl-mcp",
@@ -2911,7 +2911,7 @@
       ],
       "category": "rag-and-search",
       "created_at": "2026-02-08T20:34:49Z",
-      "pushed_at": "2026-07-09T19:41:13Z",
+      "pushed_at": "2026-07-10T18:16:09Z",
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 1,
@@ -2925,19 +2925,19 @@
       "adoption_label": "safe",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+14 stars in 7 days",
+        "+15 stars in 7 days",
         "100 commits in 30 days"
       ],
       "stars_delta_3d": 3,
-      "stars_delta_7d": 14,
-      "stars_delta_30d": 77
+      "stars_delta_7d": 15,
+      "stars_delta_30d": 78
     },
     {
       "name": "ome-projects/ome",
       "description": "Open Model Engine (OME) \u2014 Kubernetes operator for LLM serving, GPU scheduling, and model lifecycle management. Works with SGLang, vLLM, TensorRT-LLM, and Triton",
       "stars": 478,
-      "forks": 83,
-      "open_issues": 117,
+      "forks": 84,
+      "open_issues": 115,
       "language": "Go",
       "topics": [
         "deepseek",
@@ -2951,22 +2951,22 @@
       ],
       "category": "model-serving",
       "created_at": "2025-05-19T19:30:46Z",
-      "pushed_at": "2026-07-10T06:48:07Z",
+      "pushed_at": "2026-07-10T19:08:06Z",
       "days_since_push": 0,
-      "commits_30d": 23,
+      "commits_30d": 25,
       "contributors": 32,
-      "gem_score": 0.589,
+      "gem_score": 0.597,
       "url": "https://github.com/ome-projects/ome",
       "owner_avatar": "https://avatars.githubusercontent.com/u/276942073?v=4",
       "archived": false,
       "license": "Apache-2.0",
       "metrics_estimated": false,
-      "adoption_score": 0.889,
+      "adoption_score": 0.903,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+3 stars in 7 days",
-        "23 commits in 30 days"
+        "25 commits in 30 days"
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 3,
@@ -3089,7 +3089,7 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 2,
-      "stars_delta_30d": 94
+      "stars_delta_30d": 93
     },
     {
       "name": "NPC-Worldwide/incognide",
@@ -3129,14 +3129,14 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 2,
-      "stars_delta_30d": 39
+      "stars_delta_30d": 38
     },
     {
       "name": "runpod-workers/worker-vllm",
       "description": "The Runpod worker template for serving our large language model endpoints. Powered by vLLM.",
       "stars": 455,
       "forks": 375,
-      "open_issues": 37,
+      "open_issues": 35,
       "language": "Python",
       "topics": [
         "language-model",
@@ -3146,11 +3146,11 @@
       ],
       "category": "model-serving",
       "created_at": "2023-07-03T18:42:36Z",
-      "pushed_at": "2026-07-10T03:25:47Z",
+      "pushed_at": "2026-07-10T16:10:55Z",
       "days_since_push": 0,
-      "commits_30d": 34,
+      "commits_30d": 38,
       "contributors": 31,
-      "gem_score": 0.553,
+      "gem_score": 0.57,
       "url": "https://github.com/runpod-workers/worker-vllm",
       "owner_avatar": "https://avatars.githubusercontent.com/u/131991843?v=4",
       "archived": false,
@@ -3161,7 +3161,7 @@
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+3 stars in 30 days",
-        "34 commits in 30 days"
+        "38 commits in 30 days"
       ],
       "stars_delta_3d": -1,
       "stars_delta_7d": -1,
@@ -3205,7 +3205,7 @@
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 3,
-      "stars_delta_30d": 114
+      "stars_delta_30d": 110
     },
     {
       "name": "open-edge-platform/geti_v2",
@@ -3283,7 +3283,7 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 14,
-      "stars_delta_30d": 121
+      "stars_delta_30d": 120
     },
     {
       "name": "brontoguana/krasis",
@@ -3306,9 +3306,9 @@
       "created_at": "2026-02-09T17:54:07Z",
       "pushed_at": "2026-07-09T07:52:31Z",
       "days_since_push": 1,
-      "commits_30d": 40,
+      "commits_30d": 39,
       "contributors": 1,
-      "gem_score": 0.497,
+      "gem_score": 0.491,
       "url": "https://github.com/brontoguana/krasis",
       "owner_avatar": "https://avatars.githubusercontent.com/u/7049825?v=4",
       "archived": false,
@@ -3319,7 +3319,7 @@
       "maintainer_health": "watch",
       "trend_reasons": [
         "+3 stars in 7 days",
-        "40 commits in 30 days"
+        "39 commits in 30 days"
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 3,
@@ -3343,20 +3343,20 @@
       "created_at": "2026-02-16T18:48:55Z",
       "pushed_at": "2026-07-08T21:17:58Z",
       "days_since_push": 1,
-      "commits_30d": 13,
+      "commits_30d": 12,
       "contributors": 11,
-      "gem_score": 0.492,
+      "gem_score": 0.486,
       "url": "https://github.com/spark-arena/sparkrun",
       "owner_avatar": "https://avatars.githubusercontent.com/u/261693345?v=4",
       "archived": false,
       "license": "Apache-2.0",
       "metrics_estimated": false,
-      "adoption_score": 0.805,
+      "adoption_score": 0.799,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
         "+11 stars in 7 days",
-        "13 commits in 30 days"
+        "12 commits in 30 days"
       ],
       "stars_delta_3d": 6,
       "stars_delta_7d": 11,
@@ -3419,7 +3419,7 @@
       "category": "rag-and-search",
       "created_at": "2023-08-13T03:21:20Z",
       "pushed_at": "2026-06-18T17:20:59Z",
-      "days_since_push": 21,
+      "days_since_push": 22,
       "commits_30d": 49,
       "contributors": 8,
       "gem_score": 0.47,
@@ -3428,7 +3428,7 @@
       "archived": false,
       "license": null,
       "metrics_estimated": false,
-      "adoption_score": 0.759,
+      "adoption_score": 0.755,
       "adoption_label": "safe",
       "maintainer_health": "healthy",
       "trend_reasons": [
@@ -3462,7 +3462,7 @@
       "days_since_push": 0,
       "commits_30d": 17,
       "contributors": 6,
-      "gem_score": 0.465,
+      "gem_score": 0.464,
       "url": "https://github.com/cordum-io/cordum",
       "owner_avatar": "https://avatars.githubusercontent.com/u/248097825?v=4",
       "archived": false,
@@ -3478,6 +3478,45 @@
       "stars_delta_3d": 1,
       "stars_delta_7d": 2,
       "stars_delta_30d": 3
+    },
+    {
+      "name": "zilliztech/knowhere",
+      "description": "Vector search engine inside Milvus, integrating FAISS, HNSW, DiskANN.",
+      "stars": 372,
+      "forks": 156,
+      "open_issues": 28,
+      "language": "C++",
+      "topics": [
+        "faiss",
+        "gpu",
+        "hnsw",
+        "nearest-neighbor-search",
+        "search",
+        "vector",
+        "vector-database"
+      ],
+      "category": "rag-and-search",
+      "created_at": "2023-08-09T06:52:35Z",
+      "pushed_at": "2026-07-10T08:38:30Z",
+      "days_since_push": 0,
+      "commits_30d": 17,
+      "contributors": 51,
+      "gem_score": 0.463,
+      "url": "https://github.com/zilliztech/knowhere",
+      "owner_avatar": "https://avatars.githubusercontent.com/u/18416694?v=4",
+      "archived": false,
+      "license": "Apache-2.0",
+      "metrics_estimated": false,
+      "adoption_score": 0.903,
+      "adoption_label": "safe",
+      "maintainer_health": "healthy",
+      "trend_reasons": [
+        "+3 stars in 7 days",
+        "17 commits in 30 days"
+      ],
+      "stars_delta_3d": 1,
+      "stars_delta_7d": 3,
+      "stars_delta_30d": 16
     },
     {
       "name": "RMA-MUN/RAGNotebook",
@@ -3518,53 +3557,14 @@
       "stars_delta_3d": 5,
       "stars_delta_7d": 8,
       "stars_delta_30d": 0
-    },
-    {
-      "name": "zilliztech/knowhere",
-      "description": "Vector search engine inside Milvus, integrating FAISS, HNSW, DiskANN.",
-      "stars": 372,
-      "forks": 156,
-      "open_issues": 27,
-      "language": "C++",
-      "topics": [
-        "faiss",
-        "gpu",
-        "hnsw",
-        "nearest-neighbor-search",
-        "search",
-        "vector",
-        "vector-database"
-      ],
-      "category": "rag-and-search",
-      "created_at": "2023-08-09T06:52:35Z",
-      "pushed_at": "2026-07-10T08:38:30Z",
-      "days_since_push": 0,
-      "commits_30d": 17,
-      "contributors": 51,
-      "gem_score": 0.462,
-      "url": "https://github.com/zilliztech/knowhere",
-      "owner_avatar": "https://avatars.githubusercontent.com/u/18416694?v=4",
-      "archived": false,
-      "license": "Apache-2.0",
-      "metrics_estimated": false,
-      "adoption_score": 0.903,
-      "adoption_label": "safe",
-      "maintainer_health": "healthy",
-      "trend_reasons": [
-        "+3 stars in 7 days",
-        "17 commits in 30 days"
-      ],
-      "stars_delta_3d": 1,
-      "stars_delta_7d": 3,
-      "stars_delta_30d": 16
     }
   ],
   "abandoned": [
     {
       "name": "rasbt/LLMs-from-scratch",
       "description": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
-      "stars": 98864,
-      "forks": 15174,
+      "stars": 98869,
+      "forks": 15175,
       "open_issues": 4,
       "language": "Jupyter Notebook",
       "topics": [
@@ -3593,19 +3593,19 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+542 stars in 7 days",
+        "+547 stars in 7 days",
         "62 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 164,
-      "stars_delta_7d": 542,
-      "stars_delta_30d": 1909
+      "stars_delta_3d": 169,
+      "stars_delta_7d": 547,
+      "stars_delta_30d": 1903
     },
     {
       "name": "mlabonne/llm-course",
       "description": "Course to get into Large Language Models (LLMs) with roadmaps and Colab notebooks.",
-      "stars": 80822,
-      "forks": 9415,
+      "stars": 80829,
+      "forks": 9414,
       "open_issues": 84,
       "language": "Unknown",
       "topics": [
@@ -3634,7 +3634,7 @@
         "High-signal dev tools project"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 98,
+      "stars_delta_3d": 105,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
@@ -3675,9 +3675,9 @@
     {
       "name": "dair-ai/Prompt-Engineering-Guide",
       "description": "\ud83d\udc19 Guides, papers, lessons, notebooks and resources for prompt engineering, context engineering, RAG, and AI Agents.",
-      "stars": 76336,
-      "forks": 8358,
-      "open_issues": 273,
+      "stars": 76340,
+      "forks": 8359,
+      "open_issues": 278,
       "language": "MDX",
       "topics": [
         "agent",
@@ -3708,14 +3708,14 @@
         "100 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 65,
+      "stars_delta_3d": 69,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "FoundationAgents/MetaGPT",
       "description": "\ud83c\udf1f The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
-      "stars": 69293,
+      "stars": 69296,
       "forks": 8836,
       "open_issues": 138,
       "language": "Python",
@@ -3745,16 +3745,16 @@
         "100 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 49,
+      "stars_delta_3d": 52,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "ComposioHQ/awesome-claude-skills",
       "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
-      "stars": 67377,
-      "forks": 7564,
-      "open_issues": 962,
+      "stars": 67399,
+      "forks": 7570,
+      "open_issues": 968,
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -3782,18 +3782,18 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+2,049 stars in 7 days",
+        "+2,071 stars in 7 days",
         "28 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 317,
-      "stars_delta_7d": 2049,
-      "stars_delta_30d": 3398
+      "stars_delta_3d": 339,
+      "stars_delta_7d": 2071,
+      "stars_delta_30d": 3390
     },
     {
       "name": "labmlai/annotated_deep_learning_paper_implementations",
       "description": "\ud83e\uddd1\u200d\ud83c\udfeb 60+ Implementations/tutorials of deep learning papers with side-by-side notes \ud83d\udcdd; including transformers (original, xl, switch, feedback, vit, ...), optimizers (adam, adabelief, sophia, ...), gans(",
-      "stars": 67066,
+      "stars": 67067,
       "forks": 6729,
       "open_issues": 32,
       "language": "Python",
@@ -3826,16 +3826,16 @@
         "39 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 15,
+      "stars_delta_3d": 16,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "GokuMohandas/Made-With-ML",
       "description": "Learn how to develop, deploy and iterate on production-grade ML applications.",
-      "stars": 48604,
+      "stars": 48610,
       "forks": 7650,
-      "open_issues": 26,
+      "open_issues": 27,
       "language": "Jupyter Notebook",
       "topics": [
         "data-engineering",
@@ -3866,14 +3866,14 @@
         "High-signal mlops project"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 61,
+      "stars_delta_3d": 67,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "666ghj/BettaFish",
       "description": "\u5fae\u8206\uff1a\u4eba\u4eba\u53ef\u7528\u7684\u591aAgent\u8206\u60c5\u5206\u6790\u52a9\u624b\uff0c\u6253\u7834\u4fe1\u606f\u8327\u623f\uff0c\u8fd8\u539f\u8206\u60c5\u539f\u8c8c\uff0c\u9884\u6d4b\u672a\u6765\u8d70\u5411\uff0c\u8f85\u52a9\u51b3\u7b56\uff01\u4ece0\u5b9e\u73b0\uff0c\u4e0d\u4f9d\u8d56\u4efb\u4f55\u6846\u67b6\u3002",
-      "stars": 41699,
+      "stars": 41700,
       "forks": 7611,
       "open_issues": 37,
       "language": "Python",
@@ -3903,13 +3903,13 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+231 stars in 7 days",
+        "+232 stars in 7 days",
         "36 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 43,
-      "stars_delta_7d": 231,
-      "stars_delta_30d": 373
+      "stars_delta_3d": 44,
+      "stars_delta_7d": 232,
+      "stars_delta_30d": 372
     },
     {
       "name": "2noise/ChatTTS",
@@ -3931,7 +3931,7 @@
       "category": "dev-tools",
       "created_at": "2024-05-27T18:26:49Z",
       "pushed_at": "2026-04-10T16:33:48Z",
-      "days_since_push": 90,
+      "days_since_push": 91,
       "commits_30d": 0,
       "contributors": 57,
       "gem_score": 0.379,
@@ -3954,8 +3954,8 @@
     {
       "name": "QuivrHQ/quivr",
       "description": "Opiniated RAG for integrating GenAI in your apps \ud83e\udde0   Focus on your product rather than the RAG. Easy integration in existing products with customisation!  Any LLM: GPT4, Groq, Llama. Any Vectorstore: ",
-      "stars": 39192,
-      "forks": 3720,
+      "stars": 39194,
+      "forks": 3721,
       "open_issues": 29,
       "language": "Python",
       "topics": [
@@ -3987,15 +3987,15 @@
         "100 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 6,
+      "stars_delta_3d": 8,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "chatchat-space/Langchain-Chatchat",
       "description": "Langchain-Chatchat\uff08\u539fLangchain-ChatGLM\uff09\u57fa\u4e8e Langchain \u4e0e ChatGLM, Qwen \u4e0e Llama \u7b49\u8bed\u8a00\u6a21\u578b\u7684 RAG \u4e0e Agent \u5e94\u7528 | Langchain-Chatchat (formerly langchain-ChatGLM), local knowledge based LLM (like ChatGLM, Qwen and Ll",
-      "stars": 38280,
-      "forks": 6219,
+      "stars": 38281,
+      "forks": 6220,
       "open_issues": 22,
       "language": "Python",
       "topics": [
@@ -4027,15 +4027,15 @@
         "100 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 15,
+      "stars_delta_3d": 16,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "patchy631/ai-engineering-hub",
       "description": "In-depth tutorials on LLMs, RAGs and real-world AI agent applications.",
-      "stars": 36421,
-      "forks": 6037,
+      "stars": 36428,
+      "forks": 6038,
       "open_issues": 119,
       "language": "Jupyter Notebook",
       "topics": [
@@ -4062,18 +4062,18 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+119 stars in 7 days",
+        "+121 stars in 7 days",
         "14 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 40,
-      "stars_delta_7d": 119,
-      "stars_delta_30d": 759
+      "stars_delta_3d": 47,
+      "stars_delta_7d": 121,
+      "stars_delta_30d": 760
     },
     {
       "name": "ItzCrazyKns/Vane",
       "description": "Vane is an AI-powered answering engine.",
-      "stars": 35620,
+      "stars": 35624,
       "forks": 3917,
       "open_issues": 330,
       "language": "TypeScript",
@@ -4090,7 +4090,7 @@
       "category": "agent-framework",
       "created_at": "2024-04-09T10:51:32Z",
       "pushed_at": "2026-04-11T14:33:06Z",
-      "days_since_push": 89,
+      "days_since_push": 90,
       "commits_30d": 0,
       "contributors": 48,
       "gem_score": 0.378,
@@ -4106,14 +4106,14 @@
         "48 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 31,
+      "stars_delta_3d": 35,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "PDFMathTranslate/PDFMathTranslate",
       "description": "[EMNLP 2025 Demo] PDF scientific paper translation with preserved formats - \u57fa\u4e8e AI \u5b8c\u6574\u4fdd\u7559\u6392\u7248\u7684 PDF \u6587\u6863\u5168\u6587\u53cc\u8bed\u7ffb\u8bd1\uff0c\u652f\u6301 Google/DeepL/Ollama/OpenAI \u7b49\u670d\u52a1\uff0c\u63d0\u4f9b CLI/GUI/MCP/Docker/Zotero",
-      "stars": 35512,
+      "stars": 35514,
       "forks": 3171,
       "open_issues": 139,
       "language": "Python",
@@ -4130,7 +4130,7 @@
       "category": "mcp",
       "created_at": "2024-09-06T06:56:03Z",
       "pushed_at": "2026-05-25T19:00:26Z",
-      "days_since_push": 45,
+      "days_since_push": 46,
       "commits_30d": 0,
       "contributors": 55,
       "gem_score": 0.402,
@@ -4139,23 +4139,23 @@
       "archived": false,
       "license": "AGPL-3.0",
       "metrics_estimated": false,
-      "adoption_score": 0.57,
+      "adoption_score": 0.567,
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+390 stars in 7 days",
+        "+392 stars in 7 days",
         "55 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 52,
-      "stars_delta_7d": 390,
-      "stars_delta_30d": 801
+      "stars_delta_3d": 54,
+      "stars_delta_7d": 392,
+      "stars_delta_30d": 792
     },
     {
       "name": "ashishpatel26/500-AI-Agents-Projects",
       "description": "The 500 AI Agents Projects is a curated collection of AI agent use cases across various industries. It showcases practical applications and provides links to open-source projects for implementation, i",
-      "stars": 34068,
-      "forks": 6046,
+      "stars": 34090,
+      "forks": 6048,
       "open_issues": 85,
       "language": "Python",
       "topics": [
@@ -4178,18 +4178,18 @@
       "adoption_label": "watch",
       "maintainer_health": "watch",
       "trend_reasons": [
-        "+525 stars in 7 days",
+        "+538 stars in 7 days",
         "7 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 177,
-      "stars_delta_7d": 525,
-      "stars_delta_30d": 1902
+      "stars_delta_3d": 199,
+      "stars_delta_7d": 538,
+      "stars_delta_30d": 1913
     },
     {
       "name": "datawhalechina/happy-llm",
       "description": "\ud83d\udcda \u4ece\u96f6\u5f00\u59cb\u6784\u5efa\u5927\u6a21\u578b",
-      "stars": 31946,
+      "stars": 31950,
       "forks": 3031,
       "open_issues": 62,
       "language": "Jupyter Notebook",
@@ -4201,7 +4201,7 @@
       "category": "rag-and-search",
       "created_at": "2024-05-28T03:22:50Z",
       "pushed_at": "2026-05-06T16:17:10Z",
-      "days_since_push": 64,
+      "days_since_push": 65,
       "commits_30d": 0,
       "contributors": 26,
       "gem_score": 0.358,
@@ -4217,7 +4217,7 @@
         "26 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 62,
+      "stars_delta_3d": 66,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
@@ -4260,8 +4260,8 @@
     {
       "name": "HandsOnLLM/Hands-On-Large-Language-Models",
       "description": "Official code repo for the O'Reilly Book - \"Hands-On Large Language Models\"",
-      "stars": 27451,
-      "forks": 6396,
+      "stars": 27456,
+      "forks": 6398,
       "open_issues": 37,
       "language": "Jupyter Notebook",
       "topics": [
@@ -4292,15 +4292,15 @@
         "11 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 34,
+      "stars_delta_3d": 39,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     },
     {
       "name": "BloopAI/vibe-kanban",
       "description": "Get 10X more out of Claude Code, Codex or any coding agent",
-      "stars": 27323,
-      "forks": 2901,
+      "stars": 27325,
+      "forks": 2902,
       "open_issues": 533,
       "language": "Rust",
       "topics": [
@@ -4329,7 +4329,7 @@
         "61 active contributors"
       ],
       "abandoned_flag": true,
-      "stars_delta_3d": 28,
+      "stars_delta_3d": 30,
       "stars_delta_7d": 0,
       "stars_delta_30d": 0
     }
