@@ -456,7 +456,7 @@ const TABS = [
   { id: 'abandoned', label: 'Abandoned', icon: '💀' },
   { id: 'hot-week', label: 'Hot This Week', icon: '⚡', source: 'trending' },
   { id: 'recently-active', label: 'Recently Active', icon: '🟢', source: 'trending' },
-  { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'abandoned' },
+  { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'all' },
   { id: 'docs-rich', label: 'Docs Rich', icon: '📚', source: 'all' },
 ];
 
@@ -595,8 +595,10 @@ function render() {
     return;
   }
 
+  const displayDeltaKey = activeTab === 'trending' ? `stars_delta_${activeTime}` : 'stars_delta_7d';
+
   document.getElementById('repo-list').innerHTML = repos.map(r => {
-    const deltaKey = `stars_delta_${activeTime}`;
+    const deltaKey = displayDeltaKey;
     const repoName = escapeHtml(r.name);
     const repoDesc = escapeHtml(r.description || 'No description');
     const repoLang = escapeHtml(r.language);
