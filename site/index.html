@@ -569,6 +569,7 @@ function render() {
     <button class="time-btn ${activeTime === '30d' ? 'active' : ''}" onclick="setTime('30d')">30 days</button>
   ` : '';
 
+  const tabConfig = TABS.find(t => t.id === activeTab) || TABS[0];
   let repos = reposForTab(activeTab);
 
   // Category filters
