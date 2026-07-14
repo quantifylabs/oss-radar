@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA_FILE = SITE / "data.json"
 BASE_URL = "https://radar.aegismemory.com"
+AEGIS_URL = "https://www.aegismemory.com/"
+AEGIS_REPO_URL = "https://github.com/quantifylabs/aegis-memory"
 
 
 def load_data() -> dict:
@@ -55,7 +57,7 @@ def page(title: str, description: str, path: str, repos: list[dict]) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{h(title)}</title>
+<title>{h(title.replace("OSS Radar", "OSS.Radar"))}</title>
 <meta name="description" content="{h(description)}">
 <link rel="canonical" href="{h(canonical)}">
 <style>
@@ -70,7 +72,8 @@ dt {{ color: #9ca3af; }}
 </head>
 <body>
 <main>
-  <p><a href="/">← OSS Radar home</a></p>
+  <p><a href="/">← OSS.Radar home</a></p>
+  <p>Powered by <a href="{AEGIS_URL}">aegismemory.com</a> · <a href="{AEGIS_REPO_URL}">Aegis Memory repository</a></p>
   <h1>{h(title)}</h1>
   <p>{h(description)}</p>
   {repo_items(repos)}
@@ -103,7 +106,29 @@ def write_sitemap(urls: list[str]) -> None:
 
 def write_robots() -> None:
     (SITE / "robots.txt").write_text(
-        "User-agent: *\nAllow: /\nSitemap: https://radar.aegismemory.com/sitemap.xml\n"
+        "User-agent: *\nAllow: /\nSitemap: https://radar.aegismemory.com/sitemap.xml\nLLMs: https://radar.aegismemory.com/llms.txt\n"
+    )
+
+
+def write_llms() -> None:
+    (SITE / "llms.txt").write_text(
+        "# OSS.Radar\n\n"
+        "> AI open-source GitHub repository tracker powered by Aegis Memory.\n\n"
+        "OSS.Radar helps users discover trending AI GitHub repositories, underrated open-source AI tools, "
+        "and projects with adoption or maintenance risk signals.\n\n"
+        f"Site: {BASE_URL}/\n"
+        f"Powered by: {AEGIS_URL}\n"
+        f"Aegis Memory repository: {AEGIS_REPO_URL}\n"
+        f"RSS: {BASE_URL}/feed.xml\n"
+        f"Sitemap: {BASE_URL}/sitemap.xml\n\n"
+        "## Key pages\n\n"
+        f"- Home: {BASE_URL}/\n"
+        f"- Trending repositories: {BASE_URL}/trending/\n"
+        f"- Underrated gems: {BASE_URL}/gems/\n"
+        f"- Potentially abandoned repositories: {BASE_URL}/abandoned/\n\n"
+        "## Data notes\n\n"
+        "The site is generated from public GitHub repository metadata and cached in static JSON. "
+        "UI-only discovery tabs are derived from the already-collected dataset to avoid additional GitHub API pressure.\n"
     )
 
 
@@ -140,7 +165,7 @@ def write_feeds(data: dict) -> None:
 
 def main() -> None:
     data = load_data()
-    urls = ["/"]
+    urls = ["/", "/llms.txt"]
     urls.append(write_page("trending", "Trending AI open-source repositories", "Fast-moving AI GitHub projects tracked by OSS Radar.", data.get("trending", [])))
     urls.append(write_page("gems", "Underrated AI open-source gems", "Lower-visibility AI repositories with strong quality and maintenance signals.", data.get("gems", [])))
     urls.append(write_page("abandoned", "Potentially abandoned AI open-source repositories", "Popular AI repositories with stale maintenance signals to review before adopting.", data.get("abandoned", [])))
@@ -150,6 +175,7 @@ def main() -> None:
     for cat, repos in categories.items():
         urls.append(write_page(f"categories/{cat}", f"{cat.replace('-', ' ').title()} AI repositories", f"OSS Radar projects in the {cat.replace('-', ' ')} category.", repos))
     write_robots()
+    write_llms()
     write_sitemap(urls)
     write_feeds(data)
     print(f"Generated {len(urls)} crawlable pages, sitemap, robots.txt, and feeds")

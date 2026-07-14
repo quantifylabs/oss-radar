@@ -1,0 +1,22 @@
+# OSS.Radar
+
+> AI open-source GitHub repository tracker powered by Aegis Memory.
+
+OSS.Radar helps users discover trending AI GitHub repositories, underrated open-source AI tools, and projects with adoption or maintenance risk signals.
+
+Site: https://radar.aegismemory.com/
+Powered by: https://www.aegismemory.com/
+Aegis Memory repository: https://github.com/quantifylabs/aegis-memory
+RSS: https://radar.aegismemory.com/feed.xml
+Sitemap: https://radar.aegismemory.com/sitemap.xml
+
+## Key pages
+
+- Home: https://radar.aegismemory.com/
+- Trending repositories: https://radar.aegismemory.com/trending/
+- Underrated gems: https://radar.aegismemory.com/gems/
+- Potentially abandoned repositories: https://radar.aegismemory.com/abandoned/
+
+## Data notes
+
+The site is generated from public GitHub repository metadata and cached in static JSON. UI-only discovery tabs are derived from the already-collected dataset to avoid additional GitHub API pressure.
