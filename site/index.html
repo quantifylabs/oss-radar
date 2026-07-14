@@ -410,7 +410,7 @@ footer a:hover { text-decoration: underline; }
     <p>AI open-source GitHub repository tracker — trending tools, underrated gems, adoption risk, abandoned repos</p>
     <p class="seo-intro">Find trending AI GitHub repositories, underrated open-source AI tools, and abandoned AI projects before adopting them.</p>
     <div class="updated" id="updated">Loading...</div>
-    <div class="cta"><span>Try the memory layer behind OSS.Radar:</span> <a href="https://github.com/quantifylabs/aegis-memory" target="_blank" rel="noopener">Aegis Memory on GitHub →</a></div>
+    <div class="cta"><span>Stop prompt injection at the memory write path</span> <a href="https://github.com/quantifylabs/aegis-memory" target="_blank" rel="noopener">Aegis Memory on GitHub →</a></div>
   </header>
 
   <div class="stats" id="stats"></div>
@@ -456,8 +456,8 @@ const TABS = [
   { id: 'abandoned', label: 'Abandoned', icon: '💀' },
   { id: 'hot-week', label: 'Hot This Week', icon: '⚡', source: 'trending' },
   { id: 'recently-active', label: 'Recently Active', icon: '🟢', source: 'trending' },
-  { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'abandoned' },
-  { id: 'docs-rich', label: 'Docs Rich', icon: '📚', source: 'gems' },
+  { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'all' },
+  { id: 'docs-rich', label: 'Docs Rich', icon: '📚', source: 'all' },
 ];
 
 function escapeHtml(value) {
@@ -493,6 +493,53 @@ function setTab(id) { activeTab = id; activeCat = 'all'; render(); }
 function setTime(t) { activeTime = t; render(); }
 function setCat(c) { activeCat = c; render(); }
 
+function allRepos() {
+  const seen = new Set();
+  return ['trending', 'gems', 'abandoned'].flatMap(section => DATA[section] || []).filter(repo => {
+    if (seen.has(repo.name)) return false;
+    seen.add(repo.name);
+    return true;
+  });
+}
+
+function reposForTab(tabId) {
+  const tabConfig = TABS.find(t => t.id === tabId) || TABS[0];
+  let repos = tabConfig.source === 'all'
+    ? allRepos()
+    : [...(DATA[tabConfig.source || tabId] || [])];
+
+  if (tabId === 'hot-week') {
+    return repos
+      .filter(r => (r.stars_delta_7d || 0) > 0)
+      .sort((a, b) => (b.stars_delta_7d || 0) - (a.stars_delta_7d || 0))
+      .slice(0, 30);
+  }
+
+  if (tabId === 'recently-active') {
+    return repos
+      .filter(r => (r.commits_30d || 0) > 0 && !r.abandoned_flag)
+      .sort((a, b) => (b.commits_30d || 0) - (a.commits_30d || 0))
+      .slice(0, 30);
+  }
+
+  if (tabId === 'needs-maintainers') {
+    return repos
+      .filter(r => (r.contributors || 0) <= 5 || r.abandoned_flag)
+      .sort((a, b) => (b.stars || 0) - (a.stars || 0))
+      .slice(0, 30);
+  }
+
+  if (tabId === 'docs-rich') {
+    const docsPattern = /docs?|documentation|course|tutorial|guide|roadmap|awesome|book|learn/i;
+    return repos
+      .filter(r => (r.topics || []).some(t => docsPattern.test(t)) || docsPattern.test(r.name || '') || docsPattern.test(r.description || ''))
+      .sort((a, b) => (b.gem_score || 0) - (a.gem_score || 0) || (b.stars || 0) - (a.stars || 0))
+      .slice(0, 30);
+  }
+
+  return repos;
+}
+
 function render() {
   if (!DATA) return;
 
@@ -511,32 +558,18 @@ function render() {
 
   // Tabs
   document.getElementById('tabs').innerHTML = TABS.map(t => {
-    const source = t.source || t.id;
-    const count = DATA[source]?.length || 0;
+    const count = reposForTab(t.id).length;
     return `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="setTab('${t.id}')">${t.icon} ${t.label}<span class="count">${count}</span></button>`;
   }).join('');
 
-  // Get current list
-  const tabConfig = TABS.find(t => t.id === activeTab) || TABS[0];
-
-  // Time filters (only for trending-derived tabs)
-  document.getElementById('time-filters').innerHTML = (tabConfig.source || activeTab) === 'trending' ? `
+  // Time filters (only for the real trending tab so derived rankings keep their own sort)
+  document.getElementById('time-filters').innerHTML = activeTab === 'trending' ? `
     <button class="time-btn ${activeTime === '3d' ? 'active' : ''}" onclick="setTime('3d')">3 days</button>
     <button class="time-btn ${activeTime === '7d' ? 'active' : ''}" onclick="setTime('7d')">7 days</button>
     <button class="time-btn ${activeTime === '30d' ? 'active' : ''}" onclick="setTime('30d')">30 days</button>
   ` : '';
 
-  let repos = [...(DATA[tabConfig.source || activeTab] || [])];
-
-  if (activeTab === 'hot-week') {
-    repos = repos.filter(r => (r.stars_delta_7d || 0) > 0).sort((a, b) => (b.stars_delta_7d || 0) - (a.stars_delta_7d || 0)).slice(0, 30);
-  } else if (activeTab === 'recently-active') {
-    repos = repos.filter(r => (r.commits_30d || 0) > 0 && !r.abandoned_flag).sort((a, b) => (b.commits_30d || 0) - (a.commits_30d || 0)).slice(0, 30);
-  } else if (activeTab === 'needs-maintainers') {
-    repos = repos.filter(r => (r.contributors || 0) <= 5 || r.abandoned_flag).sort((a, b) => (b.stars || 0) - (a.stars || 0)).slice(0, 30);
-  } else if (activeTab === 'docs-rich') {
-    repos = repos.filter(r => (r.topics || []).some(t => /docs|course|tutorial|roadmap|awesome|book/i.test(t)) || /docs|course|tutorial|roadmap|awesome|book/i.test(r.description || '')).slice(0, 30);
-  }
+  let repos = reposForTab(activeTab);
 
   // Category filters
   const cats = [...new Set(repos.map(r => r.category))].sort();
@@ -562,8 +595,10 @@ function render() {
     return;
   }
 
+  const displayDeltaKey = activeTab === 'trending' ? `stars_delta_${activeTime}` : 'stars_delta_7d';
+
   document.getElementById('repo-list').innerHTML = repos.map(r => {
-    const deltaKey = `stars_delta_${activeTime}`;
+    const deltaKey = displayDeltaKey;
     const repoName = escapeHtml(r.name);
     const repoDesc = escapeHtml(r.description || 'No description');
     const repoLang = escapeHtml(r.language);
