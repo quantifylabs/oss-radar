@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://radar.aegismemory.com/sitemap.xml
+LLMs: https://radar.aegismemory.com/llms.txt
