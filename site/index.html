@@ -584,7 +584,7 @@ function render() {
   }
 
   // Sort trending by star delta for selected time window
-  if (activeTab === 'trending') {
+  if ((tabConfig.source || activeTab) === 'trending') {
     const deltaKey = `stars_delta_${activeTime}`;
     repos.sort((a, b) => (b[deltaKey] || b.stars) - (a[deltaKey] || a.stars));
   }
