@@ -3,26 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSS Radar — AI Open-Source GitHub Repository Tracker</title>
-<meta name="description" content="OSS Radar tracks trending AI open-source GitHub repositories, underrated gems, adoption risk, and abandoned AI projects. Updated every 6 hours.">
+<title>OSS.Radar — AI Open-Source GitHub Repository Tracker</title>
+<meta name="description" content="OSS.Radar tracks trending AI open-source GitHub repositories, underrated gems, adoption risk, and abandoned AI projects. Updated every 6 hours.">
 <link rel="canonical" href="https://radar.aegismemory.com/">
 <link rel="alternate" type="application/rss+xml" title="OSS Radar updates" href="https://radar.aegismemory.com/feed.xml">
-<meta property="og:title" content="OSS Radar — AI Open-Source GitHub Repository Tracker">
+<meta property="og:title" content="OSS.Radar — AI Open-Source GitHub Repository Tracker">
 <meta property="og:description" content="Track trending AI GitHub repositories, discover underrated open-source AI tools, and spot risky or abandoned projects.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://radar.aegismemory.com/">
 <meta property="og:image" content="https://radar.aegismemory.com/og-image.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OSS Radar — AI Open-Source GitHub Repository Tracker">
+<meta name="twitter:title" content="OSS.Radar — AI Open-Source GitHub Repository Tracker">
 <meta name="twitter:description" content="Trending AI repositories, underrated gems, and adoption risk signals for open-source AI tools.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "OSS Radar",
+  "name": "OSS.Radar",
   "url": "https://radar.aegismemory.com/",
   "description": "AI open-source GitHub repository tracker for trending tools, underrated gems, and abandoned project risk.",
-  "publisher": { "@type": "Organization", "name": "Quantify Labs" }
+  "publisher": { "@type": "Organization", "name": "Aegis Memory", "url": "https://www.aegismemory.com/" }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +77,25 @@ header h1 {
   margin-bottom: 6px;
 }
 header h1 .dot { color: var(--accent); }
+.powered-by {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+.powered-by a, .cta a { color: var(--accent); text-decoration: none; }
+.powered-by a:hover, .cta a:hover { text-decoration: underline; }
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 9px 14px;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: var(--accent-bg);
+  font-size: 13px;
+  font-weight: 600;
+}
 header p {
   color: var(--text-dim);
   font-size: 14px;
@@ -317,7 +336,12 @@ header p {
   background: var(--green-bg);
   color: var(--green);
   border-radius: 3px;
+  display: inline-flex;
+  gap: 4px;
+  align-items: baseline;
 }
+.score-badge .badge-label { color: currentColor; opacity: 0.78; }
+.score-badge .badge-value { font-weight: 700; }
 .score-badge.watch { background: var(--yellow-bg); color: var(--yellow); }
 .score-badge.risky { background: var(--red-bg); color: var(--red); }
 .trend-reason { color: var(--text-dim); font-size: 12px; margin-top: 8px; }
@@ -381,10 +405,12 @@ footer a:hover { text-decoration: underline; }
 <body>
 <div class="container">
   <header>
-    <h1>oss<span class="dot">.</span>radar</h1>
+    <h1>OSS<span class="dot">.</span>Radar</h1>
+    <div class="powered-by">Powered by <a href="https://www.aegismemory.com/" target="_blank" rel="noopener">aegismemory.com</a></div>
     <p>AI open-source GitHub repository tracker — trending tools, underrated gems, adoption risk, abandoned repos</p>
     <p class="seo-intro">Find trending AI GitHub repositories, underrated open-source AI tools, and abandoned AI projects before adopting them.</p>
     <div class="updated" id="updated">Loading...</div>
+    <div class="cta"><span>Try the memory layer behind OSS.Radar:</span> <a href="https://github.com/quantifylabs/aegis-memory" target="_blank" rel="noopener">Aegis Memory on GitHub →</a></div>
   </header>
 
   <div class="stats" id="stats"></div>
@@ -397,17 +423,21 @@ footer a:hover { text-decoration: underline; }
   </div>
 
   <section class="faq" aria-labelledby="faq-title">
-    <h2 id="faq-title">OSS Radar FAQ</h2>
+    <h2 id="faq-title">OSS.Radar FAQ</h2>
     <h3>What is OSS Radar?</h3>
-    <p>OSS Radar is an AI open-source GitHub repository tracker for finding trending projects, underrated gems, and adoption risks.</p>
+    <p>OSS.Radar is an AI open-source GitHub repository tracker for finding trending projects, underrated gems, and adoption risks.</p>
     <h3>How is OSS Radar different from GitHub Trending?</h3>
-    <p>OSS Radar focuses on AI categories and adds gem scores, adoption readiness, maintainer health, and abandoned-project signals.</p>
+    <p>OSS.Radar focuses on AI categories and adds gem scores, adoption readiness, maintainer health, and abandoned-project signals.</p>
     <h3>How does the gem score work?</h3>
     <p>The gem score combines recent commits, community engagement, star acceleration, contributor diversity, documentation signals, and push recency.</p>
+    <h3>What other low-rate-limit tabs could OSS.Radar add?</h3>
+    <p>Good candidates are Hot This Week, Recently Active, Needs Maintainers, Docs Rich, High Velocity, and Newcomer Friendly. These reuse already-collected stars, push dates, commits, topics, and contributor counts instead of triggering extra GitHub API calls.</p>
   </section>
 
   <footer>
     Built by <a href="https://arulnidhii.github.io" target="_blank">Arulnidhi Karunanidhi</a>
+    &middot; <a href="https://www.aegismemory.com/" target="_blank" rel="noopener">Aegis Memory</a>
+    &middot; <a href="https://github.com/quantifylabs/aegis-memory" target="_blank" rel="noopener">Aegis Memory repo</a>
     &middot; <a href="https://github.com/quantifylabs" target="_blank">Quantify Labs</a>
     &middot; <a href="/feed.xml">RSS</a>
     &middot; Updated every 6 hours via GitHub Actions
@@ -424,6 +454,10 @@ const TABS = [
   { id: 'trending', label: 'Trending', icon: '🔥' },
   { id: 'gems', label: 'Underrated Gems', icon: '💎' },
   { id: 'abandoned', label: 'Abandoned', icon: '💀' },
+  { id: 'hot-week', label: 'Hot This Week', icon: '⚡', source: 'trending' },
+  { id: 'recently-active', label: 'Recently Active', icon: '🟢', source: 'trending' },
+  { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'abandoned' },
+  { id: 'docs-rich', label: 'Docs Rich', icon: '📚', source: 'gems' },
 ];
 
 function escapeHtml(value) {
@@ -477,19 +511,32 @@ function render() {
 
   // Tabs
   document.getElementById('tabs').innerHTML = TABS.map(t => {
-    const count = DATA[t.id]?.length || 0;
+    const source = t.source || t.id;
+    const count = DATA[source]?.length || 0;
     return `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="setTab('${t.id}')">${t.icon} ${t.label}<span class="count">${count}</span></button>`;
   }).join('');
 
-  // Time filters (only for trending)
-  document.getElementById('time-filters').innerHTML = activeTab === 'trending' ? `
+  // Get current list
+  const tabConfig = TABS.find(t => t.id === activeTab) || TABS[0];
+
+  // Time filters (only for trending-derived tabs)
+  document.getElementById('time-filters').innerHTML = (tabConfig.source || activeTab) === 'trending' ? `
     <button class="time-btn ${activeTime === '3d' ? 'active' : ''}" onclick="setTime('3d')">3 days</button>
     <button class="time-btn ${activeTime === '7d' ? 'active' : ''}" onclick="setTime('7d')">7 days</button>
     <button class="time-btn ${activeTime === '30d' ? 'active' : ''}" onclick="setTime('30d')">30 days</button>
   ` : '';
 
-  // Get current list
-  let repos = [...(DATA[activeTab] || [])];
+  let repos = [...(DATA[tabConfig.source || activeTab] || [])];
+
+  if (activeTab === 'hot-week') {
+    repos = repos.filter(r => (r.stars_delta_7d || 0) > 0).sort((a, b) => (b.stars_delta_7d || 0) - (a.stars_delta_7d || 0)).slice(0, 30);
+  } else if (activeTab === 'recently-active') {
+    repos = repos.filter(r => (r.commits_30d || 0) > 0 && !r.abandoned_flag).sort((a, b) => (b.commits_30d || 0) - (a.commits_30d || 0)).slice(0, 30);
+  } else if (activeTab === 'needs-maintainers') {
+    repos = repos.filter(r => (r.contributors || 0) <= 5 || r.abandoned_flag).sort((a, b) => (b.stars || 0) - (a.stars || 0)).slice(0, 30);
+  } else if (activeTab === 'docs-rich') {
+    repos = repos.filter(r => (r.topics || []).some(t => /docs|course|tutorial|roadmap|awesome|book/i.test(t)) || /docs|course|tutorial|roadmap|awesome|book/i.test(r.description || '')).slice(0, 30);
+  }
 
   // Category filters
   const cats = [...new Set(repos.map(r => r.category))].sort();
@@ -504,7 +551,7 @@ function render() {
   }
 
   // Sort trending by star delta for selected time window
-  if (activeTab === 'trending') {
+  if ((tabConfig.source || activeTab) === 'trending') {
     const deltaKey = `stars_delta_${activeTime}`;
     repos.sort((a, b) => (b[deltaKey] || b.stars) - (a[deltaKey] || a.stars));
   }
@@ -551,8 +598,8 @@ function render() {
             <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
               <span class="repo-name">${repoName}</span>
               <span class="cat-badge ${catClass}">${repoCategory}</span>
-              <span class="score-badge ${scoreClass}">adoption ${adoptionLabel} ${adoptionPct}%</span>
-              <span class="score-badge ${healthLabel}">health ${healthLabel}</span>
+              <span class="score-badge ${scoreClass}" aria-label="Adoption: ${adoptionLabel}, ${adoptionPct}%"><span class="badge-label">Adoption:</span> <span class="badge-value">${adoptionLabel}</span> <span>${adoptionPct}%</span></span>
+              <span class="score-badge ${healthLabel}" aria-label="Maintainer health: ${healthLabel}"><span class="badge-label">Health:</span> <span class="badge-value">${healthLabel}</span></span>
               ${abandonedBadge}
               ${metricsBadge}
             </div>
