@@ -20,6 +20,13 @@ REQUIRED_REPO_FIELDS = {
     "name", "description", "stars", "forks", "language", "topics", "category",
     "url", "adoption_score", "adoption_label", "maintainer_health", "metrics_estimated",
 }
+CANONICAL_CATEGORIES = {
+    "agent-framework", "model-serving", "fine-tuning", "rag-and-search",
+    "dev-tools", "mcp", "evals-and-testing", "local-and-edge-ai",
+    "gateways-and-routing", "ai-security-and-guardrails",
+    "ai-coding-and-assistants", "ai-webui-and-interfaces",
+    "multimodal-media", "vector-dbs-and-data",
+}
 
 
 def fail(message: str) -> None:
@@ -44,11 +51,25 @@ def main() -> None:
             fail(f"missing data key: {key}")
     if not data["trending"]:
         fail("trending list is empty")
+    represented_categories = set()
     for section in ["trending", "gems", "abandoned"]:
         for repo in data.get(section, []):
             missing = REQUIRED_REPO_FIELDS - set(repo)
             if missing:
                 fail(f"{repo.get('name', '<unknown>')} missing fields: {sorted(missing)}")
+            category = repo["category"]
+            if category not in CANONICAL_CATEGORIES:
+                fail(f"{repo.get('name', '<unknown>')} has unknown category: {category}")
+            represented_categories.add(category)
+
+    sitemap = (SITE / "sitemap.xml").read_text()
+    for category in represented_categories:
+        if not (SITE / "categories" / category / "index.html").is_file():
+            fail(f"missing category page for {category}")
+        if not (SITE / "feeds" / f"{category}.xml").is_file():
+            fail(f"missing category feed for {category}")
+        if f"/categories/{category}/" not in sitemap:
+            fail(f"sitemap missing category URL for {category}")
     print("Site validation passed")
 
 

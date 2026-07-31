@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import json
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
@@ -86,7 +87,8 @@ dt {{ color: #9ca3af; }}
 def write_page(path: str, title: str, description: str, repos: list[dict]) -> str:
     out = SITE / path.strip("/") / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(page(title, description, f"/{path.strip('/')}/", repos))
+    content = page(title, description, f"/{path.strip('/')}/", repos)
+    out.write_text("\n".join(line.rstrip() for line in content.splitlines()) + "\n")
     return f"/{path.strip('/')}/"
 
 
@@ -132,6 +134,20 @@ def write_llms() -> None:
     )
 
 
+def repositories_by_category(data: dict) -> dict[str, list[dict]]:
+    """Group each repository once, preserving section and repository order."""
+    categories: dict[str, list[dict]] = {}
+    seen_names: set[str] = set()
+    for section in ("trending", "gems", "abandoned"):
+        for repo in data.get(section, []):
+            name = repo.get("name", "")
+            if name in seen_names:
+                continue
+            seen_names.add(name)
+            categories.setdefault(repo.get("category", "dev-tools"), []).append(repo)
+    return categories
+
+
 def write_feeds(data: dict) -> None:
     feeds = SITE / "feeds"
     feeds.mkdir(exist_ok=True)
@@ -156,10 +172,11 @@ def write_feeds(data: dict) -> None:
     (SITE / "feed.xml").write_text(rss("main", "OSS Radar updates", data.get("trending", [])))
     (feeds / "trending.xml").write_text(rss("trending", "OSS Radar trending repositories", data.get("trending", [])))
     (feeds / "gems.xml").write_text(rss("gems", "OSS Radar underrated gems", data.get("gems", [])))
-    cats = {}
-    for repo in data.get("trending", []) + data.get("gems", []):
-        cats.setdefault(repo.get("category", "dev-tools"), []).append(repo)
-    for cat, repos in cats.items():
+    # Remove old generated category feeds so renamed categories cannot deploy.
+    for old_feed in feeds.glob("*.xml"):
+        if old_feed.name not in {"trending.xml", "gems.xml"}:
+            old_feed.unlink()
+    for cat, repos in repositories_by_category(data).items():
         (feeds / f"{cat}.xml").write_text(rss(cat, f"OSS Radar {cat.replace('-', ' ')}", repos))
 
 
@@ -169,10 +186,10 @@ def main() -> None:
     urls.append(write_page("trending", "Trending AI open-source repositories", "Fast-moving AI GitHub projects tracked by OSS Radar.", data.get("trending", [])))
     urls.append(write_page("gems", "Underrated AI open-source gems", "Lower-visibility AI repositories with strong quality and maintenance signals.", data.get("gems", [])))
     urls.append(write_page("abandoned", "Potentially abandoned AI open-source repositories", "Popular AI repositories with stale maintenance signals to review before adopting.", data.get("abandoned", [])))
-    categories = {}
-    for repo in data.get("trending", []) + data.get("gems", []) + data.get("abandoned", []):
-        categories.setdefault(repo.get("category", "dev-tools"), []).append(repo)
-    for cat, repos in categories.items():
+    categories_root = SITE / "categories"
+    if categories_root.exists():
+        shutil.rmtree(categories_root)
+    for cat, repos in repositories_by_category(data).items():
         urls.append(write_page(f"categories/{cat}", f"{cat.replace('-', ' ').title()} AI repositories", f"OSS Radar projects in the {cat.replace('-', ' ')} category.", repos))
     write_robots()
     write_llms()

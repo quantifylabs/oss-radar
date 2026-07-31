@@ -38,18 +38,35 @@ SEARCH_TOPICS = [
     "prompt-engineering", "ai-framework", "embeddings",
     "vllm", "ollama", "transformers", "ai-safety",
     "agent-framework", "model-serving", "mlops",
+    "llm-evaluation", "llm-testing", "eval-framework", "red-teaming",
+    "local-llm", "edge-ai", "on-device-ai", "llama-cpp",
+    "llm-gateway", "ai-gateway", "llm-router", "model-router",
+    "ai-security", "llm-security", "guardrails-ai", "prompt-injection",
+    "ai-coding-assistant", "code-assistant", "copilot", "code-generation",
+    "ai-webui", "llm-ui", "chat-ui", "stable-diffusion-webui",
+    "multimodal-ai", "text-to-image", "text-to-video", "speech-to-text",
+    "vector-store", "data-pipeline", "feature-store", "data-engineering",
 ]
 
-# Category mapping — assign categories based on topic matches
+# Category mapping — assign categories based on topic matches.  The insertion
+# order is the tie-breaker, so narrowly scoped categories deliberately precede
+# broad framework/tooling categories. Keep this taxonomy in sync with
+# validate_site.py and README.md.
 CATEGORY_MAP = {
-    "agent-framework": ["ai-agent", "ai-agents", "agent-framework", "crewai", "langgraph", "autogen"],
-    "model-serving": ["llm-inference", "vllm", "ollama", "model-serving", "gguf", "quantization"],
-    "rag-and-search": ["rag", "vector-database", "embeddings", "semantic-search", "langchain"],
-    "fine-tuning": ["fine-tuning", "lora", "qlora", "peft", "training"],
     "mcp": ["mcp", "mcp-server", "model-context-protocol"],
-    "dev-tools": ["ai-tools", "ai-framework", "prompt-engineering", "ai-coding"],
-    "safety-and-evals": ["ai-safety", "ai-evaluation", "guardrails", "red-teaming"],
-    "mlops": ["mlops", "ml-pipeline", "model-monitoring", "feature-store"],
+    "ai-security-and-guardrails": ["ai-security", "llm-security", "ai-safety", "guardrails", "guardrails-ai", "prompt-injection", "red-teaming", "model-security"],
+    "evals-and-testing": ["ai-evaluation", "llm-evaluation", "llm-testing", "eval-framework", "model-evaluation", "benchmarking", "observability"],
+    "gateways-and-routing": ["llm-gateway", "ai-gateway", "llm-router", "model-router", "api-gateway", "litellm", "load-balancing"],
+    "ai-coding-and-assistants": ["ai-coding", "ai-coding-assistant", "coding-assistant", "code-assistant", "code-generation", "copilot", "developer-assistant"],
+    "ai-webui-and-interfaces": ["ai-webui", "llm-ui", "chat-ui", "webui", "stable-diffusion-webui", "gradio", "streamlit"],
+    "multimodal-media": ["multimodal-ai", "text-to-image", "image-generation", "text-to-video", "video-generation", "speech-to-text", "text-to-speech", "audio-generation"],
+    "vector-dbs-and-data": ["vector-database", "vector-store", "feature-store", "data-pipeline", "data-engineering", "ml-pipeline", "data-infrastructure", "etl"],
+    "local-and-edge-ai": ["local-llm", "edge-ai", "on-device-ai", "llama-cpp", "gguf", "mlx", "webgpu", "ollama"],
+    "fine-tuning": ["fine-tuning", "lora", "qlora", "peft", "model-training", "instruction-tuning"],
+    "model-serving": ["llm-inference", "vllm", "model-serving", "inference-server", "model-deployment", "triton-inference-server", "quantization", "mlops"],
+    "rag-and-search": ["rag", "retrieval-augmented-generation", "embeddings", "semantic-search", "neural-search", "document-retrieval"],
+    "agent-framework": ["ai-agent", "ai-agents", "agent-framework", "crewai", "langgraph", "autogen", "multi-agent"],
+    "dev-tools": ["ai-tools", "ai-framework", "prompt-engineering", "llm", "generative-ai", "langchain", "developer-tools", "mlops"],
 }
 
 # Paths
@@ -167,15 +184,22 @@ def get_contributor_count(owner: str, repo: str) -> int:
 # ---------------------------------------------------------------------------
 
 def assign_category(topics: list[str]) -> str:
-    """Map repo topics to a category."""
+    """Map topics to the highest-scoring category; mapping order breaks ties."""
     topic_set = set(t.lower() for t in topics)
     best_cat = "dev-tools"
     best_score = 0
     for cat, keywords in CATEGORY_MAP.items():
+        # Broad dev-tools signals are a fallback and must not outvote a
+        # category-specific match merely because a repository has many generic
+        # AI topics.
+        if cat == "dev-tools":
+            continue
         score = len(topic_set.intersection(keywords))
         if score > best_score:
             best_score = score
             best_cat = cat
+    if best_score == 0 and topic_set.intersection(CATEGORY_MAP["dev-tools"]):
+        return "dev-tools"
     return best_cat
 
 
