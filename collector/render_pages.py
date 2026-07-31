@@ -134,6 +134,20 @@ def write_llms() -> None:
     )
 
 
+def repositories_by_category(data: dict) -> dict[str, list[dict]]:
+    """Group each repository once, preserving section and repository order."""
+    categories: dict[str, list[dict]] = {}
+    seen_names: set[str] = set()
+    for section in ("trending", "gems", "abandoned"):
+        for repo in data.get(section, []):
+            name = repo.get("name", "")
+            if name in seen_names:
+                continue
+            seen_names.add(name)
+            categories.setdefault(repo.get("category", "dev-tools"), []).append(repo)
+    return categories
+
+
 def write_feeds(data: dict) -> None:
     feeds = SITE / "feeds"
     feeds.mkdir(exist_ok=True)
@@ -162,10 +176,7 @@ def write_feeds(data: dict) -> None:
     for old_feed in feeds.glob("*.xml"):
         if old_feed.name not in {"trending.xml", "gems.xml"}:
             old_feed.unlink()
-    cats = {}
-    for repo in data.get("trending", []) + data.get("gems", []) + data.get("abandoned", []):
-        cats.setdefault(repo.get("category", "dev-tools"), []).append(repo)
-    for cat, repos in cats.items():
+    for cat, repos in repositories_by_category(data).items():
         (feeds / f"{cat}.xml").write_text(rss(cat, f"OSS Radar {cat.replace('-', ' ')}", repos))
 
 
@@ -178,10 +189,7 @@ def main() -> None:
     categories_root = SITE / "categories"
     if categories_root.exists():
         shutil.rmtree(categories_root)
-    categories = {}
-    for repo in data.get("trending", []) + data.get("gems", []) + data.get("abandoned", []):
-        categories.setdefault(repo.get("category", "dev-tools"), []).append(repo)
-    for cat, repos in categories.items():
+    for cat, repos in repositories_by_category(data).items():
         urls.append(write_page(f"categories/{cat}", f"{cat.replace('-', ' ').title()} AI repositories", f"OSS Radar projects in the {cat.replace('-', ' ')} category.", repos))
     write_robots()
     write_llms()
