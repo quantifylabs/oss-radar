@@ -11,7 +11,7 @@ Track trending AI open-source GitHub repositories, discover underrated gems, com
 - **Trending** — Top AI repos by star growth (3-day / 7-day / 30-day windows)
 - **Underrated Gems** — High-quality repos under 500 stars that most people haven't found yet
 - **Abandoned Detector** — Popular repos with stale pushes or weak maintenance signals (the "hot but dead" trap)
-- **Category filtering** — Agent frameworks, model serving, RAG, fine-tuning, MCP, dev tools, evals, MLOps
+- **Category filtering** — Agent frameworks, model serving, fine-tuning, RAG and search, dev tools, MCP, evals and testing, local and edge AI, gateways and routing, AI security and guardrails, AI coding assistants, AI WebUIs and interfaces, multimodal media, and vector databases and data infrastructure
 - **Adoption signals** — Adoption readiness, maintainer health, and deterministic trend explanations for safer tool selection
 - **Auto-updated** — GitHub Actions cron runs every 6 hours
 
@@ -198,6 +198,20 @@ SEARCH_TOPICS = [
     "your-new-topic",  # add here
 ]
 ```
+
+Discovery and classification are one coordinated taxonomy: whenever you add a
+discovery term to `SEARCH_TOPICS`, also add it to the appropriate entry in
+`CATEGORY_MAP` (or intentionally document why it should use the `dev-tools`
+fallback). Category mapping order is significant when match counts tie, so keep
+specific categories ahead of general-purpose framework/tool topics.
+
+The canonical category slugs are `agent-framework`, `model-serving`,
+`fine-tuning`, `rag-and-search`, `dev-tools`, `mcp`, `evals-and-testing`,
+`local-and-edge-ai`, `gateways-and-routing`, `ai-security-and-guardrails`,
+`ai-coding-and-assistants`, `ai-webui-and-interfaces`, `multimodal-media`, and
+`vector-dbs-and-data`. Legacy `safety-and-evals` records are classified into
+security/guardrails or evals/testing based on their topics; legacy `mlops`
+records are classified into data infrastructure, model serving, or dev tools.
 
 ### Change the gem threshold
 
