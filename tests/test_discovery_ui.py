@@ -65,3 +65,15 @@ def test_cards_have_a_named_github_action_instead_of_a_linked_container():
     assert '<article class="repo">' in HTML
     assert 'class="github-action"' in HTML
     assert 'aria-label="Open ${escapeHtml(name)} on GitHub"' in HTML
+
+
+def test_initial_repository_render_is_bounded_and_can_load_more():
+    assert "const PAGE_SIZE = 50" in HTML
+    assert "repos.slice(0,visibleCount)" in HTML
+    assert 'id="load-more"' in HTML
+    assert "more.onclick=loadMore" in HTML
+
+
+def test_search_updates_are_debounced():
+    assert "function debounce" in HTML
+    assert "id==='search'?debounce(update):update" in HTML

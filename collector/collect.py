@@ -99,6 +99,8 @@ PROJECT_ROOT = SCRIPT_DIR.parent
 DATA_DIR = PROJECT_ROOT / "site"
 DATA_FILE = DATA_DIR / "data.json"
 HISTORY_FILE = DATA_DIR / "history.json"
+DISCOVERY_DIR = DATA_DIR / "data" / "discovery"
+DISCOVERY_PAGE_SIZE = 100
 
 # Thresholds
 GEM_STAR_CEILING = 500          # max stars to qualify as "underrated"
@@ -934,6 +936,21 @@ def collect():
     # Step 5: Write data.json
     # -----------------------------------------------------------------------
     print("\n[5/5] Writing data.json...")
+    discovery_pages = []
+    DISCOVERY_DIR.mkdir(parents=True, exist_ok=True)
+    for stale_page in DISCOVERY_DIR.glob("*.json"):
+        stale_page.unlink()
+    for offset in range(0, len(discovery), DISCOVERY_PAGE_SIZE):
+        page_number = offset // DISCOVERY_PAGE_SIZE + 1
+        page_path = DISCOVERY_DIR / f"{page_number}.json"
+        page = discovery[offset:offset + DISCOVERY_PAGE_SIZE]
+        with open(page_path, "w") as f:
+            json.dump(page, f, separators=(",", ":"))
+        discovery_pages.append({
+            "url": f"data/discovery/{page_number}.json",
+            "count": len(page),
+        })
+
     output = {
         "last_updated": now.isoformat(),
         "stats": {
@@ -947,12 +964,13 @@ def collect():
         "trending_rankings": trending_rankings,
         "gems": gems,
         "abandoned": abandoned,
-        "discovery": discovery,
+        "discovery_count": len(discovery),
+        "discovery_pages": discovery_pages,
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     with open(DATA_FILE, "w") as f:
-        json.dump(output, f, indent=2)
+        json.dump(output, f, separators=(",", ":"))
 
     print(f"\n✓ Done. {len(trending)} trending, {len(gems)} gems, {len(abandoned)} abandoned.")
     print(f"  Data written to {DATA_FILE}")

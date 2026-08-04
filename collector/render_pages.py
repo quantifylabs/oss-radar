@@ -13,13 +13,22 @@ from xml.sax.saxutils import escape as xml_escape
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA_FILE = SITE / "data.json"
-BASE_URL = "https://radar.aegismemory.com"
-AEGIS_URL = "https://www.aegismemory.com/"
-AEGIS_REPO_URL = "https://github.com/quantifylabs/aegis-memory"
 
 
 def load_data() -> dict:
-    return json.loads(DATA_FILE.read_text())
+    """Load the manifest and expand chunked discovery data for static pages."""
+    data = json.loads(DATA_FILE.read_text())
+    if "discovery" not in data and data.get("discovery_pages"):
+        discovery = []
+        for page in data["discovery_pages"]:
+            discovery.extend(json.loads((SITE / page["url"]).read_text()))
+        data["discovery"] = discovery
+    return data
+
+
+BASE_URL = "https://radar.aegismemory.com"
+AEGIS_URL = "https://www.aegismemory.com/"
+AEGIS_REPO_URL = "https://github.com/quantifylabs/aegis-memory"
 
 
 def h(value) -> str:
