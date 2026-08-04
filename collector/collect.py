@@ -82,6 +82,8 @@ ABANDONED_DAYS = 30             # no push in N days = flagged
 MIN_STARS_FOR_TRENDING = 50     # ignore very tiny repos in trending
 MAX_REPOS_PER_QUERY = 80        # results per search topic
 DETAIL_FETCH_LIMIT = 250        # max repos to fetch commit/contributor data for
+TRENDING_RANK_LIMIT = 60        # retained independently for each history window
+TRENDING_WINDOWS = (3, 7, 30)
 DETAIL_FETCH_BUCKET_LIMITS = {     # reserve detail capacity for each display bucket
     "abandoned": 40,
     "gems": 70,
@@ -310,9 +312,9 @@ def compute_maintainer_health(repo: dict, commits_30d: int, contributors: int) -
 def build_trend_reasons(entry: dict) -> list[str]:
     """Create deterministic explanations for why a repo is notable."""
     reasons = []
-    if entry.get("stars_delta_7d", 0) > 0:
+    if entry.get("stars_delta_7d") is not None and entry["stars_delta_7d"] > 0:
         reasons.append(f"+{entry['stars_delta_7d']:,} stars in 7 days")
-    elif entry.get("stars_delta_30d", 0) > 0:
+    elif entry.get("stars_delta_30d") is not None and entry["stars_delta_30d"] > 0:
         reasons.append(f"+{entry['stars_delta_30d']:,} stars in 30 days")
     if entry.get("commits_30d", 0) >= 10:
         reasons.append(f"{entry['commits_30d']} commits in 30 days")
@@ -341,32 +343,66 @@ def save_history(history: dict):
         json.dump(history, f, indent=2)
 
 
-def compute_star_deltas(repos: dict[str, int], history: dict) -> dict[str, dict]:
+def compute_star_deltas(
+    repos: dict[str, int], history: dict, now: datetime | None = None
+) -> dict[str, dict]:
     """
     Compare current star counts with historical snapshots.
-    Returns {full_name: {delta_3d, delta_7d, delta_30d}}.
+    A delta is valid only when the repository existed in a snapshot at least as
+    old as the requested window. Missing history is represented by ``None`` --
+    it is not zero growth.
     """
     deltas = {}
-    now = datetime.now(timezone.utc)
+    now = now or datetime.now(timezone.utc)
     snapshots = history.get("snapshots", [])
 
     for name, current_stars in repos.items():
-        d = {"delta_3d": 0, "delta_7d": 0, "delta_30d": 0}
-        for snap in reversed(snapshots):
-            snap_time = datetime.fromisoformat(snap["timestamp"])
-            age = (now - snap_time).days
-            snap_stars = snap.get("stars", {}).get(name, current_stars)
+        repo_snapshots = [snap for snap in snapshots if name in snap.get("stars", {})]
+        coverage_days = max(
+            ((now - datetime.fromisoformat(snap["timestamp"])).total_seconds() / 86400
+             for snap in repo_snapshots),
+            default=0,
+        )
+        d = {"history_coverage_days": round(max(coverage_days, 0), 2)}
+        for window in TRENDING_WINDOWS:
+            d[f"delta_{window}d"] = None
+            d[f"delta_{window}d_valid"] = False
 
-            if age >= 3 and d["delta_3d"] == 0:
-                d["delta_3d"] = current_stars - snap_stars
-            if age >= 7 and d["delta_7d"] == 0:
-                d["delta_7d"] = current_stars - snap_stars
-            if age >= 30 and d["delta_30d"] == 0:
-                d["delta_30d"] = current_stars - snap_stars
-                break
+        # Choose the closest snapshot at or beyond each boundary, rather than
+        # whichever item happens to occur first in the history file.
+        for snap in sorted(repo_snapshots, key=lambda item: item["timestamp"], reverse=True):
+            snap_time = datetime.fromisoformat(snap["timestamp"])
+            age = (now - snap_time).total_seconds() / 86400
+            for window in TRENDING_WINDOWS:
+                key = f"delta_{window}d"
+                if age >= window and not d[f"{key}_valid"]:
+                    d[key] = current_stars - snap["stars"][name]
+                    d[f"{key}_valid"] = True
 
         deltas[name] = d
     return deltas
+
+
+def rank_trending(entries: list[dict], window: int, limit: int = TRENDING_RANK_LIMIT) -> list[dict]:
+    """Rank all history-eligible active repositories for one growth window."""
+    delta_key = f"stars_delta_{window}d"
+    valid_key = f"{delta_key}_valid"
+    eligible = [
+        entry for entry in entries
+        if entry.get(valid_key)
+        and not entry.get("archived", False)
+        and entry.get("days_since_push", ABANDONED_DAYS + 1) <= ABANDONED_DAYS
+    ]
+
+    def rank_key(entry: dict) -> tuple:
+        delta = entry[delta_key]
+        previous_stars = max(entry["stars"] - delta, 1)
+        relative_growth = delta / previous_stars
+        # Delta is primary. Relative growth, push recency, total stars, and name
+        # provide explicit and deterministic tie-breakers.
+        return (-delta, -relative_growth, entry["days_since_push"], -entry["stars"], entry["name"].lower())
+
+    return sorted(eligible, key=rank_key)[:limit]
 
 
 # ---------------------------------------------------------------------------
@@ -541,13 +577,32 @@ def collect():
         if stars >= MIN_STARS_FOR_TRENDING:
             trending.append(entry)
 
-    # Sort
-    trending.sort(key=lambda r: r["stars"], reverse=True)
+    # Compute history signals before truncating any candidate collection. This
+    # ensures a fast-growing smaller repository can outrank a famous project.
+    history = load_history()
+    deltas = compute_star_deltas(current_stars, history, now=now)
+    for entry in trending + gems + abandoned:
+        d = deltas.get(entry["name"], {})
+        entry["history_coverage_days"] = d.get("history_coverage_days", 0)
+        for window in TRENDING_WINDOWS:
+            entry[f"stars_delta_{window}d"] = d.get(f"delta_{window}d")
+            entry[f"stars_delta_{window}d_valid"] = d.get(f"delta_{window}d_valid", False)
+        entry["trend_reasons"] = build_trend_reasons(entry)
+
+    trending_rankings = {
+        f"{window}d": rank_trending(trending, window)
+        for window in TRENDING_WINDOWS
+    }
+
+    # Sort non-trending collections and retain a compatibility union of every
+    # window's results rather than a total-star-prefiltered candidate list.
     gems.sort(key=lambda r: r["gem_score"], reverse=True)
     abandoned.sort(key=lambda r: r["stars"], reverse=True)
-
-    # Limit output
-    trending = trending[:60]
+    trending_by_name = {}
+    for window in TRENDING_WINDOWS:
+        for entry in trending_rankings[f"{window}d"]:
+            trending_by_name.setdefault(entry["name"], entry)
+    trending = list(trending_by_name.values())
     gems = gems[:30]
     abandoned = abandoned[:20]
 
@@ -555,17 +610,6 @@ def collect():
     # Step 4: Compute star deltas from history
     # -----------------------------------------------------------------------
     print("\n[4/5] Computing star deltas...")
-    history = load_history()
-    deltas = compute_star_deltas(current_stars, history)
-
-    for lst in [trending, gems, abandoned]:
-        for entry in lst:
-            d = deltas.get(entry["name"], {})
-            entry["stars_delta_3d"] = d.get("delta_3d", 0)
-            entry["stars_delta_7d"] = d.get("delta_7d", 0)
-            entry["stars_delta_30d"] = d.get("delta_30d", 0)
-            entry["trend_reasons"] = build_trend_reasons(entry)
-
     # Save new snapshot
     history["snapshots"].append({
         "timestamp": now.isoformat(),
@@ -592,6 +636,7 @@ def collect():
             "abandoned_candidates_evaluated": len(abandoned_candidates_seen),
         },
         "trending": trending,
+        "trending_rankings": trending_rankings,
         "gems": gems,
         "abandoned": abandoned,
     }

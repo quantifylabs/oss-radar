@@ -515,9 +515,8 @@ function reposForTab(tabId) {
     : [...(DATA[tabConfig.source || tabId] || [])];
 
   if (tabId === 'hot-week') {
-    return repos
-      .filter(r => (r.stars_delta_7d || 0) > 0)
-      .sort((a, b) => (b.stars_delta_7d || 0) - (a.stars_delta_7d || 0))
+    return [...(DATA.trending_rankings?.['7d'] || repos)]
+      .filter(r => r.stars_delta_7d_valid && r.stars_delta_7d > 0)
       .slice(0, 30);
   }
 
@@ -578,6 +577,10 @@ function render() {
   const tabConfig = TABS.find(t => t.id === activeTab) || TABS[0];
   let repos = reposForTab(activeTab);
 
+  if (activeTab === 'trending' && DATA.trending_rankings?.[activeTime]) {
+    repos = [...DATA.trending_rankings[activeTime]];
+  }
+
   // Category filters
   const cats = [...new Set(repos.map(r => r.category))].sort();
   document.getElementById('cat-filters').innerHTML = repos.length > 0 ? `
@@ -593,7 +596,9 @@ function render() {
   // Sort trending by star delta for selected time window
   if ((tabConfig.source || activeTab) === 'trending') {
     const deltaKey = `stars_delta_${activeTime}`;
-    repos.sort((a, b) => (b[deltaKey] || b.stars) - (a[deltaKey] || a.stars));
+    if (activeTab !== 'trending' || !DATA.trending_rankings?.[activeTime]) {
+      repos.sort((a, b) => (b[deltaKey] ?? Number.NEGATIVE_INFINITY) - (a[deltaKey] ?? Number.NEGATIVE_INFINITY));
+    }
   }
 
   // Render repos
