@@ -149,8 +149,8 @@ def get_repo_details(owner: str, repo: str) -> dict | None:
     return gh_get(f"{API_BASE}/repos/{owner}/{repo}")
 
 
-def get_commit_count_recent(owner: str, repo: str, days: int = 30) -> int:
-    """Count commits in the last N days."""
+def get_commit_count_recent(owner: str, repo: str, days: int = 30) -> tuple[int | None, bool]:
+    """Return a recent commit lower bound and whether the 100-item result was capped."""
     since = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
     data = gh_get(
         f"{API_BASE}/repos/{owner}/{repo}/commits",
@@ -159,26 +159,59 @@ def get_commit_count_recent(owner: str, repo: str, days: int = 30) -> int:
     # The API doesn't return total count directly, but we can check
     # if there are commits and approximate from pagination
     if data is None:
-        return 0
+        return None, False
     if isinstance(data, list):
         # Fetch up to 100 to get a count
         data_full = gh_get(
             f"{API_BASE}/repos/{owner}/{repo}/commits",
             params={"since": since, "per_page": 100},
         )
-        return len(data_full) if isinstance(data_full, list) else 0
-    return 0
+        if not isinstance(data_full, list):
+            return None, False
+        return len(data_full), len(data_full) == 100
+    return None, False
 
 
-def get_contributor_count(owner: str, repo: str) -> int:
-    """Count unique contributors (up to 100)."""
+def get_contributor_metrics(owner: str, repo: str) -> dict:
+    """Return lifetime contributor lower bound and contribution concentration."""
     data = gh_get(
         f"{API_BASE}/repos/{owner}/{repo}/contributors",
         params={"per_page": 100, "anon": "false"},
     )
     if isinstance(data, list):
-        return len(data)
-    return 1
+        contributions = [item.get("contributions", 0) for item in data]
+        total = sum(contributions)
+        return {
+            "contributors_total_lower_bound": len(data),
+            "contributors_capped": len(data) == 100,
+            "top_contributor_share": round(max(contributions) / total, 3) if total else None,
+        }
+    return {"contributors_total_lower_bound": None, "contributors_capped": False,
+            "top_contributor_share": None}
+
+
+def get_decision_signals(owner: str, repo: str, now: datetime | None = None) -> dict:
+    """Fetch bounded release and response-activity signals; preserve API failures as missing."""
+    now = now or datetime.now(timezone.utc)
+    release = gh_get(f"{API_BASE}/repos/{owner}/{repo}/releases/latest")
+    release_age = None
+    if isinstance(release, dict) and release.get("published_at"):
+        published = datetime.fromisoformat(release["published_at"].replace("Z", "+00:00"))
+        release_age = max((now - published).days, 0)
+
+    since = (now - timedelta(days=30)).isoformat()
+    issue_comments = gh_get(f"{API_BASE}/repos/{owner}/{repo}/issues/comments",
+                            params={"since": since, "per_page": 100})
+    review_comments = gh_get(f"{API_BASE}/repos/{owner}/{repo}/pulls/comments",
+                             params={"since": since, "per_page": 100})
+    issue_activity = len(issue_comments) if isinstance(issue_comments, list) else None
+    pr_activity = len(review_comments) if isinstance(review_comments, list) else None
+    response_capped = any(isinstance(value, list) and len(value) == 100
+                          for value in (issue_comments, review_comments))
+    return {"latest_release_age_days": release_age,
+            "issue_responses_30d_lower_bound": issue_activity,
+            "pull_request_responses_30d_lower_bound": pr_activity,
+            "response_activity_capped": response_capped}
 
 
 # ---------------------------------------------------------------------------
@@ -264,8 +297,8 @@ def compute_gem_score(repo: dict, commits_30d: int, contributors: int) -> float:
     return round(min(gem_score, 1.0), 3)
 
 
-def compute_adoption_score(repo: dict, commits_30d: int, contributors: int) -> tuple[float, str]:
-    """Score how safe a repo looks to adopt based on maintenance signals."""
+def compute_adoption_readiness(repo: dict, signals: dict) -> dict:
+    """Compute an uncalibrated readiness heuristic, not a probability or percentage."""
     now = datetime.now(timezone.utc)
     pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
     days_since_push = max((now - pushed).days, 0)
@@ -275,36 +308,63 @@ def compute_adoption_score(repo: dict, commits_30d: int, contributors: int) -> t
     topics = repo.get("topics", [])
 
     recency = max(1.0 - days_since_push / 60, 0.0)
-    velocity = min(commits_30d / 30, 1.0)
-    diversity = min(contributors / 12, 1.0)
+    commits = signals.get("commits_30d_lower_bound")
+    contributors = signals.get("contributors_total_lower_bound")
+    velocity = min(commits / 30, 1.0) if commits is not None else None
+    diversity = min(contributors / 12, 1.0) if contributors is not None else None
     issue_health = max(1.0 - min(open_issues / stars, 1.0), 0.0)
     fork_signal = min((forks / stars) / 0.25, 1.0)
     docs_signal = min(len(topics) / 5, 1.0)
-    license_signal = 1.0 if repo.get("license") else 0.35
-    archived_penalty = 0.0 if repo.get("archived") else 1.0
+    spdx = (repo.get("license") or {}).get("spdx_id")
+    permissive = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unlicense"}
+    license_signal = 1.0 if spdx in permissive else 0.55 if spdx else 0.35
+    release_age = signals.get("latest_release_age_days")
+    release_signal = None if release_age is None else max(1 - release_age / 365, 0)
+    issue_responses = signals.get("issue_responses_30d_lower_bound")
+    pr_responses = signals.get("pull_request_responses_30d_lower_bound")
+    response = None if issue_responses is None and pr_responses is None else (issue_responses or 0) + (pr_responses or 0)
+    response_signal = None if response is None else min(response / 10, 1)
+    concentration = signals.get("top_contributor_share")
+    concentration_signal = None if concentration is None else 1 - concentration
+    parts = {"push_recency": (recency, .20), "commit_activity": (velocity, .18),
+             "contributor_breadth": (diversity, .13), "issue_load": (issue_health, .10),
+             "fork_interest": (fork_signal, .07), "documentation": (docs_signal, .06),
+             "license": (license_signal, .10), "release_recency": (release_signal, .06),
+             "response_activity": (response_signal, .05),
+             "maintenance_distribution": (concentration_signal, .05)}
+    available_weight = sum(weight for value, weight in parts.values() if value is not None)
+    score = sum(value * weight for value, weight in parts.values() if value is not None) / available_weight
+    if repo.get("archived"):
+        score = 0
+    score = round(score * 100)  # points, explicitly not a calibrated percentage
+    label = "ready" if score >= 72 else "needs review" if score >= 45 else "high risk"
+    missing = [name for name, (value, _) in parts.items() if value is None]
+    positives = [name.replace("_", " ") for name, (value, _) in parts.items() if value is not None and value >= .7][:3]
+    risks = (["repository is archived"] if repo.get("archived") else [])
+    if release_age is not None and release_age > 365: risks.append(f"latest release is {release_age} days old")
+    if concentration is not None and concentration >= .8: risks.append("maintenance is concentrated in one contributor")
+    confidence = "high" if not missing else "medium" if len(missing) <= 2 else "low"
+    return {"adoption_score": score, "adoption_label": label, "score_breakdown": {
+                name: (None if value is None else round(value * 100)) for name, (value, _) in parts.items()},
+            "data_confidence": confidence, "positive_signals": positives,
+            "risk_signals": risks, "missing_inputs": missing}
 
-    score = (
-        0.22 * recency
-        + 0.20 * velocity
-        + 0.18 * diversity
-        + 0.14 * issue_health
-        + 0.10 * fork_signal
-        + 0.08 * docs_signal
-        + 0.08 * license_signal
-    ) * archived_penalty
-    score = round(min(max(score, 0.0), 1.0), 3)
-    label = "safe" if score >= 0.72 else "watch" if score >= 0.45 else "risky"
-    return score, label
+
+def compute_adoption_score(repo: dict, commits_30d: int, contributors: int) -> tuple[int, str]:
+    """Compatibility wrapper returning heuristic points and a qualitative label."""
+    result = compute_adoption_readiness(repo, {"commits_30d_lower_bound": commits_30d,
+        "contributors_total_lower_bound": contributors})
+    return result["adoption_score"], result["adoption_label"]
 
 
-def compute_maintainer_health(repo: dict, commits_30d: int, contributors: int) -> str:
+def compute_maintainer_health(repo: dict, commits_30d: int | None, contributors: int | None) -> str:
     """Classify maintainer health using simple deterministic signals."""
     now = datetime.now(timezone.utc)
     pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
     days_since_push = (now - pushed).days
     if repo.get("archived") or days_since_push > 120:
         return "risky"
-    if days_since_push > 45 or commits_30d == 0 or contributors <= 1:
+    if days_since_push > 45 or commits_30d == 0 or (contributors is not None and contributors <= 1):
         return "watch"
     return "healthy"
 
@@ -316,10 +376,12 @@ def build_trend_reasons(entry: dict) -> list[str]:
         reasons.append(f"+{entry['stars_delta_7d']:,} stars in 7 days")
     elif entry.get("stars_delta_30d") is not None and entry["stars_delta_30d"] > 0:
         reasons.append(f"+{entry['stars_delta_30d']:,} stars in 30 days")
-    if entry.get("commits_30d", 0) >= 10:
-        reasons.append(f"{entry['commits_30d']} commits in 30 days")
-    if entry.get("contributors", 0) >= 5:
-        reasons.append(f"{entry['contributors']} active contributors")
+    if (entry.get("commits_30d_lower_bound") or 0) >= 10:
+        suffix = "+" if entry.get("commits_30d_capped") else ""
+        reasons.append(f"{entry['commits_30d_lower_bound']}{suffix} commits in 30 days")
+    if (entry.get("contributors_total_lower_bound") or 0) >= 5:
+        suffix = "+" if entry.get("contributors_capped") else ""
+        reasons.append(f"{entry['contributors_total_lower_bound']}{suffix} lifetime contributors")
     if not reasons:
         reasons.append(f"High-signal {entry['category'].replace('-', ' ')} project")
     return reasons[:2]
@@ -501,12 +563,15 @@ def collect():
     for i, repo in enumerate(fetch_candidates):
         owner, name = repo["full_name"].split("/", 1)
 
-        commits = get_commit_count_recent(owner, name, days=30)
-        contributors = get_contributor_count(owner, name)
+        commits, commits_capped = get_commit_count_recent(owner, name, days=30)
+        contributor_metrics = get_contributor_metrics(owner, name)
+        decision_signals = get_decision_signals(owner, name, now=now)
 
         repo_details[repo["full_name"]] = {
-            "commits_30d": commits,
-            "contributors": contributors,
+            "commits_30d_lower_bound": commits,
+            "commits_30d_capped": commits_capped,
+            **contributor_metrics,
+            **decision_signals,
         }
 
         if (i + 1) % 25 == 0:
@@ -529,16 +594,27 @@ def collect():
         current_stars[full_name] = stars
 
         topics = repo.get("topics", [])
-        details = repo_details.get(full_name, {"commits_30d": 0, "contributors": 1})
+        details = repo_details.get(full_name, {
+            "commits_30d_lower_bound": None, "commits_30d_capped": False,
+            "contributors_total_lower_bound": None, "contributors_capped": False,
+            "top_contributor_share": None, "latest_release_age_days": None,
+            "issue_responses_30d_lower_bound": None,
+            "pull_request_responses_30d_lower_bound": None,
+            "response_activity_capped": False,
+        })
 
         pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
         days_since_push = (now - pushed).days
 
-        gem_score = compute_gem_score(repo, details["commits_30d"], details["contributors"])
-        adoption_score, adoption_label = compute_adoption_score(repo, details["commits_30d"], details["contributors"])
+        # Gem ranking treats unavailable detail neutrally for compatibility; the
+        # readiness breakdown retains the distinction as missing data.
+        gem_score = compute_gem_score(repo, details["commits_30d_lower_bound"] or 0,
+                                      details["contributors_total_lower_bound"] or 0)
+        readiness = compute_adoption_readiness(repo, details)
         category = assign_category(topics)
         metrics_estimated = full_name not in fetch_candidate_names
-        maintainer_health = compute_maintainer_health(repo, details["commits_30d"], details["contributors"])
+        maintainer_health = compute_maintainer_health(repo, details["commits_30d_lower_bound"],
+                                                      details["contributors_total_lower_bound"])
 
         entry = {
             "name": full_name,
@@ -552,16 +628,14 @@ def collect():
             "created_at": repo.get("created_at", ""),
             "pushed_at": repo.get("pushed_at", ""),
             "days_since_push": days_since_push,
-            "commits_30d": details["commits_30d"],
-            "contributors": details["contributors"],
+            **details,
             "gem_score": gem_score,
             "url": repo.get("html_url", ""),
             "owner_avatar": repo.get("owner", {}).get("avatar_url", ""),
             "archived": repo.get("archived", False),
             "license": (repo.get("license") or {}).get("spdx_id") if repo.get("license") else None,
             "metrics_estimated": metrics_estimated,
-            "adoption_score": adoption_score,
-            "adoption_label": adoption_label,
+            **readiness,
             "maintainer_health": maintainer_health,
             "trend_reasons": [],
         }

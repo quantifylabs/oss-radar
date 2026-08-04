@@ -522,14 +522,14 @@ function reposForTab(tabId) {
 
   if (tabId === 'recently-active') {
     return repos
-      .filter(r => (r.commits_30d || 0) > 0 && !r.abandoned_flag)
-      .sort((a, b) => (b.commits_30d || 0) - (a.commits_30d || 0))
+      .filter(r => (r.commits_30d_lower_bound || 0) > 0 && !r.abandoned_flag)
+      .sort((a, b) => (b.commits_30d_lower_bound || 0) - (a.commits_30d_lower_bound || 0))
       .slice(0, 30);
   }
 
   if (tabId === 'needs-maintainers') {
     return repos
-      .filter(r => (r.contributors || 0) <= 5 || r.abandoned_flag)
+      .filter(r => (r.contributors_total_lower_bound ?? Infinity) <= 5 || r.abandoned_flag)
       .sort((a, b) => (b.stars || 0) - (a.stars || 0))
       .slice(0, 30);
   }
@@ -619,7 +619,12 @@ function render() {
     const avatarUrl = safeAvatar(r.owner_avatar);
     const adoptionLabel = escapeHtml(r.adoption_label || 'watch');
     const healthLabel = escapeHtml(r.maintainer_health || 'watch');
-    const adoptionPct = Math.round((r.adoption_score || 0) * 100);
+    const rawAdoptionScore = Number(r.adoption_score ?? 0);
+    const adoptionPoints = Math.round(rawAdoptionScore <= 1 ? rawAdoptionScore * 100 : rawAdoptionScore);
+    const confidence = escapeHtml(r.data_confidence || 'low');
+    const positives = (r.positive_signals || []).map(escapeHtml).join(', ');
+    const risks = (r.risk_signals || []).map(escapeHtml).join(', ');
+    const missing = (r.missing_inputs || []).map(x => escapeHtml(String(x).replace(/_/g, ' '))).join(', ');
     const reasons = (r.trend_reasons || []).map(escapeHtml).slice(0, 2).join(' · ');
     const delta = r[deltaKey] || 0;
     const deltaStr = delta > 0 ? `<span class="m-item delta-pos">+${delta.toLocaleString()}</span>` :
@@ -632,7 +637,7 @@ function render() {
       </div>` : '';
 
     const abandonedBadge = r.abandoned_flag ? `<span class="abandoned-flag">no push in ${Number(r.days_since_push) || 0}d</span>` : '';
-    const metricsBadge = r.metrics_estimated ? '<span class="abandoned-flag">metrics estimated</span>' : '';
+    const metricsBadge = r.metrics_estimated ? '<span class="abandoned-flag">detail data unavailable</span>' : '';
     const scoreClass = adoptionLabel === 'safe' ? '' : adoptionLabel;
 
     const catClass = `cat-${String(r.category || 'dev-tools').replace(/[^a-z0-9-]/g, '')}`;
@@ -645,7 +650,7 @@ function render() {
             <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
               <span class="repo-name">${repoName}</span>
               <span class="cat-badge ${catClass}">${repoCategory}</span>
-              <span class="score-badge ${scoreClass}" aria-label="Adoption: ${adoptionLabel}, ${adoptionPct}%"><span class="badge-label">Adoption:</span> <span class="badge-value">${adoptionLabel}</span> <span>${adoptionPct}%</span></span>
+              <span class="score-badge ${scoreClass}" aria-label="Readiness heuristic: ${adoptionLabel}, ${adoptionPoints} points"><span class="badge-label">Readiness:</span> <span class="badge-value">${adoptionLabel}</span> <span>${adoptionPoints}/100 heuristic</span></span>
               <span class="score-badge ${healthLabel}" aria-label="Maintainer health: ${healthLabel}"><span class="badge-label">Health:</span> <span class="badge-value">${healthLabel}</span></span>
               ${abandonedBadge}
               ${metricsBadge}
@@ -658,9 +663,10 @@ function render() {
           ${deltaStr}
           <span class="m-item">⑂ ${r.forks.toLocaleString()}</span>
           <span class="m-item">${repoLang}</span>
-          <span class="m-item">${r.commits_30d} commits/30d</span>
-          <span class="m-item">${r.contributors} contributors</span>
+          <span class="m-item">${r.commits_30d_lower_bound == null ? 'commits unavailable' : `${r.commits_30d_lower_bound}${r.commits_30d_capped ? '+' : ''} commits/30d`}</span>
+          <span class="m-item">${r.contributors_total_lower_bound == null ? 'contributors unavailable' : `${r.contributors_total_lower_bound}${r.contributors_capped ? '+' : ''} lifetime contributors`}</span>
         </div>
+        <div class="trend-reason"><strong>Data confidence:</strong> ${confidence}${positives ? ` · <strong>Strengths:</strong> ${positives}` : ''}${risks ? ` · <strong>Risks:</strong> ${risks}` : ''}${missing ? ` · <strong>Missing:</strong> ${missing}` : ''}${r.commits_30d_capped || r.contributors_capped || r.response_activity_capped ? ' · <strong>Capped:</strong> displayed counts are lower bounds' : ''}</div>
         ${reasons ? `<div class="trend-reason">${reasons}</div>` : ''}
         ${gemBar}
         ${r.topics.length > 0 ? `<div class="topics">${r.topics.map(t => `<span class="topic">${escapeHtml(t)}</span>`).join('')}</div>` : ''}

@@ -30,8 +30,17 @@ def repo_items(repos: list[dict]) -> str:
         return "<p>No repositories found for this view yet.</p>"
     items = []
     for repo in repos:
+        raw_score = float(repo.get("adoption_score", 0))
+        heuristic_points = round(raw_score * 100) if raw_score <= 1 else round(raw_score)
         topics = " ".join(f"<span>{h(t)}</span>" for t in repo.get("topics", [])[:6])
         reasons = "; ".join(repo.get("trend_reasons", [])[:2])
+        positives = ", ".join(repo.get("positive_signals", [])) or "None identified"
+        risks = ", ".join(repo.get("risk_signals", [])) or "None identified"
+        missing = ", ".join(item.replace("_", " ") for item in repo.get("missing_inputs", [])) or "None"
+        capped = []
+        if repo.get("commits_30d_capped"): capped.append("30-day commits")
+        if repo.get("contributors_capped"): capped.append("lifetime contributors")
+        if repo.get("response_activity_capped"): capped.append("response activity")
         items.append(
             f"""
             <article class="repo-card">
@@ -40,10 +49,13 @@ def repo_items(repos: list[dict]) -> str:
               <dl>
                 <dt>Category</dt><dd>{h(str(repo.get('category', '')).replace('-', ' '))}</dd>
                 <dt>Stars</dt><dd>{int(repo.get('stars', 0)):,}</dd>
-                <dt>Adoption</dt><dd>{h(repo.get('adoption_label', 'watch'))} ({float(repo.get('adoption_score', 0)) * 100:.0f}%)</dd>
+                <dt>Readiness</dt><dd>{h(repo.get('adoption_label', 'needs review'))} ({heuristic_points}/100 heuristic points; not a probability)</dd>
+                <dt>Data confidence</dt><dd>{h(repo.get('data_confidence', 'low'))}</dd>
                 <dt>Maintainer health</dt><dd>{h(repo.get('maintainer_health', 'watch'))}</dd>
               </dl>
               {f'<p><strong>Why:</strong> {h(reasons)}</p>' if reasons else ''}
+              <p><strong>Strongest signals:</strong> {h(positives)}. <strong>Risks:</strong> {h(risks)}. <strong>Missing inputs:</strong> {h(missing)}.</p>
+              {f'<p><strong>Capped lower bounds:</strong> {h(", ".join(capped))}.</p>' if capped else ''}
               {f'<p class="topics">{topics}</p>' if topics else ''}
             </article>
             """
