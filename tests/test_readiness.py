@@ -5,6 +5,7 @@ from unittest.mock import patch
 from collector.collect import (
     build_trend_reasons,
     compute_adoption_readiness,
+    classify_maintenance_risk,
     get_commit_count_recent,
     get_contributor_metrics,
 )
@@ -78,6 +79,53 @@ class ReadinessTests(unittest.TestCase):
             "contributors_total_lower_bound": 10})
         self.assertIn("lifetime contributors", reasons[0])
         self.assertNotIn("active contributors", reasons[0])
+
+
+class MaintenanceRiskTests(unittest.TestCase):
+    def test_mature_low_frequency_documentation_is_not_archived_software_risk(self):
+        now = datetime.now(timezone.utc)
+        docs = repository(
+            full_name="owner/product-docs",
+            description="Long-lived product documentation and user guide",
+            topics=["documentation", "guide"],
+            created_at=(now - timedelta(days=2000)).isoformat(),
+            pushed_at=(now - timedelta(days=179)).isoformat(),
+            open_issues_count=80,
+        )
+        quiet_signals = signals(
+            commits_30d_lower_bound=0, commits_180d_lower_bound=2,
+            latest_release_age_days=None, issue_responses_30d_lower_bound=0,
+            pull_request_responses_30d_lower_bound=0,
+            maintainer_responses_30d_lower_bound=0,
+        )
+        result = classify_maintenance_risk(docs, quiet_signals, "dev-tools", now)
+
+        self.assertEqual(result["repository_type"], "documentation")
+        self.assertFalse(result["at_risk"])
+        self.assertNotIn("no push in 179 days", result["risk_reasons"])
+
+    def test_archived_software_with_unanswered_issues_is_high_risk(self):
+        now = datetime.now(timezone.utc)
+        software = repository(
+            full_name="owner/runtime", description="Production inference runtime",
+            topics=["model-serving"], archived=True,
+            created_at=(now - timedelta(days=1000)).isoformat(),
+            pushed_at=(now - timedelta(days=179)).isoformat(),
+            open_issues_count=120,
+        )
+        quiet_signals = signals(
+            commits_30d_lower_bound=0, commits_180d_lower_bound=40,
+            latest_release_age_days=500, issue_responses_30d_lower_bound=0,
+            pull_request_responses_30d_lower_bound=0,
+            maintainer_responses_30d_lower_bound=0,
+        )
+        result = classify_maintenance_risk(software, quiet_signals, "model-serving", now)
+
+        self.assertTrue(result["at_risk"])
+        self.assertGreaterEqual(result["maintenance_risk_score"], 80)
+        self.assertIn("repository is archived", result["risk_reasons"])
+        self.assertIn("no push in 179 days", result["risk_reasons"])
+        self.assertTrue(any("120 open issues" in reason for reason in result["risk_reasons"]))
 
 
 if __name__ == "__main__":

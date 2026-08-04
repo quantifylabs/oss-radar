@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OSS.Radar — AI Open-Source GitHub Repository Tracker</title>
-<meta name="description" content="OSS.Radar tracks trending AI open-source GitHub repositories, underrated gems, adoption risk, and abandoned AI projects. Updated every 6 hours.">
+<meta name="description" content="OSS.Radar tracks trending AI open-source GitHub repositories, underrated gems, adoption risk, and potentially unmaintained AI projects. Updated every 6 hours.">
 <link rel="canonical" href="https://radar.aegismemory.com/">
 <link rel="alternate" type="application/rss+xml" title="OSS Radar updates" href="https://radar.aegismemory.com/feed.xml">
 <meta property="og:title" content="OSS.Radar — AI Open-Source GitHub Repository Tracker">
-<meta property="og:description" content="Track trending AI GitHub repositories, discover underrated open-source AI tools, and spot risky or abandoned projects.">
+<meta property="og:description" content="Track trending AI GitHub repositories, discover underrated tools, and review stale or at-risk projects using multi-signal maintenance indicators.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://radar.aegismemory.com/">
 <meta property="og:image" content="https://radar.aegismemory.com/og-image.svg">
@@ -21,7 +21,7 @@
   "@type": "WebSite",
   "name": "OSS.Radar",
   "url": "https://radar.aegismemory.com/",
-  "description": "AI open-source GitHub repository tracker for trending tools, underrated gems, and abandoned project risk.",
+  "description": "AI open-source GitHub repository tracker for trending tools, underrated gems, and confidence-aware maintenance risk.",
   "publisher": { "@type": "Organization", "name": "Aegis Memory", "url": "https://www.aegismemory.com/" }
 }
 </script>
@@ -413,8 +413,8 @@ footer a:hover { text-decoration: underline; }
   <header>
     <h1>OSS<span class="dot">.</span>Radar</h1>
     <div class="powered-by">Powered by <a href="https://www.aegismemory.com/" target="_blank" rel="noopener">aegismemory.com</a></div>
-    <p>AI open-source GitHub repository tracker — trending tools, underrated gems, adoption risk, abandoned repos</p>
-    <p class="seo-intro">Find trending AI GitHub repositories, underrated open-source AI tools, and abandoned AI projects before adopting them.</p>
+    <p>AI open-source GitHub repository tracker — trending tools, underrated gems, adoption risk, and potentially unmaintained repos</p>
+    <p class="seo-intro">Find trending AI GitHub repositories, underrated open-source AI tools, and stale or at-risk projects before adopting them.</p>
     <div class="updated" id="updated">Loading...</div>
     <div class="cta"><span>Stop prompt injection at the memory write path</span> <a href="https://github.com/quantifylabs/aegis-memory" target="_blank" rel="noopener">Aegis Memory on GitHub →</a></div>
   </header>
@@ -433,7 +433,7 @@ footer a:hover { text-decoration: underline; }
     <h3>What is OSS Radar?</h3>
     <p>OSS.Radar is an AI open-source GitHub repository tracker for finding trending projects, underrated gems, and adoption risks.</p>
     <h3>How is OSS Radar different from GitHub Trending?</h3>
-    <p>OSS.Radar focuses on AI categories and adds gem scores, adoption readiness, maintainer health, and abandoned-project signals.</p>
+    <p>OSS.Radar focuses on AI categories and adds gem scores, adoption readiness, maintainer health, and confidence-aware maintenance-risk signals.</p>
     <h3>How does the gem score work?</h3>
     <p>The gem score combines recent commits, community engagement, star acceleration, contributor diversity, documentation signals, and push recency.</p>
     <h3>What other low-rate-limit tabs could OSS.Radar add?</h3>
@@ -459,7 +459,7 @@ let activeCat = 'all';
 const TABS = [
   { id: 'trending', label: 'Trending', icon: '🔥' },
   { id: 'gems', label: 'Underrated Gems', icon: '💎' },
-  { id: 'abandoned', label: 'Abandoned', icon: '💀' },
+  { id: 'abandoned', label: 'Stale / At Risk', icon: '⚠️' },
   { id: 'hot-week', label: 'Hot This Week', icon: '⚡', source: 'trending' },
   { id: 'recently-active', label: 'Recently Active', icon: '🟢', source: 'trending' },
   { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'all' },
@@ -558,7 +558,7 @@ function render() {
     <div class="stat"><div class="num">${DATA.stats.total_scanned}</div><div class="label">Repos scanned</div></div>
     <div class="stat"><div class="num">${DATA.stats.trending_count}</div><div class="label">Trending</div></div>
     <div class="stat"><div class="num">${DATA.stats.gems_count}</div><div class="label">Gems found</div></div>
-    <div class="stat"><div class="num">${DATA.stats.abandoned_count}</div><div class="label">Abandoned</div></div>
+    <div class="stat"><div class="num">${DATA.stats.abandoned_count}</div><div class="label">Stale / At Risk</div></div>
   `;
 
   // Tabs
@@ -623,7 +623,7 @@ function render() {
     const adoptionPoints = Math.round(rawAdoptionScore <= 1 ? rawAdoptionScore * 100 : rawAdoptionScore);
     const confidence = escapeHtml(r.data_confidence || 'low');
     const positives = (r.positive_signals || []).map(escapeHtml).join(', ');
-    const risks = (r.risk_signals || []).map(escapeHtml).join(', ');
+    const risks = (r.risk_reasons || r.risk_signals || []).map(escapeHtml).join(', ');
     const missing = (r.missing_inputs || []).map(x => escapeHtml(String(x).replace(/_/g, ' '))).join(', ');
     const reasons = (r.trend_reasons || []).map(escapeHtml).slice(0, 2).join(' · ');
     const delta = r[deltaKey] || 0;
@@ -636,7 +636,7 @@ function render() {
         <div class="gem-bar"><div class="gem-fill" style="width:${r.gem_score * 100}%"></div></div>
       </div>` : '';
 
-    const abandonedBadge = r.abandoned_flag ? `<span class="abandoned-flag">no push in ${Number(r.days_since_push) || 0}d</span>` : '';
+    const abandonedBadge = r.abandoned_flag ? `<span class="abandoned-flag">maintenance risk ${Number(r.maintenance_risk_score) || 0}/100 · ${escapeHtml(r.risk_confidence_label || 'low')} confidence</span>` : '';
     const metricsBadge = r.metrics_estimated ? '<span class="abandoned-flag">detail data unavailable</span>' : '';
     const scoreClass = adoptionLabel === 'safe' ? '' : adoptionLabel;
 
