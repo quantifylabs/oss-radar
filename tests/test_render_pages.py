@@ -32,6 +32,21 @@ class RepositoriesByCategoryTests(unittest.TestCase):
             ["owner/first", "owner/second", "owner/third"],
         )
 
+    def test_prefers_complete_discovery_index(self):
+        discovery = [
+            {"name": "owner/indexed", "category": "mcp"},
+            {"name": "owner/also-indexed", "category": "dev-tools"},
+        ]
+        categories = repositories_by_category({
+            "discovery": discovery,
+            "trending": [{"name": "owner/limited", "category": "mcp"}],
+        })
+
+        self.assertEqual(categories, {
+            "mcp": [discovery[0]],
+            "dev-tools": [discovery[1]],
+        })
+
 
 if __name__ == "__main__":
     unittest.main()

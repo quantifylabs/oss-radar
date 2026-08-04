@@ -721,6 +721,10 @@ def collect():
     trending = []
     gems = []
     abandoned = []
+    # The ranked sections below are deliberately small editorial views.  Keep
+    # a browser-facing record for every repository that passed the search
+    # queries so discovery is not limited to those views.
+    discovery = []
 
     current_stars = {}
 
@@ -788,6 +792,7 @@ def collect():
             "trend_reasons": [],
             **risk,
         }
+        discovery.append(entry)
 
         # Classify
         if risk["at_risk"] and stars >= 200:
@@ -804,7 +809,7 @@ def collect():
     # ensures a fast-growing smaller repository can outrank a famous project.
     history = load_history()
     deltas = compute_star_deltas(current_stars, history, now=now)
-    for entry in trending + gems + abandoned:
+    for entry in discovery:
         d = deltas.get(entry["name"], {})
         entry["history_coverage_days"] = d.get("history_coverage_days", 0)
         for window in TRENDING_WINDOWS:
@@ -863,6 +868,7 @@ def collect():
         "trending_rankings": trending_rankings,
         "gems": gems,
         "abandoned": abandoned,
+        "discovery": discovery,
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
