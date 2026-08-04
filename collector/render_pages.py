@@ -7,6 +7,7 @@ import json
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlencode
 from xml.sax.saxutils import escape as xml_escape
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -41,6 +42,9 @@ def repo_items(repos: list[dict]) -> str:
         if repo.get("commits_30d_capped"): capped.append("30-day commits")
         if repo.get("contributors_capped"): capped.append("lifetime contributors")
         if repo.get("response_activity_capped"): capped.append("response activity")
+        issue_base = "https://github.com/quantifylabs/oss-radar/issues/new"
+        def feedback(kind: str, signal: str) -> str:
+            return issue_base + "?" + urlencode({"template": "recommendation-feedback.yml", "title": f"[Feedback] {kind}: {repo.get('name', '')}", "repository": repo.get("name", ""), "signal": signal})
         items.append(
             f"""
             <article class="repo-card">
@@ -58,6 +62,7 @@ def repo_items(repos: list[dict]) -> str:
               <p><strong>Strongest signals:</strong> {h(positives)}. <strong>Risks:</strong> {h(risks)}. <strong>Missing inputs:</strong> {h(missing)}.</p>
               {f'<p><strong>Capped lower bounds:</strong> {h(", ".join(capped))}.</p>' if capped else ''}
               {f'<p class="topics">{topics}</p>' if topics else ''}
+              <p class="feedback">Something wrong? <a href="{h(feedback('category', 'Incorrect category'))}">Category</a> · <a href="{h(feedback('trend', 'Misleading trend status'))}">Trend</a> · <a href="{h(feedback('risk', 'Maintenance-risk dispute'))}">Risk</a></p>
             </article>
             """
         )
@@ -82,6 +87,7 @@ a {{ color: #8b8df8; }}
 dl {{ display: grid; grid-template-columns: 150px 1fr; gap: 4px 12px; }}
 dt {{ color: #9ca3af; }}
 .topics span {{ display: inline-block; margin: 0 4px 4px 0; padding: 2px 8px; border-radius: 999px; background: #1f2937; font-size: 12px; }}
+.feedback {{ color: #9ca3af; font-size: 13px; }}
 </style>
 </head>
 <body>
@@ -197,7 +203,7 @@ def write_feeds(data: dict) -> None:
 
 def main() -> None:
     data = load_data()
-    urls = ["/", "/llms.txt"]
+    urls = ["/", "/llms.txt", "/privacy.html"]
     urls.append(write_page("trending", "Trending AI open-source repositories", "Fast-moving AI GitHub projects tracked by OSS Radar.", data.get("trending", [])))
     urls.append(write_page("gems", "Underrated AI open-source gems", "Lower-visibility AI repositories with strong quality and maintenance signals.", data.get("gems", [])))
     urls.append(write_page("abandoned", "Stale / At Risk AI open-source repositories", "Potentially unmaintained AI repositories ranked by maintenance risk and data confidence; signals are indicators, not claims of abandonment.", data.get("abandoned", [])))

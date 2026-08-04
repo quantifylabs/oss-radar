@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "purpose": "Fixed representative inputs and expected outcome classes for scoring-change comparison",
+  "cases": [
+    {"id": "active-established", "inputs": {"archived": false, "days_since_push": 2, "commits_30d": 24, "contributors": 18}, "protected_expectation": "not-high-maintenance-risk"},
+    {"id": "archived-project", "inputs": {"archived": true, "days_since_push": 500, "commits_30d": 0, "contributors": 2}, "protected_expectation": "high-maintenance-risk"},
+    {"id": "small-active-gem", "inputs": {"stars": 180, "days_since_push": 1, "commits_30d": 12, "contributors": 6}, "protected_expectation": "gem-eligible"}
+  ]
+}

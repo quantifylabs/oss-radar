@@ -1,0 +1,33 @@
+name: Recommendation feedback
+description: Report an incorrect category, misleading trend, or disputed maintenance-risk label.
+title: "[Feedback] "
+labels: [recommendation-feedback]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: GitHub owner/name (usually prefilled from OSS.Radar).
+    validations:
+      required: true
+  - type: dropdown
+    id: signal
+    attributes:
+      label: Disputed signal
+      options: [Incorrect category, Misleading trend status, Maintenance-risk dispute]
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What is incorrect or misleading?
+      description: Include the displayed value and what you believe it should be.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Link to releases, commits, documentation, or other public evidence.
+    validations:
+      required: true
