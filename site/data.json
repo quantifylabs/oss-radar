@@ -31,7 +31,7 @@
       "days_since_push": 0,
       "commits_30d": 85,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.547,
       "url": "https://github.com/affaan-m/ECC",
       "owner_avatar": "https://avatars.githubusercontent.com/u/124439313?v=4",
       "archived": false,
@@ -46,7 +46,15 @@
       ],
       "stars_delta_3d": 750,
       "stars_delta_7d": 3135,
-      "stars_delta_30d": 11373
+      "stars_delta_30d": 11373,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "NousResearch/hermes-agent",
@@ -71,7 +79,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.817,
+      "gem_score": 0.506,
       "url": "https://github.com/NousResearch/hermes-agent",
       "owner_avatar": "https://avatars.githubusercontent.com/u/134168893?v=4",
       "archived": false,
@@ -86,7 +94,15 @@
       ],
       "stars_delta_3d": 1590,
       "stars_delta_7d": 3477,
-      "stars_delta_30d": 15795
+      "stars_delta_30d": 15795,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.816,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "n8n-io/n8n",
@@ -111,7 +127,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.486,
       "url": "https://github.com/n8n-io/n8n",
       "owner_avatar": "https://avatars.githubusercontent.com/u/45487711?v=4",
       "archived": false,
@@ -126,7 +142,15 @@
       ],
       "stars_delta_3d": 378,
       "stars_delta_7d": 962,
-      "stars_delta_30d": 4072
+      "stars_delta_30d": 4072,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.764,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Significant-Gravitas/AutoGPT",
@@ -151,7 +175,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.801,
+      "gem_score": 0.486,
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "owner_avatar": "https://avatars.githubusercontent.com/u/130738209?v=4",
       "archived": false,
@@ -166,7 +190,15 @@
       ],
       "stars_delta_3d": 51,
       "stars_delta_7d": 75,
-      "stars_delta_30d": 449
+      "stars_delta_30d": 449,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.765,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ollama/ollama",
@@ -191,7 +223,7 @@
       "days_since_push": 0,
       "commits_30d": 87,
       "contributors": 100,
-      "gem_score": 0.808,
+      "gem_score": 0.55,
       "url": "https://github.com/ollama/ollama",
       "owner_avatar": "https://avatars.githubusercontent.com/u/151674099?v=4",
       "archived": false,
@@ -206,7 +238,15 @@
       ],
       "stars_delta_3d": 272,
       "stars_delta_7d": 680,
-      "stars_delta_30d": 2270
+      "stars_delta_30d": 2270,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.925,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "microsoft/markitdown",
@@ -230,7 +270,7 @@
       "days_since_push": 5,
       "commits_30d": 6,
       "contributors": 81,
-      "gem_score": 0.485,
+      "gem_score": 0.517,
       "url": "https://github.com/microsoft/markitdown",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "archived": false,
@@ -245,7 +285,15 @@
       ],
       "stars_delta_3d": 711,
       "stars_delta_7d": 1700,
-      "stars_delta_30d": 8313
+      "stars_delta_30d": 8313,
+      "gem_subscores": {
+        "activity": 0.4,
+        "quality": 0.891,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "f/prompts.chat",
@@ -270,7 +318,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.481,
       "url": "https://github.com/f/prompts.chat",
       "owner_avatar": "https://avatars.githubusercontent.com/u/196477?v=4",
       "archived": false,
@@ -285,7 +333,15 @@
       ],
       "stars_delta_3d": 132,
       "stars_delta_7d": 256,
-      "stars_delta_30d": 1983
+      "stars_delta_30d": 1983,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.763,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "huggingface/transformers",
@@ -310,7 +366,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.806,
+      "gem_score": 0.551,
       "url": "https://github.com/huggingface/transformers",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
       "archived": false,
@@ -325,7 +381,15 @@
       ],
       "stars_delta_3d": 93,
       "stars_delta_7d": 253,
-      "stars_delta_30d": 1069
+      "stars_delta_30d": 1069,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "firecrawl/firecrawl",
@@ -350,7 +414,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.796,
+      "gem_score": 0.547,
       "url": "https://github.com/firecrawl/firecrawl",
       "owner_avatar": "https://avatars.githubusercontent.com/u/135057108?v=4",
       "archived": false,
@@ -365,7 +429,15 @@
       ],
       "stars_delta_3d": 1479,
       "stars_delta_7d": 3069,
-      "stars_delta_30d": 16007
+      "stars_delta_30d": 16007,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.918,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Snailclimb/JavaGuide",
@@ -390,7 +462,7 @@
       "days_since_push": 6,
       "commits_30d": 18,
       "contributors": 100,
-      "gem_score": 0.524,
+      "gem_score": 0.498,
       "url": "https://github.com/Snailclimb/JavaGuide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/29880145?v=4",
       "archived": false,
@@ -405,7 +477,15 @@
       ],
       "stars_delta_3d": 82,
       "stars_delta_7d": 159,
-      "stars_delta_30d": 710
+      "stars_delta_30d": 710,
+      "gem_subscores": {
+        "activity": 0.38,
+        "quality": 0.864,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "langflow-ai/langflow",
@@ -428,7 +508,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.552,
       "url": "https://github.com/langflow-ai/langflow",
       "owner_avatar": "https://avatars.githubusercontent.com/u/85702467?v=4",
       "archived": false,
@@ -443,7 +523,15 @@
       ],
       "stars_delta_3d": 133,
       "stars_delta_7d": 308,
-      "stars_delta_30d": 1702
+      "stars_delta_30d": 1702,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.929,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "langgenius/dify",
@@ -468,7 +556,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.802,
+      "gem_score": 0.486,
       "url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "archived": false,
@@ -483,7 +571,15 @@
       ],
       "stars_delta_3d": 317,
       "stars_delta_7d": 774,
-      "stars_delta_30d": 3585
+      "stars_delta_30d": 3585,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.764,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "open-webui/open-webui",
@@ -508,7 +604,7 @@
       "days_since_push": 1,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.782,
+      "gem_score": 0.469,
       "url": "https://github.com/open-webui/open-webui",
       "owner_avatar": "https://avatars.githubusercontent.com/u/158137808?v=4",
       "archived": false,
@@ -523,7 +619,15 @@
       ],
       "stars_delta_3d": 279,
       "stars_delta_7d": 765,
-      "stars_delta_30d": 3566
+      "stars_delta_30d": 3566,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.733,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "langchain-ai/langchain",
@@ -548,7 +652,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.771,
+      "gem_score": 0.522,
       "url": "https://github.com/langchain-ai/langchain",
       "owner_avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
       "archived": false,
@@ -563,7 +667,15 @@
       ],
       "stars_delta_3d": 247,
       "stars_delta_7d": 630,
-      "stars_delta_30d": 2443
+      "stars_delta_30d": 2443,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.855,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -588,7 +700,7 @@
       "days_since_push": 3,
       "commits_30d": 11,
       "contributors": 30,
-      "gem_score": 0.53,
+      "gem_score": 0.536,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
       "owner_avatar": "https://avatars.githubusercontent.com/u/185671340?v=4",
       "archived": false,
@@ -603,7 +715,15 @@
       ],
       "stars_delta_3d": 64,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.42,
+        "quality": 0.921,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Shubhamsaboo/awesome-llm-apps",
@@ -624,7 +744,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 91,
-      "gem_score": 0.791,
+      "gem_score": 0.538,
       "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
       "owner_avatar": "https://avatars.githubusercontent.com/u/31396011?v=4",
       "archived": false,
@@ -639,7 +759,15 @@
       ],
       "stars_delta_3d": 928,
       "stars_delta_7d": 2108,
-      "stars_delta_30d": 13809
+      "stars_delta_30d": 13809,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.905,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "github/spec-kit",
@@ -663,7 +791,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.79,
+      "gem_score": 0.541,
       "url": "https://github.com/github/spec-kit",
       "owner_avatar": "https://avatars.githubusercontent.com/u/9919?v=4",
       "archived": false,
@@ -678,7 +806,15 @@
       ],
       "stars_delta_3d": 412,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.903,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "farion1231/cc-switch",
@@ -703,7 +839,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.807,
+      "gem_score": 0.55,
       "url": "https://github.com/farion1231/cc-switch",
       "owner_avatar": "https://avatars.githubusercontent.com/u/44939412?v=4",
       "archived": false,
@@ -718,7 +854,15 @@
       ],
       "stars_delta_3d": 1082,
       "stars_delta_7d": 2235,
-      "stars_delta_30d": 10822
+      "stars_delta_30d": 10822,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.926,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "microsoft/generative-ai-for-beginners",
@@ -743,7 +887,7 @@
       "days_since_push": 2,
       "commits_30d": 50,
       "contributors": 100,
-      "gem_score": 0.701,
+      "gem_score": 0.519,
       "url": "https://github.com/microsoft/generative-ai-for-beginners",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "archived": false,
@@ -758,7 +902,15 @@
       ],
       "stars_delta_3d": 1794,
       "stars_delta_7d": 2020,
-      "stars_delta_30d": 2973
+      "stars_delta_30d": 2973,
+      "gem_subscores": {
+        "activity": 0.42,
+        "quality": 0.878,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nextlevelbuilder/ui-ux-pro-max-skill",
@@ -783,7 +935,7 @@
       "days_since_push": 0,
       "commits_30d": 22,
       "contributors": 71,
-      "gem_score": 0.603,
+      "gem_score": 0.552,
       "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
       "owner_avatar": "https://avatars.githubusercontent.com/u/246974152?v=4",
       "archived": false,
@@ -798,7 +950,15 @@
       ],
       "stars_delta_3d": 928,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.931,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "browser-use/browser-use",
@@ -822,7 +982,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.798,
+      "gem_score": 0.548,
       "url": "https://github.com/browser-use/browser-use",
       "owner_avatar": "https://avatars.githubusercontent.com/u/192012301?v=4",
       "archived": false,
@@ -837,7 +997,15 @@
       ],
       "stars_delta_3d": 351,
       "stars_delta_7d": 727,
-      "stars_delta_30d": 5067
+      "stars_delta_30d": 5067,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.921,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "supabase/supabase",
@@ -862,7 +1030,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.804,
+      "gem_score": 0.551,
       "url": "https://github.com/supabase/supabase",
       "owner_avatar": "https://avatars.githubusercontent.com/u/54469796?v=4",
       "archived": false,
@@ -877,7 +1045,15 @@
       ],
       "stars_delta_3d": 208,
       "stars_delta_7d": 418,
-      "stars_delta_30d": 1858
+      "stars_delta_30d": 1858,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "google-gemini/gemini-cli",
@@ -901,7 +1077,7 @@
       "days_since_push": 0,
       "commits_30d": 47,
       "contributors": 100,
-      "gem_score": 0.722,
+      "gem_score": 0.551,
       "url": "https://github.com/google-gemini/gemini-cli",
       "owner_avatar": "https://avatars.githubusercontent.com/u/161781182?v=4",
       "archived": false,
@@ -916,7 +1092,15 @@
       ],
       "stars_delta_3d": 62,
       "stars_delta_7d": 132,
-      "stars_delta_30d": 605
+      "stars_delta_30d": 605,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Graphify-Labs/graphify",
@@ -941,7 +1125,7 @@
       "days_since_push": 2,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.789,
+      "gem_score": 0.541,
       "url": "https://github.com/Graphify-Labs/graphify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/297659074?v=4",
       "archived": false,
@@ -956,7 +1140,15 @@
       ],
       "stars_delta_3d": 2247,
       "stars_delta_7d": 4692,
-      "stars_delta_30d": 24314
+      "stars_delta_30d": 24314,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.922,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "harry0703/MoneyPrinterTurbo",
@@ -981,7 +1173,7 @@
       "days_since_push": 1,
       "commits_30d": 41,
       "contributors": 70,
-      "gem_score": 0.684,
+      "gem_score": 0.542,
       "url": "https://github.com/harry0703/MoneyPrinterTurbo",
       "owner_avatar": "https://avatars.githubusercontent.com/u/4928832?v=4",
       "archived": false,
@@ -996,7 +1188,15 @@
       ],
       "stars_delta_3d": 632,
       "stars_delta_7d": 1848,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.925,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "rasbt/LLMs-from-scratch",
@@ -1021,7 +1221,7 @@
       "days_since_push": 5,
       "commits_30d": 4,
       "contributors": 64,
-      "gem_score": 0.474,
+      "gem_score": 0.451,
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "owner_avatar": "https://avatars.githubusercontent.com/u/5618407?v=4",
       "archived": false,
@@ -1036,7 +1236,15 @@
       ],
       "stars_delta_3d": 247,
       "stars_delta_7d": 491,
-      "stars_delta_30d": 1977
+      "stars_delta_30d": 1977,
+      "gem_subscores": {
+        "activity": 0.4,
+        "quality": 0.728,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "JuliusBrussee/caveman",
@@ -1061,7 +1269,7 @@
       "days_since_push": 0,
       "commits_30d": 10,
       "contributors": 32,
-      "gem_score": 0.548,
+      "gem_score": 0.552,
       "url": "https://github.com/JuliusBrussee/caveman",
       "owner_avatar": "https://avatars.githubusercontent.com/u/104168679?v=4",
       "archived": false,
@@ -1076,7 +1284,15 @@
       ],
       "stars_delta_3d": 675,
       "stars_delta_7d": 1988,
-      "stars_delta_30d": 11772
+      "stars_delta_30d": 11772,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.93,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "TauricResearch/TradingAgents",
@@ -1098,7 +1314,7 @@
       "days_since_push": 16,
       "commits_30d": 14,
       "contributors": 19,
-      "gem_score": 0.453,
+      "gem_score": 0.454,
       "url": "https://github.com/TauricResearch/TradingAgents",
       "owner_avatar": "https://avatars.githubusercontent.com/u/192884433?v=4",
       "archived": false,
@@ -1113,7 +1329,15 @@
       ],
       "stars_delta_3d": 349,
       "stars_delta_7d": 734,
-      "stars_delta_30d": 4695
+      "stars_delta_30d": 4695,
+      "gem_subscores": {
+        "activity": 0.29,
+        "quality": 0.844,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "DietrichGebert/ponytail",
@@ -1138,7 +1362,7 @@
       "days_since_push": 19,
       "commits_30d": 44,
       "contributors": 62,
-      "gem_score": 0.605,
+      "gem_score": 0.451,
       "url": "https://github.com/DietrichGebert/ponytail",
       "owner_avatar": "https://avatars.githubusercontent.com/u/137048761?v=4",
       "archived": false,
@@ -1153,7 +1377,15 @@
       ],
       "stars_delta_3d": 2071,
       "stars_delta_7d": 4611,
-      "stars_delta_30d": 21242
+      "stars_delta_30d": 21242,
+      "gem_subscores": {
+        "activity": 0.26,
+        "quality": 0.867,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "punkpeye/awesome-mcp-servers",
@@ -1172,7 +1404,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.761,
+      "gem_score": 0.495,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
       "owner_avatar": "https://avatars.githubusercontent.com/u/108313943?v=4",
       "archived": false,
@@ -1187,7 +1419,15 @@
       ],
       "stars_delta_3d": 133,
       "stars_delta_7d": 321,
-      "stars_delta_30d": 1503
+      "stars_delta_30d": 1503,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.798,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "thedotmack/claude-mem",
@@ -1212,7 +1452,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.802,
+      "gem_score": 0.552,
       "url": "https://github.com/thedotmack/claude-mem",
       "owner_avatar": "https://avatars.githubusercontent.com/u/683968?v=4",
       "archived": false,
@@ -1227,7 +1467,15 @@
       ],
       "stars_delta_3d": 285,
       "stars_delta_7d": 684,
-      "stars_delta_30d": 3638
+      "stars_delta_30d": 3638,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.93,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ChatGPTNextWeb/NextChat",
@@ -1252,7 +1500,7 @@
       "days_since_push": 28,
       "commits_30d": 44,
       "contributors": 100,
-      "gem_score": 0.608,
+      "gem_score": 0.397,
       "url": "https://github.com/ChatGPTNextWeb/NextChat",
       "owner_avatar": "https://avatars.githubusercontent.com/u/153288546?v=4",
       "archived": false,
@@ -1267,7 +1515,15 @@
       ],
       "stars_delta_3d": 20,
       "stars_delta_7d": 25,
-      "stars_delta_30d": 209
+      "stars_delta_30d": 209,
+      "gem_subscores": {
+        "activity": 0.16,
+        "quality": 0.832,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "vllm-project/vllm",
@@ -1292,7 +1548,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.826,
+      "gem_score": 0.541,
       "url": "https://github.com/vllm-project/vllm",
       "owner_avatar": "https://avatars.githubusercontent.com/u/136984999?v=4",
       "archived": false,
@@ -1307,7 +1563,15 @@
       ],
       "stars_delta_3d": 313,
       "stars_delta_7d": 754,
-      "stars_delta_30d": 2768
+      "stars_delta_30d": 2768,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.904,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "PaddlePaddle/PaddleOCR",
@@ -1332,7 +1596,7 @@
       "days_since_push": 12,
       "commits_30d": 2,
       "contributors": 100,
-      "gem_score": 0.425,
+      "gem_score": 0.488,
       "url": "https://github.com/PaddlePaddle/PaddleOCR",
       "owner_avatar": "https://avatars.githubusercontent.com/u/23534030?v=4",
       "archived": false,
@@ -1347,7 +1611,15 @@
       ],
       "stars_delta_3d": 233,
       "stars_delta_7d": 533,
-      "stars_delta_30d": 2230
+      "stars_delta_30d": 2230,
+      "gem_subscores": {
+        "activity": 0.33,
+        "quality": 0.89,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "infiniflow/ragflow",
@@ -1372,7 +1644,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.809,
+      "gem_score": 0.55,
       "url": "https://github.com/infiniflow/ragflow",
       "owner_avatar": "https://avatars.githubusercontent.com/u/69962740?v=4",
       "archived": false,
@@ -1387,7 +1659,15 @@
       ],
       "stars_delta_3d": 223,
       "stars_delta_7d": 565,
-      "stars_delta_30d": 2479
+      "stars_delta_30d": 2479,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.924,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nexu-io/open-design",
@@ -1412,7 +1692,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.551,
       "url": "https://github.com/nexu-io/open-design",
       "owner_avatar": "https://avatars.githubusercontent.com/u/263625318?v=4",
       "archived": false,
@@ -1427,7 +1707,15 @@
       ],
       "stars_delta_3d": 530,
       "stars_delta_7d": 1442,
-      "stars_delta_30d": 8504
+      "stars_delta_30d": 8504,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.929,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "OpenHands/OpenHands",
@@ -1452,7 +1740,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.773,
+      "gem_score": 0.524,
       "url": "https://github.com/OpenHands/OpenHands",
       "owner_avatar": "https://avatars.githubusercontent.com/u/225919603?v=4",
       "archived": false,
@@ -1467,7 +1755,15 @@
       ],
       "stars_delta_3d": 316,
       "stars_delta_7d": 690,
-      "stars_delta_30d": 3619
+      "stars_delta_30d": 3619,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.859,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "mlabonne/llm-course",
@@ -1489,7 +1785,7 @@
       "days_since_push": 179,
       "commits_30d": 0,
       "contributors": 3,
-      "gem_score": 0.295,
+      "gem_score": 0.312,
       "url": "https://github.com/mlabonne/llm-course",
       "owner_avatar": "https://avatars.githubusercontent.com/u/81252890?v=4",
       "archived": false,
@@ -1504,7 +1800,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 61,
       "stars_delta_7d": 127,
-      "stars_delta_30d": 738
+      "stars_delta_30d": 738,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "lobehub/lobehub",
@@ -1529,7 +1833,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.485,
       "url": "https://github.com/lobehub/lobehub",
       "owner_avatar": "https://avatars.githubusercontent.com/u/131470832?v=4",
       "archived": false,
@@ -1544,7 +1848,15 @@
       ],
       "stars_delta_3d": 197,
       "stars_delta_7d": 309,
-      "stars_delta_30d": 1751
+      "stars_delta_30d": 1751,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.764,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "netdata/netdata",
@@ -1569,7 +1881,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.55,
       "url": "https://github.com/netdata/netdata",
       "owner_avatar": "https://avatars.githubusercontent.com/u/43390781?v=4",
       "archived": false,
@@ -1584,7 +1896,15 @@
       ],
       "stars_delta_3d": 49,
       "stars_delta_7d": 129,
-      "stars_delta_30d": 518
+      "stars_delta_30d": 518,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.925,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "bytedance/deer-flow",
@@ -1609,7 +1929,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.805,
+      "gem_score": 0.551,
       "url": "https://github.com/bytedance/deer-flow",
       "owner_avatar": "https://avatars.githubusercontent.com/u/4158466?v=4",
       "archived": false,
@@ -1624,7 +1944,15 @@
       ],
       "stars_delta_3d": 753,
       "stars_delta_7d": 1181,
-      "stars_delta_30d": 3076
+      "stars_delta_30d": 3076,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "koala73/worldmonitor",
@@ -1649,7 +1977,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.802,
+      "gem_score": 0.486,
       "url": "https://github.com/koala73/worldmonitor",
       "owner_avatar": "https://avatars.githubusercontent.com/u/996596?v=4",
       "archived": false,
@@ -1664,7 +1992,15 @@
       ],
       "stars_delta_3d": 1128,
       "stars_delta_7d": 3117,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.765,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nomic-ai/gpt4all",
@@ -1683,7 +2019,7 @@
       "days_since_push": 433,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.387,
+      "gem_score": 0.295,
       "url": "https://github.com/nomic-ai/gpt4all",
       "owner_avatar": "https://avatars.githubusercontent.com/u/102670180?v=4",
       "archived": false,
@@ -1699,7 +2035,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 10,
       "stars_delta_7d": 8,
-      "stars_delta_30d": 26
+      "stars_delta_30d": 26,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.737,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "dair-ai/Prompt-Engineering-Guide",
@@ -1724,7 +2068,7 @@
       "days_since_push": 145,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.401,
+      "gem_score": 0.312,
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/30384625?v=4",
       "archived": false,
@@ -1740,7 +2084,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 82,
       "stars_delta_7d": 164,
-      "stars_delta_30d": 1035
+      "stars_delta_30d": 1035,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.78,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "rtk-ai/rtk",
@@ -1765,7 +2117,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.81,
+      "gem_score": 0.55,
       "url": "https://github.com/rtk-ai/rtk",
       "owner_avatar": "https://avatars.githubusercontent.com/u/258253854?v=4",
       "archived": false,
@@ -1780,7 +2132,15 @@
       ],
       "stars_delta_3d": 398,
       "stars_delta_7d": 1005,
-      "stars_delta_30d": 6102
+      "stars_delta_30d": 6102,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.924,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "apache/superset",
@@ -1805,7 +2165,7 @@
       "days_since_push": -1,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.796,
+      "gem_score": 0.545,
       "url": "https://github.com/apache/superset",
       "owner_avatar": "https://avatars.githubusercontent.com/u/47359?v=4",
       "archived": false,
@@ -1820,7 +2180,15 @@
       ],
       "stars_delta_3d": 56,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.912,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "hiyouga/LlamaFactory",
@@ -1845,7 +2213,7 @@
       "days_since_push": 0,
       "commits_30d": 20,
       "contributors": 100,
-      "gem_score": 0.586,
+      "gem_score": 0.533,
       "url": "https://github.com/hiyouga/LlamaFactory",
       "owner_avatar": "https://avatars.githubusercontent.com/u/16256802?v=4",
       "archived": false,
@@ -1860,7 +2228,15 @@
       ],
       "stars_delta_3d": 77,
       "stars_delta_7d": 168,
-      "stars_delta_30d": 780
+      "stars_delta_30d": 780,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.893,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "thedaviddias/Front-End-Checklist",
@@ -1885,7 +2261,7 @@
       "days_since_push": 46,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.399,
+      "gem_score": 0.245,
       "url": "https://github.com/thedaviddias/Front-End-Checklist",
       "owner_avatar": "https://avatars.githubusercontent.com/u/237229?v=4",
       "archived": false,
@@ -1901,7 +2277,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 35,
       "stars_delta_7d": 63,
-      "stars_delta_30d": 283
+      "stars_delta_30d": 283,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.613,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "shareAI-lab/learn-claude-code",
@@ -1926,7 +2310,7 @@
       "days_since_push": 6,
       "commits_30d": 18,
       "contributors": 32,
-      "gem_score": 0.541,
+      "gem_score": 0.52,
       "url": "https://github.com/shareAI-lab/learn-claude-code",
       "owner_avatar": "https://avatars.githubusercontent.com/u/189210346?v=4",
       "archived": false,
@@ -1941,7 +2325,15 @@
       ],
       "stars_delta_3d": 260,
       "stars_delta_7d": 704,
-      "stars_delta_30d": 3305
+      "stars_delta_30d": 3305,
+      "gem_subscores": {
+        "activity": 0.39,
+        "quality": 0.911,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "D4Vinci/Scrapling",
@@ -1966,7 +2358,7 @@
       "days_since_push": 4,
       "commits_30d": 48,
       "contributors": 29,
-      "gem_score": 0.695,
+      "gem_score": 0.531,
       "url": "https://github.com/D4Vinci/Scrapling",
       "owner_avatar": "https://avatars.githubusercontent.com/u/20604835?v=4",
       "archived": false,
@@ -1981,7 +2373,15 @@
       ],
       "stars_delta_3d": 397,
       "stars_delta_7d": 881,
-      "stars_delta_30d": 4335
+      "stars_delta_30d": 4335,
+      "gem_subscores": {
+        "activity": 0.41,
+        "quality": 0.918,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "daytonaio/daytona",
@@ -2006,7 +2406,7 @@
       "days_since_push": 10,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.429,
+      "gem_score": 0.425,
       "url": "https://github.com/daytonaio/daytona",
       "owner_avatar": "https://avatars.githubusercontent.com/u/130513197?v=4",
       "archived": false,
@@ -2020,7 +2420,15 @@
       ],
       "stars_delta_3d": -34,
       "stars_delta_7d": -83,
-      "stars_delta_30d": -242
+      "stars_delta_30d": -242,
+      "gem_subscores": {
+        "activity": 0.34,
+        "quality": 0.722,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ComposioHQ/awesome-claude-skills",
@@ -2045,7 +2453,7 @@
       "days_since_push": 10,
       "commits_30d": 2,
       "contributors": 28,
-      "gem_score": 0.444,
+      "gem_score": 0.426,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "owner_avatar": "https://avatars.githubusercontent.com/u/128464815?v=4",
       "archived": false,
@@ -2060,7 +2468,15 @@
       ],
       "stars_delta_3d": 249,
       "stars_delta_7d": 623,
-      "stars_delta_30d": 4903
+      "stars_delta_30d": 4903,
+      "gem_subscores": {
+        "activity": 0.34,
+        "quality": 0.725,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "microsoft/ai-agents-for-beginners",
@@ -2085,7 +2501,7 @@
       "days_since_push": 5,
       "commits_30d": 100,
       "contributors": 92,
-      "gem_score": 0.742,
+      "gem_score": 0.504,
       "url": "https://github.com/microsoft/ai-agents-for-beginners",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "archived": false,
@@ -2100,7 +2516,15 @@
       ],
       "stars_delta_3d": 315,
       "stars_delta_7d": 652,
-      "stars_delta_30d": 2589
+      "stars_delta_30d": 2589,
+      "gem_subscores": {
+        "activity": 0.4,
+        "quality": 0.859,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "datawhalechina/hello-agents",
@@ -2121,7 +2545,7 @@
       "days_since_push": 0,
       "commits_30d": 19,
       "contributors": 84,
-      "gem_score": 0.558,
+      "gem_score": 0.45,
       "url": "https://github.com/datawhalechina/hello-agents",
       "owner_avatar": "https://avatars.githubusercontent.com/u/46047812?v=4",
       "archived": false,
@@ -2136,7 +2560,15 @@
       ],
       "stars_delta_3d": 661,
       "stars_delta_7d": 1490,
-      "stars_delta_30d": 6553
+      "stars_delta_30d": 6553,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.685,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "FoundationAgents/MetaGPT",
@@ -2158,7 +2590,7 @@
       "days_since_push": 194,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.401,
+      "gem_score": 0.312,
       "url": "https://github.com/FoundationAgents/MetaGPT",
       "owner_avatar": "https://avatars.githubusercontent.com/u/198047230?v=4",
       "archived": false,
@@ -2174,7 +2606,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 45,
       "stars_delta_7d": 112,
-      "stars_delta_30d": 465
+      "stars_delta_30d": 465,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "unslothai/unsloth",
@@ -2199,7 +2639,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.806,
+      "gem_score": 0.551,
       "url": "https://github.com/unslothai/unsloth",
       "owner_avatar": "https://avatars.githubusercontent.com/u/150920049?v=4",
       "archived": false,
@@ -2214,7 +2654,15 @@
       ],
       "stars_delta_3d": 204,
       "stars_delta_7d": 502,
-      "stars_delta_30d": 1690
+      "stars_delta_30d": 1690,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "labmlai/annotated_deep_learning_paper_implementations",
@@ -2239,7 +2687,7 @@
       "days_since_push": 193,
       "commits_30d": 0,
       "contributors": 39,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/labmlai/annotated_deep_learning_paper_implementations",
       "owner_avatar": "https://avatars.githubusercontent.com/u/64068543?v=4",
       "archived": false,
@@ -2255,7 +2703,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 13,
       "stars_delta_7d": 28,
-      "stars_delta_30d": 222
+      "stars_delta_30d": 222,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "code-yeongyu/oh-my-openagent",
@@ -2280,7 +2736,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.806,
+      "gem_score": 0.485,
       "url": "https://github.com/code-yeongyu/oh-my-openagent",
       "owner_avatar": "https://avatars.githubusercontent.com/u/11153873?v=4",
       "archived": false,
@@ -2295,7 +2751,15 @@
       ],
       "stars_delta_3d": 232,
       "stars_delta_7d": 478,
-      "stars_delta_30d": 2349
+      "stars_delta_30d": 2349,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.762,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ruvnet/ruflo",
@@ -2320,7 +2784,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 32,
-      "gem_score": 0.805,
+      "gem_score": 0.546,
       "url": "https://github.com/ruvnet/ruflo",
       "owner_avatar": "https://avatars.githubusercontent.com/u/2934394?v=4",
       "archived": false,
@@ -2335,7 +2799,15 @@
       ],
       "stars_delta_3d": 281,
       "stars_delta_7d": 674,
-      "stars_delta_30d": 3991
+      "stars_delta_30d": 3991,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.924,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Panniantong/Agent-Reach",
@@ -2360,7 +2832,7 @@
       "days_since_push": 9,
       "commits_30d": 23,
       "contributors": 30,
-      "gem_score": 0.544,
+      "gem_score": 0.499,
       "url": "https://github.com/Panniantong/Agent-Reach",
       "owner_avatar": "https://avatars.githubusercontent.com/u/73925474?v=4",
       "archived": false,
@@ -2375,7 +2847,15 @@
       ],
       "stars_delta_3d": 2456,
       "stars_delta_7d": 4500,
-      "stars_delta_30d": 15288
+      "stars_delta_30d": 15288,
+      "gem_subscores": {
+        "activity": 0.35,
+        "quality": 0.897,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     }
   ],
   "gems": [
@@ -2402,7 +2882,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 4,
-      "gem_score": 0.878,
+      "gem_score": 0.483,
       "url": "https://github.com/jaylfc/taOS",
       "owner_avatar": "https://avatars.githubusercontent.com/u/30096482?v=4",
       "archived": false,
@@ -2417,7 +2897,15 @@
       ],
       "stars_delta_3d": 5,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 63
+      "stars_delta_30d": 63,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.729,
+        "visibility": 0.058
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "TryCaspian/caspian-sdk",
@@ -2442,7 +2930,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 21,
-      "gem_score": 0.834,
+      "gem_score": 0.57,
       "url": "https://github.com/TryCaspian/caspian-sdk",
       "owner_avatar": "https://avatars.githubusercontent.com/u/256783915?v=4",
       "archived": false,
@@ -2457,7 +2945,15 @@
       ],
       "stars_delta_3d": 62,
       "stars_delta_7d": 160,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.905,
+        "visibility": 0.14
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "smg-project/smg",
@@ -2482,7 +2978,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.76,
+      "gem_score": 0.559,
       "url": "https://github.com/smg-project/smg",
       "owner_avatar": "https://avatars.githubusercontent.com/u/290860512?v=4",
       "archived": false,
@@ -2497,7 +2993,15 @@
       ],
       "stars_delta_3d": 14,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.888,
+        "visibility": 0.122
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "spark-arena/sparkrun",
@@ -2519,7 +3023,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 13,
-      "gem_score": 0.736,
+      "gem_score": 0.581,
       "url": "https://github.com/spark-arena/sparkrun",
       "owner_avatar": "https://avatars.githubusercontent.com/u/261693345?v=4",
       "archived": false,
@@ -2534,7 +3038,15 @@
       ],
       "stars_delta_3d": 6,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 55
+      "stars_delta_30d": 55,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.923,
+        "visibility": 0.158
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "CodeAbra/iai-personal-memory-engine",
@@ -2559,7 +3071,7 @@
       "days_since_push": 0,
       "commits_30d": 86,
       "contributors": 5,
-      "gem_score": 0.728,
+      "gem_score": 0.555,
       "url": "https://github.com/CodeAbra/iai-personal-memory-engine",
       "owner_avatar": "https://avatars.githubusercontent.com/u/227912842?v=4",
       "archived": false,
@@ -2574,7 +3086,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 79,
-      "stars_delta_30d": 150
+      "stars_delta_30d": 150,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.926,
+        "visibility": 0.044
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "expectedparrot/edsl",
@@ -2599,7 +3119,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 18,
-      "gem_score": 0.708,
+      "gem_score": 0.546,
       "url": "https://github.com/expectedparrot/edsl",
       "owner_avatar": "https://avatars.githubusercontent.com/u/101932709?v=4",
       "archived": false,
@@ -2614,7 +3134,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 12
+      "stars_delta_30d": 12,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.899,
+        "visibility": 0.03
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "warpfront/hipfire",
@@ -2639,7 +3167,7 @@
       "days_since_push": 0,
       "commits_30d": 44,
       "contributors": 25,
-      "gem_score": 0.699,
+      "gem_score": 0.446,
       "url": "https://github.com/warpfront/hipfire",
       "owner_avatar": "https://avatars.githubusercontent.com/u/308720658?v=4",
       "archived": false,
@@ -2654,7 +3182,15 @@
       ],
       "stars_delta_3d": 6,
       "stars_delta_7d": 7,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.664,
+        "visibility": 0.004
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "hashgraph-online/hol-guard",
@@ -2679,7 +3215,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 5,
-      "gem_score": 0.695,
+      "gem_score": 0.511,
       "url": "https://github.com/hashgraph-online/hol-guard",
       "owner_avatar": "https://avatars.githubusercontent.com/u/160371962?v=4",
       "archived": false,
@@ -2694,7 +3230,15 @@
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.751,
+        "visibility": 0.154
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ddalcu/mlx-serve",
@@ -2719,7 +3263,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 7,
-      "gem_score": 0.687,
+      "gem_score": 0.58,
       "url": "https://github.com/ddalcu/mlx-serve",
       "owner_avatar": "https://avatars.githubusercontent.com/u/869085?v=4",
       "archived": false,
@@ -2734,7 +3278,15 @@
       ],
       "stars_delta_3d": 34,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0.144
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "DataRecce/recce",
@@ -2758,7 +3310,7 @@
       "days_since_push": 0,
       "commits_30d": 70,
       "contributors": 18,
-      "gem_score": 0.665,
+      "gem_score": 0.554,
       "url": "https://github.com/DataRecce/recce",
       "owner_avatar": "https://avatars.githubusercontent.com/u/152131563?v=4",
       "archived": false,
@@ -2773,7 +3325,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.911,
+        "visibility": 0.066
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "lucasjinreal/Crane",
@@ -2796,7 +3356,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 8,
-      "gem_score": 0.661,
+      "gem_score": 0.57,
       "url": "https://github.com/lucasjinreal/Crane",
       "owner_avatar": "https://avatars.githubusercontent.com/u/21303438?v=4",
       "archived": false,
@@ -2811,7 +3371,15 @@
       ],
       "stars_delta_3d": 15,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.92,
+        "visibility": 0.11
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nodetool-ai/nodetool",
@@ -2836,7 +3404,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 11,
-      "gem_score": 0.65,
+      "gem_score": 0.54,
       "url": "https://github.com/nodetool-ai/nodetool",
       "owner_avatar": "https://avatars.githubusercontent.com/u/164873569?v=4",
       "archived": false,
@@ -2851,7 +3419,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 7,
-      "stars_delta_30d": 21
+      "stars_delta_30d": 21,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.842,
+        "visibility": 0.116
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Desbordante/desbordante-core",
@@ -2876,7 +3452,7 @@
       "days_since_push": 0,
       "commits_30d": 45,
       "contributors": 70,
-      "gem_score": 0.641,
+      "gem_score": 0.533,
       "url": "https://github.com/Desbordante/desbordante-core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/150290801?v=4",
       "archived": false,
@@ -2891,7 +3467,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.875,
+        "visibility": 0.014
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "eltociear/awesome-AI-driven-development",
@@ -2916,7 +3500,7 @@
       "days_since_push": 1,
       "commits_30d": 62,
       "contributors": 71,
-      "gem_score": 0.626,
+      "gem_score": 0.465,
       "url": "https://github.com/eltociear/awesome-AI-driven-development",
       "owner_avatar": "https://avatars.githubusercontent.com/u/22633385?v=4",
       "archived": false,
@@ -2931,7 +3515,15 @@
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.692,
+        "visibility": 0.082
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ome-projects/ome",
@@ -2956,7 +3548,7 @@
       "days_since_push": 0,
       "commits_30d": 30,
       "contributors": 35,
-      "gem_score": 0.621,
+      "gem_score": 0.529,
       "url": "https://github.com/ome-projects/ome",
       "owner_avatar": "https://avatars.githubusercontent.com/u/276942073?v=4",
       "archived": false,
@@ -2971,7 +3563,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 3,
-      "stars_delta_30d": 9
+      "stars_delta_30d": 9,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.858,
+        "visibility": 0.03
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "LnYo-Cly/ai4j",
@@ -2996,7 +3596,7 @@
       "days_since_push": 4,
       "commits_30d": 100,
       "contributors": 8,
-      "gem_score": 0.612,
+      "gem_score": 0.562,
       "url": "https://github.com/LnYo-Cly/ai4j",
       "owner_avatar": "https://avatars.githubusercontent.com/u/47201396?v=4",
       "archived": false,
@@ -3011,7 +3611,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.41,
+        "quality": 0.916,
+        "visibility": 0.158
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "brontoguana/krasis",
@@ -3036,7 +3644,7 @@
       "days_since_push": 0,
       "commits_30d": 77,
       "contributors": 1,
-      "gem_score": 0.608,
+      "gem_score": 0.485,
       "url": "https://github.com/brontoguana/krasis",
       "owner_avatar": "https://avatars.githubusercontent.com/u/7049825?v=4",
       "archived": false,
@@ -3051,7 +3659,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 7,
-      "stars_delta_30d": 21
+      "stars_delta_30d": 21,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.761,
+        "visibility": 0.004
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "xixihhhh/clipforge",
@@ -3076,7 +3692,7 @@
       "days_since_push": 3,
       "commits_30d": 65,
       "contributors": 1,
-      "gem_score": 0.597,
+      "gem_score": 0.549,
       "url": "https://github.com/xixihhhh/clipforge",
       "owner_avatar": "https://avatars.githubusercontent.com/u/60566571?v=4",
       "archived": false,
@@ -3090,7 +3706,15 @@
       ],
       "stars_delta_3d": 18,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.41,
+        "quality": 0.917,
+        "visibility": 0.088
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "GlitterKill/sdl-mcp",
@@ -3115,7 +3739,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 1,
-      "gem_score": 0.595,
+      "gem_score": 0.502,
       "url": "https://github.com/GlitterKill/sdl-mcp",
       "owner_avatar": "https://avatars.githubusercontent.com/u/88055815?v=4",
       "archived": false,
@@ -3130,7 +3754,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 56
+      "stars_delta_30d": 56,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.765,
+        "visibility": 0.08
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ciddwd/overlay-translator",
@@ -3155,7 +3787,7 @@
       "days_since_push": 1,
       "commits_30d": 50,
       "contributors": 1,
-      "gem_score": 0.591,
+      "gem_score": 0.557,
       "url": "https://github.com/ciddwd/overlay-translator",
       "owner_avatar": "https://avatars.githubusercontent.com/u/18551476?v=4",
       "archived": false,
@@ -3169,7 +3801,15 @@
       ],
       "stars_delta_3d": 25,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.927,
+        "visibility": 0.048
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "usethesource/rascal",
@@ -3194,7 +3834,7 @@
       "days_since_push": 0,
       "commits_30d": 4,
       "contributors": 47,
-      "gem_score": 0.571,
+      "gem_score": 0.383,
       "url": "https://github.com/usethesource/rascal",
       "owner_avatar": "https://avatars.githubusercontent.com/u/12157708?v=4",
       "archived": false,
@@ -3208,7 +3848,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.466,
+        "visibility": 0.084
+      },
+      "gem_reasons": [
+        "limited evidence; inspect maintenance signals before adopting"
+      ]
     },
     {
       "name": "cordum-io/cordum",
@@ -3233,7 +3881,7 @@
       "days_since_push": 1,
       "commits_30d": 43,
       "contributors": 6,
-      "gem_score": 0.569,
+      "gem_score": 0.474,
       "url": "https://github.com/cordum-io/cordum",
       "owner_avatar": "https://avatars.githubusercontent.com/u/248097825?v=4",
       "archived": false,
@@ -3248,7 +3896,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 8
+      "stars_delta_30d": 8,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.749,
+        "visibility": 0.01
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "vmware/versatile-data-kit",
@@ -3273,7 +3929,7 @@
       "days_since_push": 0,
       "commits_30d": 0,
       "contributors": 37,
-      "gem_score": 0.558,
+      "gem_score": 0.494,
       "url": "https://github.com/vmware/versatile-data-kit",
       "owner_avatar": "https://avatars.githubusercontent.com/u/473334?v=4",
       "archived": false,
@@ -3287,7 +3943,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.773,
+        "visibility": 0.024
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "NPC-Worldwide/incognide",
@@ -3312,7 +3976,7 @@
       "days_since_push": 0,
       "commits_30d": 59,
       "contributors": 4,
-      "gem_score": 0.557,
+      "gem_score": 0.542,
       "url": "https://github.com/NPC-Worldwide/incognide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/209010789?v=4",
       "archived": false,
@@ -3327,7 +3991,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 4,
-      "stars_delta_30d": 10
+      "stars_delta_30d": 10,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.876,
+        "visibility": 0.076
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "inclusionAI/AReno",
@@ -3352,7 +4024,7 @@
       "days_since_push": 0,
       "commits_30d": 0,
       "contributors": 1,
-      "gem_score": 0.556,
+      "gem_score": 0.518,
       "url": "https://github.com/inclusionAI/AReno",
       "owner_avatar": "https://avatars.githubusercontent.com/u/199075982?v=4",
       "archived": false,
@@ -3366,7 +4038,15 @@
       ],
       "stars_delta_3d": 5,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.62,
+        "visibility": 0.472
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "uber/ADR",
@@ -3391,7 +4071,7 @@
       "days_since_push": 0,
       "commits_30d": 30,
       "contributors": 5,
-      "gem_score": 0.55,
+      "gem_score": 0.567,
       "url": "https://github.com/uber/ADR",
       "owner_avatar": "https://avatars.githubusercontent.com/u/538264?v=4",
       "archived": false,
@@ -3406,7 +4086,15 @@
       ],
       "stars_delta_3d": 439,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0.078
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "tover0314-w/opentypeless",
@@ -3431,7 +4119,7 @@
       "days_since_push": 9,
       "commits_30d": 55,
       "contributors": 3,
-      "gem_score": 0.545,
+      "gem_score": 0.521,
       "url": "https://github.com/tover0314-w/opentypeless",
       "owner_avatar": "https://avatars.githubusercontent.com/u/184375629?v=4",
       "archived": false,
@@ -3445,7 +4133,15 @@
       ],
       "stars_delta_3d": 14,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.35,
+        "quality": 0.877,
+        "visibility": 0.15
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "duriantaco/skylos",
@@ -3470,7 +4166,7 @@
       "days_since_push": 0,
       "commits_30d": 39,
       "contributors": 8,
-      "gem_score": 0.538,
+      "gem_score": 0.558,
       "url": "https://github.com/duriantaco/skylos",
       "owner_avatar": "https://avatars.githubusercontent.com/u/57052760?v=4",
       "archived": false,
@@ -3485,7 +4181,15 @@
       ],
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0.034
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "RyanAlberts/best-of-Agent-Harnesses",
@@ -3510,7 +4214,7 @@
       "days_since_push": 0,
       "commits_30d": 37,
       "contributors": 4,
-      "gem_score": 0.537,
+      "gem_score": 0.565,
       "url": "https://github.com/RyanAlberts/best-of-Agent-Harnesses",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25306145?v=4",
       "archived": false,
@@ -3525,7 +4229,15 @@
       ],
       "stars_delta_3d": 24,
       "stars_delta_7d": 52,
-      "stars_delta_30d": 219
+      "stars_delta_30d": 219,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.921,
+        "visibility": 0.084
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "RiccardoBiosas/awesome-MLSecOps",
@@ -3550,7 +4262,7 @@
       "days_since_push": 6,
       "commits_30d": 43,
       "contributors": 18,
-      "gem_score": 0.53,
+      "gem_score": 0.54,
       "url": "https://github.com/RiccardoBiosas/awesome-MLSecOps",
       "owner_avatar": "https://avatars.githubusercontent.com/u/65150720?v=4",
       "archived": false,
@@ -3565,7 +4277,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "gem_subscores": {
+        "activity": 0.39,
+        "quality": 0.902,
+        "visibility": 0.114
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     }
   ],
   "abandoned": [
@@ -3589,7 +4309,7 @@
       "days_since_push": 179,
       "commits_30d": 0,
       "contributors": 3,
-      "gem_score": 0.295,
+      "gem_score": 0.312,
       "url": "https://github.com/mlabonne/llm-course",
       "owner_avatar": "https://avatars.githubusercontent.com/u/81252890?v=4",
       "archived": false,
@@ -3604,7 +4324,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 61,
       "stars_delta_7d": 127,
-      "stars_delta_30d": 738
+      "stars_delta_30d": 738,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nomic-ai/gpt4all",
@@ -3623,7 +4351,7 @@
       "days_since_push": 433,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.387,
+      "gem_score": 0.295,
       "url": "https://github.com/nomic-ai/gpt4all",
       "owner_avatar": "https://avatars.githubusercontent.com/u/102670180?v=4",
       "archived": false,
@@ -3639,7 +4367,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 10,
       "stars_delta_7d": 8,
-      "stars_delta_30d": 26
+      "stars_delta_30d": 26,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.737,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "dair-ai/Prompt-Engineering-Guide",
@@ -3664,7 +4400,7 @@
       "days_since_push": 145,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.401,
+      "gem_score": 0.312,
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/30384625?v=4",
       "archived": false,
@@ -3680,7 +4416,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 82,
       "stars_delta_7d": 164,
-      "stars_delta_30d": 1035
+      "stars_delta_30d": 1035,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.78,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "thedaviddias/Front-End-Checklist",
@@ -3705,7 +4449,7 @@
       "days_since_push": 46,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.399,
+      "gem_score": 0.245,
       "url": "https://github.com/thedaviddias/Front-End-Checklist",
       "owner_avatar": "https://avatars.githubusercontent.com/u/237229?v=4",
       "archived": false,
@@ -3721,7 +4465,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 35,
       "stars_delta_7d": 63,
-      "stars_delta_30d": 283
+      "stars_delta_30d": 283,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.613,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "FoundationAgents/MetaGPT",
@@ -3743,7 +4495,7 @@
       "days_since_push": 194,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.401,
+      "gem_score": 0.312,
       "url": "https://github.com/FoundationAgents/MetaGPT",
       "owner_avatar": "https://avatars.githubusercontent.com/u/198047230?v=4",
       "archived": false,
@@ -3759,7 +4511,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 45,
       "stars_delta_7d": 112,
-      "stars_delta_30d": 465
+      "stars_delta_30d": 465,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "labmlai/annotated_deep_learning_paper_implementations",
@@ -3784,7 +4544,7 @@
       "days_since_push": 193,
       "commits_30d": 0,
       "contributors": 39,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/labmlai/annotated_deep_learning_paper_implementations",
       "owner_avatar": "https://avatars.githubusercontent.com/u/64068543?v=4",
       "archived": false,
@@ -3800,7 +4560,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 13,
       "stars_delta_7d": 28,
-      "stars_delta_30d": 222
+      "stars_delta_30d": 222,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "GokuMohandas/Made-With-ML",
@@ -3825,7 +4593,7 @@
       "days_since_push": 152,
       "commits_30d": 0,
       "contributors": 1,
-      "gem_score": 0.263,
+      "gem_score": 0.311,
       "url": "https://github.com/GokuMohandas/Made-With-ML",
       "owner_avatar": "https://avatars.githubusercontent.com/u/8000987?v=4",
       "archived": false,
@@ -3840,7 +4608,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 21,
       "stars_delta_7d": 55,
-      "stars_delta_30d": 453
+      "stars_delta_30d": 453,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.776,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "DataTalksClub/data-engineering-zoomcamp",
@@ -3865,7 +4641,7 @@
       "days_since_push": 54,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.4,
+      "gem_score": 0.246,
       "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
       "owner_avatar": "https://avatars.githubusercontent.com/u/72699292?v=4",
       "archived": false,
@@ -3880,7 +4656,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 96,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.616,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "2noise/ChatTTS",
@@ -3905,7 +4689,7 @@
       "days_since_push": 115,
       "commits_30d": 0,
       "contributors": 57,
-      "gem_score": 0.379,
+      "gem_score": 0.291,
       "url": "https://github.com/2noise/ChatTTS",
       "owner_avatar": "https://avatars.githubusercontent.com/u/164844019?v=4",
       "archived": false,
@@ -3921,7 +4705,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 12,
       "stars_delta_7d": 44,
-      "stars_delta_30d": 175
+      "stars_delta_30d": 175,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.727,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "QuivrHQ/quivr",
@@ -3946,7 +4738,7 @@
       "days_since_push": 390,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.4,
+      "gem_score": 0.246,
       "url": "https://github.com/QuivrHQ/quivr",
       "owner_avatar": "https://avatars.githubusercontent.com/u/159330290?v=4",
       "archived": false,
@@ -3962,7 +4754,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 9,
       "stars_delta_7d": 19,
-      "stars_delta_30d": 195
+      "stars_delta_30d": 195,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.616,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "chatchat-space/Langchain-Chatchat",
@@ -3987,7 +4787,7 @@
       "days_since_push": 266,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/chatchat-space/Langchain-Chatchat",
       "owner_avatar": "https://avatars.githubusercontent.com/u/139558948?v=4",
       "archived": false,
@@ -4003,7 +4803,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 16,
       "stars_delta_7d": 23,
-      "stars_delta_30d": 253
+      "stars_delta_30d": 253,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ItzCrazyKns/Vane",
@@ -4028,7 +4836,7 @@
       "days_since_push": 114,
       "commits_30d": 0,
       "contributors": 48,
-      "gem_score": 0.378,
+      "gem_score": 0.286,
       "url": "https://github.com/ItzCrazyKns/Vane",
       "owner_avatar": "https://avatars.githubusercontent.com/u/95534749?v=4",
       "archived": false,
@@ -4044,7 +4852,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 47,
       "stars_delta_7d": 87,
-      "stars_delta_30d": 424
+      "stars_delta_30d": 424,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.715,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "PDFMathTranslate/PDFMathTranslate",
@@ -4069,7 +4885,7 @@
       "days_since_push": 70,
       "commits_30d": 0,
       "contributors": 54,
-      "gem_score": 0.402,
+      "gem_score": 0.312,
       "url": "https://github.com/PDFMathTranslate/PDFMathTranslate",
       "owner_avatar": "https://avatars.githubusercontent.com/u/205132128?v=4",
       "archived": false,
@@ -4085,7 +4901,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 62,
       "stars_delta_7d": 121,
-      "stars_delta_30d": 543
+      "stars_delta_30d": 543,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.78,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "datawhalechina/happy-llm",
@@ -4105,7 +4929,7 @@
       "days_since_push": 89,
       "commits_30d": 0,
       "contributors": 26,
-      "gem_score": 0.358,
+      "gem_score": 0.204,
       "url": "https://github.com/datawhalechina/happy-llm",
       "owner_avatar": "https://avatars.githubusercontent.com/u/46047812?v=4",
       "archived": false,
@@ -4121,7 +4945,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 69,
       "stars_delta_7d": 201,
-      "stars_delta_30d": 803
+      "stars_delta_30d": 803,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.509,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "limited evidence; inspect maintenance signals before adopting"
+      ]
     },
     {
       "name": "huggingface/agents-course",
@@ -4145,7 +4977,7 @@
       "days_since_push": 35,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.388,
+      "gem_score": 0.351,
       "url": "https://github.com/huggingface/agents-course",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
       "archived": false,
@@ -4161,7 +4993,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 92,
       "stars_delta_7d": 197,
-      "stars_delta_30d": 832
+      "stars_delta_30d": 832,
+      "gem_subscores": {
+        "activity": 0.1,
+        "quality": 0.778,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "eugeneyan/applied-ml",
@@ -4186,7 +5026,7 @@
       "days_since_push": 746,
       "commits_30d": 0,
       "contributors": 46,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/eugeneyan/applied-ml",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6831355?v=4",
       "archived": false,
@@ -4201,7 +5041,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 14,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "JushBJJ/Mr.-Ranedeer-AI-Tutor",
@@ -4222,7 +5070,7 @@
       "days_since_push": 307,
       "commits_30d": 0,
       "contributors": 1,
-      "gem_score": 0.262,
+      "gem_score": 0.243,
       "url": "https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor",
       "owner_avatar": "https://avatars.githubusercontent.com/u/36951064?v=4",
       "archived": false,
@@ -4237,7 +5085,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 2,
       "stars_delta_7d": -4,
-      "stars_delta_30d": -10
+      "stars_delta_30d": -10,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.608,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Zackriya-Solutions/meetily",
@@ -4262,7 +5118,7 @@
       "days_since_push": 59,
       "commits_30d": 0,
       "contributors": 11,
-      "gem_score": 0.405,
+      "gem_score": 0.311,
       "url": "https://github.com/Zackriya-Solutions/meetily",
       "owner_avatar": "https://avatars.githubusercontent.com/u/82556810?v=4",
       "archived": false,
@@ -4278,7 +5134,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 490,
       "stars_delta_7d": 1120,
-      "stars_delta_30d": 13171
+      "stars_delta_30d": 13171,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.778,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "HandsOnLLM/Hands-On-Large-Language-Models",
@@ -4302,7 +5166,7 @@
       "days_since_push": 101,
       "commits_30d": 0,
       "contributors": 11,
-      "gem_score": 0.397,
+      "gem_score": 0.309,
       "url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
       "owner_avatar": "https://avatars.githubusercontent.com/u/174106807?v=4",
       "archived": false,
@@ -4318,7 +5182,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 48,
       "stars_delta_7d": 108,
-      "stars_delta_30d": 580
+      "stars_delta_30d": 580,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.773,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "BloopAI/vibe-kanban",
@@ -4340,7 +5212,7 @@
       "days_since_push": 101,
       "commits_30d": 0,
       "contributors": 61,
-      "gem_score": 0.394,
+      "gem_score": 0.297,
       "url": "https://github.com/BloopAI/vibe-kanban",
       "owner_avatar": "https://avatars.githubusercontent.com/u/75376775?v=4",
       "archived": false,
@@ -4356,7 +5228,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 46,
       "stars_delta_7d": 94,
-      "stars_delta_30d": 386
+      "stars_delta_30d": 386,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.741,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     }
   ],
   "discovery": [
@@ -4383,7 +5263,7 @@
       "days_since_push": 0,
       "commits_30d": 85,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.547,
       "url": "https://github.com/affaan-m/ECC",
       "owner_avatar": "https://avatars.githubusercontent.com/u/124439313?v=4",
       "archived": false,
@@ -4398,7 +5278,15 @@
       ],
       "stars_delta_3d": 750,
       "stars_delta_7d": 3135,
-      "stars_delta_30d": 11373
+      "stars_delta_30d": 11373,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "NousResearch/hermes-agent",
@@ -4423,7 +5311,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.817,
+      "gem_score": 0.506,
       "url": "https://github.com/NousResearch/hermes-agent",
       "owner_avatar": "https://avatars.githubusercontent.com/u/134168893?v=4",
       "archived": false,
@@ -4438,7 +5326,15 @@
       ],
       "stars_delta_3d": 1590,
       "stars_delta_7d": 3477,
-      "stars_delta_30d": 15795
+      "stars_delta_30d": 15795,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.816,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "n8n-io/n8n",
@@ -4463,7 +5359,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.486,
       "url": "https://github.com/n8n-io/n8n",
       "owner_avatar": "https://avatars.githubusercontent.com/u/45487711?v=4",
       "archived": false,
@@ -4478,7 +5374,15 @@
       ],
       "stars_delta_3d": 378,
       "stars_delta_7d": 962,
-      "stars_delta_30d": 4072
+      "stars_delta_30d": 4072,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.764,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Significant-Gravitas/AutoGPT",
@@ -4503,7 +5407,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.801,
+      "gem_score": 0.486,
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "owner_avatar": "https://avatars.githubusercontent.com/u/130738209?v=4",
       "archived": false,
@@ -4518,7 +5422,15 @@
       ],
       "stars_delta_3d": 51,
       "stars_delta_7d": 75,
-      "stars_delta_30d": 449
+      "stars_delta_30d": 449,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.765,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ollama/ollama",
@@ -4543,7 +5455,7 @@
       "days_since_push": 0,
       "commits_30d": 87,
       "contributors": 100,
-      "gem_score": 0.808,
+      "gem_score": 0.55,
       "url": "https://github.com/ollama/ollama",
       "owner_avatar": "https://avatars.githubusercontent.com/u/151674099?v=4",
       "archived": false,
@@ -4558,7 +5470,15 @@
       ],
       "stars_delta_3d": 272,
       "stars_delta_7d": 680,
-      "stars_delta_30d": 2270
+      "stars_delta_30d": 2270,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.925,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "microsoft/markitdown",
@@ -4582,7 +5502,7 @@
       "days_since_push": 5,
       "commits_30d": 6,
       "contributors": 81,
-      "gem_score": 0.485,
+      "gem_score": 0.517,
       "url": "https://github.com/microsoft/markitdown",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "archived": false,
@@ -4597,7 +5517,15 @@
       ],
       "stars_delta_3d": 711,
       "stars_delta_7d": 1700,
-      "stars_delta_30d": 8313
+      "stars_delta_30d": 8313,
+      "gem_subscores": {
+        "activity": 0.4,
+        "quality": 0.891,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "f/prompts.chat",
@@ -4622,7 +5550,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.481,
       "url": "https://github.com/f/prompts.chat",
       "owner_avatar": "https://avatars.githubusercontent.com/u/196477?v=4",
       "archived": false,
@@ -4637,7 +5565,15 @@
       ],
       "stars_delta_3d": 132,
       "stars_delta_7d": 256,
-      "stars_delta_30d": 1983
+      "stars_delta_30d": 1983,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.763,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "huggingface/transformers",
@@ -4662,7 +5598,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.806,
+      "gem_score": 0.551,
       "url": "https://github.com/huggingface/transformers",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
       "archived": false,
@@ -4677,7 +5613,15 @@
       ],
       "stars_delta_3d": 93,
       "stars_delta_7d": 253,
-      "stars_delta_30d": 1069
+      "stars_delta_30d": 1069,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "firecrawl/firecrawl",
@@ -4702,7 +5646,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.796,
+      "gem_score": 0.547,
       "url": "https://github.com/firecrawl/firecrawl",
       "owner_avatar": "https://avatars.githubusercontent.com/u/135057108?v=4",
       "archived": false,
@@ -4717,7 +5661,15 @@
       ],
       "stars_delta_3d": 1479,
       "stars_delta_7d": 3069,
-      "stars_delta_30d": 16007
+      "stars_delta_30d": 16007,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.918,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Snailclimb/JavaGuide",
@@ -4742,7 +5694,7 @@
       "days_since_push": 6,
       "commits_30d": 18,
       "contributors": 100,
-      "gem_score": 0.524,
+      "gem_score": 0.498,
       "url": "https://github.com/Snailclimb/JavaGuide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/29880145?v=4",
       "archived": false,
@@ -4757,7 +5709,15 @@
       ],
       "stars_delta_3d": 82,
       "stars_delta_7d": 159,
-      "stars_delta_30d": 710
+      "stars_delta_30d": 710,
+      "gem_subscores": {
+        "activity": 0.38,
+        "quality": 0.864,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "langflow-ai/langflow",
@@ -4780,7 +5740,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.552,
       "url": "https://github.com/langflow-ai/langflow",
       "owner_avatar": "https://avatars.githubusercontent.com/u/85702467?v=4",
       "archived": false,
@@ -4795,7 +5755,15 @@
       ],
       "stars_delta_3d": 133,
       "stars_delta_7d": 308,
-      "stars_delta_30d": 1702
+      "stars_delta_30d": 1702,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.929,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "langgenius/dify",
@@ -4820,7 +5788,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.802,
+      "gem_score": 0.486,
       "url": "https://github.com/langgenius/dify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/127165244?v=4",
       "archived": false,
@@ -4835,7 +5803,15 @@
       ],
       "stars_delta_3d": 317,
       "stars_delta_7d": 774,
-      "stars_delta_30d": 3585
+      "stars_delta_30d": 3585,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.764,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "open-webui/open-webui",
@@ -4860,7 +5836,7 @@
       "days_since_push": 1,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.782,
+      "gem_score": 0.469,
       "url": "https://github.com/open-webui/open-webui",
       "owner_avatar": "https://avatars.githubusercontent.com/u/158137808?v=4",
       "archived": false,
@@ -4875,7 +5851,15 @@
       ],
       "stars_delta_3d": 279,
       "stars_delta_7d": 765,
-      "stars_delta_30d": 3566
+      "stars_delta_30d": 3566,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.733,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "langchain-ai/langchain",
@@ -4900,7 +5884,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.771,
+      "gem_score": 0.522,
       "url": "https://github.com/langchain-ai/langchain",
       "owner_avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
       "archived": false,
@@ -4915,7 +5899,15 @@
       ],
       "stars_delta_3d": 247,
       "stars_delta_7d": 630,
-      "stars_delta_30d": 2443
+      "stars_delta_30d": 2443,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.855,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -4940,7 +5932,7 @@
       "days_since_push": 3,
       "commits_30d": 11,
       "contributors": 30,
-      "gem_score": 0.53,
+      "gem_score": 0.536,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
       "owner_avatar": "https://avatars.githubusercontent.com/u/185671340?v=4",
       "archived": false,
@@ -4955,7 +5947,15 @@
       ],
       "stars_delta_3d": 64,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.42,
+        "quality": 0.921,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Shubhamsaboo/awesome-llm-apps",
@@ -4976,7 +5976,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 91,
-      "gem_score": 0.791,
+      "gem_score": 0.538,
       "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
       "owner_avatar": "https://avatars.githubusercontent.com/u/31396011?v=4",
       "archived": false,
@@ -4991,7 +5991,15 @@
       ],
       "stars_delta_3d": 928,
       "stars_delta_7d": 2108,
-      "stars_delta_30d": 13809
+      "stars_delta_30d": 13809,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.905,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "github/spec-kit",
@@ -5015,7 +6023,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.79,
+      "gem_score": 0.541,
       "url": "https://github.com/github/spec-kit",
       "owner_avatar": "https://avatars.githubusercontent.com/u/9919?v=4",
       "archived": false,
@@ -5030,7 +6038,15 @@
       ],
       "stars_delta_3d": 412,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.903,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "farion1231/cc-switch",
@@ -5055,7 +6071,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.807,
+      "gem_score": 0.55,
       "url": "https://github.com/farion1231/cc-switch",
       "owner_avatar": "https://avatars.githubusercontent.com/u/44939412?v=4",
       "archived": false,
@@ -5070,7 +6086,15 @@
       ],
       "stars_delta_3d": 1082,
       "stars_delta_7d": 2235,
-      "stars_delta_30d": 10822
+      "stars_delta_30d": 10822,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.926,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "microsoft/generative-ai-for-beginners",
@@ -5095,7 +6119,7 @@
       "days_since_push": 2,
       "commits_30d": 50,
       "contributors": 100,
-      "gem_score": 0.701,
+      "gem_score": 0.519,
       "url": "https://github.com/microsoft/generative-ai-for-beginners",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "archived": false,
@@ -5110,7 +6134,15 @@
       ],
       "stars_delta_3d": 1794,
       "stars_delta_7d": 2020,
-      "stars_delta_30d": 2973
+      "stars_delta_30d": 2973,
+      "gem_subscores": {
+        "activity": 0.42,
+        "quality": 0.878,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nextlevelbuilder/ui-ux-pro-max-skill",
@@ -5135,7 +6167,7 @@
       "days_since_push": 0,
       "commits_30d": 22,
       "contributors": 71,
-      "gem_score": 0.603,
+      "gem_score": 0.552,
       "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
       "owner_avatar": "https://avatars.githubusercontent.com/u/246974152?v=4",
       "archived": false,
@@ -5150,7 +6182,15 @@
       ],
       "stars_delta_3d": 928,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.931,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "browser-use/browser-use",
@@ -5174,7 +6214,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.798,
+      "gem_score": 0.548,
       "url": "https://github.com/browser-use/browser-use",
       "owner_avatar": "https://avatars.githubusercontent.com/u/192012301?v=4",
       "archived": false,
@@ -5189,7 +6229,15 @@
       ],
       "stars_delta_3d": 351,
       "stars_delta_7d": 727,
-      "stars_delta_30d": 5067
+      "stars_delta_30d": 5067,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.921,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "supabase/supabase",
@@ -5214,7 +6262,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.804,
+      "gem_score": 0.551,
       "url": "https://github.com/supabase/supabase",
       "owner_avatar": "https://avatars.githubusercontent.com/u/54469796?v=4",
       "archived": false,
@@ -5229,7 +6277,15 @@
       ],
       "stars_delta_3d": 208,
       "stars_delta_7d": 418,
-      "stars_delta_30d": 1858
+      "stars_delta_30d": 1858,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "google-gemini/gemini-cli",
@@ -5253,7 +6309,7 @@
       "days_since_push": 0,
       "commits_30d": 47,
       "contributors": 100,
-      "gem_score": 0.722,
+      "gem_score": 0.551,
       "url": "https://github.com/google-gemini/gemini-cli",
       "owner_avatar": "https://avatars.githubusercontent.com/u/161781182?v=4",
       "archived": false,
@@ -5268,7 +6324,15 @@
       ],
       "stars_delta_3d": 62,
       "stars_delta_7d": 132,
-      "stars_delta_30d": 605
+      "stars_delta_30d": 605,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Graphify-Labs/graphify",
@@ -5293,7 +6357,7 @@
       "days_since_push": 2,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.789,
+      "gem_score": 0.541,
       "url": "https://github.com/Graphify-Labs/graphify",
       "owner_avatar": "https://avatars.githubusercontent.com/u/297659074?v=4",
       "archived": false,
@@ -5308,7 +6372,15 @@
       ],
       "stars_delta_3d": 2247,
       "stars_delta_7d": 4692,
-      "stars_delta_30d": 24314
+      "stars_delta_30d": 24314,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.922,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "harry0703/MoneyPrinterTurbo",
@@ -5333,7 +6405,7 @@
       "days_since_push": 1,
       "commits_30d": 41,
       "contributors": 70,
-      "gem_score": 0.684,
+      "gem_score": 0.542,
       "url": "https://github.com/harry0703/MoneyPrinterTurbo",
       "owner_avatar": "https://avatars.githubusercontent.com/u/4928832?v=4",
       "archived": false,
@@ -5348,7 +6420,15 @@
       ],
       "stars_delta_3d": 632,
       "stars_delta_7d": 1848,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.925,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "rasbt/LLMs-from-scratch",
@@ -5373,7 +6453,7 @@
       "days_since_push": 5,
       "commits_30d": 4,
       "contributors": 64,
-      "gem_score": 0.474,
+      "gem_score": 0.451,
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "owner_avatar": "https://avatars.githubusercontent.com/u/5618407?v=4",
       "archived": false,
@@ -5388,7 +6468,15 @@
       ],
       "stars_delta_3d": 247,
       "stars_delta_7d": 491,
-      "stars_delta_30d": 1977
+      "stars_delta_30d": 1977,
+      "gem_subscores": {
+        "activity": 0.4,
+        "quality": 0.728,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "JuliusBrussee/caveman",
@@ -5413,7 +6501,7 @@
       "days_since_push": 0,
       "commits_30d": 10,
       "contributors": 32,
-      "gem_score": 0.548,
+      "gem_score": 0.552,
       "url": "https://github.com/JuliusBrussee/caveman",
       "owner_avatar": "https://avatars.githubusercontent.com/u/104168679?v=4",
       "archived": false,
@@ -5428,7 +6516,15 @@
       ],
       "stars_delta_3d": 675,
       "stars_delta_7d": 1988,
-      "stars_delta_30d": 11772
+      "stars_delta_30d": 11772,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.93,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "TauricResearch/TradingAgents",
@@ -5450,7 +6546,7 @@
       "days_since_push": 16,
       "commits_30d": 14,
       "contributors": 19,
-      "gem_score": 0.453,
+      "gem_score": 0.454,
       "url": "https://github.com/TauricResearch/TradingAgents",
       "owner_avatar": "https://avatars.githubusercontent.com/u/192884433?v=4",
       "archived": false,
@@ -5465,7 +6561,15 @@
       ],
       "stars_delta_3d": 349,
       "stars_delta_7d": 734,
-      "stars_delta_30d": 4695
+      "stars_delta_30d": 4695,
+      "gem_subscores": {
+        "activity": 0.29,
+        "quality": 0.844,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "DietrichGebert/ponytail",
@@ -5490,7 +6594,7 @@
       "days_since_push": 19,
       "commits_30d": 44,
       "contributors": 62,
-      "gem_score": 0.605,
+      "gem_score": 0.451,
       "url": "https://github.com/DietrichGebert/ponytail",
       "owner_avatar": "https://avatars.githubusercontent.com/u/137048761?v=4",
       "archived": false,
@@ -5505,7 +6609,15 @@
       ],
       "stars_delta_3d": 2071,
       "stars_delta_7d": 4611,
-      "stars_delta_30d": 21242
+      "stars_delta_30d": 21242,
+      "gem_subscores": {
+        "activity": 0.26,
+        "quality": 0.867,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "punkpeye/awesome-mcp-servers",
@@ -5524,7 +6636,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.761,
+      "gem_score": 0.495,
       "url": "https://github.com/punkpeye/awesome-mcp-servers",
       "owner_avatar": "https://avatars.githubusercontent.com/u/108313943?v=4",
       "archived": false,
@@ -5539,7 +6651,15 @@
       ],
       "stars_delta_3d": 133,
       "stars_delta_7d": 321,
-      "stars_delta_30d": 1503
+      "stars_delta_30d": 1503,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.798,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "thedotmack/claude-mem",
@@ -5564,7 +6684,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.802,
+      "gem_score": 0.552,
       "url": "https://github.com/thedotmack/claude-mem",
       "owner_avatar": "https://avatars.githubusercontent.com/u/683968?v=4",
       "archived": false,
@@ -5579,7 +6699,15 @@
       ],
       "stars_delta_3d": 285,
       "stars_delta_7d": 684,
-      "stars_delta_30d": 3638
+      "stars_delta_30d": 3638,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.93,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ChatGPTNextWeb/NextChat",
@@ -5604,7 +6732,7 @@
       "days_since_push": 28,
       "commits_30d": 44,
       "contributors": 100,
-      "gem_score": 0.608,
+      "gem_score": 0.397,
       "url": "https://github.com/ChatGPTNextWeb/NextChat",
       "owner_avatar": "https://avatars.githubusercontent.com/u/153288546?v=4",
       "archived": false,
@@ -5619,7 +6747,15 @@
       ],
       "stars_delta_3d": 20,
       "stars_delta_7d": 25,
-      "stars_delta_30d": 209
+      "stars_delta_30d": 209,
+      "gem_subscores": {
+        "activity": 0.16,
+        "quality": 0.832,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "vllm-project/vllm",
@@ -5644,7 +6780,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.826,
+      "gem_score": 0.541,
       "url": "https://github.com/vllm-project/vllm",
       "owner_avatar": "https://avatars.githubusercontent.com/u/136984999?v=4",
       "archived": false,
@@ -5659,7 +6795,15 @@
       ],
       "stars_delta_3d": 313,
       "stars_delta_7d": 754,
-      "stars_delta_30d": 2768
+      "stars_delta_30d": 2768,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.904,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "PaddlePaddle/PaddleOCR",
@@ -5684,7 +6828,7 @@
       "days_since_push": 12,
       "commits_30d": 2,
       "contributors": 100,
-      "gem_score": 0.425,
+      "gem_score": 0.488,
       "url": "https://github.com/PaddlePaddle/PaddleOCR",
       "owner_avatar": "https://avatars.githubusercontent.com/u/23534030?v=4",
       "archived": false,
@@ -5699,7 +6843,15 @@
       ],
       "stars_delta_3d": 233,
       "stars_delta_7d": 533,
-      "stars_delta_30d": 2230
+      "stars_delta_30d": 2230,
+      "gem_subscores": {
+        "activity": 0.33,
+        "quality": 0.89,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "infiniflow/ragflow",
@@ -5724,7 +6876,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.809,
+      "gem_score": 0.55,
       "url": "https://github.com/infiniflow/ragflow",
       "owner_avatar": "https://avatars.githubusercontent.com/u/69962740?v=4",
       "archived": false,
@@ -5739,7 +6891,15 @@
       ],
       "stars_delta_3d": 223,
       "stars_delta_7d": 565,
-      "stars_delta_30d": 2479
+      "stars_delta_30d": 2479,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.924,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nexu-io/open-design",
@@ -5764,7 +6924,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.551,
       "url": "https://github.com/nexu-io/open-design",
       "owner_avatar": "https://avatars.githubusercontent.com/u/263625318?v=4",
       "archived": false,
@@ -5779,7 +6939,15 @@
       ],
       "stars_delta_3d": 530,
       "stars_delta_7d": 1442,
-      "stars_delta_30d": 8504
+      "stars_delta_30d": 8504,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.929,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "OpenHands/OpenHands",
@@ -5804,7 +6972,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.773,
+      "gem_score": 0.524,
       "url": "https://github.com/OpenHands/OpenHands",
       "owner_avatar": "https://avatars.githubusercontent.com/u/225919603?v=4",
       "archived": false,
@@ -5819,7 +6987,15 @@
       ],
       "stars_delta_3d": 316,
       "stars_delta_7d": 690,
-      "stars_delta_30d": 3619
+      "stars_delta_30d": 3619,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.859,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "mlabonne/llm-course",
@@ -5841,7 +7017,7 @@
       "days_since_push": 179,
       "commits_30d": 0,
       "contributors": 3,
-      "gem_score": 0.295,
+      "gem_score": 0.312,
       "url": "https://github.com/mlabonne/llm-course",
       "owner_avatar": "https://avatars.githubusercontent.com/u/81252890?v=4",
       "archived": false,
@@ -5856,7 +7032,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 61,
       "stars_delta_7d": 127,
-      "stars_delta_30d": 738
+      "stars_delta_30d": 738,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "lobehub/lobehub",
@@ -5881,7 +7065,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.803,
+      "gem_score": 0.485,
       "url": "https://github.com/lobehub/lobehub",
       "owner_avatar": "https://avatars.githubusercontent.com/u/131470832?v=4",
       "archived": false,
@@ -5896,7 +7080,15 @@
       ],
       "stars_delta_3d": 197,
       "stars_delta_7d": 309,
-      "stars_delta_30d": 1751
+      "stars_delta_30d": 1751,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.764,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "netdata/netdata",
@@ -5921,7 +7113,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.8,
+      "gem_score": 0.55,
       "url": "https://github.com/netdata/netdata",
       "owner_avatar": "https://avatars.githubusercontent.com/u/43390781?v=4",
       "archived": false,
@@ -5936,7 +7128,15 @@
       ],
       "stars_delta_3d": 49,
       "stars_delta_7d": 129,
-      "stars_delta_30d": 518
+      "stars_delta_30d": 518,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.925,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "bytedance/deer-flow",
@@ -5961,7 +7161,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.805,
+      "gem_score": 0.551,
       "url": "https://github.com/bytedance/deer-flow",
       "owner_avatar": "https://avatars.githubusercontent.com/u/4158466?v=4",
       "archived": false,
@@ -5976,7 +7176,15 @@
       ],
       "stars_delta_3d": 753,
       "stars_delta_7d": 1181,
-      "stars_delta_30d": 3076
+      "stars_delta_30d": 3076,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "koala73/worldmonitor",
@@ -6001,7 +7209,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.802,
+      "gem_score": 0.486,
       "url": "https://github.com/koala73/worldmonitor",
       "owner_avatar": "https://avatars.githubusercontent.com/u/996596?v=4",
       "archived": false,
@@ -6016,7 +7224,15 @@
       ],
       "stars_delta_3d": 1128,
       "stars_delta_7d": 3117,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.765,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nomic-ai/gpt4all",
@@ -6035,7 +7251,7 @@
       "days_since_push": 433,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.387,
+      "gem_score": 0.295,
       "url": "https://github.com/nomic-ai/gpt4all",
       "owner_avatar": "https://avatars.githubusercontent.com/u/102670180?v=4",
       "archived": false,
@@ -6051,7 +7267,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 10,
       "stars_delta_7d": 8,
-      "stars_delta_30d": 26
+      "stars_delta_30d": 26,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.737,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "dair-ai/Prompt-Engineering-Guide",
@@ -6076,7 +7300,7 @@
       "days_since_push": 145,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.401,
+      "gem_score": 0.312,
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/30384625?v=4",
       "archived": false,
@@ -6092,7 +7316,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 82,
       "stars_delta_7d": 164,
-      "stars_delta_30d": 1035
+      "stars_delta_30d": 1035,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.78,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "rtk-ai/rtk",
@@ -6117,7 +7349,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.81,
+      "gem_score": 0.55,
       "url": "https://github.com/rtk-ai/rtk",
       "owner_avatar": "https://avatars.githubusercontent.com/u/258253854?v=4",
       "archived": false,
@@ -6132,7 +7364,15 @@
       ],
       "stars_delta_3d": 398,
       "stars_delta_7d": 1005,
-      "stars_delta_30d": 6102
+      "stars_delta_30d": 6102,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.924,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "apache/superset",
@@ -6157,7 +7397,7 @@
       "days_since_push": -1,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.796,
+      "gem_score": 0.545,
       "url": "https://github.com/apache/superset",
       "owner_avatar": "https://avatars.githubusercontent.com/u/47359?v=4",
       "archived": false,
@@ -6172,7 +7412,15 @@
       ],
       "stars_delta_3d": 56,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.912,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "hiyouga/LlamaFactory",
@@ -6197,7 +7445,7 @@
       "days_since_push": 0,
       "commits_30d": 20,
       "contributors": 100,
-      "gem_score": 0.586,
+      "gem_score": 0.533,
       "url": "https://github.com/hiyouga/LlamaFactory",
       "owner_avatar": "https://avatars.githubusercontent.com/u/16256802?v=4",
       "archived": false,
@@ -6212,7 +7460,15 @@
       ],
       "stars_delta_3d": 77,
       "stars_delta_7d": 168,
-      "stars_delta_30d": 780
+      "stars_delta_30d": 780,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.893,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "thedaviddias/Front-End-Checklist",
@@ -6237,7 +7493,7 @@
       "days_since_push": 46,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.399,
+      "gem_score": 0.245,
       "url": "https://github.com/thedaviddias/Front-End-Checklist",
       "owner_avatar": "https://avatars.githubusercontent.com/u/237229?v=4",
       "archived": false,
@@ -6253,7 +7509,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 35,
       "stars_delta_7d": 63,
-      "stars_delta_30d": 283
+      "stars_delta_30d": 283,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.613,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "shareAI-lab/learn-claude-code",
@@ -6278,7 +7542,7 @@
       "days_since_push": 6,
       "commits_30d": 18,
       "contributors": 32,
-      "gem_score": 0.541,
+      "gem_score": 0.52,
       "url": "https://github.com/shareAI-lab/learn-claude-code",
       "owner_avatar": "https://avatars.githubusercontent.com/u/189210346?v=4",
       "archived": false,
@@ -6293,7 +7557,15 @@
       ],
       "stars_delta_3d": 260,
       "stars_delta_7d": 704,
-      "stars_delta_30d": 3305
+      "stars_delta_30d": 3305,
+      "gem_subscores": {
+        "activity": 0.39,
+        "quality": 0.911,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "D4Vinci/Scrapling",
@@ -6318,7 +7590,7 @@
       "days_since_push": 4,
       "commits_30d": 48,
       "contributors": 29,
-      "gem_score": 0.695,
+      "gem_score": 0.531,
       "url": "https://github.com/D4Vinci/Scrapling",
       "owner_avatar": "https://avatars.githubusercontent.com/u/20604835?v=4",
       "archived": false,
@@ -6333,7 +7605,15 @@
       ],
       "stars_delta_3d": 397,
       "stars_delta_7d": 881,
-      "stars_delta_30d": 4335
+      "stars_delta_30d": 4335,
+      "gem_subscores": {
+        "activity": 0.41,
+        "quality": 0.918,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "daytonaio/daytona",
@@ -6358,7 +7638,7 @@
       "days_since_push": 10,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.429,
+      "gem_score": 0.425,
       "url": "https://github.com/daytonaio/daytona",
       "owner_avatar": "https://avatars.githubusercontent.com/u/130513197?v=4",
       "archived": false,
@@ -6372,7 +7652,15 @@
       ],
       "stars_delta_3d": -34,
       "stars_delta_7d": -83,
-      "stars_delta_30d": -242
+      "stars_delta_30d": -242,
+      "gem_subscores": {
+        "activity": 0.34,
+        "quality": 0.722,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ComposioHQ/awesome-claude-skills",
@@ -6397,7 +7685,7 @@
       "days_since_push": 10,
       "commits_30d": 2,
       "contributors": 28,
-      "gem_score": 0.444,
+      "gem_score": 0.426,
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "owner_avatar": "https://avatars.githubusercontent.com/u/128464815?v=4",
       "archived": false,
@@ -6412,7 +7700,15 @@
       ],
       "stars_delta_3d": 249,
       "stars_delta_7d": 623,
-      "stars_delta_30d": 4903
+      "stars_delta_30d": 4903,
+      "gem_subscores": {
+        "activity": 0.34,
+        "quality": 0.725,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "microsoft/ai-agents-for-beginners",
@@ -6437,7 +7733,7 @@
       "days_since_push": 5,
       "commits_30d": 100,
       "contributors": 92,
-      "gem_score": 0.742,
+      "gem_score": 0.504,
       "url": "https://github.com/microsoft/ai-agents-for-beginners",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
       "archived": false,
@@ -6452,7 +7748,15 @@
       ],
       "stars_delta_3d": 315,
       "stars_delta_7d": 652,
-      "stars_delta_30d": 2589
+      "stars_delta_30d": 2589,
+      "gem_subscores": {
+        "activity": 0.4,
+        "quality": 0.859,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "datawhalechina/hello-agents",
@@ -6473,7 +7777,7 @@
       "days_since_push": 0,
       "commits_30d": 19,
       "contributors": 84,
-      "gem_score": 0.558,
+      "gem_score": 0.45,
       "url": "https://github.com/datawhalechina/hello-agents",
       "owner_avatar": "https://avatars.githubusercontent.com/u/46047812?v=4",
       "archived": false,
@@ -6488,7 +7792,15 @@
       ],
       "stars_delta_3d": 661,
       "stars_delta_7d": 1490,
-      "stars_delta_30d": 6553
+      "stars_delta_30d": 6553,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.685,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "FoundationAgents/MetaGPT",
@@ -6510,7 +7822,7 @@
       "days_since_push": 194,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.401,
+      "gem_score": 0.312,
       "url": "https://github.com/FoundationAgents/MetaGPT",
       "owner_avatar": "https://avatars.githubusercontent.com/u/198047230?v=4",
       "archived": false,
@@ -6526,7 +7838,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 45,
       "stars_delta_7d": 112,
-      "stars_delta_30d": 465
+      "stars_delta_30d": 465,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "unslothai/unsloth",
@@ -6551,7 +7871,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.806,
+      "gem_score": 0.551,
       "url": "https://github.com/unslothai/unsloth",
       "owner_avatar": "https://avatars.githubusercontent.com/u/150920049?v=4",
       "archived": false,
@@ -6566,7 +7886,15 @@
       ],
       "stars_delta_3d": 204,
       "stars_delta_7d": 502,
-      "stars_delta_30d": 1690
+      "stars_delta_30d": 1690,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "labmlai/annotated_deep_learning_paper_implementations",
@@ -6591,7 +7919,7 @@
       "days_since_push": 193,
       "commits_30d": 0,
       "contributors": 39,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/labmlai/annotated_deep_learning_paper_implementations",
       "owner_avatar": "https://avatars.githubusercontent.com/u/64068543?v=4",
       "archived": false,
@@ -6607,7 +7935,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 13,
       "stars_delta_7d": 28,
-      "stars_delta_30d": 222
+      "stars_delta_30d": 222,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "code-yeongyu/oh-my-openagent",
@@ -6632,7 +7968,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.806,
+      "gem_score": 0.485,
       "url": "https://github.com/code-yeongyu/oh-my-openagent",
       "owner_avatar": "https://avatars.githubusercontent.com/u/11153873?v=4",
       "archived": false,
@@ -6647,7 +7983,15 @@
       ],
       "stars_delta_3d": 232,
       "stars_delta_7d": 478,
-      "stars_delta_30d": 2349
+      "stars_delta_30d": 2349,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.762,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ruvnet/ruflo",
@@ -6672,7 +8016,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 32,
-      "gem_score": 0.805,
+      "gem_score": 0.546,
       "url": "https://github.com/ruvnet/ruflo",
       "owner_avatar": "https://avatars.githubusercontent.com/u/2934394?v=4",
       "archived": false,
@@ -6687,7 +8031,15 @@
       ],
       "stars_delta_3d": 281,
       "stars_delta_7d": 674,
-      "stars_delta_30d": 3991
+      "stars_delta_30d": 3991,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.924,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Panniantong/Agent-Reach",
@@ -6712,7 +8064,7 @@
       "days_since_push": 9,
       "commits_30d": 23,
       "contributors": 30,
-      "gem_score": 0.544,
+      "gem_score": 0.499,
       "url": "https://github.com/Panniantong/Agent-Reach",
       "owner_avatar": "https://avatars.githubusercontent.com/u/73925474?v=4",
       "archived": false,
@@ -6727,7 +8079,15 @@
       ],
       "stars_delta_3d": 2456,
       "stars_delta_7d": 4500,
-      "stars_delta_30d": 15288
+      "stars_delta_30d": 15288,
+      "gem_subscores": {
+        "activity": 0.35,
+        "quality": 0.897,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "jaylfc/taOS",
@@ -6752,7 +8112,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 4,
-      "gem_score": 0.878,
+      "gem_score": 0.483,
       "url": "https://github.com/jaylfc/taOS",
       "owner_avatar": "https://avatars.githubusercontent.com/u/30096482?v=4",
       "archived": false,
@@ -6767,7 +8127,15 @@
       ],
       "stars_delta_3d": 5,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 63
+      "stars_delta_30d": 63,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.729,
+        "visibility": 0.058
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "TryCaspian/caspian-sdk",
@@ -6792,7 +8160,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 21,
-      "gem_score": 0.834,
+      "gem_score": 0.57,
       "url": "https://github.com/TryCaspian/caspian-sdk",
       "owner_avatar": "https://avatars.githubusercontent.com/u/256783915?v=4",
       "archived": false,
@@ -6807,7 +8175,15 @@
       ],
       "stars_delta_3d": 62,
       "stars_delta_7d": 160,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.905,
+        "visibility": 0.14
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "smg-project/smg",
@@ -6832,7 +8208,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 100,
-      "gem_score": 0.76,
+      "gem_score": 0.559,
       "url": "https://github.com/smg-project/smg",
       "owner_avatar": "https://avatars.githubusercontent.com/u/290860512?v=4",
       "archived": false,
@@ -6847,7 +8223,15 @@
       ],
       "stars_delta_3d": 14,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.888,
+        "visibility": 0.122
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "spark-arena/sparkrun",
@@ -6869,7 +8253,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 13,
-      "gem_score": 0.736,
+      "gem_score": 0.581,
       "url": "https://github.com/spark-arena/sparkrun",
       "owner_avatar": "https://avatars.githubusercontent.com/u/261693345?v=4",
       "archived": false,
@@ -6884,7 +8268,15 @@
       ],
       "stars_delta_3d": 6,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 55
+      "stars_delta_30d": 55,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.923,
+        "visibility": 0.158
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "CodeAbra/iai-personal-memory-engine",
@@ -6909,7 +8301,7 @@
       "days_since_push": 0,
       "commits_30d": 86,
       "contributors": 5,
-      "gem_score": 0.728,
+      "gem_score": 0.555,
       "url": "https://github.com/CodeAbra/iai-personal-memory-engine",
       "owner_avatar": "https://avatars.githubusercontent.com/u/227912842?v=4",
       "archived": false,
@@ -6924,7 +8316,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 79,
-      "stars_delta_30d": 150
+      "stars_delta_30d": 150,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.926,
+        "visibility": 0.044
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "expectedparrot/edsl",
@@ -6949,7 +8349,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 18,
-      "gem_score": 0.708,
+      "gem_score": 0.546,
       "url": "https://github.com/expectedparrot/edsl",
       "owner_avatar": "https://avatars.githubusercontent.com/u/101932709?v=4",
       "archived": false,
@@ -6964,7 +8364,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 12
+      "stars_delta_30d": 12,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.899,
+        "visibility": 0.03
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "warpfront/hipfire",
@@ -6989,7 +8397,7 @@
       "days_since_push": 0,
       "commits_30d": 44,
       "contributors": 25,
-      "gem_score": 0.699,
+      "gem_score": 0.446,
       "url": "https://github.com/warpfront/hipfire",
       "owner_avatar": "https://avatars.githubusercontent.com/u/308720658?v=4",
       "archived": false,
@@ -7004,7 +8412,15 @@
       ],
       "stars_delta_3d": 6,
       "stars_delta_7d": 7,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.664,
+        "visibility": 0.004
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "hashgraph-online/hol-guard",
@@ -7029,7 +8445,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 5,
-      "gem_score": 0.695,
+      "gem_score": 0.511,
       "url": "https://github.com/hashgraph-online/hol-guard",
       "owner_avatar": "https://avatars.githubusercontent.com/u/160371962?v=4",
       "archived": false,
@@ -7044,7 +8460,15 @@
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.751,
+        "visibility": 0.154
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ddalcu/mlx-serve",
@@ -7069,7 +8493,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 7,
-      "gem_score": 0.687,
+      "gem_score": 0.58,
       "url": "https://github.com/ddalcu/mlx-serve",
       "owner_avatar": "https://avatars.githubusercontent.com/u/869085?v=4",
       "archived": false,
@@ -7084,7 +8508,15 @@
       ],
       "stars_delta_3d": 34,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0.144
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "DataRecce/recce",
@@ -7108,7 +8540,7 @@
       "days_since_push": 0,
       "commits_30d": 70,
       "contributors": 18,
-      "gem_score": 0.665,
+      "gem_score": 0.554,
       "url": "https://github.com/DataRecce/recce",
       "owner_avatar": "https://avatars.githubusercontent.com/u/152131563?v=4",
       "archived": false,
@@ -7123,7 +8555,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.911,
+        "visibility": 0.066
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "lucasjinreal/Crane",
@@ -7146,7 +8586,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 8,
-      "gem_score": 0.661,
+      "gem_score": 0.57,
       "url": "https://github.com/lucasjinreal/Crane",
       "owner_avatar": "https://avatars.githubusercontent.com/u/21303438?v=4",
       "archived": false,
@@ -7161,7 +8601,15 @@
       ],
       "stars_delta_3d": 15,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.92,
+        "visibility": 0.11
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "nodetool-ai/nodetool",
@@ -7186,7 +8634,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 11,
-      "gem_score": 0.65,
+      "gem_score": 0.54,
       "url": "https://github.com/nodetool-ai/nodetool",
       "owner_avatar": "https://avatars.githubusercontent.com/u/164873569?v=4",
       "archived": false,
@@ -7201,7 +8649,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 7,
-      "stars_delta_30d": 21
+      "stars_delta_30d": 21,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.842,
+        "visibility": 0.116
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Desbordante/desbordante-core",
@@ -7226,7 +8682,7 @@
       "days_since_push": 0,
       "commits_30d": 45,
       "contributors": 70,
-      "gem_score": 0.641,
+      "gem_score": 0.533,
       "url": "https://github.com/Desbordante/desbordante-core",
       "owner_avatar": "https://avatars.githubusercontent.com/u/150290801?v=4",
       "archived": false,
@@ -7241,7 +8697,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.875,
+        "visibility": 0.014
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "eltociear/awesome-AI-driven-development",
@@ -7266,7 +8730,7 @@
       "days_since_push": 1,
       "commits_30d": 62,
       "contributors": 71,
-      "gem_score": 0.626,
+      "gem_score": 0.465,
       "url": "https://github.com/eltociear/awesome-AI-driven-development",
       "owner_avatar": "https://avatars.githubusercontent.com/u/22633385?v=4",
       "archived": false,
@@ -7281,7 +8745,15 @@
       ],
       "stars_delta_3d": 2,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.692,
+        "visibility": 0.082
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ome-projects/ome",
@@ -7306,7 +8778,7 @@
       "days_since_push": 0,
       "commits_30d": 30,
       "contributors": 35,
-      "gem_score": 0.621,
+      "gem_score": 0.529,
       "url": "https://github.com/ome-projects/ome",
       "owner_avatar": "https://avatars.githubusercontent.com/u/276942073?v=4",
       "archived": false,
@@ -7321,7 +8793,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 3,
-      "stars_delta_30d": 9
+      "stars_delta_30d": 9,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.858,
+        "visibility": 0.03
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "LnYo-Cly/ai4j",
@@ -7346,7 +8826,7 @@
       "days_since_push": 4,
       "commits_30d": 100,
       "contributors": 8,
-      "gem_score": 0.612,
+      "gem_score": 0.562,
       "url": "https://github.com/LnYo-Cly/ai4j",
       "owner_avatar": "https://avatars.githubusercontent.com/u/47201396?v=4",
       "archived": false,
@@ -7361,7 +8841,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.41,
+        "quality": 0.916,
+        "visibility": 0.158
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "brontoguana/krasis",
@@ -7386,7 +8874,7 @@
       "days_since_push": 0,
       "commits_30d": 77,
       "contributors": 1,
-      "gem_score": 0.608,
+      "gem_score": 0.485,
       "url": "https://github.com/brontoguana/krasis",
       "owner_avatar": "https://avatars.githubusercontent.com/u/7049825?v=4",
       "archived": false,
@@ -7401,7 +8889,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 7,
-      "stars_delta_30d": 21
+      "stars_delta_30d": 21,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.761,
+        "visibility": 0.004
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "xixihhhh/clipforge",
@@ -7426,7 +8922,7 @@
       "days_since_push": 3,
       "commits_30d": 65,
       "contributors": 1,
-      "gem_score": 0.597,
+      "gem_score": 0.549,
       "url": "https://github.com/xixihhhh/clipforge",
       "owner_avatar": "https://avatars.githubusercontent.com/u/60566571?v=4",
       "archived": false,
@@ -7440,7 +8936,15 @@
       ],
       "stars_delta_3d": 18,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.41,
+        "quality": 0.917,
+        "visibility": 0.088
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "GlitterKill/sdl-mcp",
@@ -7465,7 +8969,7 @@
       "days_since_push": 0,
       "commits_30d": 100,
       "contributors": 1,
-      "gem_score": 0.595,
+      "gem_score": 0.502,
       "url": "https://github.com/GlitterKill/sdl-mcp",
       "owner_avatar": "https://avatars.githubusercontent.com/u/88055815?v=4",
       "archived": false,
@@ -7480,7 +8984,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 9,
-      "stars_delta_30d": 56
+      "stars_delta_30d": 56,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.765,
+        "visibility": 0.08
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ciddwd/overlay-translator",
@@ -7505,7 +9017,7 @@
       "days_since_push": 1,
       "commits_30d": 50,
       "contributors": 1,
-      "gem_score": 0.591,
+      "gem_score": 0.557,
       "url": "https://github.com/ciddwd/overlay-translator",
       "owner_avatar": "https://avatars.githubusercontent.com/u/18551476?v=4",
       "archived": false,
@@ -7519,7 +9031,15 @@
       ],
       "stars_delta_3d": 25,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.927,
+        "visibility": 0.048
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "usethesource/rascal",
@@ -7544,7 +9064,7 @@
       "days_since_push": 0,
       "commits_30d": 4,
       "contributors": 47,
-      "gem_score": 0.571,
+      "gem_score": 0.383,
       "url": "https://github.com/usethesource/rascal",
       "owner_avatar": "https://avatars.githubusercontent.com/u/12157708?v=4",
       "archived": false,
@@ -7558,7 +9078,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.466,
+        "visibility": 0.084
+      },
+      "gem_reasons": [
+        "limited evidence; inspect maintenance signals before adopting"
+      ]
     },
     {
       "name": "cordum-io/cordum",
@@ -7583,7 +9111,7 @@
       "days_since_push": 1,
       "commits_30d": 43,
       "contributors": 6,
-      "gem_score": 0.569,
+      "gem_score": 0.474,
       "url": "https://github.com/cordum-io/cordum",
       "owner_avatar": "https://avatars.githubusercontent.com/u/248097825?v=4",
       "archived": false,
@@ -7598,7 +9126,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 8
+      "stars_delta_30d": 8,
+      "gem_subscores": {
+        "activity": 0.43,
+        "quality": 0.749,
+        "visibility": 0.01
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "vmware/versatile-data-kit",
@@ -7623,7 +9159,7 @@
       "days_since_push": 0,
       "commits_30d": 0,
       "contributors": 37,
-      "gem_score": 0.558,
+      "gem_score": 0.494,
       "url": "https://github.com/vmware/versatile-data-kit",
       "owner_avatar": "https://avatars.githubusercontent.com/u/473334?v=4",
       "archived": false,
@@ -7637,7 +9173,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.773,
+        "visibility": 0.024
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "NPC-Worldwide/incognide",
@@ -7662,7 +9206,7 @@
       "days_since_push": 0,
       "commits_30d": 59,
       "contributors": 4,
-      "gem_score": 0.557,
+      "gem_score": 0.542,
       "url": "https://github.com/NPC-Worldwide/incognide",
       "owner_avatar": "https://avatars.githubusercontent.com/u/209010789?v=4",
       "archived": false,
@@ -7677,7 +9221,15 @@
       ],
       "stars_delta_3d": 3,
       "stars_delta_7d": 4,
-      "stars_delta_30d": 10
+      "stars_delta_30d": 10,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.876,
+        "visibility": 0.076
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "inclusionAI/AReno",
@@ -7702,7 +9254,7 @@
       "days_since_push": 0,
       "commits_30d": 0,
       "contributors": 1,
-      "gem_score": 0.556,
+      "gem_score": 0.518,
       "url": "https://github.com/inclusionAI/AReno",
       "owner_avatar": "https://avatars.githubusercontent.com/u/199075982?v=4",
       "archived": false,
@@ -7716,7 +9268,15 @@
       ],
       "stars_delta_3d": 5,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.44,
+        "quality": 0.62,
+        "visibility": 0.472
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "uber/ADR",
@@ -7741,7 +9301,7 @@
       "days_since_push": 0,
       "commits_30d": 30,
       "contributors": 5,
-      "gem_score": 0.55,
+      "gem_score": 0.567,
       "url": "https://github.com/uber/ADR",
       "owner_avatar": "https://avatars.githubusercontent.com/u/538264?v=4",
       "archived": false,
@@ -7756,7 +9316,15 @@
       ],
       "stars_delta_3d": 439,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.927,
+        "visibility": 0.078
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "tover0314-w/opentypeless",
@@ -7781,7 +9349,7 @@
       "days_since_push": 9,
       "commits_30d": 55,
       "contributors": 3,
-      "gem_score": 0.545,
+      "gem_score": 0.521,
       "url": "https://github.com/tover0314-w/opentypeless",
       "owner_avatar": "https://avatars.githubusercontent.com/u/184375629?v=4",
       "archived": false,
@@ -7795,7 +9363,15 @@
       ],
       "stars_delta_3d": 14,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.35,
+        "quality": 0.877,
+        "visibility": 0.15
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "duriantaco/skylos",
@@ -7820,7 +9396,7 @@
       "days_since_push": 0,
       "commits_30d": 39,
       "contributors": 8,
-      "gem_score": 0.538,
+      "gem_score": 0.558,
       "url": "https://github.com/duriantaco/skylos",
       "owner_avatar": "https://avatars.githubusercontent.com/u/57052760?v=4",
       "archived": false,
@@ -7835,7 +9411,15 @@
       ],
       "stars_delta_3d": 0,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.928,
+        "visibility": 0.034
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "RyanAlberts/best-of-Agent-Harnesses",
@@ -7860,7 +9444,7 @@
       "days_since_push": 0,
       "commits_30d": 37,
       "contributors": 4,
-      "gem_score": 0.537,
+      "gem_score": 0.565,
       "url": "https://github.com/RyanAlberts/best-of-Agent-Harnesses",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25306145?v=4",
       "archived": false,
@@ -7875,7 +9459,15 @@
       ],
       "stars_delta_3d": 24,
       "stars_delta_7d": 52,
-      "stars_delta_30d": 219
+      "stars_delta_30d": 219,
+      "gem_subscores": {
+        "activity": 0.45,
+        "quality": 0.921,
+        "visibility": 0.084
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "RiccardoBiosas/awesome-MLSecOps",
@@ -7900,7 +9492,7 @@
       "days_since_push": 6,
       "commits_30d": 43,
       "contributors": 18,
-      "gem_score": 0.53,
+      "gem_score": 0.54,
       "url": "https://github.com/RiccardoBiosas/awesome-MLSecOps",
       "owner_avatar": "https://avatars.githubusercontent.com/u/65150720?v=4",
       "archived": false,
@@ -7915,7 +9507,15 @@
       ],
       "stars_delta_3d": 1,
       "stars_delta_7d": 1,
-      "stars_delta_30d": 3
+      "stars_delta_30d": 3,
+      "gem_subscores": {
+        "activity": 0.39,
+        "quality": 0.902,
+        "visibility": 0.114
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "GokuMohandas/Made-With-ML",
@@ -7940,7 +9540,7 @@
       "days_since_push": 152,
       "commits_30d": 0,
       "contributors": 1,
-      "gem_score": 0.263,
+      "gem_score": 0.311,
       "url": "https://github.com/GokuMohandas/Made-With-ML",
       "owner_avatar": "https://avatars.githubusercontent.com/u/8000987?v=4",
       "archived": false,
@@ -7955,7 +9555,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 21,
       "stars_delta_7d": 55,
-      "stars_delta_30d": 453
+      "stars_delta_30d": 453,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.776,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "DataTalksClub/data-engineering-zoomcamp",
@@ -7980,7 +9588,7 @@
       "days_since_push": 54,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.4,
+      "gem_score": 0.246,
       "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
       "owner_avatar": "https://avatars.githubusercontent.com/u/72699292?v=4",
       "archived": false,
@@ -7995,7 +9603,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 96,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.616,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "2noise/ChatTTS",
@@ -8020,7 +9636,7 @@
       "days_since_push": 115,
       "commits_30d": 0,
       "contributors": 57,
-      "gem_score": 0.379,
+      "gem_score": 0.291,
       "url": "https://github.com/2noise/ChatTTS",
       "owner_avatar": "https://avatars.githubusercontent.com/u/164844019?v=4",
       "archived": false,
@@ -8036,7 +9652,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 12,
       "stars_delta_7d": 44,
-      "stars_delta_30d": 175
+      "stars_delta_30d": 175,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.727,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "QuivrHQ/quivr",
@@ -8061,7 +9685,7 @@
       "days_since_push": 390,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.4,
+      "gem_score": 0.246,
       "url": "https://github.com/QuivrHQ/quivr",
       "owner_avatar": "https://avatars.githubusercontent.com/u/159330290?v=4",
       "archived": false,
@@ -8077,7 +9701,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 9,
       "stars_delta_7d": 19,
-      "stars_delta_30d": 195
+      "stars_delta_30d": 195,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.616,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "chatchat-space/Langchain-Chatchat",
@@ -8102,7 +9734,7 @@
       "days_since_push": 266,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/chatchat-space/Langchain-Chatchat",
       "owner_avatar": "https://avatars.githubusercontent.com/u/139558948?v=4",
       "archived": false,
@@ -8118,7 +9750,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 16,
       "stars_delta_7d": 23,
-      "stars_delta_30d": 253
+      "stars_delta_30d": 253,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "ItzCrazyKns/Vane",
@@ -8143,7 +9783,7 @@
       "days_since_push": 114,
       "commits_30d": 0,
       "contributors": 48,
-      "gem_score": 0.378,
+      "gem_score": 0.286,
       "url": "https://github.com/ItzCrazyKns/Vane",
       "owner_avatar": "https://avatars.githubusercontent.com/u/95534749?v=4",
       "archived": false,
@@ -8159,7 +9799,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 47,
       "stars_delta_7d": 87,
-      "stars_delta_30d": 424
+      "stars_delta_30d": 424,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.715,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "PDFMathTranslate/PDFMathTranslate",
@@ -8184,7 +9832,7 @@
       "days_since_push": 70,
       "commits_30d": 0,
       "contributors": 54,
-      "gem_score": 0.402,
+      "gem_score": 0.312,
       "url": "https://github.com/PDFMathTranslate/PDFMathTranslate",
       "owner_avatar": "https://avatars.githubusercontent.com/u/205132128?v=4",
       "archived": false,
@@ -8200,7 +9848,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 62,
       "stars_delta_7d": 121,
-      "stars_delta_30d": 543
+      "stars_delta_30d": 543,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.78,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "datawhalechina/happy-llm",
@@ -8220,7 +9876,7 @@
       "days_since_push": 89,
       "commits_30d": 0,
       "contributors": 26,
-      "gem_score": 0.358,
+      "gem_score": 0.204,
       "url": "https://github.com/datawhalechina/happy-llm",
       "owner_avatar": "https://avatars.githubusercontent.com/u/46047812?v=4",
       "archived": false,
@@ -8236,7 +9892,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 69,
       "stars_delta_7d": 201,
-      "stars_delta_30d": 803
+      "stars_delta_30d": 803,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.509,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "limited evidence; inspect maintenance signals before adopting"
+      ]
     },
     {
       "name": "huggingface/agents-course",
@@ -8260,7 +9924,7 @@
       "days_since_push": 35,
       "commits_30d": 0,
       "contributors": 100,
-      "gem_score": 0.388,
+      "gem_score": 0.351,
       "url": "https://github.com/huggingface/agents-course",
       "owner_avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
       "archived": false,
@@ -8276,7 +9940,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 92,
       "stars_delta_7d": 197,
-      "stars_delta_30d": 832
+      "stars_delta_30d": 832,
+      "gem_subscores": {
+        "activity": 0.1,
+        "quality": 0.778,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "eugeneyan/applied-ml",
@@ -8301,7 +9973,7 @@
       "days_since_push": 746,
       "commits_30d": 0,
       "contributors": 46,
-      "gem_score": 0.4,
+      "gem_score": 0.312,
       "url": "https://github.com/eugeneyan/applied-ml",
       "owner_avatar": "https://avatars.githubusercontent.com/u/6831355?v=4",
       "archived": false,
@@ -8316,7 +9988,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 14,
       "stars_delta_7d": 0,
-      "stars_delta_30d": 0
+      "stars_delta_30d": 0,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.781,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "JushBJJ/Mr.-Ranedeer-AI-Tutor",
@@ -8337,7 +10017,7 @@
       "days_since_push": 307,
       "commits_30d": 0,
       "contributors": 1,
-      "gem_score": 0.262,
+      "gem_score": 0.243,
       "url": "https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor",
       "owner_avatar": "https://avatars.githubusercontent.com/u/36951064?v=4",
       "archived": false,
@@ -8352,7 +10032,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 2,
       "stars_delta_7d": -4,
-      "stars_delta_30d": -10
+      "stars_delta_30d": -10,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.608,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "Zackriya-Solutions/meetily",
@@ -8377,7 +10065,7 @@
       "days_since_push": 59,
       "commits_30d": 0,
       "contributors": 11,
-      "gem_score": 0.405,
+      "gem_score": 0.311,
       "url": "https://github.com/Zackriya-Solutions/meetily",
       "owner_avatar": "https://avatars.githubusercontent.com/u/82556810?v=4",
       "archived": false,
@@ -8393,7 +10081,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 490,
       "stars_delta_7d": 1120,
-      "stars_delta_30d": 13171
+      "stars_delta_30d": 13171,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.778,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "HandsOnLLM/Hands-On-Large-Language-Models",
@@ -8417,7 +10113,7 @@
       "days_since_push": 101,
       "commits_30d": 0,
       "contributors": 11,
-      "gem_score": 0.397,
+      "gem_score": 0.309,
       "url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
       "owner_avatar": "https://avatars.githubusercontent.com/u/174106807?v=4",
       "archived": false,
@@ -8433,7 +10129,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 48,
       "stars_delta_7d": 108,
-      "stars_delta_30d": 580
+      "stars_delta_30d": 580,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.773,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     },
     {
       "name": "BloopAI/vibe-kanban",
@@ -8455,7 +10159,7 @@
       "days_since_push": 101,
       "commits_30d": 0,
       "contributors": 61,
-      "gem_score": 0.394,
+      "gem_score": 0.297,
       "url": "https://github.com/BloopAI/vibe-kanban",
       "owner_avatar": "https://avatars.githubusercontent.com/u/75376775?v=4",
       "archived": false,
@@ -8471,7 +10175,15 @@
       "abandoned_flag": true,
       "stars_delta_3d": 46,
       "stars_delta_7d": 94,
-      "stars_delta_30d": 386
+      "stars_delta_30d": 386,
+      "gem_subscores": {
+        "activity": 0.0,
+        "quality": 0.741,
+        "visibility": 0
+      },
+      "gem_reasons": [
+        "healthy maintenance and project fundamentals"
+      ]
     }
   ]
 }

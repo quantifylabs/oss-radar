@@ -35,6 +35,7 @@ def repo_items(repos: list[dict]) -> str:
         heuristic_points = round(raw_score * 100) if raw_score <= 1 else round(raw_score)
         topics = " ".join(f"<span>{h(t)}</span>" for t in repo.get("topics", [])[:6])
         reasons = "; ".join(repo.get("trend_reasons", [])[:2])
+        gem_reasons = "; ".join(repo.get("gem_reasons", [])[:3])
         positives = ", ".join(repo.get("positive_signals", [])) or "None identified"
         risks = ", ".join(repo.get("risk_reasons") or repo.get("risk_signals", [])) or "None identified"
         missing = ", ".join(item.replace("_", " ") for item in repo.get("missing_inputs", [])) or "None"
@@ -59,6 +60,7 @@ def repo_items(repos: list[dict]) -> str:
                 <dt>Maintenance risk</dt><dd>{int(repo.get('maintenance_risk_score', 0))}/100 · {h(repo.get('risk_confidence_label', 'low'))} confidence</dd>
               </dl>
               {f'<p><strong>Why:</strong> {h(reasons)}</p>' if reasons else ''}
+              {f'<p><strong>Why it may be a gem:</strong> {h(gem_reasons)}</p>' if gem_reasons else ''}
               <p><strong>Strongest signals:</strong> {h(positives)}. <strong>Risks:</strong> {h(risks)}. <strong>Missing inputs:</strong> {h(missing)}.</p>
               {f'<p><strong>Capped lower bounds:</strong> {h(", ".join(capped))}.</p>' if capped else ''}
               {f'<p class="topics">{topics}</p>' if topics else ''}
