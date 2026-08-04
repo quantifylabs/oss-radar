@@ -470,6 +470,7 @@ footer a:hover { text-decoration: underline; }
   <div class="repo-list" id="repo-list" role="tabpanel" aria-live="polite" tabindex="0">
     <div class="loading"><div class="spinner"></div><br>Fetching radar data...</div>
   </div>
+  <div class="control-actions"><button type="button" id="load-more" hidden>Load more repositories</button></div>
 
   <section class="faq" aria-labelledby="faq-title">
     <h2 id="faq-title">OSS.Radar FAQ</h2>
@@ -496,6 +497,9 @@ footer a:hover { text-decoration: underline; }
 
 <script>
 let DATA;
+const PAGE_SIZE = 50;
+let visibleCount = PAGE_SIZE;
+let loadedDiscoveryPages = 0;
 const state = { tab:'discover', window:'7d', q:'', sort:'growth', category:'', language:'', license:'', health:'', adoption:'', min:'', max:'', quality:'', compare:[] };
 const TABS = [
   ['discover','Discover'], ['trending','Trending'], ['gems','Underrated Gems'], ['abandoned','Stale / At Risk']
@@ -593,23 +597,39 @@ function render({url=true}={}) {
   if(!DATA)return;
   if(url) writeUrlState();
   $('updated').innerHTML=`<span class="live"></span> Last scan: ${safeDate(DATA.last_updated)}`;
-  $('stats').innerHTML=`<div class="stat"><div class="num">${safeNumber(DATA.stats.total_scanned)}</div><div class="label">Repos scanned</div></div><div class="stat"><div class="num">${safeNumber(uniqueRepos().length)}</div><div class="label">Discoverable</div></div><div class="stat"><div class="num">${safeNumber(DATA.stats.gems_count)}</div><div class="label">Gems</div></div><div class="stat"><div class="num">${safeNumber(DATA.stats.abandoned_count)}</div><div class="label">At risk</div></div>`;
-  $('tabs').setAttribute('role','tablist'); $('tabs').innerHTML=TABS.map(([id,label])=>`<button id="tab-${id}" class="tab ${state.tab===id?'active':''}" data-tab="${id}" aria-selected="${state.tab===id}" aria-controls="repo-list" tabindex="${state.tab===id?'0':'-1'}" role="tab">${label} <span class="count">${id==='discover'?uniqueRepos().length:safeArray(DATA[id]).length}</span></button>`).join('');
+  $('stats').innerHTML=`<div class="stat"><div class="num">${safeNumber(DATA.stats.total_scanned)}</div><div class="label">Repos scanned</div></div><div class="stat"><div class="num">${safeNumber(DATA.discovery_count||uniqueRepos().length)}</div><div class="label">Discoverable</div></div><div class="stat"><div class="num">${safeNumber(DATA.stats.gems_count)}</div><div class="label">Gems</div></div><div class="stat"><div class="num">${safeNumber(DATA.stats.abandoned_count)}</div><div class="label">At risk</div></div>`;
+  $('tabs').setAttribute('role','tablist'); $('tabs').innerHTML=TABS.map(([id,label])=>`<button id="tab-${id}" class="tab ${state.tab===id?'active':''}" data-tab="${id}" aria-selected="${state.tab===id}" aria-controls="repo-list" tabindex="${state.tab===id?'0':'-1'}" role="tab">${label} <span class="count">${id==='discover'?(DATA.discovery_count||uniqueRepos().length):safeArray(DATA[id]).length}</span></button>`).join('');
   $('repo-list').setAttribute('aria-labelledby',`tab-${state.tab}`);
   $('time-filters').innerHTML=['3d','7d','30d'].map(w=>`<button class="time-btn ${state.window===w?'active':''}" data-window="${w}" aria-pressed="${state.window===w}">${w.replace('d',' days')}</button>`).join('');
-  const repos=filteredRepos(); $('result-count').textContent=`Showing ${repos.length} of ${tabRepos().length} repositories`; $('repo-list').innerHTML=repos.length?repos.map(repoCard).join(''):'<div class="empty">No repositories match these filters.</div>';
-  const tabs=[...$('tabs').querySelectorAll('[data-tab]')]; tabs.forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;render()}); $('tabs').onkeydown=event=>{ const current=tabs.indexOf(document.activeElement), keys={ArrowRight:1,ArrowLeft:-1}; if(current<0&&!['Home','End'].includes(event.key)||!(event.key in keys||['Home','End'].includes(event.key)))return; event.preventDefault(); const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(current+keys[event.key]+tabs.length)%tabs.length; tabs[next].click(); requestAnimationFrame(()=>document.getElementById(`tab-${state.tab}`).focus()); }; $('time-filters').querySelectorAll('[data-window]').forEach(b=>b.onclick=()=>{state.window=b.dataset.window;render()});
+  const repos=filteredRepos(), visible=repos.slice(0,visibleCount), total=state.tab==='discover'?(DATA.discovery_count||repos.length):repos.length;
+  $('result-count').textContent=`Showing ${visible.length} of ${total} repositories`; $('repo-list').innerHTML=visible.length?visible.map(repoCard).join(''):'<div class="empty">No repositories match these filters.</div>';
+  const more=$('load-more'), hasLocalMore=visible.length<repos.length, hasRemoteMore=state.tab==='discover'&&loadedDiscoveryPages<safeArray(DATA.discovery_pages).length;
+  more.hidden=!(hasLocalMore||hasRemoteMore); more.onclick=loadMore;
+  const tabs=[...$('tabs').querySelectorAll('[data-tab]')]; tabs.forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;resetResults()}); $('tabs').onkeydown=event=>{ const current=tabs.indexOf(document.activeElement), keys={ArrowRight:1,ArrowLeft:-1}; if(current<0&&!['Home','End'].includes(event.key)||!(event.key in keys||['Home','End'].includes(event.key)))return; event.preventDefault(); const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(current+keys[event.key]+tabs.length)%tabs.length; tabs[next].click(); requestAnimationFrame(()=>document.getElementById(`tab-${state.tab}`).focus()); }; $('time-filters').querySelectorAll('[data-window]').forEach(b=>b.onclick=()=>{state.window=b.dataset.window;resetResults()});
   $('repo-list').querySelectorAll('[data-compare]').forEach(b=>b.onclick=()=>toggleCompare(b.dataset.compare)); renderCompare();
   $('repo-list').querySelectorAll('[data-outcome]').forEach(a=>a.onclick=()=>track(a.dataset.outcome));
   $('repo-list').querySelectorAll('[data-report]').forEach(a=>a.onclick=()=>track('label_reported'));
 }
 function toggleCompare(name) { const before=state.compare.length, i=state.compare.indexOf(name); if(i>=0)state.compare.splice(i,1); else if(state.compare.length<4)state.compare.push(name); else { alert('Compare up to four repositories.'); return; } if(before<2&&state.compare.length===2)track('comparison_created'); render(); }
+async function loadMore() {
+  const pages=safeArray(DATA.discovery_pages);
+  if(state.tab==='discover'&&visibleCount>=DATA.discovery.length&&loadedDiscoveryPages<pages.length) {
+    const response=await fetch(pages[loadedDiscoveryPages].url);
+    if(!response.ok)throw Error(`HTTP ${response.status}`);
+    const records=await response.json();
+    if(!Array.isArray(records)||!records.every(isRecord))throw Error('Invalid discovery page');
+    DATA.discovery.push(...records); loadedDiscoveryPages++;
+  }
+  visibleCount+=PAGE_SIZE; syncControls(); render();
+}
+function resetResults() { visibleCount=PAGE_SIZE; render(); }
+function debounce(fn, delay=200) { let timer; return (...args)=>{clearTimeout(timer);timer=setTimeout(()=>fn(...args),delay)}; }
 async function init() {
-  readUrlState(); try { const response=await fetch('data.json'); if(!response.ok)throw Error(`HTTP ${response.status}`); const payload=await response.json(); if(!validateData(payload))throw Error('Invalid radar data'); DATA=payload; localStorage.setItem('oss-radar-last-update',DATA.last_updated); syncControls();
+  readUrlState(); try { const response=await fetch('data.json'); if(!response.ok)throw Error(`HTTP ${response.status}`); const payload=await response.json(); if(!validateData(payload))throw Error('Invalid radar data'); DATA=payload; if(!Array.isArray(DATA.discovery))DATA.discovery=[]; if(DATA.discovery_pages?.length){await loadMore();visibleCount=PAGE_SIZE}else loadedDiscoveryPages=0; localStorage.setItem('oss-radar-last-update',DATA.last_updated); syncControls();
     const mapping={search:'q',sort:'sort',category:'category',language:'language',license:'license',health:'health',adoption:'adoption','stars-min':'min','stars-max':'max',quality:'quality'};
-    for(const [id,key] of Object.entries(mapping)) $(id).addEventListener(id==='search'||id.startsWith('stars-')?'input':'change',()=>{state[key]=$(id).value;render()});
+    for(const [id,key] of Object.entries(mapping)) { const update=()=>{state[key]=$(id).value;resetResults()}; $(id).addEventListener(id==='search'||id.startsWith('stars-')?'input':'change',id==='search'?debounce(update):update); }
     for(const id of Object.keys(mapping)) $(id).addEventListener('change',()=>track('filters_applied'));
-    $('clear-filters').onclick=()=>{for(const k of ['q','category','language','license','health','adoption','min','max','quality'])state[k]='';syncControls();render()};
+    $('clear-filters').onclick=()=>{for(const k of ['q','category','language','license','health','adoption','min','max','quality'])state[k]='';syncControls();resetResults()};
     $('copy-share-url').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);$('share-status').textContent='Link copied';track('share_url_copied')}catch{$('share-status').textContent='Copy unavailable'}};
     $('subscribe-feed').onclick=()=>track('feed_subscribed');
     render({url:false}); writeUrlState('replace');

@@ -150,7 +150,8 @@ oss-radar/
 │   └── requirements.txt     # Just: requests
 ├── site/
 │   ├── index.html           # Frontend dashboard
-│   ├── data.json            # Generated data (auto-updated)
+│   ├── data.json            # Compact generated manifest (auto-updated)
+│   ├── data/discovery/      # Paginated discovery records for bounded browser loads
 │   ├── history.json         # Star snapshots (for computing deltas)
 │   ├── robots.txt           # Crawler policy
 │   ├── sitemap.xml          # Generated sitemap

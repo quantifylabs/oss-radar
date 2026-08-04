@@ -1,6 +1,8 @@
+import json
 import unittest
+from unittest.mock import patch
 
-from collector.render_pages import repositories_by_category
+from collector.render_pages import load_data, repositories_by_category
 
 
 class RepositoriesByCategoryTests(unittest.TestCase):
@@ -46,6 +48,17 @@ class RepositoriesByCategoryTests(unittest.TestCase):
             "mcp": [discovery[0]],
             "dev-tools": [discovery[1]],
         })
+
+    def test_load_data_expands_discovery_pages(self):
+        manifest = {"discovery_pages": [{"url": "data/discovery/1.json"}]}
+        with patch("collector.render_pages.DATA_FILE") as data_file, patch(
+            "collector.render_pages.SITE"
+        ) as site:
+            data_file.read_text.return_value = json.dumps(manifest)
+            site.__truediv__.return_value.read_text.return_value = json.dumps([
+                {"name": "owner/chunked", "category": "mcp"}
+            ])
+            self.assertEqual(load_data()["discovery"][0]["name"], "owner/chunked")
 
 
 if __name__ == "__main__":
