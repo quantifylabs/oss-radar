@@ -9,6 +9,7 @@ Zero cost: runs via GitHub Actions cron, stores data as JSON in the repo.
 import json
 import os
 import re
+import statistics
 import sys
 import time
 from datetime import datetime, timezone, timedelta
@@ -174,7 +175,8 @@ def get_repo_details(owner: str, repo: str) -> dict | None:
     return gh_get(f"{API_BASE}/repos/{owner}/{repo}")
 
 
-def get_commit_count_recent(owner: str, repo: str, days: int = 30) -> tuple[int | None, bool]:
+def get_commit_count_recent(owner: str, repo: str, days: int = 30,
+                            include_automation: bool = False) -> tuple:
     """Return a recent commit lower bound and whether the 100-item result was capped."""
     since = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
     data = gh_get(
@@ -184,7 +186,7 @@ def get_commit_count_recent(owner: str, repo: str, days: int = 30) -> tuple[int 
     # The API doesn't return total count directly, but we can check
     # if there are commits and approximate from pagination
     if data is None:
-        return None, False
+        return (None, False, None) if include_automation else (None, False)
     if isinstance(data, list):
         # Fetch up to 100 to get a count
         data_full = gh_get(
@@ -192,9 +194,24 @@ def get_commit_count_recent(owner: str, repo: str, days: int = 30) -> tuple[int 
             params={"since": since, "per_page": 100},
         )
         if not isinstance(data_full, list):
-            return None, False
-        return len(data_full), len(data_full) == 100
-    return None, False
+            return (None, False, None) if include_automation else (None, False)
+        result = (len(data_full), len(data_full) == 100)
+        if include_automation:
+            automated = sum(_is_automated_commit(item) for item in data_full)
+            return (*result, round(automated / len(data_full), 3) if data_full else 0.0)
+        return result
+    return (None, False, None) if include_automation else (None, False)
+
+
+def _is_automated_commit(commit: dict) -> bool:
+    """Recognize common bot identities without treating missing identity as automation."""
+    author = commit.get("author") or {}
+    git_author = (commit.get("commit") or {}).get("author") or {}
+    identity = " ".join(str(author.get(key, "")) for key in ("login", "type"))
+    identity += " " + " ".join(str(git_author.get(key, "")) for key in ("name", "email"))
+    normalized = identity.lower()
+    return (author.get("type") == "Bot" or "[bot]" in normalized
+            or "dependabot" in normalized or "github-actions" in normalized)
 
 
 def get_contributor_metrics(owner: str, repo: str) -> dict:
@@ -218,26 +235,64 @@ def get_contributor_metrics(owner: str, repo: str) -> dict:
 def get_decision_signals(owner: str, repo: str, now: datetime | None = None) -> dict:
     """Fetch bounded release and response-activity signals; preserve API failures as missing."""
     now = now or datetime.now(timezone.utc)
-    release = gh_get(f"{API_BASE}/repos/{owner}/{repo}/releases/latest")
+    releases = gh_get(f"{API_BASE}/repos/{owner}/{repo}/releases", params={"per_page": 5})
     release_age = None
-    if isinstance(release, dict) and release.get("published_at"):
-        published = datetime.fromisoformat(release["published_at"].replace("Z", "+00:00"))
+    release_cadence = None
+    published_dates = [datetime.fromisoformat(item["published_at"].replace("Z", "+00:00"))
+                       for item in releases if item.get("published_at")] if isinstance(releases, list) else []
+    if published_dates:
+        published = published_dates[0]
         release_age = max((now - published).days, 0)
+        if len(published_dates) > 1:
+            release_cadence = round(statistics.median(
+                (published_dates[i] - published_dates[i + 1]).days
+                for i in range(len(published_dates) - 1)), 1)
 
     since = (now - timedelta(days=30)).isoformat()
     issue_comments = gh_get(f"{API_BASE}/repos/{owner}/{repo}/issues/comments",
                             params={"since": since, "per_page": 100})
     review_comments = gh_get(f"{API_BASE}/repos/{owner}/{repo}/pulls/comments",
                              params={"since": since, "per_page": 100})
+    recent_issues = gh_get(f"{API_BASE}/repos/{owner}/{repo}/issues",
+                           params={"state": "all", "sort": "updated", "direction": "desc", "per_page": 100})
+    community = gh_get(f"{API_BASE}/repos/{owner}/{repo}/community/profile")
+    workflows = gh_get(f"{API_BASE}/repos/{owner}/{repo}/actions/workflows", params={"per_page": 1})
     issue_activity = len(issue_comments) if isinstance(issue_comments, list) else None
     pr_activity = len(review_comments) if isinstance(review_comments, list) else None
     response_capped = any(isinstance(value, list) and len(value) == 100
                           for value in (issue_comments, review_comments))
     maintainer_responses = None if issue_activity is None and pr_activity is None else (issue_activity or 0) + (pr_activity or 0)
-    return {"latest_release_age_days": release_age,
+    closed_30d = opened_30d = None
+    median_response_hours = None
+    if isinstance(recent_issues, list):
+        issues = [item for item in recent_issues if "pull_request" not in item]
+        opened_30d = sum(item.get("created_at", "") >= since for item in issues)
+        closed_30d = sum(bool(item.get("closed_at") and item["closed_at"] >= since) for item in issues)
+        if isinstance(issue_comments, list):
+            created = {item.get("url"): datetime.fromisoformat(item["created_at"].replace("Z", "+00:00"))
+                       for item in issues if item.get("url") and item.get("created_at")}
+            first = {}
+            for comment in issue_comments:
+                issue_url = comment.get("issue_url")
+                if issue_url in created and comment.get("created_at"):
+                    timestamp = datetime.fromisoformat(comment["created_at"].replace("Z", "+00:00"))
+                    first[issue_url] = min(first.get(issue_url, timestamp), timestamp)
+            elapsed = [(timestamp - created[url]).total_seconds() / 3600
+                       for url, timestamp in first.items() if timestamp >= created[url]]
+            if elapsed:
+                median_response_hours = round(statistics.median(elapsed), 1)
+    documentation = None
+    if isinstance(community, dict):
+        documentation = min(max(community.get("health_percentage", 0) / 100, 0), 1)
+    test_ci = None if not isinstance(workflows, dict) else workflows.get("total_count", 0) > 0
+    return {"latest_release_age_days": release_age, "release_cadence_days": release_cadence,
+            "documentation_completeness": documentation, "test_ci_present": test_ci,
             "issue_responses_30d_lower_bound": issue_activity,
             "pull_request_responses_30d_lower_bound": pr_activity,
             "maintainer_responses_30d_lower_bound": maintainer_responses,
+            "issues_closed_30d_lower_bound": closed_30d,
+            "open_issue_growth_30d": None if opened_30d is None else opened_30d - closed_30d,
+            "median_issue_response_hours": median_response_hours,
             "response_activity_capped": response_capped}
 
 
@@ -289,63 +344,79 @@ def assign_category(topics: list[str], name: str = "", description: str = "",
     return result if return_details else primary
 
 
-def compute_gem_score(repo: dict, commits_30d: int, contributors: int) -> float:
+def compute_gem_score(repo: dict, commits_30d: int, contributors: int,
+                      signals: dict | None = None, return_details: bool = False) -> float | dict:
     """
-    Compute the underrated gem score (0.0 - 1.0).
-    High score = high quality, low visibility.
+    Compute activity, quality, and visibility subscores for underrated gems.
 
-    Weights:
-      30% commit velocity
-      20% issue engagement (open_issues / stars ratio, capped)
-      15% star acceleration (stars / age in days)
-      15% contributor diversity
-      10% docs signal (description length + has topics)
-      10% recency of last push
+    Open issue volume is never rewarded. When available, closure/response
+    activity, response time, and issue growth describe issue maintenance.
     """
     now = datetime.now(timezone.utc)
     created = datetime.fromisoformat(repo["created_at"].replace("Z", "+00:00"))
     pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
 
-    age_days = max((now - created).days, 1)
     days_since_push = (now - pushed).days
     stars = max(repo.get("stargazers_count", 0), 1)
     open_issues = repo.get("open_issues_count", 0)
     topics = repo.get("topics", [])
     description = repo.get("description", "") or ""
 
-    # 1. Commit velocity (30%) — commits per week, normalized
-    commits_per_week = (commits_30d / 4.3) if commits_30d > 0 else 0
-    commit_score = min(commits_per_week / 15, 1.0)  # 15 commits/week = max
+    signals = signals or {}
+    automation = signals.get("automated_commit_share") or 0
+    human_commits = commits_30d * max(0, 1 - automation)
+    velocity = min((human_commits / 4.3) / 12, 1.0)
+    diversity = min(contributors / 10, 1.0)
+    concentration = signals.get("top_contributor_share")
+    distribution = diversity if concentration is None else max(0, 1 - concentration)
+    commit_community = velocity * (.55 + .45 * distribution)
+    recency = max(1.0 - days_since_push / 45, 0.0)
+    commits_180d = signals.get("commits_180d_lower_bound")
+    consistency = recency if commits_180d is None else min(commits_30d / max(commits_180d / 6, 1), 1)
+    release_age = signals.get("latest_release_age_days")
+    release_recency = recency if release_age is None else max(1 - release_age / 365, 0)
+    activity = .55 * commit_community + .25 * recency + .20 * consistency
 
-    # 2. Issue engagement (20%) — shows community interest
-    issue_ratio = open_issues / stars
-    issue_score = min(issue_ratio / 0.5, 1.0)  # 0.5 issues per star = max
-
-    # 3. Star acceleration (15%) — stars per day of existence
-    stars_per_day = stars / age_days
-    accel_score = min(stars_per_day / 5, 1.0)  # 5 stars/day = max
-
-    # 4. Contributor diversity (15%)
-    contrib_score = min(contributors / 10, 1.0)  # 10 contributors = max
-
-    # 5. Docs signal (10%)
     has_good_desc = 1.0 if len(description) > 80 else len(description) / 80
     has_topics = 1.0 if len(topics) >= 3 else len(topics) / 3
-    docs_score = (has_good_desc + has_topics) / 2
+    docs = signals.get("documentation_completeness")
+    if docs is None:
+        docs = (has_good_desc + has_topics) / 2
+    license_value = repo.get("license")
+    spdx = license_value.get("spdx_id") if isinstance(license_value, dict) else license_value
+    license_score = 1.0 if spdx and spdx != "NOASSERTION" else 0.0
+    test_ci = signals.get("test_ci_present")
+    quality_basics = (.45 * docs + .30 * license_score + .25 * (test_ci if test_ci is not None else .5))
 
-    # 6. Recency (10%)
-    recency_score = max(1.0 - (days_since_push / 14), 0.0)  # pushed in last 2 weeks = max
-
-    gem_score = (
-        0.30 * commit_score
-        + 0.20 * issue_score
-        + 0.15 * accel_score
-        + 0.15 * contrib_score
-        + 0.10 * docs_score
-        + 0.10 * recency_score
-    )
-
-    return round(min(gem_score, 1.0), 3)
+    issue_parts = []
+    responses = signals.get("maintainer_responses_30d_lower_bound")
+    closures = signals.get("issues_closed_30d_lower_bound")
+    response_hours = signals.get("median_issue_response_hours")
+    growth = signals.get("open_issue_growth_30d")
+    if responses is not None: issue_parts.append(min(responses / 10, 1))
+    if closures is not None: issue_parts.append(min(closures / 10, 1))
+    if response_hours is not None: issue_parts.append(max(1 - response_hours / (24 * 14), 0))
+    if growth is not None: issue_parts.append(max(1 - max(growth, 0) / 20, 0))
+    # With no richer issue inputs, unresolved pressure can only hurt, never help.
+    issue_health = (sum(issue_parts) / len(issue_parts) if issue_parts
+                    else max(1 - (open_issues / stars), 0))
+    cadence_days = signals.get("release_cadence_days")
+    release_quality = release_recency if cadence_days is None else (
+        .6 * release_recency + .4 * max(1 - cadence_days / 365, 0))
+    quality = .55 * quality_basics + .30 * issue_health + .15 * release_quality
+    visibility = max(0, min(1, 1 - repo.get("stargazers_count", 0) / GEM_STAR_CEILING))
+    score = round(min(.40 * activity + .40 * quality + .20 * visibility, 1), 3)
+    subscores = {"activity": round(activity, 3), "quality": round(quality, 3),
+                 "visibility": round(visibility, 3)}
+    ranked = sorted(subscores, key=subscores.get, reverse=True)
+    labels = {"activity": "consistent human and community activity",
+              "quality": "healthy maintenance and project fundamentals",
+              "visibility": "strong signals despite limited visibility"}
+    reasons = [labels[name] for name in ranked if subscores[name] >= .55][:2]
+    if growth is not None and growth <= 0: reasons.append("open issue backlog is stable or shrinking")
+    if not reasons: reasons = ["limited evidence; inspect maintenance signals before adopting"]
+    result = {"gem_score": score, "gem_subscores": subscores, "gem_reasons": reasons[:3]}
+    return result if return_details else score
 
 
 def compute_adoption_readiness(repo: dict, signals: dict) -> dict:
@@ -696,7 +767,8 @@ def collect():
     for i, repo in enumerate(fetch_candidates):
         owner, name = repo["full_name"].split("/", 1)
 
-        commits, commits_capped = get_commit_count_recent(owner, name, days=30)
+        commits, commits_capped, automated_share = get_commit_count_recent(
+            owner, name, days=30, include_automation=True)
         commits_180d, commits_180d_capped = get_commit_count_recent(owner, name, days=180)
         contributor_metrics = get_contributor_metrics(owner, name)
         decision_signals = get_decision_signals(owner, name, now=now)
@@ -704,6 +776,7 @@ def collect():
         repo_details[repo["full_name"]] = {
             "commits_30d_lower_bound": commits,
             "commits_30d_capped": commits_capped,
+            "automated_commit_share": automated_share,
             "commits_180d_lower_bound": commits_180d,
             "commits_180d_capped": commits_180d_capped,
             **contributor_metrics,
@@ -736,12 +809,16 @@ def collect():
         topics = repo.get("topics", [])
         details = repo_details.get(full_name, {
             "commits_30d_lower_bound": None, "commits_30d_capped": False,
+            "automated_commit_share": None,
             "commits_180d_lower_bound": None, "commits_180d_capped": False,
             "contributors_total_lower_bound": None, "contributors_capped": False,
             "top_contributor_share": None, "latest_release_age_days": None,
             "issue_responses_30d_lower_bound": None,
             "pull_request_responses_30d_lower_bound": None,
             "maintainer_responses_30d_lower_bound": None,
+            "issues_closed_30d_lower_bound": None, "open_issue_growth_30d": None,
+            "median_issue_response_hours": None, "release_cadence_days": None,
+            "documentation_completeness": None, "test_ci_present": None,
             "response_activity_capped": False,
         })
 
@@ -750,8 +827,10 @@ def collect():
 
         # Gem ranking treats unavailable detail neutrally for compatibility; the
         # readiness breakdown retains the distinction as missing data.
-        gem_score = compute_gem_score(repo, details["commits_30d_lower_bound"] or 0,
-                                      details["contributors_total_lower_bound"] or 0)
+        gem = compute_gem_score(repo, details["commits_30d_lower_bound"] or 0,
+                                details["contributors_total_lower_bound"] or 0,
+                                details, return_details=True)
+        gem_score = gem["gem_score"]
         readiness = compute_adoption_readiness(repo, details)
         classification = assign_category(topics, full_name, repo.get("description") or "",
                                          return_details=True)
@@ -781,7 +860,7 @@ def collect():
             "pushed_at": repo.get("pushed_at", ""),
             "days_since_push": days_since_push,
             **details,
-            "gem_score": gem_score,
+            **gem,
             "url": repo.get("html_url", ""),
             "owner_avatar": repo.get("owner", {}).get("avatar_url", ""),
             "archived": repo.get("archived", False),
