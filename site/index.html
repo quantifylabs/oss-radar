@@ -230,7 +230,6 @@ header p {
   border-radius: 10px;
   padding: 16px;
   transition: border-color 0.15s;
-  cursor: pointer;
   text-decoration: none;
   color: inherit;
   display: block;
@@ -255,6 +254,7 @@ header p {
   color: var(--accent);
   word-break: break-all;
 }
+.github-action { color:var(--accent); font:600 12px var(--mono); }
 .repo-desc {
   font-size: 13px;
   color: var(--text-dim);
@@ -414,7 +414,7 @@ footer a:hover { text-decoration: underline; }
 .control-actions { display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:12px; }
 .control-actions button, .compare-toggle, .compare-remove { padding:6px 10px; border:1px solid var(--accent-border); border-radius:5px; color:var(--text); background:var(--accent-bg); cursor:pointer; }
 #result-count { font:11px var(--mono); color:var(--text-dim); }
-.repo-actions { display:flex; justify-content:flex-end; margin-top:10px; }
+.repo-actions { display:flex; justify-content:flex-end; align-items:center; gap:10px; margin-top:10px; }
 .compare-toggle[aria-pressed="true"] { color:var(--green); border-color:var(--green); }
 .compare-panel { border:1px solid var(--accent-border); border-radius:10px; padding:16px; margin-bottom:18px; overflow-x:auto; }
 .compare-table { width:100%; min-width:560px; border-collapse:collapse; font-size:12px; }
@@ -463,7 +463,7 @@ footer a:hover { text-decoration: underline; }
     <div class="control-actions"><button type="button" id="clear-filters">Clear filters</button><output id="result-count" aria-live="polite"></output></div>
   </section>
   <section id="compare-panel" class="compare-panel" aria-labelledby="compare-title" hidden></section>
-  <div class="repo-list" id="repo-list">
+  <div class="repo-list" id="repo-list" role="tabpanel" aria-live="polite" tabindex="0">
     <div class="loading"><div class="spinner"></div><br>Fetching radar data...</div>
   </div>
 
@@ -496,8 +496,19 @@ const TABS = [
   ['discover','Discover'], ['trending','Trending'], ['gems','Underrated Gems'], ['abandoned','Stale / At Risk']
 ];
 const $ = id => document.getElementById(id);
+const UNAVAILABLE = 'Unavailable';
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function safeUrl(value, prefixes=['https://github.com/']) { const url=String(value??''); return prefixes.some(p=>url.startsWith(p))?url:'#'; }
+function safeNumber(value, options={}) { if(value===null||value===undefined||value==='')return UNAVAILABLE; const number=Number(value); return Number.isFinite(number)?number.toLocaleString(undefined,options):UNAVAILABLE; }
+function safeDate(value) { const date=new Date(value); return Number.isNaN(date.getTime())?UNAVAILABLE:date.toLocaleString(undefined,{timeZone:'UTC',timeZoneName:'short'}); }
+function safeArray(value) { return Array.isArray(value)?value:[]; }
+function safeLabel(value, fallback=UNAVAILABLE) { return typeof value==='string'&&value.trim()?value.trim():fallback; }
+function safeScore(value, normalized=false) { if(value===null||value===undefined||value==='')return UNAVAILABLE; const number=Number(value); if(!Number.isFinite(number))return UNAVAILABLE; const points=normalized&&number<=1?number*100:number; return `${Math.round(Math.min(100,Math.max(0,points)))}/100`; }
+function isRecord(value) { return value!==null&&typeof value==='object'&&!Array.isArray(value); }
+function validateData(value) {
+  if(!isRecord(value)||!isRecord(value.stats)||Number.isNaN(Date.parse(value.last_updated))) return false;
+  return ['trending','gems','abandoned'].every(key=>Array.isArray(value[key])&&value[key].every(isRecord));
+}
 function readUrlState() {
   const p=new URLSearchParams(location.search);
   for (const key of Object.keys(state)) if (key !== 'compare' && p.has(key)) state[key]=p.get(key);
@@ -515,8 +526,8 @@ function writeUrlState(mode='push') {
   history[mode==='replace'?'replaceState':'pushState'](null,'',`${location.pathname}${p.size?'?'+p:''}${location.hash}`);
 }
 function uniqueRepos() {
-  const source=DATA.discovery || ['trending','gems','abandoned'].flatMap(k=>DATA[k]||[]), seen=new Set();
-  return source.filter(r=>!seen.has(r.name)&&seen.add(r.name));
+  const source=Array.isArray(DATA.discovery)?DATA.discovery:['trending','gems','abandoned'].flatMap(k=>safeArray(DATA[k])), seen=new Set();
+  return source.filter(r=>isRecord(r)&&!seen.has(r.name)&&seen.add(r.name));
 }
 function tabRepos() {
   if(state.tab==='discover') return uniqueRepos();
@@ -529,9 +540,9 @@ function value(r,key) {
   return {growth:delta,relative:r.stars?delta/r.stars:0,gem:Number(r.gem_score)||0,adoption:Number(r.adoption_score)||0,risk:Number(r.maintenance_risk_score)||0,commits:Number(r.commits_30d_lower_bound)||0,stars:Number(r.stars)||0,newest:Date.parse(r.created_at)||0}[key]||0;
 }
 function filteredRepos() {
-  const q=state.q.toLowerCase().trim();
+  const q=String(state.q).toLowerCase().trim();
   return tabRepos().filter(r=>{
-    const hay=[r.name,r.description,r.language,r.category,...(r.topics||[])].join(' ').toLowerCase();
+    const hay=[r.name,r.description,r.language,r.category,...safeArray(r.topics)].map(v=>safeLabel(v,'')).join(' ').toLowerCase();
     return (!q||hay.includes(q)) && (!state.category||r.category===state.category) && (!state.language||r.language===state.language) &&
       (!state.license||(r.license||'No license')===state.license) && (!state.health||r.maintainer_health===state.health) &&
       (!state.adoption||r.adoption_label===state.adoption) && (state.min===''||r.stars>=Number(state.min)) && (state.max===''||r.stars<=Number(state.max)) &&
@@ -555,33 +566,34 @@ function renderCompare() {
   const panel=$('compare-panel'), repos=state.compare.map(name=>uniqueRepos().find(r=>r.name===name)).filter(Boolean);
   panel.hidden=repos.length<2;
   if(repos.length<2) { panel.innerHTML=''; return; }
-  const rows=[['Gem score',r=>`${Math.round((r.gem_score||0)*100)}/100`],['Adoption readiness',r=>`${Math.round((r.adoption_score<=1?r.adoption_score*100:r.adoption_score)||0)}/100 (${r.adoption_label||'unknown'})`],['Maintenance risk',r=>`${r.maintenance_risk_score||0}/100`],['Star growth',r=>`${r[`stars_delta_${state.window}`]??'unknown'} / ${state.window}`],['Recent commits',r=>r.commits_30d_lower_bound==null?'unavailable':`${r.commits_30d_lower_bound}${r.commits_30d_capped?'+':''}`],['Stars',r=>(r.stars||0).toLocaleString()],['Contributors',r=>r.contributors_total_lower_bound==null?'unavailable':`${r.contributors_total_lower_bound}${r.contributors_capped?'+':''}`],['Data quality',r=>`${r.metrics_estimated?'estimated':'measured'}${capped(r)?', capped':''}`]];
+  const rows=[['Gem score',r=>safeScore(r.gem_score,true)],['Adoption readiness',r=>`${safeScore(r.adoption_score,true)} (${safeLabel(r.adoption_label)})`],['Maintenance risk',r=>safeScore(r.maintenance_risk_score)],['Star growth',r=>`${safeNumber(r[`stars_delta_${state.window}`])} / ${state.window}`],['Recent commits',r=>r.commits_30d_lower_bound==null?UNAVAILABLE:`${safeNumber(r.commits_30d_lower_bound)}${r.commits_30d_capped?'+':''}`],['Stars',r=>safeNumber(r.stars)],['Contributors',r=>r.contributors_total_lower_bound==null?UNAVAILABLE:`${safeNumber(r.contributors_total_lower_bound)}${r.contributors_capped?'+':''}`],['Data quality',r=>typeof r.metrics_estimated==='boolean'?`${r.metrics_estimated?'estimated':'measured'}${capped(r)?', capped':''}`:UNAVAILABLE]];
   panel.innerHTML=`<h2 id="compare-title">Compare ${repos.length} repositories</h2><table class="compare-table"><thead><tr><th scope="col">Signal</th>${repos.map(r=>`<th scope="col">${escapeHtml(r.name)} <button class="compare-remove" data-remove="${escapeHtml(r.name)}" aria-label="Remove ${escapeHtml(r.name)} from comparison">×</button></th>`).join('')}</tr></thead><tbody>${rows.map(([label,get])=>`<tr><th scope="row">${label}</th>${repos.map(r=>`<td>${escapeHtml(get(r))}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
   panel.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>toggleCompare(b.dataset.remove));
 }
 function repoCard(r) {
-  const points=Math.round(Number(r.adoption_score<=1?r.adoption_score*100:r.adoption_score)||0), delta=r[`stars_delta_${state.window}`];
-  return `<article class="repo"><div class="repo-top"><img class="repo-avatar" src="${safeUrl(r.owner_avatar,['https://avatars.githubusercontent.com/','https://github.com/'])}" alt="" loading="lazy"><div><a class="repo-name" href="${safeUrl(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a> <span class="cat-badge">${escapeHtml(String(r.category||'').replace(/-/g,' '))}</span></div></div><div class="repo-desc">${escapeHtml(r.description||'No description')}</div><div class="repo-meta"><span class="m-item star">★ ${(r.stars||0).toLocaleString()}</span>${delta==null?'':`<span class="m-item delta-pos">+${Number(delta).toLocaleString()} / ${state.window}</span>`}<span class="m-item">${escapeHtml(r.language||'Unknown')}</span><span class="m-item">${escapeHtml(r.license||'No license')}</span><span class="m-item">${r.commits_30d_lower_bound??'unknown'} commits/30d</span></div><div class="trend-reason">Gem ${Math.round((r.gem_score||0)*100)}/100 · readiness ${points}/100 (${escapeHtml(r.adoption_label||'unknown')}) · risk ${r.maintenance_risk_score||0}/100 · ${r.metrics_estimated?'estimated':'measured'} metrics${capped(r)?' · capped lower bounds':''}</div>${(r.topics||[]).length?`<div class="topics">${r.topics.slice(0,8).map(t=>`<span class="topic">${escapeHtml(t)}</span>`).join('')}</div>`:''}<div class="repo-actions"><button type="button" class="compare-toggle" data-compare="${escapeHtml(r.name)}" aria-pressed="${state.compare.includes(r.name)}">${state.compare.includes(r.name)?'Shortlisted':'Add to compare'}</button></div></article>`;
+  const delta=r[`stars_delta_${state.window}`], name=safeLabel(r.name), topics=safeArray(r.topics);
+  return `<article class="repo"><div class="repo-top"><img class="repo-avatar" src="${safeUrl(r.owner_avatar,['https://avatars.githubusercontent.com/','https://github.com/'])}" alt="" loading="lazy"><div><h3 class="repo-name">${escapeHtml(name)}</h3> <span class="cat-badge">${escapeHtml(safeLabel(r.category).replace(/-/g,' '))}</span></div></div><div class="repo-desc">${escapeHtml(safeLabel(r.description,'No description available'))}</div><div class="repo-meta"><span class="m-item star">★ ${safeNumber(r.stars)}</span>${delta==null?'':`<span class="m-item delta-pos">+${safeNumber(delta)} / ${state.window}</span>`}<span class="m-item">${escapeHtml(safeLabel(r.language))}</span><span class="m-item">${escapeHtml(safeLabel(r.license,'No license'))}</span><span class="m-item">${safeNumber(r.commits_30d_lower_bound)} commits/30d</span></div><div class="trend-reason">Gem ${safeScore(r.gem_score,true)} · readiness ${safeScore(r.adoption_score,true)} (${escapeHtml(safeLabel(r.adoption_label))}) · risk ${safeScore(r.maintenance_risk_score)} · ${typeof r.metrics_estimated==='boolean'?(r.metrics_estimated?'estimated':'measured')+' metrics':UNAVAILABLE}${capped(r)?' · capped lower bounds':''}</div>${topics.length?`<div class="topics">${topics.slice(0,8).map(t=>`<span class="topic">${escapeHtml(safeLabel(t))}</span>`).join('')}</div>`:''}<div class="repo-actions"><a class="github-action" href="${safeUrl(r.url)}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(name)} on GitHub">View on GitHub ↗</a><button type="button" class="compare-toggle" data-compare="${escapeHtml(name)}" aria-pressed="${state.compare.includes(r.name)}">${state.compare.includes(r.name)?'Shortlisted':'Add to compare'}</button></div></article>`;
 }
 function render({url=true}={}) {
   if(!DATA)return;
   if(url) writeUrlState();
-  const d=new Date(DATA.last_updated); $('updated').innerHTML=`<span class="live"></span> Last scan: ${d.toLocaleString()}`;
-  $('stats').innerHTML=`<div class="stat"><div class="num">${DATA.stats.total_scanned}</div><div class="label">Repos scanned</div></div><div class="stat"><div class="num">${uniqueRepos().length}</div><div class="label">Discoverable</div></div><div class="stat"><div class="num">${DATA.stats.gems_count}</div><div class="label">Gems</div></div><div class="stat"><div class="num">${DATA.stats.abandoned_count}</div><div class="label">At risk</div></div>`;
-  $('tabs').innerHTML=TABS.map(([id,label])=>`<button class="tab ${state.tab===id?'active':''}" data-tab="${id}" aria-selected="${state.tab===id}" role="tab">${label} <span class="count">${id==='discover'?uniqueRepos().length:(DATA[id]||[]).length}</span></button>`).join('');
+  $('updated').innerHTML=`<span class="live"></span> Last scan: ${safeDate(DATA.last_updated)}`;
+  $('stats').innerHTML=`<div class="stat"><div class="num">${safeNumber(DATA.stats.total_scanned)}</div><div class="label">Repos scanned</div></div><div class="stat"><div class="num">${safeNumber(uniqueRepos().length)}</div><div class="label">Discoverable</div></div><div class="stat"><div class="num">${safeNumber(DATA.stats.gems_count)}</div><div class="label">Gems</div></div><div class="stat"><div class="num">${safeNumber(DATA.stats.abandoned_count)}</div><div class="label">At risk</div></div>`;
+  $('tabs').setAttribute('role','tablist'); $('tabs').innerHTML=TABS.map(([id,label])=>`<button id="tab-${id}" class="tab ${state.tab===id?'active':''}" data-tab="${id}" aria-selected="${state.tab===id}" aria-controls="repo-list" tabindex="${state.tab===id?'0':'-1'}" role="tab">${label} <span class="count">${id==='discover'?uniqueRepos().length:safeArray(DATA[id]).length}</span></button>`).join('');
+  $('repo-list').setAttribute('aria-labelledby',`tab-${state.tab}`);
   $('time-filters').innerHTML=['3d','7d','30d'].map(w=>`<button class="time-btn ${state.window===w?'active':''}" data-window="${w}" aria-pressed="${state.window===w}">${w.replace('d',' days')}</button>`).join('');
   const repos=filteredRepos(); $('result-count').textContent=`Showing ${repos.length} of ${tabRepos().length} repositories`; $('repo-list').innerHTML=repos.length?repos.map(repoCard).join(''):'<div class="empty">No repositories match these filters.</div>';
-  $('tabs').querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;render()}); $('time-filters').querySelectorAll('[data-window]').forEach(b=>b.onclick=()=>{state.window=b.dataset.window;render()});
+  const tabs=[...$('tabs').querySelectorAll('[data-tab]')]; tabs.forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;render()}); $('tabs').onkeydown=event=>{ const current=tabs.indexOf(document.activeElement), keys={ArrowRight:1,ArrowLeft:-1}; if(current<0&&!['Home','End'].includes(event.key)||!(event.key in keys||['Home','End'].includes(event.key)))return; event.preventDefault(); const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(current+keys[event.key]+tabs.length)%tabs.length; tabs[next].click(); requestAnimationFrame(()=>document.getElementById(`tab-${state.tab}`).focus()); }; $('time-filters').querySelectorAll('[data-window]').forEach(b=>b.onclick=()=>{state.window=b.dataset.window;render()});
   $('repo-list').querySelectorAll('[data-compare]').forEach(b=>b.onclick=()=>toggleCompare(b.dataset.compare)); renderCompare();
 }
 function toggleCompare(name) { const i=state.compare.indexOf(name); if(i>=0)state.compare.splice(i,1); else if(state.compare.length<4)state.compare.push(name); else { alert('Compare up to four repositories.'); return; } render(); }
 async function init() {
-  readUrlState(); try { const response=await fetch('data.json'); if(!response.ok)throw Error(response.status); DATA=await response.json(); syncControls();
+  readUrlState(); try { const response=await fetch('data.json'); if(!response.ok)throw Error(`HTTP ${response.status}`); const payload=await response.json(); if(!validateData(payload))throw Error('Invalid radar data'); DATA=payload; localStorage.setItem('oss-radar-last-update',DATA.last_updated); syncControls();
     const mapping={search:'q',sort:'sort',category:'category',language:'language',license:'license',health:'health',adoption:'adoption','stars-min':'min','stars-max':'max',quality:'quality'};
     for(const [id,key] of Object.entries(mapping)) $(id).addEventListener(id==='search'||id.startsWith('stars-')?'input':'change',()=>{state[key]=$(id).value;render()});
     $('clear-filters').onclick=()=>{for(const k of ['q','category','language','license','health','adoption','min','max','quality'])state[k]='';syncControls();render()};
     render({url:false}); writeUrlState('replace');
-  } catch(e) { $('repo-list').innerHTML='<div class="empty">Repository data is unavailable.</div>'; }
+  } catch(e) { const last=localStorage.getItem('oss-radar-last-update'); $('updated').textContent=last?`Last successful scan: ${safeDate(last)}`:'Last successful scan: Unavailable'; $('repo-list').innerHTML='<div class="empty"><p>We could not load the latest repository data. Please try again.</p><p><button type="button" id="retry-fetch">Retry</button> <a href="/trending/">View the static Trending page</a></p></div>'; $('retry-fetch').onclick=()=>{ $('repo-list').innerHTML='<div class="loading"><div class="spinner"></div><br>Fetching radar data...</div>'; init(); }; }
 }
 addEventListener('popstate',()=>{readUrlState();syncControls();render({url:false})}); init();
 </script>
