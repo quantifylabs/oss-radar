@@ -14,6 +14,10 @@ Track trending AI open-source GitHub repositories, discover underrated gems, com
 - **Category filtering** — Agent frameworks, model serving, fine-tuning, RAG and search, dev tools, MCP, evals and testing, local and edge AI, gateways and routing, AI security and guardrails, AI coding assistants, AI WebUIs and interfaces, multimodal media, and vector databases and data infrastructure
 - **Adoption signals** — Adoption readiness, maintainer health, and deterministic trend explanations for safer tool selection
 - **Auto-updated** — GitHub Actions cron runs every 6 hours
+- **Privacy-conscious outcomes** — Analytics are off by default; an optional endpoint receives only allowlisted aggregate event names, never repository or filter details
+- **Structured corrections** — Every repository card links to a zero-cost GitHub issue form for category, trend, and maintenance-risk disputes
+
+See [the analytics configuration](docs/analytics.md) for the success-event definitions and no-analytics/self-hosting options. Recommendation quality is reviewed with the regular sampling and fixed-fixture process in [the evaluation guide](docs/evaluation.md).
 
 ## Scoring algorithms
 
