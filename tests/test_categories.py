@@ -4,6 +4,31 @@ from collector.collect import CATEGORY_MAP, assign_category
 
 
 class AssignCategoryTests(unittest.TestCase):
+    REVIEWED_REPOSITORIES = [
+        ("n8n-io/n8n", "Workflow automation platform with MCP support", ["workflow-automation", "mcp"], "dev-tools"),
+        ("modelcontextprotocol/servers", "Reference MCP server implementations", ["mcp-server"], "mcp"),
+        ("continuedev/continue", "Open-source AI coding assistant", ["code-assistant", "mcp"], "ai-coding-and-assistants"),
+        ("BerriAI/litellm", "LLM gateway and proxy with MCP integration", ["litellm", "mcp"], "gateways-and-routing"),
+        ("open-webui/open-webui", "An extensible LLM web UI", ["webui", "mcp"], "ai-webui-and-interfaces"),
+        ("modelcontextprotocol/docs", "Documentation repository for the Model Context Protocol", ["mcp"], "dev-tools"),
+    ]
+
+    def test_reviewed_repository_fixtures_include_explainable_confidence(self):
+        for name, description, topics, expected in self.REVIEWED_REPOSITORIES:
+            with self.subTest(name=name):
+                result = assign_category(topics, name, description, return_details=True)
+                self.assertEqual(result["category"], expected)
+                self.assertGreaterEqual(result["category_confidence"], .5)
+                self.assertTrue(result["category_reasons"])
+
+    def test_cross_category_project_retains_secondary_category(self):
+        result = assign_category(["code-assistant", "llm-evaluation"],
+                                 "example/copilot-evals", "Coding assistant with LLM evaluation",
+                                 return_details=True)
+        self.assertEqual(result["category"], "evals-and-testing")
+        self.assertIn("ai-coding-and-assistants", result["secondary_categories"])
+        self.assertIn("topic:llm-evaluation", result["category_reasons"])
+
     def test_representative_topic_for_every_category(self):
         examples = {
             "agent-framework": "crewai",
