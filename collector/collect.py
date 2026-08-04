@@ -8,6 +8,7 @@ Zero cost: runs via GitHub Actions cron, stores data as JSON in the repo.
 
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime, timezone, timedelta
@@ -68,6 +69,28 @@ CATEGORY_MAP = {
     "agent-framework": ["ai-agent", "ai-agents", "agent-framework", "crewai", "langgraph", "autogen", "multi-agent"],
     "dev-tools": ["ai-tools", "ai-framework", "prompt-engineering", "llm", "generative-ai", "langchain", "developer-tools", "mlops"],
 }
+
+# Name and description are intentionally *not* treated as bags of words.  Only
+# these reviewed phrases may contribute text evidence.  This prevents incidental
+# mentions (most notably "supports MCP") from becoming a product's identity.
+CATEGORY_TEXT_RULES = {
+    "mcp": ["mcp server", "model context protocol server", "mcp implementation"],
+    "ai-security-and-guardrails": ["llm security", "ai guardrails", "prompt injection"],
+    "evals-and-testing": ["llm evaluation", "ai evaluation", "eval framework"],
+    "gateways-and-routing": ["llm gateway", "ai gateway", "model router", "llm proxy"],
+    "ai-coding-and-assistants": ["coding assistant", "code assistant", "ai pair programmer"],
+    "ai-webui-and-interfaces": ["web ui for llm", "llm web ui", "chat interface", "ai webui"],
+    "multimodal-media": ["text to image", "text-to-image", "speech to text"],
+    "vector-dbs-and-data": ["vector database", "vector store", "data pipeline"],
+    "local-and-edge-ai": ["run llms locally", "on-device ai", "local llm"],
+    "fine-tuning": ["fine tuning", "fine-tuning", "lora training"],
+    "model-serving": ["inference server", "model serving", "llm inference"],
+    "rag-and-search": ["retrieval augmented generation", "semantic search", "rag framework"],
+    "agent-framework": ["agent framework", "multi-agent framework", "ai agent framework"],
+    "dev-tools": ["developer tool", "automation platform", "workflow automation", "documentation"],
+}
+
+MCP_INTEGRATION_PHRASES = ("supports mcp", "mcp support", "mcp integration", "integrates with mcp")
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -222,24 +245,48 @@ def get_decision_signals(owner: str, repo: str, now: datetime | None = None) -> 
 # Scoring
 # ---------------------------------------------------------------------------
 
-def assign_category(topics: list[str]) -> str:
-    """Map topics to the highest-scoring category; mapping order breaks ties."""
-    topic_set = set(t.lower() for t in topics)
-    best_cat = "dev-tools"
-    best_score = 0
+def assign_category(topics: list[str], name: str = "", description: str = "",
+                    return_details: bool = False) -> str | dict:
+    """Classify primary function from curated evidence, optionally returning its audit trail."""
+    topic_set = {str(t).lower() for t in topics}
+    text = f"{name} {description}".lower().replace("_", " ")
+    scores = {cat: 0 for cat in CATEGORY_MAP}
+    reasons = {cat: [] for cat in CATEGORY_MAP}
+
     for cat, keywords in CATEGORY_MAP.items():
-        # Broad dev-tools signals are a fallback and must not outvote a
-        # category-specific match merely because a repository has many generic
-        # AI topics.
-        if cat == "dev-tools":
-            continue
-        score = len(topic_set.intersection(keywords))
-        if score > best_score:
-            best_score = score
-            best_cat = cat
-    if best_score == 0 and topic_set.intersection(CATEGORY_MAP["dev-tools"]):
-        return "dev-tools"
-    return best_cat
+        matched = sorted(topic_set.intersection(keywords))
+        scores[cat] += len(matched) * (1 if cat == "dev-tools" else 3)
+        reasons[cat].extend(f"topic:{keyword}" for keyword in matched)
+        for phrase in CATEGORY_TEXT_RULES[cat]:
+            if re.search(rf"(?<![a-z0-9]){re.escape(phrase)}(?![a-z0-9])", text):
+                scores[cat] += 2
+                reasons[cat].append(f"text:{phrase}")
+
+    # A docs repository is documentation, even when it documents MCP.  Likewise
+    # an integration mention can be secondary evidence but cannot define a tool.
+    repo_slug = name.lower().rstrip("/").split("/")[-1]
+    is_docs = repo_slug in {"docs", "documentation"} or "documentation repository" in text
+    if is_docs:
+        scores["dev-tools"] = max(scores["dev-tools"], 5)
+        reasons["dev-tools"].append("identity:documentation-repository")
+    if any(phrase in text for phrase in MCP_INTEGRATION_PHRASES):
+        scores["mcp"] = min(scores["mcp"], 2)
+        reasons["mcp"] = [reason for reason in reasons["mcp"] if not reason.startswith("text:")]
+        reasons["mcp"].append("integration:mcp")
+
+    ranked = sorted(scores, key=lambda cat: (-scores[cat], list(CATEGORY_MAP).index(cat)))
+    primary = "dev-tools" if scores[ranked[0]] == 0 else ranked[0]
+    primary_score = scores[primary]
+    secondary = [cat for cat in ranked if cat != primary and scores[cat] >= 3
+                 and scores[cat] >= primary_score * .5][:2]
+    runner_up = max((scores[cat] for cat in CATEGORY_MAP if cat != primary), default=0)
+    confidence = round(min(.98, .45 + .09 * primary_score + .04 * max(primary_score - runner_up, 0)), 2)
+    if primary_score == 0:
+        confidence = .35
+        reasons[primary] = ["fallback:no-category-specific-match"]
+    result = {"category": primary, "secondary_categories": secondary,
+              "category_confidence": confidence, "category_reasons": reasons[primary]}
+    return result if return_details else primary
 
 
 def compute_gem_score(repo: dict, commits_30d: int, contributors: int) -> float:
@@ -702,7 +749,9 @@ def collect():
         gem_score = compute_gem_score(repo, details["commits_30d_lower_bound"] or 0,
                                       details["contributors_total_lower_bound"] or 0)
         readiness = compute_adoption_readiness(repo, details)
-        category = assign_category(topics)
+        classification = assign_category(topics, full_name, repo.get("description") or "",
+                                         return_details=True)
+        category = classification["category"]
         risk = classify_maintenance_risk(repo, details, category, now=now)
         metrics_estimated = full_name not in fetch_candidate_names
         maintainer_health = compute_maintainer_health(repo, details["commits_30d_lower_bound"],
@@ -715,8 +764,15 @@ def collect():
             "forks": repo.get("forks_count", 0),
             "open_issues": repo.get("open_issues_count", 0),
             "language": repo.get("language") or "Unknown",
-            "topics": topics[:8],
+            # Keep every classification topic plus a useful display sample. The
+            # frontend remains free to show fewer than this explanatory payload.
+            "topics": list(dict.fromkeys(topics[:12] + [reason.split(":", 1)[1]
+                           for reason in classification["category_reasons"]
+                           if reason.startswith("topic:")])),
             "category": category,
+            "secondary_categories": classification["secondary_categories"],
+            "category_confidence": classification["category_confidence"],
+            "category_reasons": classification["category_reasons"],
             "created_at": repo.get("created_at", ""),
             "pushed_at": repo.get("pushed_at", ""),
             "days_since_push": days_since_push,

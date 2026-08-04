@@ -311,6 +311,9 @@ header p {
   border-radius: 3px;
   color: var(--text-muted);
 }
+.category-explanation { margin-top: 8px; color: var(--text-muted); font-size: 11px; }
+.category-explanation summary { cursor: pointer; font-family: var(--mono); }
+.category-explanation div { margin-top: 5px; }
 
 /* Category badge */
 .cat-badge {
@@ -615,6 +618,9 @@ function render() {
     const repoDesc = escapeHtml(r.description || 'No description');
     const repoLang = escapeHtml(r.language);
     const repoCategory = escapeHtml(String(r.category || 'dev-tools').replace(/-/g, ' '));
+    const secondaryCategories = (r.secondary_categories || []).map(c => escapeHtml(String(c).replace(/-/g, ' ')));
+    const categoryReasons = (r.category_reasons || []).map(reason => escapeHtml(String(reason).replace(':', ': ')));
+    const categoryConfidence = Math.round(Number(r.category_confidence || 0) * 100);
     const repoUrl = safeUrl(r.url);
     const avatarUrl = safeAvatar(r.owner_avatar);
     const adoptionLabel = escapeHtml(r.adoption_label || 'watch');
@@ -643,12 +649,12 @@ function render() {
     const catClass = `cat-${String(r.category || 'dev-tools').replace(/[^a-z0-9-]/g, '')}`;
 
     return `
-      <a class="repo" href="${repoUrl}" target="_blank" rel="noopener">
+      <article class="repo">
         <div class="repo-top">
           <img class="repo-avatar" src="${avatarUrl}" alt="" loading="lazy" width="32" height="32">
           <div style="flex:1;min-width:0">
             <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-              <span class="repo-name">${repoName}</span>
+              <a class="repo-name" href="${repoUrl}" target="_blank" rel="noopener">${repoName}</a>
               <span class="cat-badge ${catClass}">${repoCategory}</span>
               <span class="score-badge ${scoreClass}" aria-label="Readiness heuristic: ${adoptionLabel}, ${adoptionPoints} points"><span class="badge-label">Readiness:</span> <span class="badge-value">${adoptionLabel}</span> <span>${adoptionPoints}/100 heuristic</span></span>
               <span class="score-badge ${healthLabel}" aria-label="Maintainer health: ${healthLabel}"><span class="badge-label">Health:</span> <span class="badge-value">${healthLabel}</span></span>
@@ -667,10 +673,11 @@ function render() {
           <span class="m-item">${r.contributors_total_lower_bound == null ? 'contributors unavailable' : `${r.contributors_total_lower_bound}${r.contributors_capped ? '+' : ''} lifetime contributors`}</span>
         </div>
         <div class="trend-reason"><strong>Data confidence:</strong> ${confidence}${positives ? ` · <strong>Strengths:</strong> ${positives}` : ''}${risks ? ` · <strong>Risks:</strong> ${risks}` : ''}${missing ? ` · <strong>Missing:</strong> ${missing}` : ''}${r.commits_30d_capped || r.contributors_capped || r.response_activity_capped ? ' · <strong>Capped:</strong> displayed counts are lower bounds' : ''}</div>
+        ${(categoryReasons.length || secondaryCategories.length) ? `<details class="category-explanation"><summary>Why this category? ${categoryConfidence}% confidence</summary><div><strong>Primary:</strong> ${repoCategory}${secondaryCategories.length ? ` · <strong>Also:</strong> ${secondaryCategories.join(', ')}` : ''}${categoryReasons.length ? ` · <strong>Evidence:</strong> ${categoryReasons.join(', ')}` : ''}</div></details>` : ''}
         ${reasons ? `<div class="trend-reason">${reasons}</div>` : ''}
         ${gemBar}
-        ${r.topics.length > 0 ? `<div class="topics">${r.topics.map(t => `<span class="topic">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
-      </a>
+        ${r.topics.length > 0 ? `<div class="topics">${r.topics.slice(0, 8).map(t => `<span class="topic">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+      </article>
     `;
   }).join('');
 }
