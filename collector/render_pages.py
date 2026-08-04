@@ -151,7 +151,8 @@ def repositories_by_category(data: dict) -> dict[str, list[dict]]:
     """Group each repository once, preserving section and repository order."""
     categories: dict[str, list[dict]] = {}
     seen_names: set[str] = set()
-    for section in ("trending", "gems", "abandoned"):
+    sections = ("discovery",) if "discovery" in data else ("trending", "gems", "abandoned")
+    for section in sections:
         for repo in data.get(section, []):
             name = repo.get("name", "")
             if name in seen_names:

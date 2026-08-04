@@ -403,11 +403,31 @@ footer {
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
+/* Discovery and comparison */
+.discovery-controls { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:18px; }
+.discovery-controls h2, .compare-panel h2 { font:600 15px var(--mono); margin-bottom:12px; }
+.control-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.control-grid label { color:var(--text-dim); font-size:11px; }
+.control-grid .wide { grid-column:span 2; }
+.control-grid input, .control-grid select { display:block; width:100%; margin-top:4px; padding:8px; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:5px; }
+.control-grid input:focus, .control-grid select:focus, button:focus-visible, a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.control-actions { display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:12px; }
+.control-actions button, .compare-toggle, .compare-remove { padding:6px 10px; border:1px solid var(--accent-border); border-radius:5px; color:var(--text); background:var(--accent-bg); cursor:pointer; }
+#result-count { font:11px var(--mono); color:var(--text-dim); }
+.repo-actions { display:flex; justify-content:flex-end; margin-top:10px; }
+.compare-toggle[aria-pressed="true"] { color:var(--green); border-color:var(--green); }
+.compare-panel { border:1px solid var(--accent-border); border-radius:10px; padding:16px; margin-bottom:18px; overflow-x:auto; }
+.compare-table { width:100%; min-width:560px; border-collapse:collapse; font-size:12px; }
+.compare-table th,.compare-table td { padding:7px; text-align:left; border-bottom:1px solid var(--border); }
+.compare-table th { color:var(--text-dim); }
 /* Responsive */
 @media (max-width: 600px) {
   .stats { grid-template-columns: repeat(2, 1fr); }
   header h1 { font-size: 22px; }
   .repo { padding: 12px; }
+  .control-grid { grid-template-columns:1fr 1fr; }
+  .control-grid .wide { grid-column:1 / -1; }
+  .discovery-controls { padding:12px; }
 }
 </style>
 </head>
@@ -424,9 +444,25 @@ footer a:hover { text-decoration: underline; }
 
   <div class="stats" id="stats"></div>
 
-  <div class="tabs" id="tabs"></div>
-  <div class="time-filters" id="time-filters"></div>
-  <div class="cat-filters" id="cat-filters"></div>
+  <nav class="tabs" id="tabs" aria-label="Repository views"></nav>
+  <div class="time-filters" id="time-filters" role="group" aria-label="Star growth window"></div>
+  <section class="discovery-controls" aria-labelledby="discover-title">
+    <h2 id="discover-title">Discover repositories</h2>
+    <div class="control-grid">
+      <label class="wide">Search <input id="search" type="search" placeholder="Name, description, topic, language, or category" autocomplete="off"></label>
+      <label>Sort by <select id="sort"><option value="growth">Star growth</option><option value="relative">Relative growth</option><option value="gem">Gem score</option><option value="adoption">Adoption readiness</option><option value="risk">Maintenance risk</option><option value="commits">Recent commits</option><option value="stars">Total stars</option><option value="newest">Newest repository</option></select></label>
+      <label>Category <select id="category"><option value="">All categories</option></select></label>
+      <label>Language <select id="language"><option value="">All languages</option></select></label>
+      <label>License <select id="license"><option value="">All licenses</option></select></label>
+      <label>Maintenance health <select id="health"><option value="">All health levels</option></select></label>
+      <label>Adoption label <select id="adoption"><option value="">All adoption labels</option></select></label>
+      <label>Minimum stars <input id="stars-min" type="number" min="0" inputmode="numeric" placeholder="Any"></label>
+      <label>Maximum stars <input id="stars-max" type="number" min="0" inputmode="numeric" placeholder="Any"></label>
+      <label>Metric quality <select id="quality"><option value="">All metrics</option><option value="measured">Measured only</option><option value="estimated">Estimated only</option><option value="capped">Has capped signals</option></select></label>
+    </div>
+    <div class="control-actions"><button type="button" id="clear-filters">Clear filters</button><output id="result-count" aria-live="polite"></output></div>
+  </section>
+  <section id="compare-panel" class="compare-panel" aria-labelledby="compare-title" hidden></section>
   <div class="repo-list" id="repo-list">
     <div class="loading"><div class="spinner"></div><br>Fetching radar data...</div>
   </div>
@@ -454,235 +490,101 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <script>
-let DATA = null;
-let activeTab = 'trending';
-let activeTime = '7d';
-let activeCat = 'all';
-
+let DATA;
+const state = { tab:'discover', window:'7d', q:'', sort:'growth', category:'', language:'', license:'', health:'', adoption:'', min:'', max:'', quality:'', compare:[] };
 const TABS = [
-  { id: 'trending', label: 'Trending', icon: '🔥' },
-  { id: 'gems', label: 'Underrated Gems', icon: '💎' },
-  { id: 'abandoned', label: 'Stale / At Risk', icon: '⚠️' },
-  { id: 'hot-week', label: 'Hot This Week', icon: '⚡', source: 'trending' },
-  { id: 'recently-active', label: 'Recently Active', icon: '🟢', source: 'trending' },
-  { id: 'needs-maintainers', label: 'Needs Maintainers', icon: '🛟', source: 'all' },
-  { id: 'docs-rich', label: 'Docs Rich', icon: '📚', source: 'all' },
+  ['discover','Discover'], ['trending','Trending'], ['gems','Underrated Gems'], ['abandoned','Stale / At Risk']
 ];
-
-function escapeHtml(value) {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+const $ = id => document.getElementById(id);
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+function safeUrl(value, prefixes=['https://github.com/']) { const url=String(value??''); return prefixes.some(p=>url.startsWith(p))?url:'#'; }
+function readUrlState() {
+  const p=new URLSearchParams(location.search);
+  for (const key of Object.keys(state)) if (key !== 'compare' && p.has(key)) state[key]=p.get(key);
+  state.compare=(p.get('compare')||'').split(',').filter(Boolean).slice(0,4);
+  if (!TABS.some(([id])=>id===state.tab)) state.tab='discover';
+  if (!['3d','7d','30d'].includes(state.window)) state.window='7d';
 }
-
-function safeUrl(value, allowedPrefixes = ['https://github.com/']) {
-  const url = String(value ?? '');
-  return allowedPrefixes.some(prefix => url.startsWith(prefix)) ? url : '#';
+function writeUrlState(mode='push') {
+  const defaults={tab:'discover',window:'7d',q:'',sort:'growth',category:'',language:'',license:'',health:'',adoption:'',min:'',max:'',quality:''};
+  const p=new URLSearchParams();
+  for(const [key,value] of Object.entries(state)) {
+    const serialized=Array.isArray(value)?value.join(','):value;
+    if(serialized && serialized!==defaults[key]) p.set(key,serialized);
+  }
+  history[mode==='replace'?'replaceState':'pushState'](null,'',`${location.pathname}${p.size?'?'+p:''}${location.hash}`);
 }
-
-function safeAvatar(value) {
-  return safeUrl(value, ['https://avatars.githubusercontent.com/', 'https://github.com/']);
+function uniqueRepos() {
+  const source=DATA.discovery || ['trending','gems','abandoned'].flatMap(k=>DATA[k]||[]), seen=new Set();
+  return source.filter(r=>!seen.has(r.name)&&seen.add(r.name));
 }
-
+function tabRepos() {
+  if(state.tab==='discover') return uniqueRepos();
+  if(state.tab==='trending' && DATA.trending_rankings?.[state.window]) return [...DATA.trending_rankings[state.window]];
+  return [...(DATA[state.tab]||[])];
+}
+function capped(r) { return !!(r.commits_30d_capped||r.commits_180d_capped||r.contributors_capped||r.response_activity_capped); }
+function value(r,key) {
+  const delta=Number(r[`stars_delta_${state.window}`])||0;
+  return {growth:delta,relative:r.stars?delta/r.stars:0,gem:Number(r.gem_score)||0,adoption:Number(r.adoption_score)||0,risk:Number(r.maintenance_risk_score)||0,commits:Number(r.commits_30d_lower_bound)||0,stars:Number(r.stars)||0,newest:Date.parse(r.created_at)||0}[key]||0;
+}
+function filteredRepos() {
+  const q=state.q.toLowerCase().trim();
+  return tabRepos().filter(r=>{
+    const hay=[r.name,r.description,r.language,r.category,...(r.topics||[])].join(' ').toLowerCase();
+    return (!q||hay.includes(q)) && (!state.category||r.category===state.category) && (!state.language||r.language===state.language) &&
+      (!state.license||(r.license||'No license')===state.license) && (!state.health||r.maintainer_health===state.health) &&
+      (!state.adoption||r.adoption_label===state.adoption) && (state.min===''||r.stars>=Number(state.min)) && (state.max===''||r.stars<=Number(state.max)) &&
+      (!state.quality||(state.quality==='estimated'?r.metrics_estimated:state.quality==='measured'?!r.metrics_estimated:state.quality==='capped'?capped(r):true));
+  }).sort((a,b)=>value(b,state.sort)-value(a,state.sort)||String(a.name).localeCompare(String(b.name)));
+}
+function fillSelect(id, values) {
+  const el=$(id), selected=state[id];
+  el.querySelectorAll('option:not(:first-child)').forEach(o=>o.remove());
+  values.filter(Boolean).sort((a,b)=>String(a).localeCompare(String(b))).forEach(v=>el.add(new Option(String(v).replace(/-/g,' '),v)));
+  el.value=selected;
+}
+function syncControls() {
+  const repos=uniqueRepos();
+  fillSelect('category',[...new Set(repos.map(r=>r.category))]); fillSelect('language',[...new Set(repos.map(r=>r.language))]);
+  fillSelect('license',[...new Set(repos.map(r=>r.license||'No license'))]); fillSelect('health',[...new Set(repos.map(r=>r.maintainer_health))]);
+  fillSelect('adoption',[...new Set(repos.map(r=>r.adoption_label))]);
+  for(const id of ['search','sort','stars-min','stars-max','quality']) $(id).value=state[{search:'q','stars-min':'min','stars-max':'max'}[id]||id];
+}
+function renderCompare() {
+  const panel=$('compare-panel'), repos=state.compare.map(name=>uniqueRepos().find(r=>r.name===name)).filter(Boolean);
+  panel.hidden=repos.length<2;
+  if(repos.length<2) { panel.innerHTML=''; return; }
+  const rows=[['Gem score',r=>`${Math.round((r.gem_score||0)*100)}/100`],['Adoption readiness',r=>`${Math.round((r.adoption_score<=1?r.adoption_score*100:r.adoption_score)||0)}/100 (${r.adoption_label||'unknown'})`],['Maintenance risk',r=>`${r.maintenance_risk_score||0}/100`],['Star growth',r=>`${r[`stars_delta_${state.window}`]??'unknown'} / ${state.window}`],['Recent commits',r=>r.commits_30d_lower_bound==null?'unavailable':`${r.commits_30d_lower_bound}${r.commits_30d_capped?'+':''}`],['Stars',r=>(r.stars||0).toLocaleString()],['Contributors',r=>r.contributors_total_lower_bound==null?'unavailable':`${r.contributors_total_lower_bound}${r.contributors_capped?'+':''}`],['Data quality',r=>`${r.metrics_estimated?'estimated':'measured'}${capped(r)?', capped':''}`]];
+  panel.innerHTML=`<h2 id="compare-title">Compare ${repos.length} repositories</h2><table class="compare-table"><thead><tr><th scope="col">Signal</th>${repos.map(r=>`<th scope="col">${escapeHtml(r.name)} <button class="compare-remove" data-remove="${escapeHtml(r.name)}" aria-label="Remove ${escapeHtml(r.name)} from comparison">×</button></th>`).join('')}</tr></thead><tbody>${rows.map(([label,get])=>`<tr><th scope="row">${label}</th>${repos.map(r=>`<td>${escapeHtml(get(r))}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  panel.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>toggleCompare(b.dataset.remove));
+}
+function repoCard(r) {
+  const points=Math.round(Number(r.adoption_score<=1?r.adoption_score*100:r.adoption_score)||0), delta=r[`stars_delta_${state.window}`];
+  return `<article class="repo"><div class="repo-top"><img class="repo-avatar" src="${safeUrl(r.owner_avatar,['https://avatars.githubusercontent.com/','https://github.com/'])}" alt="" loading="lazy"><div><a class="repo-name" href="${safeUrl(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a> <span class="cat-badge">${escapeHtml(String(r.category||'').replace(/-/g,' '))}</span></div></div><div class="repo-desc">${escapeHtml(r.description||'No description')}</div><div class="repo-meta"><span class="m-item star">★ ${(r.stars||0).toLocaleString()}</span>${delta==null?'':`<span class="m-item delta-pos">+${Number(delta).toLocaleString()} / ${state.window}</span>`}<span class="m-item">${escapeHtml(r.language||'Unknown')}</span><span class="m-item">${escapeHtml(r.license||'No license')}</span><span class="m-item">${r.commits_30d_lower_bound??'unknown'} commits/30d</span></div><div class="trend-reason">Gem ${Math.round((r.gem_score||0)*100)}/100 · readiness ${points}/100 (${escapeHtml(r.adoption_label||'unknown')}) · risk ${r.maintenance_risk_score||0}/100 · ${r.metrics_estimated?'estimated':'measured'} metrics${capped(r)?' · capped lower bounds':''}</div>${(r.topics||[]).length?`<div class="topics">${r.topics.slice(0,8).map(t=>`<span class="topic">${escapeHtml(t)}</span>`).join('')}</div>`:''}<div class="repo-actions"><button type="button" class="compare-toggle" data-compare="${escapeHtml(r.name)}" aria-pressed="${state.compare.includes(r.name)}">${state.compare.includes(r.name)?'Shortlisted':'Add to compare'}</button></div></article>`;
+}
+function render({url=true}={}) {
+  if(!DATA)return;
+  if(url) writeUrlState();
+  const d=new Date(DATA.last_updated); $('updated').innerHTML=`<span class="live"></span> Last scan: ${d.toLocaleString()}`;
+  $('stats').innerHTML=`<div class="stat"><div class="num">${DATA.stats.total_scanned}</div><div class="label">Repos scanned</div></div><div class="stat"><div class="num">${uniqueRepos().length}</div><div class="label">Discoverable</div></div><div class="stat"><div class="num">${DATA.stats.gems_count}</div><div class="label">Gems</div></div><div class="stat"><div class="num">${DATA.stats.abandoned_count}</div><div class="label">At risk</div></div>`;
+  $('tabs').innerHTML=TABS.map(([id,label])=>`<button class="tab ${state.tab===id?'active':''}" data-tab="${id}" aria-selected="${state.tab===id}" role="tab">${label} <span class="count">${id==='discover'?uniqueRepos().length:(DATA[id]||[]).length}</span></button>`).join('');
+  $('time-filters').innerHTML=['3d','7d','30d'].map(w=>`<button class="time-btn ${state.window===w?'active':''}" data-window="${w}" aria-pressed="${state.window===w}">${w.replace('d',' days')}</button>`).join('');
+  const repos=filteredRepos(); $('result-count').textContent=`Showing ${repos.length} of ${tabRepos().length} repositories`; $('repo-list').innerHTML=repos.length?repos.map(repoCard).join(''):'<div class="empty">No repositories match these filters.</div>';
+  $('tabs').querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;render()}); $('time-filters').querySelectorAll('[data-window]').forEach(b=>b.onclick=()=>{state.window=b.dataset.window;render()});
+  $('repo-list').querySelectorAll('[data-compare]').forEach(b=>b.onclick=()=>toggleCompare(b.dataset.compare)); renderCompare();
+}
+function toggleCompare(name) { const i=state.compare.indexOf(name); if(i>=0)state.compare.splice(i,1); else if(state.compare.length<4)state.compare.push(name); else { alert('Compare up to four repositories.'); return; } render(); }
 async function init() {
-  try {
-    const resp = await fetch('data.json');
-    DATA = await resp.json();
-    render();
-  } catch (e) {
-    document.getElementById('repo-list').innerHTML =
-      '<div class="empty">No data yet. Run the collector first:<br><code style="color:var(--accent)">python collector/collect.py</code></div>';
-  }
+  readUrlState(); try { const response=await fetch('data.json'); if(!response.ok)throw Error(response.status); DATA=await response.json(); syncControls();
+    const mapping={search:'q',sort:'sort',category:'category',language:'language',license:'license',health:'health',adoption:'adoption','stars-min':'min','stars-max':'max',quality:'quality'};
+    for(const [id,key] of Object.entries(mapping)) $(id).addEventListener(id==='search'||id.startsWith('stars-')?'input':'change',()=>{state[key]=$(id).value;render()});
+    $('clear-filters').onclick=()=>{for(const k of ['q','category','language','license','health','adoption','min','max','quality'])state[k]='';syncControls();render()};
+    render({url:false}); writeUrlState('replace');
+  } catch(e) { $('repo-list').innerHTML='<div class="empty">Repository data is unavailable.</div>'; }
 }
-
-function setTab(id) { activeTab = id; activeCat = 'all'; render(); }
-function setTime(t) { activeTime = t; render(); }
-function setCat(c) { activeCat = c; render(); }
-
-function allRepos() {
-  const seen = new Set();
-  return ['trending', 'gems', 'abandoned'].flatMap(section => DATA[section] || []).filter(repo => {
-    if (seen.has(repo.name)) return false;
-    seen.add(repo.name);
-    return true;
-  });
-}
-
-function reposForTab(tabId) {
-  const tabConfig = TABS.find(t => t.id === tabId) || TABS[0];
-  let repos = tabConfig.source === 'all'
-    ? allRepos()
-    : [...(DATA[tabConfig.source || tabId] || [])];
-
-  if (tabId === 'hot-week') {
-    return [...(DATA.trending_rankings?.['7d'] || repos)]
-      .filter(r => r.stars_delta_7d_valid && r.stars_delta_7d > 0)
-      .slice(0, 30);
-  }
-
-  if (tabId === 'recently-active') {
-    return repos
-      .filter(r => (r.commits_30d_lower_bound || 0) > 0 && !r.abandoned_flag)
-      .sort((a, b) => (b.commits_30d_lower_bound || 0) - (a.commits_30d_lower_bound || 0))
-      .slice(0, 30);
-  }
-
-  if (tabId === 'needs-maintainers') {
-    return repos
-      .filter(r => (r.contributors_total_lower_bound ?? Infinity) <= 5 || r.abandoned_flag)
-      .sort((a, b) => (b.stars || 0) - (a.stars || 0))
-      .slice(0, 30);
-  }
-
-  if (tabId === 'docs-rich') {
-    const docsPattern = /docs?|documentation|course|tutorial|guide|roadmap|awesome|book|learn/i;
-    return repos
-      .filter(r => (r.topics || []).some(t => docsPattern.test(t)) || docsPattern.test(r.name || '') || docsPattern.test(r.description || ''))
-      .sort((a, b) => (b.gem_score || 0) - (a.gem_score || 0) || (b.stars || 0) - (a.stars || 0))
-      .slice(0, 30);
-  }
-
-  return repos;
-}
-
-function render() {
-  if (!DATA) return;
-
-  // Updated timestamp
-  const d = new Date(DATA.last_updated);
-  document.getElementById('updated').innerHTML =
-    `<span class="live"></span> Last scan: ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })} ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} UTC`;
-
-  // Stats
-  document.getElementById('stats').innerHTML = `
-    <div class="stat"><div class="num">${DATA.stats.total_scanned}</div><div class="label">Repos scanned</div></div>
-    <div class="stat"><div class="num">${DATA.stats.trending_count}</div><div class="label">Trending</div></div>
-    <div class="stat"><div class="num">${DATA.stats.gems_count}</div><div class="label">Gems found</div></div>
-    <div class="stat"><div class="num">${DATA.stats.abandoned_count}</div><div class="label">Stale / At Risk</div></div>
-  `;
-
-  // Tabs
-  document.getElementById('tabs').innerHTML = TABS.map(t => {
-    const count = reposForTab(t.id).length;
-    return `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="setTab('${t.id}')">${t.icon} ${t.label}<span class="count">${count}</span></button>`;
-  }).join('');
-
-  // Time filters (only for the real trending tab so derived rankings keep their own sort)
-  document.getElementById('time-filters').innerHTML = activeTab === 'trending' ? `
-    <button class="time-btn ${activeTime === '3d' ? 'active' : ''}" onclick="setTime('3d')">3 days</button>
-    <button class="time-btn ${activeTime === '7d' ? 'active' : ''}" onclick="setTime('7d')">7 days</button>
-    <button class="time-btn ${activeTime === '30d' ? 'active' : ''}" onclick="setTime('30d')">30 days</button>
-  ` : '';
-
-  const tabConfig = TABS.find(t => t.id === activeTab) || TABS[0];
-  let repos = reposForTab(activeTab);
-
-  if (activeTab === 'trending' && DATA.trending_rankings?.[activeTime]) {
-    repos = [...DATA.trending_rankings[activeTime]];
-  }
-
-  // Category filters
-  const cats = [...new Set(repos.map(r => r.category))].sort();
-  document.getElementById('cat-filters').innerHTML = repos.length > 0 ? `
-    <button class="cat-btn ${activeCat === 'all' ? 'active' : ''}" onclick="setCat('all')">All</button>
-    ${cats.map(c => `<button class="cat-btn ${activeCat === c ? 'active' : ''}" onclick="setCat('${c}')">${c.replace(/-/g, ' ')}</button>`).join('')}
-  ` : '';
-
-  // Filter by category
-  if (activeCat !== 'all') {
-    repos = repos.filter(r => r.category === activeCat);
-  }
-
-  // Sort trending by star delta for selected time window
-  if ((tabConfig.source || activeTab) === 'trending') {
-    const deltaKey = `stars_delta_${activeTime}`;
-    if (activeTab !== 'trending' || !DATA.trending_rankings?.[activeTime]) {
-      repos.sort((a, b) => (b[deltaKey] ?? Number.NEGATIVE_INFINITY) - (a[deltaKey] ?? Number.NEGATIVE_INFINITY));
-    }
-  }
-
-  // Render repos
-  if (repos.length === 0) {
-    document.getElementById('repo-list').innerHTML = '<div class="empty">No repos in this category yet.</div>';
-    return;
-  }
-
-  const displayDeltaKey = activeTab === 'trending' ? `stars_delta_${activeTime}` : 'stars_delta_7d';
-
-  document.getElementById('repo-list').innerHTML = repos.map(r => {
-    const deltaKey = displayDeltaKey;
-    const repoName = escapeHtml(r.name);
-    const repoDesc = escapeHtml(r.description || 'No description');
-    const repoLang = escapeHtml(r.language);
-    const repoCategory = escapeHtml(String(r.category || 'dev-tools').replace(/-/g, ' '));
-    const secondaryCategories = (r.secondary_categories || []).map(c => escapeHtml(String(c).replace(/-/g, ' ')));
-    const categoryReasons = (r.category_reasons || []).map(reason => escapeHtml(String(reason).replace(':', ': ')));
-    const categoryConfidence = Math.round(Number(r.category_confidence || 0) * 100);
-    const repoUrl = safeUrl(r.url);
-    const avatarUrl = safeAvatar(r.owner_avatar);
-    const adoptionLabel = escapeHtml(r.adoption_label || 'watch');
-    const healthLabel = escapeHtml(r.maintainer_health || 'watch');
-    const rawAdoptionScore = Number(r.adoption_score ?? 0);
-    const adoptionPoints = Math.round(rawAdoptionScore <= 1 ? rawAdoptionScore * 100 : rawAdoptionScore);
-    const confidence = escapeHtml(r.data_confidence || 'low');
-    const positives = (r.positive_signals || []).map(escapeHtml).join(', ');
-    const risks = (r.risk_reasons || r.risk_signals || []).map(escapeHtml).join(', ');
-    const missing = (r.missing_inputs || []).map(x => escapeHtml(String(x).replace(/_/g, ' '))).join(', ');
-    const reasons = (r.trend_reasons || []).map(escapeHtml).slice(0, 2).join(' · ');
-    const delta = r[deltaKey] || 0;
-    const deltaStr = delta > 0 ? `<span class="m-item delta-pos">+${delta.toLocaleString()}</span>` :
-                     delta < 0 ? `<span class="m-item delta-neg">${delta.toLocaleString()}</span>` : '';
-
-    const gemBar = activeTab === 'gems' ? `
-      <div class="gem-bar-wrap">
-        <div class="gem-label"><span>Gem score</span><span>${(r.gem_score * 100).toFixed(0)}%</span></div>
-        <div class="gem-bar"><div class="gem-fill" style="width:${r.gem_score * 100}%"></div></div>
-      </div>` : '';
-
-    const abandonedBadge = r.abandoned_flag ? `<span class="abandoned-flag">maintenance risk ${Number(r.maintenance_risk_score) || 0}/100 · ${escapeHtml(r.risk_confidence_label || 'low')} confidence</span>` : '';
-    const metricsBadge = r.metrics_estimated ? '<span class="abandoned-flag">detail data unavailable</span>' : '';
-    const scoreClass = adoptionLabel === 'safe' ? '' : adoptionLabel;
-
-    const catClass = `cat-${String(r.category || 'dev-tools').replace(/[^a-z0-9-]/g, '')}`;
-
-    return `
-      <article class="repo">
-        <div class="repo-top">
-          <img class="repo-avatar" src="${avatarUrl}" alt="" loading="lazy" width="32" height="32">
-          <div style="flex:1;min-width:0">
-            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-              <a class="repo-name" href="${repoUrl}" target="_blank" rel="noopener">${repoName}</a>
-              <span class="cat-badge ${catClass}">${repoCategory}</span>
-              <span class="score-badge ${scoreClass}" aria-label="Readiness heuristic: ${adoptionLabel}, ${adoptionPoints} points"><span class="badge-label">Readiness:</span> <span class="badge-value">${adoptionLabel}</span> <span>${adoptionPoints}/100 heuristic</span></span>
-              <span class="score-badge ${healthLabel}" aria-label="Maintainer health: ${healthLabel}"><span class="badge-label">Health:</span> <span class="badge-value">${healthLabel}</span></span>
-              ${abandonedBadge}
-              ${metricsBadge}
-            </div>
-          </div>
-        </div>
-        <div class="repo-desc">${repoDesc}</div>
-        <div class="repo-meta">
-          <span class="m-item"><span class="star">★</span> ${r.stars.toLocaleString()}</span>
-          ${deltaStr}
-          <span class="m-item">⑂ ${r.forks.toLocaleString()}</span>
-          <span class="m-item">${repoLang}</span>
-          <span class="m-item">${r.commits_30d_lower_bound == null ? 'commits unavailable' : `${r.commits_30d_lower_bound}${r.commits_30d_capped ? '+' : ''} commits/30d`}</span>
-          <span class="m-item">${r.contributors_total_lower_bound == null ? 'contributors unavailable' : `${r.contributors_total_lower_bound}${r.contributors_capped ? '+' : ''} lifetime contributors`}</span>
-        </div>
-        <div class="trend-reason"><strong>Data confidence:</strong> ${confidence}${positives ? ` · <strong>Strengths:</strong> ${positives}` : ''}${risks ? ` · <strong>Risks:</strong> ${risks}` : ''}${missing ? ` · <strong>Missing:</strong> ${missing}` : ''}${r.commits_30d_capped || r.contributors_capped || r.response_activity_capped ? ' · <strong>Capped:</strong> displayed counts are lower bounds' : ''}</div>
-        ${(categoryReasons.length || secondaryCategories.length) ? `<details class="category-explanation"><summary>Why this category? ${categoryConfidence}% confidence</summary><div><strong>Primary:</strong> ${repoCategory}${secondaryCategories.length ? ` · <strong>Also:</strong> ${secondaryCategories.join(', ')}` : ''}${categoryReasons.length ? ` · <strong>Evidence:</strong> ${categoryReasons.join(', ')}` : ''}</div></details>` : ''}
-        ${reasons ? `<div class="trend-reason">${reasons}</div>` : ''}
-        ${gemBar}
-        ${r.topics.length > 0 ? `<div class="topics">${r.topics.slice(0, 8).map(t => `<span class="topic">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
-      </article>
-    `;
-  }).join('');
-}
-
-init();
+addEventListener('popstate',()=>{readUrlState();syncControls();render({url:false})}); init();
 </script>
+
 </body>
 </html>

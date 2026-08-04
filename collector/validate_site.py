@@ -46,13 +46,13 @@ def main() -> None:
 
     data = json.loads((SITE / "data.json").read_text())
     datetime.fromisoformat(data["last_updated"])
-    for key in ["stats", "trending", "gems", "abandoned"]:
+    for key in ["stats", "trending", "gems", "abandoned", "discovery"]:
         if key not in data:
             fail(f"missing data key: {key}")
     if not data["trending"]:
         fail("trending list is empty")
     represented_categories = set()
-    for section in ["trending", "gems", "abandoned"]:
+    for section in ["discovery"]:
         for repo in data.get(section, []):
             missing = REQUIRED_REPO_FIELDS - set(repo)
             if missing:
