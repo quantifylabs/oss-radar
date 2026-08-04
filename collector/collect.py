@@ -78,7 +78,9 @@ HISTORY_FILE = DATA_DIR / "history.json"
 
 # Thresholds
 GEM_STAR_CEILING = 500          # max stars to qualify as "underrated"
-ABANDONED_DAYS = 30             # no push in N days = flagged
+# Maintenance risk is intentionally not decided by one push-age cutoff.  This
+# value remains only as the active-repository boundary for trending rankings.
+TRENDING_ACTIVE_DAYS = 30
 MIN_STARS_FOR_TRENDING = 50     # ignore very tiny repos in trending
 MAX_REPOS_PER_QUERY = 80        # results per search topic
 DETAIL_FETCH_LIMIT = 250        # max repos to fetch commit/contributor data for
@@ -89,7 +91,7 @@ DETAIL_FETCH_BUCKET_LIMITS = {     # reserve detail capacity for each display bu
     "gems": 70,
     "trending": 140,
 }
-ABANDONED_FETCH_LIMIT = 120      # stale repos to consider per abandoned search
+ABANDONED_FETCH_LIMIT = 120      # maintenance-risk candidates per topic search
 
 
 # ---------------------------------------------------------------------------
@@ -208,9 +210,11 @@ def get_decision_signals(owner: str, repo: str, now: datetime | None = None) -> 
     pr_activity = len(review_comments) if isinstance(review_comments, list) else None
     response_capped = any(isinstance(value, list) and len(value) == 100
                           for value in (issue_comments, review_comments))
+    maintainer_responses = None if issue_activity is None and pr_activity is None else (issue_activity or 0) + (pr_activity or 0)
     return {"latest_release_age_days": release_age,
             "issue_responses_30d_lower_bound": issue_activity,
             "pull_request_responses_30d_lower_bound": pr_activity,
+            "maintainer_responses_30d_lower_bound": maintainer_responses,
             "response_activity_capped": response_capped}
 
 
@@ -369,6 +373,88 @@ def compute_maintainer_health(repo: dict, commits_30d: int | None, contributors:
     return "healthy"
 
 
+def classify_maintenance_risk(repo: dict, signals: dict, category: str,
+                              now: datetime | None = None) -> dict:
+    """Classify maintenance risk from multiple explainable signals.
+
+    The score is a prioritisation heuristic, not a claim that a repository is
+    abandoned.  Documentation, courses, and curated lists commonly have a
+    deliberately slower cadence, so they receive substantially longer recency
+    and release thresholds.
+    """
+    now = now or datetime.now(timezone.utc)
+    pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
+    days_since_push = max((now - pushed).days, 0)
+    text = " ".join([repo.get("name", ""), repo.get("full_name", ""),
+                     repo.get("description") or "", *repo.get("topics", [])]).lower()
+    if any(word in text for word in ("awesome", "curated", "list of", "resources")):
+        repo_type, push_threshold, release_threshold = "curated-list", 365, 730
+    elif any(word in text for word in ("course", "curriculum", "tutorial", "workshop", "book")):
+        repo_type, push_threshold, release_threshold = "course", 270, 540
+    elif any(word in text for word in ("documentation", " docs", "docs-", "guide")):
+        repo_type, push_threshold, release_threshold = "documentation", 180, 540
+    else:
+        repo_type, push_threshold, release_threshold = "software", 90, 365
+
+    score = 0
+    reasons = []
+    observed = 1  # push age is always present
+    possible = 6
+    if repo.get("archived"):
+        score += 70
+        reasons.append("repository is archived")
+    if days_since_push > push_threshold:
+        score += min(30, 15 + round(15 * (days_since_push - push_threshold) / push_threshold))
+        reasons.append(f"no push in {days_since_push} days")
+
+    release_age = signals.get("latest_release_age_days")
+    if release_age is not None:
+        observed += 1
+        if release_age > release_threshold:
+            score += 12
+            reasons.append(f"latest release is {release_age} days old")
+
+    recent = signals.get("commits_30d_lower_bound")
+    baseline = signals.get("commits_180d_lower_bound")
+    if recent is not None and baseline is not None:
+        observed += 1
+        # The preceding five months form a rough historical monthly baseline.
+        historical_monthly = max((baseline - recent) / 5, 0)
+        if historical_monthly >= 2 and recent < historical_monthly * .25:
+            score += 18
+            reasons.append(f"recent commit cadence is {recent}/{historical_monthly:.1f} of its monthly baseline")
+
+    open_issues = repo.get("open_issues_count")
+    issue_responses = signals.get("issue_responses_30d_lower_bound")
+    if open_issues is not None and issue_responses is not None:
+        observed += 1
+        pressure_threshold = 25 if repo_type == "software" else 75
+        if open_issues >= pressure_threshold and issue_responses == 0:
+            score += 18
+            reasons.append(f"{open_issues} open issues with no maintainer issue responses in 30 days")
+
+    pr_responses = signals.get("pull_request_responses_30d_lower_bound")
+    if pr_responses is not None:
+        observed += 1
+        if pr_responses == 0 and (open_issues or 0) >= 10:
+            score += 8
+            reasons.append("no pull-request review responses in 30 days")
+
+    maintainer_responses = signals.get("maintainer_responses_30d_lower_bound")
+    if maintainer_responses is not None:
+        observed += 1
+        if maintainer_responses == 0 and (open_issues or 0) >= 10:
+            score += 8
+            reasons.append("no maintainer response activity in 30 days")
+
+    score = min(score, 100)
+    confidence = round(observed / possible, 2)
+    return {"maintenance_risk_score": score, "risk_confidence": confidence,
+            "risk_confidence_label": "high" if confidence >= .8 else "medium" if confidence >= .5 else "low",
+            "repository_type": repo_type, "risk_reasons": reasons,
+            "at_risk": bool(repo.get("archived")) or score >= 40}
+
+
 def build_trend_reasons(entry: dict) -> list[str]:
     """Create deterministic explanations for why a repo is notable."""
     reasons = []
@@ -453,7 +539,7 @@ def rank_trending(entries: list[dict], window: int, limit: int = TRENDING_RANK_L
         entry for entry in entries
         if entry.get(valid_key)
         and not entry.get("archived", False)
-        and entry.get("days_since_push", ABANDONED_DAYS + 1) <= ABANDONED_DAYS
+        and entry.get("days_since_push", TRENDING_ACTIVE_DAYS + 1) <= TRENDING_ACTIVE_DAYS
     ]
 
     def rank_key(entry: dict) -> tuple:
@@ -500,7 +586,7 @@ def collect():
         print(f"  topic:{topic} → {len(results)} active results ({len(seen)} unique total)")
         time.sleep(2)  # stay within search rate limit
 
-        stale_query = f"topic:{topic} pushed:<{thirty_days_ago} stars:>=200 archived:false"
+        stale_query = f"topic:{topic} pushed:<{thirty_days_ago} stars:>=200"
         stale_results = search_repos(stale_query, sort="stars", per_page=min(ABANDONED_FETCH_LIMIT, 100))
         for repo in stale_results:
             name = repo["full_name"]
@@ -526,7 +612,7 @@ def collect():
         stars = repo.get("stargazers_count", 0)
         pushed = datetime.fromisoformat(repo["pushed_at"].replace("Z", "+00:00"))
         days_since_push = (now - pushed).days
-        if days_since_push > ABANDONED_DAYS and stars >= 200:
+        if days_since_push > TRENDING_ACTIVE_DAYS and stars >= 200:
             return "abandoned"
         if stars <= GEM_STAR_CEILING:
             return "gems"
@@ -564,12 +650,15 @@ def collect():
         owner, name = repo["full_name"].split("/", 1)
 
         commits, commits_capped = get_commit_count_recent(owner, name, days=30)
+        commits_180d, commits_180d_capped = get_commit_count_recent(owner, name, days=180)
         contributor_metrics = get_contributor_metrics(owner, name)
         decision_signals = get_decision_signals(owner, name, now=now)
 
         repo_details[repo["full_name"]] = {
             "commits_30d_lower_bound": commits,
             "commits_30d_capped": commits_capped,
+            "commits_180d_lower_bound": commits_180d,
+            "commits_180d_capped": commits_180d_capped,
             **contributor_metrics,
             **decision_signals,
         }
@@ -596,10 +685,12 @@ def collect():
         topics = repo.get("topics", [])
         details = repo_details.get(full_name, {
             "commits_30d_lower_bound": None, "commits_30d_capped": False,
+            "commits_180d_lower_bound": None, "commits_180d_capped": False,
             "contributors_total_lower_bound": None, "contributors_capped": False,
             "top_contributor_share": None, "latest_release_age_days": None,
             "issue_responses_30d_lower_bound": None,
             "pull_request_responses_30d_lower_bound": None,
+            "maintainer_responses_30d_lower_bound": None,
             "response_activity_capped": False,
         })
 
@@ -612,6 +703,7 @@ def collect():
                                       details["contributors_total_lower_bound"] or 0)
         readiness = compute_adoption_readiness(repo, details)
         category = assign_category(topics)
+        risk = classify_maintenance_risk(repo, details, category, now=now)
         metrics_estimated = full_name not in fetch_candidate_names
         maintainer_health = compute_maintainer_health(repo, details["commits_30d_lower_bound"],
                                                       details["contributors_total_lower_bound"])
@@ -638,11 +730,12 @@ def collect():
             **readiness,
             "maintainer_health": maintainer_health,
             "trend_reasons": [],
+            **risk,
         }
 
         # Classify
-        if days_since_push > ABANDONED_DAYS and stars >= 200:
-            entry["abandoned_flag"] = True
+        if risk["at_risk"] and stars >= 200:
+            entry["abandoned_flag"] = True  # legacy data/API compatibility
             abandoned.append(entry)
 
         if stars <= GEM_STAR_CEILING and gem_score >= 0.3:
@@ -671,7 +764,8 @@ def collect():
     # Sort non-trending collections and retain a compatibility union of every
     # window's results rather than a total-star-prefiltered candidate list.
     gems.sort(key=lambda r: r["gem_score"], reverse=True)
-    abandoned.sort(key=lambda r: r["stars"], reverse=True)
+    abandoned.sort(key=lambda r: (-r["maintenance_risk_score"],
+                                  -r["risk_confidence"], -r["stars"], r["name"].lower()))
     trending_by_name = {}
     for window in TRENDING_WINDOWS:
         for entry in trending_rankings[f"{window}d"]:

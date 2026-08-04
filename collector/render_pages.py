@@ -35,7 +35,7 @@ def repo_items(repos: list[dict]) -> str:
         topics = " ".join(f"<span>{h(t)}</span>" for t in repo.get("topics", [])[:6])
         reasons = "; ".join(repo.get("trend_reasons", [])[:2])
         positives = ", ".join(repo.get("positive_signals", [])) or "None identified"
-        risks = ", ".join(repo.get("risk_signals", [])) or "None identified"
+        risks = ", ".join(repo.get("risk_reasons") or repo.get("risk_signals", [])) or "None identified"
         missing = ", ".join(item.replace("_", " ") for item in repo.get("missing_inputs", [])) or "None"
         capped = []
         if repo.get("commits_30d_capped"): capped.append("30-day commits")
@@ -52,6 +52,7 @@ def repo_items(repos: list[dict]) -> str:
                 <dt>Readiness</dt><dd>{h(repo.get('adoption_label', 'needs review'))} ({heuristic_points}/100 heuristic points; not a probability)</dd>
                 <dt>Data confidence</dt><dd>{h(repo.get('data_confidence', 'low'))}</dd>
                 <dt>Maintainer health</dt><dd>{h(repo.get('maintainer_health', 'watch'))}</dd>
+                <dt>Maintenance risk</dt><dd>{int(repo.get('maintenance_risk_score', 0))}/100 · {h(repo.get('risk_confidence_label', 'low'))} confidence</dd>
               </dl>
               {f'<p><strong>Why:</strong> {h(reasons)}</p>' if reasons else ''}
               <p><strong>Strongest signals:</strong> {h(positives)}. <strong>Risks:</strong> {h(risks)}. <strong>Missing inputs:</strong> {h(missing)}.</p>
@@ -139,7 +140,7 @@ def write_llms() -> None:
         f"- Home: {BASE_URL}/\n"
         f"- Trending repositories: {BASE_URL}/trending/\n"
         f"- Underrated gems: {BASE_URL}/gems/\n"
-        f"- Potentially abandoned repositories: {BASE_URL}/abandoned/\n\n"
+        f"- Stale / At Risk repositories: {BASE_URL}/abandoned/\n\n"
         "## Data notes\n\n"
         "The site is generated from public GitHub repository metadata and cached in static JSON. "
         "UI-only discovery tabs are derived from the already-collected dataset to avoid additional GitHub API pressure.\n"
@@ -184,9 +185,10 @@ def write_feeds(data: dict) -> None:
     (SITE / "feed.xml").write_text(rss("main", "OSS Radar updates", data.get("trending", [])))
     (feeds / "trending.xml").write_text(rss("trending", "OSS Radar trending repositories", data.get("trending", [])))
     (feeds / "gems.xml").write_text(rss("gems", "OSS Radar underrated gems", data.get("gems", [])))
+    (feeds / "maintenance-risk.xml").write_text(rss("maintenance risk", "OSS Radar stale / at risk repositories", data.get("abandoned", [])))
     # Remove old generated category feeds so renamed categories cannot deploy.
     for old_feed in feeds.glob("*.xml"):
-        if old_feed.name not in {"trending.xml", "gems.xml"}:
+        if old_feed.name not in {"trending.xml", "gems.xml", "maintenance-risk.xml"}:
             old_feed.unlink()
     for cat, repos in repositories_by_category(data).items():
         (feeds / f"{cat}.xml").write_text(rss(cat, f"OSS Radar {cat.replace('-', ' ')}", repos))
@@ -197,7 +199,7 @@ def main() -> None:
     urls = ["/", "/llms.txt"]
     urls.append(write_page("trending", "Trending AI open-source repositories", "Fast-moving AI GitHub projects tracked by OSS Radar.", data.get("trending", [])))
     urls.append(write_page("gems", "Underrated AI open-source gems", "Lower-visibility AI repositories with strong quality and maintenance signals.", data.get("gems", [])))
-    urls.append(write_page("abandoned", "Potentially abandoned AI open-source repositories", "Popular AI repositories with stale maintenance signals to review before adopting.", data.get("abandoned", [])))
+    urls.append(write_page("abandoned", "Stale / At Risk AI open-source repositories", "Potentially unmaintained AI repositories ranked by maintenance risk and data confidence; signals are indicators, not claims of abandonment.", data.get("abandoned", [])))
     categories_root = SITE / "categories"
     if categories_root.exists():
         shutil.rmtree(categories_root)

@@ -15,7 +15,7 @@ Sitemap: https://radar.aegismemory.com/sitemap.xml
 - Home: https://radar.aegismemory.com/
 - Trending repositories: https://radar.aegismemory.com/trending/
 - Underrated gems: https://radar.aegismemory.com/gems/
-- Potentially abandoned repositories: https://radar.aegismemory.com/abandoned/
+- Stale / At Risk repositories: https://radar.aegismemory.com/abandoned/
 
 ## Data notes
 

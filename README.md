@@ -1,6 +1,6 @@
 # OSS Radar — AI Open-Source GitHub Repository Tracker
 
-Track trending AI open-source GitHub repositories, discover underrated gems, compare adoption risk, and spot abandoned repos.
+Track trending AI open-source GitHub repositories, discover underrated gems, compare adoption risk, and identify potentially unmaintained projects without declaring them abandoned.
 
 **Zero cost.** Runs on GitHub Actions (free) + GitHub Pages (free). No servers, no databases, no cloud bills.
 
@@ -10,7 +10,7 @@ Track trending AI open-source GitHub repositories, discover underrated gems, com
 
 - **Trending** — Top AI repos by star growth (3-day / 7-day / 30-day windows)
 - **Underrated Gems** — High-quality repos under 500 stars that most people haven't found yet
-- **Abandoned Detector** — Popular repos with stale pushes or weak maintenance signals (the "hot but dead" trap)
+- **Stale / At Risk** — Repositories prioritised by a confidence-aware, multi-signal maintenance-risk heuristic
 - **Category filtering** — Agent frameworks, model serving, fine-tuning, RAG and search, dev tools, MCP, evals and testing, local and edge AI, gateways and routing, AI security and guardrails, AI coding assistants, AI WebUIs and interfaces, multimodal media, and vector databases and data infrastructure
 - **Adoption signals** — Adoption readiness, maintainer health, and deterministic trend explanations for safer tool selection
 - **Auto-updated** — GitHub Actions cron runs every 6 hours
@@ -35,6 +35,8 @@ Repos with < 500 stars and gem score ≥ 30% make the "Underrated Gems" list.
 ### Adoption readiness and maintainer health
 
 The collector also emits deterministic adoption-readiness and maintainer-health signals. These combine push recency, recent commits, contributor diversity, issue pressure, fork signal, topic coverage, license presence, and archived status into simple labels such as `safe`, `watch`, and `risky`.
+
+The **Stale / At Risk** view is not an abandonment label. It considers repository type, archived status, release age, recent commit cadence relative to a six-month baseline, unresolved issue pressure, pull-request reviews, and maintainer responses. Documentation, course, and curated-list repositories use longer recency thresholds. Results are ranked by maintenance-risk score and data confidence, and include explicit reasons such as `no push in 179 days`.
 
 ---
 
